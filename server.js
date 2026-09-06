@@ -53,7 +53,7 @@ function cookies(req){const out={};for(const part of String(req.headers.cookie||
 function auth(req,res,next){const s=verifySession(cookies(req).bihari_admin);if(!s)return res.status(401).json({success:false,error:'Unauthorized'});req.admin=s;next();}
 
 app.disable('x-powered-by');
-app.use(helmet({contentSecurityPolicy:{directives:{defaultSrc:["'self'"],scriptSrc:["'self'","https://cdnjs.cloudflare.com"],styleSrc:["'self'","'unsafe-inline'","https://cdnjs.cloudflare.com","https://fonts.googleapis.com"],fontSrc:["'self'","https://fonts.gstatic.com","https://cdnjs.cloudflare.com"],imgSrc:["'self'","data:","blob:","https:"],connectSrc:["'self'"],objectSrc:["'none'"],baseUri:["'self'"]}}}));
+app.use(helmet({contentSecurityPolicy:{directives:{defaultSrc:["'self'"],scriptSrc:["'self'","'unsafe-inline'","https://cdnjs.cloudflare.com"],styleSrc:["'self'","'unsafe-inline'","https://cdnjs.cloudflare.com","https://fonts.googleapis.com"],fontSrc:["'self'","https://fonts.gstatic.com","https://cdnjs.cloudflare.com"],imgSrc:["'self'","data:","blob:","https:"],connectSrc:["'self'"],objectSrc:["'none'"],baseUri:["'self'"]}}}));
 app.use(express.json({limit:'2mb'}));
 app.use(express.urlencoded({extended:true,limit:'2mb'}));
 const loginLimiter=rateLimit({windowMs:15*60*1000,max:5,standardHeaders:true,legacyHeaders:false,message:{success:false,error:'Too many login attempts. Try again later.'}});
