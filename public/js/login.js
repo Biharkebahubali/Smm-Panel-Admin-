@@ -44,6 +44,10 @@
       const r=await fetch(api+'?action=session',{credentials:'same-origin',headers:{Accept:'application/json'}});
       const d=await r.json(); if(d.authenticated){try{localStorage.setItem('bihari_admin_session','1')}catch(_){};location.replace('dashboard.html');}
     }catch(_){ }
-    const v=document.getElementById('loginVersion'); if(v)v.textContent='v20.0';
+    const v=document.getElementById('loginVersion'); if(v)v.textContent='v20.1';
+    const toggle=document.querySelector('.password-toggle');
+    if(toggle && !toggle.dataset.bound){toggle.dataset.bound='1';toggle.addEventListener('click',function(e){e.preventDefault();window.togglePasswordVisibility();});}
+    const button=document.getElementById('loginButton');
+    if(button && !button.dataset.bound){button.dataset.bound='1';button.addEventListener('click',function(e){e.preventDefault();window.login();});}
   });
 })();
