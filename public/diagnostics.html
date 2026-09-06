@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Diagnostics</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -95,11 +95,20 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
-<!-- ===== DIAGNOSTICS ===== -->
 
+<!-- ===== DIAGNOSTICS ===== -->
+<div class="page active" id="page-diagnostics">
+<div class="system-banner"><span class="live"></span><strong>Live Bot Diagnostics</strong><span>Telegram API + webhook + PHP + database health</span></div>
+<div class="stats-grid scroll-animate">
+<div class="stat-card"><div class="stat-icon cyan"><i class="fas fa-robot"></i></div><div class="stat-label">Telegram API</div><div class="stat-value" id="diagTelegram">Checking…</div></div>
+<div class="stat-card"><div class="stat-icon green"><i class="fas fa-link"></i></div><div class="stat-label">Webhook</div><div class="stat-value" id="diagWebhook">Checking…</div></div>
+<div class="stat-card"><div class="stat-icon orange"><i class="fas fa-clock"></i></div><div class="stat-label">Pending Updates</div><div class="stat-value" id="diagPending">—</div></div>
+<div class="stat-card"><div class="stat-icon purple"><i class="fas fa-database"></i></div><div class="stat-label">Database</div><div class="stat-value" id="diagDb">Checking…</div></div>
+</div>
+<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-stethoscope" style="color:var(--info);"></i> Connection Health</h3><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;"><select id="diagMinutes" style="padding:8px 12px;background:rgba(255,255,255,.04);color:#fff;border:1px solid var(--glass-border);border-radius:10px;"><option value="5">Last 5 minutes</option><option value="15">Last 15 minutes</option><option value="60">Last 1 hour</option><option value="1440">Last 24 hours</option></select><button class="btn btn-sm btn-primary" onclick="loadDiagnostics()"><i class="fas fa-sync"></i> Refresh</button><button class="btn btn-sm btn-success" onclick="downloadDiagnosticReport()"><i class="fas fa-download"></i> Download Report</button><button class="btn btn-sm btn-warning" onclick="repairWebhook()"><i class="fas fa-wrench"></i> Repair Webhook</button></div></div>
+<div class="card-body"><div id="diagDetails" style="line-height:1.8;color:var(--text-secondary);">Loading diagnostics…</div></div></div>
+<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-file-alt" style="color:var(--warning);"></i> Diagnostic Log</h3><span class="badge badge-info" id="diagLogCount">0 entries</span></div><div class="card-body"><pre id="diagLogText" style="white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto;background:rgba(0,0,0,.25);padding:16px;border-radius:12px;color:#cbd5e1;font-size:12px;line-height:1.5;">Loading…</pre></div></div>
+</div>
 <!-- ===== BACKUP ===== -->
 
 <!-- ===== PROFITS ===== -->

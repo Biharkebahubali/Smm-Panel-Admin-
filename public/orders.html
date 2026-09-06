@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Orders</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -63,7 +63,26 @@
 <!-- ===== USERS ===== -->
 
 <!-- ===== ORDERS ===== -->
-
+<div class="page active" id="page-orders">
+<div style="margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+<span style="color:var(--text-secondary);font-size:13px;">Filter:</span>
+<button class="btn btn-sm btn-primary" onclick="filterOrders('all')">All</button>
+<button class="btn btn-sm btn-warning" onclick="filterOrders('pending')">Pending</button>
+<button class="btn btn-sm btn-info" onclick="filterOrders('processing')">Processing</button>
+<button class="btn btn-sm btn-success" onclick="filterOrders('completed')">Completed</button>
+<button class="btn btn-sm btn-danger" onclick="filterOrders('cancelled')">Cancelled</button>
+<span style="flex:1;"></span>
+<button class="btn btn-sm btn-secondary" onclick="checkAndUpdateOrders()"><i class="fas fa-sync"></i> Check &amp; Update</button>
+<button class="btn btn-sm btn-success" onclick="exportOrders()"><i class="fas fa-download"></i> Export</button>
+</div>
+<div class="card scroll-animate">
+<div class="card-header"><h3><i class="fas fa-shopping-cart" style="color:var(--secondary);"></i> Orders</h3><span class="badge badge-primary" id="orderFilterBadge">All</span></div>
+<div class="card-body" style="padding:0;">
+<div class="bulk-bar" id="bulkBar-order"><span id="bulkCount-order">0</span> selected <button class="btn btn-xs btn-success" onclick="bulkAction('order','complete')">✅ Complete</button><button class="btn btn-xs btn-danger" onclick="bulkAction('order','cancel')">❌ Cancel</button><button class="btn btn-xs btn-secondary" onclick="clearBulkSelection('order')">✕ Clear</button></div>
+<div class="table-wrapper"><table><thead><tr><th><input onchange="toggleAllBulk('order',this)" type="checkbox"/></th><th>ID</th><th>User</th><th>Service</th><th>Link</th><th>Qty</th><th>Amount</th><th>Profit</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody id="ordersList"><tr><td colspan="11" style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
 <!-- ===== PAYMENTS ===== -->
 
 <!-- ===== SERVICES ===== -->
@@ -95,9 +114,7 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
+
 <!-- ===== DIAGNOSTICS ===== -->
 
 <!-- ===== BACKUP ===== -->

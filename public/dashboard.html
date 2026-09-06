@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Dashboard</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -59,7 +59,27 @@
 </header>
 <div class="page-content">
 <!-- ===== DASHBOARD ===== -->
-
+<div class="page active" id="page-dashboard">
+<div class="system-banner"><span class="live"></span><strong>System Live</strong><span>Server-first data • Local fallback • Real-time admin controls</span></div>
+<div class="stats-grid scroll-animate">
+<div class="stat-card"><div class="stat-icon purple"><i class="fas fa-users"></i></div><div class="stat-label">Total Users</div><div class="stat-value" id="totalUsers">0</div></div>
+<div class="stat-card"><div class="stat-icon orange"><i class="fas fa-shopping-cart"></i></div><div class="stat-label">Total Orders</div><div class="stat-value" id="totalOrders">0</div></div>
+<div class="stat-card"><div class="stat-icon green"><i class="fas fa-coins"></i></div><div class="stat-label">Total Revenue</div><div class="stat-value" id="totalRevenue">₹0</div></div>
+<div class="stat-card"><div class="stat-icon pink"><i class="fas fa-clock"></i></div><div class="stat-label">Pending Orders</div><div class="stat-value" id="pendingOrders">0</div></div>
+<div class="stat-card"><div class="stat-icon gold"><i class="fas fa-wallet"></i></div><div class="stat-label">Pending Payments</div><div class="stat-value" id="pendingPayments">0</div></div>
+<div class="stat-card"><div class="stat-icon cyan"><i class="fas fa-robot"></i></div><div class="stat-label">Bot Status</div><div class="stat-value" id="botStatus" style="font-size:18px;">🔄 Checking...</div></div>
+</div>
+<div class="grid-2 scroll-animate">
+<div class="card"><div class="card-header"><h3><i class="fas fa-chart-bar" style="color:var(--primary);"></i> Revenue Chart</h3></div><div class="card-body"><canvas height="200" id="revenueChart"></canvas></div></div>
+<div class="card"><div class="card-header"><h3><i class="fas fa-users" style="color:var(--secondary);"></i> User Growth</h3></div><div class="card-body"><canvas height="200" id="userChart"></canvas></div></div>
+</div>
+<div class="card scroll-animate">
+<div class="card-header"><h3><i class="fas fa-clock" style="color:var(--warning);"></i> Recent Orders</h3><button class="btn btn-sm btn-outline" onclick="showPage('orders')">View All</button></div>
+<div class="card-body" style="padding:0;">
+<div class="table-wrapper"><table><thead><tr><th>Order ID</th><th>User</th><th>Service</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody id="recentOrders"><tr><td colspan="6" style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
 <!-- ===== USERS ===== -->
 
 <!-- ===== ORDERS ===== -->
@@ -95,9 +115,7 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
+
 <!-- ===== DIAGNOSTICS ===== -->
 
 <!-- ===== BACKUP ===== -->

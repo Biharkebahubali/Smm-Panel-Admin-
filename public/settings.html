@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Settings</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-brand">
+<div class="brand-icon">⚡</div>
+<div><h3>Bihari SMM Pro</h3><span>Complete Control</span></div>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-label">Main</div>
+<button class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')"><i class="fas fa-th-large"></i> Dashboard</button>
+<button class="nav-item" data-page="users" onclick="showPage('users')"><i class="fas fa-users"></i> Users <span class="badge" id="userCountBadge">0</span></button>
+<button class="nav-item" data-page="orders" onclick="showPage('orders')"><i class="fas fa-shopping-cart"></i> Orders <span class="badge gold" id="orderCountBadge">0</span></button>
+<button class="nav-item" data-page="payments" onclick="showPage('payments')"><i class="fas fa-wallet"></i> Payments <span class="badge green" id="paymentCountBadge">0</span></button>
+<button class="nav-item" data-page="services" onclick="showPage('services')"><i class="fas fa-cubes"></i> Services</button>
+<div class="nav-label">Communication</div>
+<button class="nav-item" data-page="inbox" onclick="showPage('inbox')"><i class="fas fa-inbox"></i> Inbox <span class="badge blue" id="inboxBadge">0</span></button>
+<button class="nav-item" data-page="broadcast" onclick="showPage('broadcast')"><i class="fas fa-bullhorn"></i> Broadcast</button>
+<div class="nav-label">Management</div>
+<button class="nav-item" data-page="support" onclick="showPage('support')"><i class="fas fa-headset"></i> Support <span class="badge" id="ticketBadge">0</span></button>
+<button class="nav-item" data-page="trash" onclick="showPage('trash')"><i class="fas fa-trash-alt"></i> Trash <span class="badge" id="trashBadge">0</span></button>
+<button class="nav-item" data-page="apilogs" onclick="showPage('apilogs')"><i class="fas fa-code-branch"></i> API Logs</button>
+<button class="nav-item" data-page="referrals" onclick="showPage('referrals')"><i class="fas fa-gift"></i> Referrals</button>
+<button class="nav-item" data-page="blacklist" onclick="showPage('blacklist')"><i class="fas fa-ban"></i> Blacklist</button>
+<button class="nav-item" data-page="whitelist" onclick="showPage('whitelist')"><i class="fas fa-check-circle"></i> Whitelist</button>
+<button class="nav-item" data-page="faq" onclick="showPage('faq')"><i class="fas fa-question-circle"></i> FAQ</button>
+<button class="nav-item" data-page="campaigns" onclick="showPage('campaigns')"><i class="fas fa-bullhorn"></i> Campaigns</button>
+<div class="nav-label">Analytics &amp; Settings</div>
+<button class="nav-item" data-page="analytics" onclick="showPage('analytics')"><i class="fas fa-chart-line"></i> Analytics</button>
+<button class="nav-item" data-page="qrpayment" onclick="showPage('qrpayment')"><i class="fas fa-qrcode"></i> QR Payment</button>
+<button class="nav-item" data-page="leaderboard" onclick="showPage('leaderboard')"><i class="fas fa-trophy"></i> Leaderboard</button>
+<button class="nav-item" data-page="activity" onclick="showPage('activity')"><i class="fas fa-clock"></i> Activity</button>
+<button class="nav-item" data-page="diagnostics" onclick="showPage('diagnostics')"><i class="fas fa-stethoscope"></i> Bot Diagnostics</button>
+<button class="nav-item" data-page="backup" onclick="showPage('backup')"><i class="fas fa-database"></i> Backup</button>
+<button class="nav-item" data-page="profits" onclick="showPage('profits')"><i class="fas fa-percent"></i> Profits</button>
+<button class="nav-item" data-page="profile" onclick="showPage('profile')"><i class="fas fa-id-badge"></i> Admin Profile</button>
+<button class="nav-item" data-page="settings" onclick="showPage('settings')"><i class="fas fa-cog"></i> Settings</button>
+<button class="nav-item" onclick="logout()" style="margin-top:10px;color:var(--danger);"><i class="fas fa-sign-out-alt"></i> Logout</button>
+</nav>
+</aside>
+<!-- MAIN CONTENT -->
+<main class="main-content">
+<header class="top-header">
+<div class="left">
+<button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+<div class="page-title"><h2 id="pageTitle">Dashboard</h2><p id="pageSubtitle">Welcome back, Admin!</p></div>
+</div>
+<div class="right">
+<button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+<div class="clock-widget"><i class="fas fa-clock"></i><div><div class="clock-time" id="liveClock">--:--:--</div><div class="clock-date" id="liveDate">Loading...</div></div></div>
+<button class="sound-toggle" id="soundToggle" onclick="toggleSound()"><i class="fas fa-volume-xmark"></i></button>
+<select class="currency-selector" id="currencySelector" onchange="changeCurrency(this.value)">
+<option value="INR">₹ INR</option><option value="AED">د.إ AED</option><option value="USD">$ USD</option>
+</select>
+<span class="status-dot online" id="botStatusDot"></span>
+<span id="botStatusText" style="font-size:13px;color:var(--text-secondary);">Online</span>
+<button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></button>
+</div>
+</header>
+<div class="page-content">
+<!-- ===== DASHBOARD ===== -->
+
+<!-- ===== USERS ===== -->
+
+<!-- ===== ORDERS ===== -->
+
+<!-- ===== PAYMENTS ===== -->
+
+<!-- ===== SERVICES ===== -->
+
+<!-- ===== INBOX ===== -->
+
+<!-- ===== BROADCAST ===== -->
+
+<!-- ===== SUPPORT ===== -->
+
+<!-- ===== TRASH ===== -->
+
+<!-- ===== API LOGS ===== -->
+
+<!-- ===== REFERRALS ===== -->
+
+<!-- ===== BLACKLIST ===== -->
+
+<!-- ===== WHITELIST ===== -->
+
+<!-- ===== FAQ ===== -->
+
+<!-- ===== CAMPAIGNS ===== -->
+
+<!-- ===== ANALYTICS ===== -->
+
+<!-- ===== QR PAYMENT ===== -->
+
+<!-- ===== LEADERBOARD ===== -->
+
+<!-- ===== ACTIVITY ===== -->
+
+<!-- ===== DIAGNOSTICS ===== -->
+
+<!-- ===== BACKUP ===== -->
+
+<!-- ===== PROFITS ===== -->
+
+<!-- ===== ADMIN PROFILE ===== -->
+
+<!-- ===== SETTINGS ===== -->
+<div class="page active" id="page-settings">
+<div class="card scroll-animate"><div class="card-header"><div><h3><i class="fas fa-sliders-h" style="color:var(--primary-light);"></i> Control Center</h3><div style="color:#94a3b8;font-size:11px;margin-top:4px;">Complete frontend controls, connectivity, appearance, security and data tools.</div></div><span class="status-pill" id="internetStatus"><i class="fas fa-circle"></i> Checking…</span></div><div class="card-body"><div class="settings-grid">
+<div class="settings-card"><h3><i class="fas fa-server" style="color:var(--info);"></i> API &amp; Internet</h3><div class="hint">Control how this admin panel connects to your existing bot/API. Your configured URL and key remain untouched.</div>
+<div class="form-group"><label>API URL</label><input id="apiUrlSetting" readonly="" type="url"/></div>
+<div class="form-group"><label>API Key Status</label><input id="apiKeyStatus" readonly="" type="text" value="Configured"/></div>
+<div class="setting-row"><div class="label"><b>Internet / API Mode</b><span>Online calls or local-only mode</span></div><button class="switch on" id="internetModeSwitch" onclick="toggleInternetMode()"><i></i></button></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;"><button class="btn btn-info" onclick="testApiConnection()"><i class="fas fa-plug"></i> Test Connection</button><button class="btn btn-outline" onclick="clearApiCache()"><i class="fas fa-broom"></i> Clear API Cache</button></div>
+<div id="apiTestResult" style="margin-top:10px;color:#94a3b8;font-size:11px;"></div>
+</div>
+<div class="settings-card"><h3><i class="fas fa-palette" style="color:#c084fc;"></i> Appearance &amp; Effects</h3><div class="hint">Make the panel brighter, cleaner and more responsive without changing your core data.</div>
+<div class="setting-row"><div class="label"><b>Dark / Light Theme</b><span>Switch dashboard appearance</span></div><button class="btn btn-sm btn-outline" onclick="toggleTheme();loadSettingsUI()"><i class="fas fa-moon"></i> Toggle</button></div>
+<div class="setting-row"><div class="label"><b>Click Sound</b><span>UI feedback sound on buttons</span></div><button class="switch" id="settingsSoundSwitch" onclick="toggleSound();syncEffectControls()"><i></i></button></div>
+<div class="setting-row"><div class="label"><b>Star Click Effect</b><span>Particles burst from every click</span></div><button class="switch on" id="starEffectSwitch" onclick="toggleStarEffect();syncEffectControls()"><i></i></button></div>
+<div class="setting-row"><div class="label"><b>Background Particles</b><span>Floating ambient particles</span></div><button class="switch on" id="particleSwitch" onclick="toggleParticles();syncEffectControls()"><i></i></button></div>
+<div class="form-group" style="margin-top:14px;"><label>Accent Theme</label><select id="accentThemeSetting" onchange="applyAccentTheme(this.value)"><option value="violet">Violet / Cyan</option><option value="blue">Blue / Purple</option><option value="green">Emerald / Cyan</option><option value="pink">Pink / Violet</option></select></div>
+</div>
+<div class="settings-card"><h3><i class="fas fa-shield-halved" style="color:var(--success);"></i> Security &amp; Session</h3><div class="hint">Frontend controls only. Real credential protection still requires server-side authentication.</div>
+<div class="form-group"><label>Admin Password</label><div style="display:flex;gap:8px;"><input id="adminPasswordSetting" style="flex:1" type="password"/><button class="btn btn-outline" onclick="toggleSettingsPassword()"><i class="fas fa-eye"></i></button></div></div>
+<div class="form-group"><label>IP Whitelist</label><input id="ipWhitelist" placeholder="192.168.1.1, 10.0.0.1"/></div>
+<div class="setting-row"><div class="label"><b>Auto Logout Guard</b><span>Lock after 30 minutes idle</span></div><button class="switch" id="autoLogoutSwitch" onclick="toggleLocalSetting('auto_logout');syncEffectControls()"><i></i></button></div>
+<button class="btn btn-success" onclick="saveSettings()" style="margin-top:14px;"><i class="fas fa-save"></i> Save Security</button>
+</div>
+<div class="settings-card"><h3><i class="fas fa-database" style="color:var(--warning);"></i> Data &amp; Backup</h3><div class="hint">Export/import your browser-stored admin data and maintain backups safely.</div>
+<div class="status-pill" id="storageStats" style="margin-bottom:12px;"><i class="fas fa-database"></i> Calculating…</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn btn-primary" onclick="exportAdminData()"><i class="fas fa-file-export"></i> Export Data</button><button class="btn btn-outline" onclick="importAdminData()"><i class="fas fa-file-import"></i> Import Data</button><button class="btn btn-warning" onclick="createBackup()"><i class="fas fa-box-archive"></i> Create Backup</button><button class="btn btn-danger" onclick="clearLocalDataSafe()"><i class="fas fa-trash"></i> Clear Local Data</button></div>
+<input accept="application/json,.json" id="importDataInput" onchange="handleImportFile(this)" style="display:none" type="file"/>
+</div>
+<div class="settings-card"><h3><i class="fas fa-bolt" style="color:var(--gold);"></i> Automation</h3><div class="hint">Control refresh behavior and quick maintenance actions.</div>
+<div class="form-group"><label>Auto Refresh</label><select id="autoRefreshSetting" onchange="saveAutomationSettings()"><option value="120000">Every 2 minutes</option><option value="60000">Every 1 minute</option><option value="300000">Every 5 minutes</option><option value="0">Disabled</option></select></div>
+<div class="setting-row"><div class="label"><b>Refresh Dashboard Now</b><span>Reload current local data</span></div><button class="btn btn-sm btn-info" onclick="renderAll();showToast('success','Refreshed','Dashboard data refreshed.')"><i class="fas fa-rotate"></i> Refresh</button></div>
+<div class="setting-row"><div class="label"><b>Webhook</b><span>Ask backend to configure webhook</span></div><button class="btn btn-sm btn-primary" onclick="setWebhook()"><i class="fas fa-link"></i> Set</button></div>
+</div>
+<div class="settings-card"><h3><i class="fas fa-sliders" style="color:var(--secondary);"></i> Bot &amp; Payments</h3><div class="hint">Common bot settings grouped here for faster access.</div>
+<div class="form-group"><label>Bot Username</label><input readonly="" type="text" value="@biharismmpannel_bot"/></div>
+<div class="form-group"><label>Currency</label><select id="defaultCurrency"><option value="INR">₹ INR</option><option value="AED">د.إ AED</option><option value="USD">$ USD</option></select></div>
+<div class="form-group"><label>UPI ID</label><input id="upiSetting" type="text"/></div>
+<div class="form-group"><label>Paytm Number</label><input id="paytmSetting" type="text"/></div>
+<div class="form-group"><label>Bank Details</label><textarea id="bankSetting" rows="3"></textarea></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn btn-success" onclick="savePaymentSettings()"><i class="fas fa-save"></i> Save Payment</button><button class="btn btn-primary" onclick="getApiBalance()"><i class="fas fa-coins"></i> API Balance</button></div>
+</div>
+</div></div></div>
+<div class="grid-2 scroll-animate">
+<div class="card"><div class="card-header"><h3><i class="fas fa-bullhorn" style="color:var(--info);"></i> System &amp; User Experience</h3></div><div class="card-body">
+<div class="form-group"><label>Announcement</label><textarea id="announcementSetting" placeholder="Broadcast announcement to users…" rows="3"></textarea></div><div class="grid-2"><div class="form-group"><label>Referral Bonus</label><input id="refBonusSetting" step="0.01" type="number"/></div><div class="form-group"><label>Signup Bonus</label><input id="signupBonusSetting" step="0.01" type="number"/></div></div>
+<div class="grid-2"><div class="form-group"><label>Maintenance Mode</label><select id="maintenanceSetting"><option value="0">Off</option><option value="1">On</option></select></div><div class="form-group"><label>Whitelist Enabled</label><select id="whitelistSetting"><option value="0">Off</option><option value="1">On</option></select></div></div>
+<button class="btn btn-success" onclick="saveSystemSettings()"><i class="fas fa-save"></i> Save System</button><div id="systemSettingsStatus" style="margin-top:8px;font-size:13px;color:#94a3b8;"></div>
+</div></div>
+<div class="card"><div class="card-header"><h3><i class="fas fa-link" style="color:var(--info);"></i> Force Join &amp; Links</h3></div><div class="card-body"><div class="form-group"><label>Offers Channel</label><input id="forceJoin1" type="text"/></div><div class="form-group"><label>Support Channel</label><input id="forceJoin2" type="text"/></div><div class="form-group"><label>WhatsApp</label><input id="forceJoinWhatsapp" type="text"/></div><button class="btn btn-success" onclick="saveForceJoin()"><i class="fas fa-save"></i> Save Links</button><div id="forceJoinStatus" style="margin-top:10px;font-size:13px;color:#94a3b8;"></div></div></div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:10px;"><button class="btn btn-info" onclick="syncDatabase()"><i class="fas fa-sync"></i> Sync DB</button><button class="btn btn-warning" onclick="syncToGitHub()"><i class="fas fa-cloud-arrow-up"></i> Sync to GitHub</button><button class="btn btn-danger" onclick="restoreFromGitHub()"><i class="fas fa-cloud-arrow-down"></i> Restore GitHub</button><button class="btn btn-warning" onclick="createBackup()"><i class="fas fa-database"></i> Backup</button><button class="btn btn-danger" onclick="if(confirm('Are you sure?')) resetDefaults()"><i class="fas fa-undo"></i> Reset</button></div>
+</div>
+</div><!-- /page-content -->
+<div style="text-align:center;padding:20px 30px;border-top:1px solid var(--glass-border);color:var(--text-muted);font-size:12px;">
+        ⚡ Bihari SMM Pro Control Center v14.0 • <span id="year"></span> • Multi‑Currency
+      </div>
+</main>
+</div><div class="modal-overlay" id="userDetailModal"><div class="modal"><div class="modal-header"><h3 id="userDetailTitle">👤 User Profile</h3><button class="close-btn" onclick="closeModal('userDetailModal')">✕</button></div><div id="userDetailBody"></div></div></div><div class="modal-overlay" id="userModal"><div class="modal"><div class="modal-header"><h3 id="userModalTitle">👤 User</h3><button class="close-btn" onclick="closeModal('userModal')">✕</button></div><div id="userModalBody"></div></div></div><div class="modal-overlay" id="serviceModal"><div class="modal"><div class="modal-header"><h3 id="serviceModalTitle">🛒 Service</h3><button class="close-btn" onclick="closeModal('serviceModal')">✕</button></div><div id="serviceModalBody"></div></div></div><div class="modal-overlay" id="ticketModal"><div class="modal"><div class="modal-header"><h3 id="ticketModalTitle">📩 Reply Ticket</h3><button class="close-btn" onclick="closeModal('ticketModal')">✕</button></div><div id="ticketModalBody"></div></div></div><div class="modal-overlay" id="bulkPriceModal"><div class="modal"><div class="modal-header"><h3>📊 Bulk Price Update</h3><button class="close-btn" onclick="closeModal('bulkPriceModal')">✕</button></div><div class="card-body"><div class="form-group"><label>Change %</label><input id="bulkPricePercent" step="1" type="number" value="10"/></div><div class="form-group"><label>Apply to</label><select id="bulkPriceTarget"><option value="all">All</option><option value="instagram">Instagram</option><option value="facebook">Facebook</option><option value="twitter">Twitter</option><option value="youtube">YouTube</option></select></div><button class="btn btn-warning" onclick="applyBulkPrice()"><i class="fas fa-check"></i> Apply</button></div></div></div><div class="modal-overlay" id="orderDetailModal"><div class="modal"><div class="modal-header"><h3 id="orderDetailTitle">📦 Order Details</h3><button class="close-btn" onclick="closeModal('orderDetailModal')">✕</button></div><div id="orderDetailBody"></div></div></div><div class="modal-overlay" id="paymentDetailModal"><div class="modal"><div class="modal-header"><h3 id="paymentDetailTitle">💳 Payment Details</h3><button class="close-btn" onclick="closeModal('paymentDetailModal')">✕</button></div><div id="paymentDetailBody"></div></div></div><div class="modal-overlay" id="profitModal"><div class="modal"><div class="modal-header"><h3 id="profitModalTitle">📊 Profit Setting</h3><button class="close-btn" onclick="closeModal('profitModal')">✕</button></div><div id="profitModalBody"></div></div></div><div class="modal-overlay" id="blacklistModal"><div class="modal"><div class="modal-header"><h3 id="blacklistModalTitle">🚫 Add Blacklist</h3><button class="close-btn" onclick="closeModal('blacklistModal')">✕</button></div><div id="blacklistModalBody"></div></div></div><div class="modal-overlay" id="whitelistModal"><div class="modal"><div class="modal-header"><h3 id="whitelistModalTitle">✅ Add Whitelist</h3><button class="close-btn" onclick="closeModal('whitelistModal')">✕</button></div><div id="whitelistModalBody"></div></div></div><div class="modal-overlay" id="faqModal"><div class="modal"><div class="modal-header"><h3 id="faqModalTitle">❓ FAQ</h3><button class="close-btn" onclick="closeModal('faqModal')">✕</button></div><div id="faqModalBody"></div></div></div><div class="modal-overlay" id="campaignModal"><div class="modal"><div class="modal-header"><h3 id="campaignModalTitle">📢 Campaign</h3><button class="close-btn" onclick="closeModal('campaignModal')">✕</button></div><div id="campaignModalBody"></div></div></div><div class="toast-container" id="toastContainer"></div><script src="js/app.js"></script></body></html>

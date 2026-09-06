@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Profile</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -95,9 +95,7 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
+
 <!-- ===== DIAGNOSTICS ===== -->
 
 <!-- ===== BACKUP ===== -->
@@ -105,7 +103,7 @@
 <!-- ===== PROFITS ===== -->
 
 <!-- ===== ADMIN PROFILE ===== -->
-
+<div class="page active" id="page-profile"><div class="profile-hero scroll-animate"><div class="profile-avatar">VK</div><div><div class="profile-chip"><i class="fas fa-circle"></i> Administrator</div><h2 style="margin-top:8px;font-size:24px;">Vikram Kumar</h2><p style="color:var(--text-secondary);font-size:13px;margin-top:4px;">Bihari SMM Pro • Control Center</p></div><div class="quick-actions"><button class="btn btn-sm btn-primary" onclick="showPage('settings')"><i class="fas fa-sliders-h"></i> Settings</button><button class="btn btn-sm btn-outline" onclick="toggleTheme()"><i class="fas fa-moon"></i> Theme</button></div></div><div class="profile-grid scroll-animate"><div class="profile-field"><label>Role</label><b>Super Administrator</b></div><div class="profile-field"><label>Panel</label><b>Bihari SMM Pro</b></div><div class="profile-field"><label>Session</label><b>Active</b></div><div class="profile-field"><label>Currency</label><b id="profileCurrency">INR (₹)</b></div></div><div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-shield-alt" style="color:var(--success);"></i> Account &amp; Security</h3></div><div class="card-body"><div class="grid-2"><div><label style="display:block;color:var(--text-secondary);font-size:12px;margin-bottom:7px;">Admin display name</label><input class="input-modern" id="adminDisplayName" value="Vikram Kumar"/></div><div><label style="display:block;color:var(--text-secondary);font-size:12px;margin-bottom:7px;">Admin email</label><input class="input-modern" id="adminEmail" placeholder="admin@example.com"/></div></div><div style="margin-top:16px;display:flex;gap:9px;flex-wrap:wrap"><button class="btn btn-success" onclick="saveAdminProfile()"><i class="fas fa-save"></i> Save Profile</button><button class="btn btn-outline" onclick="showToast('info','Security','Use server-side authentication for production security.')"><i class="fas fa-lock"></i> Security Info</button></div></div></div></div>
 <!-- ===== SETTINGS ===== -->
 
 </div><!-- /page-content -->

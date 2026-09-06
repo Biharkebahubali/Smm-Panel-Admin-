@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Support</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -73,7 +73,9 @@
 <!-- ===== BROADCAST ===== -->
 
 <!-- ===== SUPPORT ===== -->
-
+<div class="page active" id="page-support">
+<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-headset" style="color:var(--info);"></i> Support Tickets</h3><button class="btn btn-sm btn-primary" onclick="loadTickets()"><i class="fas fa-sync"></i> Refresh</button></div><div class="card-body" style="padding:0;"><div class="table-wrapper"><table><thead><tr><th>#</th><th>User</th><th>Subject</th><th>Message</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody id="ticketsList"><tr><td colspan="7" style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table></div></div></div>
+</div>
 <!-- ===== TRASH ===== -->
 
 <!-- ===== API LOGS ===== -->
@@ -95,9 +97,7 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
+
 <!-- ===== DIAGNOSTICS ===== -->
 
 <!-- ===== BACKUP ===== -->

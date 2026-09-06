@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Activity</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport"/><title>⚡ Bihari SMM Pro — Users</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script><link href="css/app.css" rel="stylesheet"/><script src="config.js"></script></head><body><div class="bg-3d"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div><div class="bg-grid"></div><div aria-hidden="true" class="fx-particles" id="fxParticles"></div><div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div><div class="admin-panel" id="adminPanel">
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-brand">
@@ -61,7 +61,23 @@
 <!-- ===== DASHBOARD ===== -->
 
 <!-- ===== USERS ===== -->
-
+<div class="page active" id="page-users">
+<div class="card scroll-animate"><div class="card-body"><div class="search-bar">
+<input id="userSearch" oninput="filterUsers()" placeholder="🔍 Search users..." type="text"/>
+<select id="userFilter" onchange="filterUsers()">
+<option value="all">All</option><option value="vip">VIP</option><option value="regular">Regular</option><option value="banned">Banned</option><option value="inactive">Inactive (30d)</option>
+</select>
+<button class="btn btn-sm btn-success" onclick="exportUsers()"><i class="fas fa-download"></i> Export</button>
+<button class="btn btn-sm btn-secondary" onclick="showAddUserModal()"><i class="fas fa-plus"></i> Add User</button>
+<button class="btn btn-sm btn-primary" onclick="loadUsers()"><i class="fas fa-sync"></i> Refresh</button>
+</div></div></div>
+<div class="card scroll-animate">
+<div class="card-header"><h3><i class="fas fa-users" style="color:var(--primary);"></i> All Users <span id="userCountDisplay" style="color:var(--text-muted);font-size:14px;font-weight:400;"></span></h3></div>
+<div class="card-body" style="padding:0;">
+<div class="table-wrapper"><table><thead><tr><th>User</th><th>Phone</th><th>Balance</th><th>Spent</th><th>Orders</th><th>Status</th><th>Last Seen</th><th>Actions</th></tr></thead><tbody id="usersList"><tr><td colspan="8" style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
 <!-- ===== ORDERS ===== -->
 
 <!-- ===== PAYMENTS ===== -->
@@ -95,9 +111,7 @@
 <!-- ===== LEADERBOARD ===== -->
 
 <!-- ===== ACTIVITY ===== -->
-<div class="page active" id="page-activity">
-<div class="card scroll-animate"><div class="card-header"><h3><i class="fas fa-clock" style="color:var(--info);"></i> Activity Log</h3><button class="btn btn-sm btn-danger" onclick="clearActivity()"><i class="fas fa-trash"></i> Clear</button></div><div class="card-body" id="activityLog"><div style="text-align:center;padding:30px;"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div>
-</div>
+
 <!-- ===== DIAGNOSTICS ===== -->
 
 <!-- ===== BACKUP ===== -->
