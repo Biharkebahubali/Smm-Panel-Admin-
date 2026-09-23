@@ -1620,6 +1620,76 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
 @media(max-width:600px){#loginPage{padding:14px!important}#loginPage .login-box{padding:29px 18px 21px!important;border-radius:23px!important}#loginPage h1{font-size:24px!important}#loginPage .login-box::after{border-radius:23px}}
 @media(prefers-reduced-motion:reduce){#loginPage .login-box,.login-ambient{animation:none!important}}
 </style>
+
+<style id="v25-master-control-css">
+:root{
+  --mc-gold:#d8b46a; --mc-gold2:#f1d58d; --mc-bg:#08090c;
+  --mc-panel:rgba(16,17,21,.86); --mc-border:rgba(216,180,106,.20);
+}
+.master-control-wrap{margin:0 0 18px;position:relative;z-index:3}
+.master-control-hero{
+  position:relative;overflow:hidden;border:1px solid var(--mc-border);
+  border-radius:22px;padding:20px;background:
+  radial-gradient(circle at 10% 0%,rgba(216,180,106,.16),transparent 36%),
+  radial-gradient(circle at 95% 100%,rgba(255,255,255,.05),transparent 34%),
+  linear-gradient(145deg,rgba(25,25,28,.96),rgba(8,9,12,.96));
+  box-shadow:0 22px 70px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.master-control-hero:before{content:"";position:absolute;inset:-80px;background:conic-gradient(from 120deg,transparent,rgba(216,180,106,.08),transparent 28%);animation:mcSpin 18s linear infinite;pointer-events:none}
+@keyframes mcSpin{to{transform:rotate(360deg)}}
+.mc-head,.mc-actions,.mc-grid,.mc-tabs{position:relative;z-index:1}
+.mc-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.mc-kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mc-gold2);font-weight:800}
+.mc-title{font-size:25px;font-weight:900;letter-spacing:-.03em;margin:4px 0}
+.mc-sub{font-size:12px;color:#aeb2bb;line-height:1.55;max-width:800px}
+.mc-status{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid var(--mc-border);font-size:11px;color:#ddd}
+.mc-status i{font-size:8px;color:#e8c779}
+.mc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.mc-btn{border:1px solid var(--mc-border);background:rgba(255,255,255,.045);color:#f4f1e9;border-radius:11px;padding:9px 12px;cursor:pointer;font-weight:800;font-size:11px;transition:.2s}
+.mc-btn:hover{transform:translateY(-1px);border-color:rgba(216,180,106,.55);background:rgba(216,180,106,.10)}
+.mc-btn.primary{background:linear-gradient(135deg,#b9924b,#e1c57f);color:#17130b;border:0}
+.mc-btn.danger{border-color:rgba(255,80,80,.35);color:#ffb3b3}
+.mc-tabs{display:flex;gap:6px;overflow:auto;padding:14px 0 2px;scrollbar-width:none}
+.mc-tab{white-space:nowrap;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);color:#aeb2bb;border-radius:10px;padding:8px 10px;font-size:10px;font-weight:800;cursor:pointer}
+.mc-tab.active{color:#16120a;background:#d8b46a;border-color:#d8b46a}
+.mc-pane{display:none;margin-top:12px}
+.mc-pane.active{display:block}
+.mc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mc-card{border:1px solid rgba(255,255,255,.075);background:rgba(4,5,7,.45);border-radius:16px;padding:14px}
+.mc-card h4{margin:0 0 10px;font-size:13px;color:#f4f1e9}
+.mc-card p{margin:0 0 10px;color:#8f95a0;font-size:10px;line-height:1.5}
+.mc-field{margin:9px 0}.mc-field label{display:block;color:#aeb2bb;font-size:10px;font-weight:800;margin-bottom:5px}
+.mc-field input,.mc-field select,.mc-field textarea{
+ width:100%;box-sizing:border-box;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.09);
+ color:#f5f5f5;border-radius:10px;padding:10px;font:inherit;font-size:11px;outline:none
+}
+.mc-field textarea{min-height:100px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.mc-field input:focus,.mc-field select:focus,.mc-field textarea:focus{border-color:rgba(216,180,106,.65);box-shadow:0 0 0 3px rgba(216,180,106,.08)}
+.mc-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mc-switch{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.mc-switch:last-child{border-bottom:0}.mc-switch span{font-size:11px;color:#ddd}.mc-switch small{display:block;color:#777d87;font-size:9px;margin-top:2px}
+.mc-toggle{width:42px;height:23px;border-radius:99px;border:1px solid rgba(255,255,255,.12);background:#24262c;position:relative;cursor:pointer;flex:0 0 auto}
+.mc-toggle i{position:absolute;width:17px;height:17px;top:2px;left:2px;border-radius:50%;background:#999;transition:.2s}
+.mc-toggle.on{background:#b9924b}.mc-toggle.on i{left:21px;background:#fff7df}
+.mc-output{margin-top:10px;padding:10px;border-radius:10px;background:#050609;border:1px solid rgba(255,255,255,.07);color:#adb4bf;font:10px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;max-height:260px;overflow:auto}
+.mc-mini{font-size:9px;color:#737985;margin-top:5px}
+.mc-chip{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:99px;background:rgba(216,180,106,.09);border:1px solid rgba(216,180,106,.16);color:#e8ce95;font-size:9px;margin:2px}
+.mc-list{max-height:260px;overflow:auto;border:1px solid rgba(255,255,255,.06);border-radius:10px}
+.mc-action-row{display:grid;grid-template-columns:1.1fr .8fr 1fr auto;gap:7px;padding:7px;border-bottom:1px solid rgba(255,255,255,.05);align-items:center}
+.mc-action-row:last-child{border-bottom:0}
+.mc-action-row code{font-size:9px;color:#e3ca91;word-break:break-all}
+.mc-action-row input{width:100%;box-sizing:border-box;background:#090a0d;border:1px solid rgba(255,255,255,.08);color:#ddd;border-radius:7px;padding:7px;font-size:9px}
+.mc-scroll{max-height:340px;overflow:auto}
+@media(max-width:760px){
+ .master-control-hero{border-radius:16px;padding:14px}
+ .mc-head{flex-direction:column}.mc-title{font-size:21px}
+ .mc-grid{grid-template-columns:1fr}.mc-row{grid-template-columns:1fr}
+ .mc-action-row{grid-template-columns:1fr}.mc-action-row .mc-btn{width:100%}
+ .mc-tabs{margin-right:-4px}
+}
+@media(prefers-reduced-motion:reduce){.master-control-hero:before{animation:none}}
+</style>
+
 </head>
 <body>
 
@@ -2057,11 +2127,11 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
     //  CORE CONFIGURATION
     // ============================================================
     const APP_VERSION = '14.0';
-    const DEFAULT_API_URL = 'https://rana-hosting.myvipsite.fun/bots/bot_6a9bc240373a7/bot.php';
+    const DEFAULT_API_URL = 'https://rana-hosting.myvipsite.fun/bots/bot_6ab39a7c06ede/bot.php';
     const _savedApiUrl = localStorage.getItem('bihari_api_url');
-    const API_BASE_URL = (!_savedApiUrl || _savedApiUrl.includes('/bot_6a9af160887ee/')) ? DEFAULT_API_URL : _savedApiUrl;
-    const API_KEY = localStorage.getItem('bihari_api_key') || 'Vikram@8936';
-    const ADMIN_PASSWORD = localStorage.getItem('bihari_admin_password') || 'Vikram@8936';
+    let API_BASE_URL = (!_savedApiUrl || _savedApiUrl.includes('/bot_6a9af160887ee/')) ? DEFAULT_API_URL : _savedApiUrl;
+    let API_KEY = localStorage.getItem('bihari_api_key') || 'Vikram@8936';
+    let ADMIN_PASSWORD = localStorage.getItem('bihari_admin_password') || 'Vikram@8936';
     const API_TIMEOUT_MS = 12000;
     const API_RETRY_COUNT = 1;
     const REQUEST_CACHE_MS = 2500;
@@ -2191,8 +2261,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
     function buildApiUrl(action, data = {}, method = 'POST') {
       const params = new URLSearchParams();
       params.set('action', action);
-      params.set('api_key', API_KEY);
-      if (method === 'GET') Object.entries(data || {}).forEach(([k,v]) => { if (v !== undefined && v !== null) params.set(k, typeof v === 'object' ? JSON.stringify(v) : String(v)); });
+      if (method === 'GET') Object.entries(data || {}).forEach(([k,v]) => {
+        if (v !== undefined && v !== null) params.set(k, typeof v === 'object' ? JSON.stringify(v) : String(v));
+      });
       return API_BASE_URL + (API_BASE_URL.includes('?') ? '&' : '?') + params.toString();
     }
 
@@ -3825,7 +3896,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
       const formData = new FormData();
       formData.append('qr_image', file);
       formData.append('action', 'uploadQR');
-      formData.append('api_key', API_KEY);
+      /* API key is intentionally sent only via X-API-Key header. */
       fetch(API_BASE_URL, { method: 'POST', body: formData, headers: { 'X-API-Key': API_KEY } })
         .then(response => response.json())
         .then(res => {
@@ -3987,7 +4058,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
       const formData = new FormData();
       formData.append('backup_file', file);
       formData.append('action', 'restoreBackup');
-      formData.append('api_key', API_KEY);
+      /* API key is intentionally sent only via X-API-Key header. */
       showToast('info', 'Restoring...', 'Please wait');
       fetch(API_BASE_URL, { method: 'POST', body: formData, headers: { 'X-API-Key': API_KEY } })
         .then(response => response.json())
@@ -5090,7 +5161,7 @@ if(typeof __oldRenderAll==='function'){window.renderAll=function(){const r=__old
 (function(){
   'use strict';
 
-  const API_EXPECTED = (typeof API_BASE_URL === 'string' ? API_BASE_URL : '').replace(/\/+$/,'');
+  let API_EXPECTED = (typeof API_BASE_URL === 'string' ? API_BASE_URL : '').replace(/\/+$/,'');
   const originalShowPageV17 = window.showPage;
   const originalLoadDiagnosticsV17 = window.loadDiagnostics;
   let serviceAutoSyncStarted = false;
@@ -5669,11 +5740,12 @@ if(typeof __oldRenderAll==='function'){window.renderAll=function(){const r=__old
     const value=normalizeApiUrl(el?.value);
     if(!value){ showToast('warning','API URL Missing','Paste your new bot.php URL first.'); return; }
     if(!validApiUrl(value)){ showToast('warning','Invalid API URL','Please enter the complete bot.php URL.'); return; }
+    API_BASE_URL = value;
+    API_EXPECTED = value;
     localStorage.setItem('bihari_api_url',value);
     try{ if(typeof window.clearApiCache==='function') window.clearApiCache(); }catch(_){ }
     try{ if(typeof window.adminDebugLog==='function') window.adminDebugLog('api_url_changed',{url:value}); }catch(_){ }
-    showToast('success','API URL Saved','The new bot.php URL will be active after reload.');
-    setTimeout(function(){ location.reload(); },700);
+    showToast('success','API URL Saved','The new bot.php URL is active now.');
   };
   function unlockApiInput(){
     const el=document.getElementById('apiUrlSetting');
@@ -5734,7 +5806,7 @@ if(typeof __oldRenderAll==='function'){window.renderAll=function(){const r=__old
   /* Keep login version aligned with this build. */
   const lv=document.getElementById('loginVersion');if(lv)lv.textContent='v22.0 • Premium';
   /* Persist current URL if the previous build's old default is still in storage. */
-  try{if(localStorage.getItem('bihari_api_url')&&localStorage.getItem('bihari_api_url').includes('/bot_6a9af160887ee/'))localStorage.setItem('bihari_api_url','https://rana-hosting.myvipsite.fun/bots/bot_6a9bc240373a7/bot.php')}catch(e){}
+  try{if(localStorage.getItem('bihari_api_url')&&localStorage.getItem('bihari_api_url').includes('/bot_6a9af160887ee/'))localStorage.setItem('bihari_api_url','https://rana-hosting.myvipsite.fun/bots/bot_6ab39a7c06ede/bot.php')}catch(e){}
 }
 })();
 </script>
@@ -5858,6 +5930,400 @@ if(typeof __oldRenderAll==='function'){window.renderAll=function(){const r=__old
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{wireAuth();wireDoubleTapGuard();});
   else {wireAuth();wireDoubleTapGuard();}
+})();
+</script>
+
+
+<script id="v25-master-control">
+(function(){
+'use strict';
+
+const MC_ACTIONS = [
+ 'getData','getDataPage','botStatus','getDiagnostics','getApiBalance','sync',
+ 'approvePayment','rejectPayment','updateOrderStatus','checkOrders','broadcast',
+ 'updateSetting','getSetting','addUser','updateUser','deleteUser',
+ 'addService','updateService','deleteService','getMessages','replyInbox','clearInbox',
+ 'getTickets','replyTicket','getTrash','restoreItem','emptyTrash','getReferrals',
+ 'getApiLogs','clearApiLogs','getBroadcastHistory','clearBroadcastHistory',
+ 'getActivity','clearActivity','addActivity','createBackup','restoreBackup',
+ 'getBackupHistory','deleteBackup','clearBackupHistory','getPaymentScreenshot',
+ 'uploadQR','getBlacklist','addBlacklist','deleteBlacklist','getWhitelist','addWhitelist',
+ 'deleteWhitelist','getFaq','addFaq','updateFaq','deleteFaq','getCampaigns','addCampaign',
+ 'updateCampaign','deleteCampaign','getProfitSettings','updateProfitSetting',
+ 'deleteProfitSetting','set_webhook','delete_webhook','webhook_info','syncDatabase',
+ 'syncToGitHub','restoreFromGitHub','resetSettings'
+];
+
+const MC_SETTINGS = [
+ ['announcement','Announcement / broadcast banner'],['maintenance_mode','Maintenance mode'],
+ ['force_join','Force join setting'],['force_join_channel','Force join channel'],
+ ['force_join_channel_2','Second force join channel'],['support_username','Support username'],
+ ['admin_username','Admin username'],['upi_id','UPI ID'],['paytm','Paytm'],
+ ['bank_details','Bank details'],['default_currency','Default currency'],
+ ['ref_bonus','Referral bonus'],['min_add_funds','Minimum add funds'],
+ ['max_add_funds','Maximum add funds'],['order_auto_refresh','Order auto refresh'],
+ ['bot_name','Bot name'],['welcome_message','Welcome message'],
+ ['terms_text','Terms text'],['privacy_text','Privacy text'],
+ ['contact_text','Contact text']
+];
+
+function q(id){return document.getElementById(id)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function getConfig(){
+  return {
+    url: typeof API_BASE_URL==='string'?API_BASE_URL:'',
+    key: typeof API_KEY==='string'?API_KEY:'',
+    timeout: typeof API_TIMEOUT_MS!=='undefined'?API_TIMEOUT_MS:12000
+  };
+}
+function setOut(id,val){
+  const el=q(id); if(!el)return;
+  el.textContent=typeof val==='string'?val:JSON.stringify(val,null,2);
+}
+function mcToast(type,title,msg){
+  try{showToast(type,title,msg)}catch(_){alert(title+': '+msg)}
+}
+function addMasterControl(){
+  const page=q('page-settings');
+  if(!page || q('masterControlWrap')) return;
+  const wrap=document.createElement('div');
+  wrap.id='masterControlWrap';
+  wrap.className='master-control-wrap';
+  wrap.innerHTML=`
+  <section class="master-control-hero">
+    <div class="mc-head">
+      <div>
+        <div class="mc-kicker">BIHARI SMM PRO • MASTER CONTROL</div>
+        <div class="mc-title">Bot Command Center</div>
+        <div class="mc-sub">One place for the bot endpoint, API connection, server settings, appearance, performance, diagnostics and every admin API action exposed by bot.php. Existing pages below remain fully usable.</div>
+      </div>
+      <div class="mc-status"><i id="mcDot"></i><span id="mcStatus">READY</span></div>
+    </div>
+    <div class="mc-actions">
+      <button class="mc-btn primary" onclick="mcTest()">⚡ Test Bot</button>
+      <button class="mc-btn" onclick="mcRefresh()">↻ Refresh All</button>
+      <button class="mc-btn" onclick="mcWebhook()">🔗 Webhook Check</button>
+      <button class="mc-btn" onclick="mcOpenActions()">🧩 API Actions</button>
+      <button class="mc-btn" onclick="mcExport()">⇩ Export Config</button>
+    </div>
+    <div class="mc-tabs">
+      <button class="mc-tab active" data-mc-tab="connection">Connection</button>
+      <button class="mc-tab" data-mc-tab="botsettings">Bot Settings</button>
+      <button class="mc-tab" data-mc-tab="appearance">Appearance</button>
+      <button class="mc-tab" data-mc-tab="performance">Performance</button>
+      <button class="mc-tab" data-mc-tab="actions">All API Actions</button>
+      <button class="mc-tab" data-mc-tab="doctor">Diagnostics</button>
+    </div>
+
+    <div class="mc-pane active" data-mc-pane="connection">
+      <div class="mc-grid">
+        <div class="mc-card">
+          <h4>Master API Connection</h4>
+          <p>Change the bot.php URL here. The runtime connection is updated immediately and every API call uses this single master endpoint.</p>
+          <div class="mc-field"><label>BOT / WEBHOOK API URL</label><input id="mcApiUrl" type="url"></div>
+          <div class="mc-field"><label>API KEY</label><input id="mcApiKey" type="password" autocomplete="off"></div>
+          <div class="mc-row">
+            <div class="mc-field"><label>TIMEOUT (MS)</label><input id="mcTimeout" type="number" min="3000" max="60000"></div>
+            <div class="mc-field"><label>AUTO REFRESH (MS)</label><input id="mcAutoRefresh" type="number" min="10000" max="900000"></div>
+          </div>
+          <div class="mc-actions">
+            <button class="mc-btn primary" onclick="mcSaveConnection()">Save Master Connection</button>
+            <button class="mc-btn" onclick="mcRevealKey()">Show/Hide Key</button>
+          </div>
+          <div class="mc-mini">Security: the API key is sent through X-API-Key only; it is not appended to the URL.</div>
+        </div>
+        <div class="mc-card">
+          <h4>Connection Snapshot</h4>
+          <div id="mcConnectionChips">
+            <span class="mc-chip">URL: loading…</span>
+          </div>
+          <div id="mcConnectionOutput" class="mc-output">Run Test Bot to verify bot.php → Telegram/DB/API.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc-pane" data-mc-pane="botsettings">
+      <div class="mc-grid">
+        <div class="mc-card">
+          <h4>Server Setting Editor</h4>
+          <p>Use the same updateSetting action already exposed by your bot. Add any backend setting key without editing HTML.</p>
+          <div class="mc-field"><label>SETTING KEY</label><input id="mcSettingKey" list="mcSettingKeys" placeholder="example: announcement"></div>
+          <datalist id="mcSettingKeys">${MC_SETTINGS.map(x=>`<option value="${esc(x[0])}">${esc(x[1])}</option>`).join('')}</datalist>
+          <div class="mc-field"><label>VALUE</label><textarea id="mcSettingValue" placeholder="Text / number / JSON value accepted by bot.php"></textarea></div>
+          <div class="mc-actions">
+            <button class="mc-btn primary" onclick="mcSaveSetting()">Save to Bot</button>
+            <button class="mc-btn" onclick="mcReadSetting()">Read from Bot</button>
+          </div>
+        </div>
+        <div class="mc-card">
+          <h4>Quick Bot Settings</h4>
+          <div class="mc-scroll">${MC_SETTINGS.map(x=>`<div class="mc-switch"><div><span>${esc(x[1])}</span><small>${esc(x[0])}</small></div><button class="mc-btn" onclick="mcQuickRead('${esc(x[0])}')">Read</button></div>`).join('')}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc-pane" data-mc-pane="appearance">
+      <div class="mc-grid">
+        <div class="mc-card">
+          <h4>Luxury Theme</h4>
+          <p>These controls are saved locally because they affect the admin frontend, not the Telegram bot.</p>
+          <div class="mc-field"><label>ACCENT</label><select id="mcAccent"><option value="gold">Champagne Gold</option><option value="violet">Violet</option><option value="cyan">Cyan</option><option value="emerald">Emerald</option><option value="rose">Rose</option></select></div>
+          <div class="mc-field"><label>PERFORMANCE MODE</label><select id="mcPerf"><option value="balanced">Balanced</option><option value="low">Low</option><option value="high">High</option><option value="ultra">Ultra</option></select></div>
+          <div class="mc-switch"><div><span>3D / Parallax Effects</span><small>Reduce automatically on small screens.</small></div><button class="mc-toggle" id="mc3d" onclick="mcToggle('mc3d')"><i></i></button></div>
+          <div class="mc-switch"><div><span>Particles / Glow</span><small>Visual background effects.</small></div><button class="mc-toggle" id="mcParticles" onclick="mcToggle('mcParticles')"><i></i></button></div>
+          <div class="mc-switch"><div><span>Click / Ripple Effects</span><small>Button interaction effects.</small></div><button class="mc-toggle" id="mcRipple" onclick="mcToggle('mcRipple')"><i></i></button></div>
+          <div class="mc-actions"><button class="mc-btn primary" onclick="mcSaveAppearance()">Apply Appearance</button></div>
+        </div>
+        <div class="mc-card">
+          <h4>Branding</h4>
+          <div class="mc-field"><label>APP NAME</label><input id="mcBrandName" value="Bihari SMM Pro"></div>
+          <div class="mc-field"><label>TAGLINE</label><input id="mcTagline" value="Premium SMM Control Center"></div>
+          <div class="mc-field"><label>LOGO URL</label><input id="mcLogoUrl" placeholder="https://..."></div>
+          <div class="mc-actions"><button class="mc-btn primary" onclick="mcSaveBrand()">Save Branding</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc-pane" data-mc-pane="performance">
+      <div class="mc-grid">
+        <div class="mc-card">
+          <h4>Fast Mode</h4>
+          <p>Keep the panel responsive even on low-end Android devices.</p>
+          <div class="mc-switch"><div><span>Cache GET requests</span><small>Uses the existing 2.5s request cache.</small></div><button class="mc-toggle on" id="mcCache" onclick="mcToggle('mcCache')"><i></i></button></div>
+          <div class="mc-switch"><div><span>Single in-flight request</span><small>Prevents duplicate API calls.</small></div><button class="mc-toggle on" id="mcInflight" onclick="mcToggle('mcInflight')"><i></i></button></div>
+          <div class="mc-switch"><div><span>Mobile reduced motion</span><small>Recommended for phones.</small></div><button class="mc-toggle on" id="mcMobileMotion" onclick="mcToggle('mcMobileMotion')"><i></i></button></div>
+          <div class="mc-actions"><button class="mc-btn primary" onclick="mcSavePerformance()">Save Performance</button></div>
+        </div>
+        <div class="mc-card">
+          <h4>Storage Tools</h4>
+          <div class="mc-actions">
+            <button class="mc-btn" onclick="clearApiCache();mcToast('success','Cache Cleared','API request cache cleared.')">Clear API Cache</button>
+            <button class="mc-btn" onclick="mcClearFrontendCache()">Clear Frontend Cache</button>
+            <button class="mc-btn" onclick="mcExport()">Export Master Config</button>
+          </div>
+          <div id="mcStorageOutput" class="mc-output">Local storage remains untouched until you choose a tool.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mc-pane" data-mc-pane="actions">
+      <div class="mc-card">
+        <h4>Universal Bot API Console</h4>
+        <p>This is the safety net for all admin actions currently exposed by bot.php. Select an action and pass JSON. It uses the same X-API-Key authentication and master URL as the rest of the panel.</p>
+        <div class="mc-row">
+          <div class="mc-field"><label>ACTION</label><select id="mcActionSelect">${MC_ACTIONS.map(a=>`<option value="${a}">${a}</option>`).join('')}</select></div>
+          <div class="mc-field"><label>METHOD</label><select id="mcActionMethod"><option>POST</option><option>GET</option></select></div>
+        </div>
+        <div class="mc-field"><label>JSON PARAMETERS</label><textarea id="mcActionJson">{}</textarea></div>
+        <div class="mc-actions">
+          <button class="mc-btn primary" onclick="mcRunAction()">Execute Action</button>
+          <button class="mc-btn" onclick="mcPresetAction()">Load Safe Preset</button>
+        </div>
+        <div id="mcActionOutput" class="mc-output">No action executed.</div>
+      </div>
+    </div>
+
+    <div class="mc-pane" data-mc-pane="doctor">
+      <div class="mc-grid">
+        <div class="mc-card">
+          <h4>Live Diagnostics</h4>
+          <p>Checks the endpoint using the bot's existing diagnostics/status actions. It does not create an order.</p>
+          <div class="mc-actions">
+            <button class="mc-btn primary" onclick="mcRunDiagnostics()">Run Diagnostics</button>
+            <button class="mc-btn" onclick="mcWebhook()">Check Webhook</button>
+          </div>
+          <div id="mcDoctorOutput" class="mc-output">Not checked.</div>
+        </div>
+        <div class="mc-card">
+          <h4>What this panel can control</h4>
+          <div>${MC_ACTIONS.map(a=>`<span class="mc-chip">${esc(a)}</span>`).join('')}</div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+  page.insertBefore(wrap,page.firstChild);
+
+  wrap.querySelectorAll('.mc-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      wrap.querySelectorAll('.mc-tab').forEach(x=>x.classList.remove('active'));
+      wrap.querySelectorAll('.mc-pane').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      const p=wrap.querySelector(`[data-mc-pane="${btn.dataset.mcTab}"]`);
+      if(p)p.classList.add('active');
+    });
+  });
+  mcLoadUI();
+}
+
+function mcLoadUI(){
+  const c=getConfig();
+  if(q('mcApiUrl'))q('mcApiUrl').value=c.url;
+  if(q('mcApiKey'))q('mcApiKey').value=c.key;
+  if(q('mcTimeout'))q('mcTimeout').value=localStorage.getItem('bihari_api_timeout')||String(c.timeout||12000);
+  if(q('mcAutoRefresh'))q('mcAutoRefresh').value=localStorage.getItem('bihari_auto_refresh')||'120000';
+  if(q('mcAccent'))q('mcAccent').value=localStorage.getItem('bihari_accent')||'gold';
+  if(q('mcPerf'))q('mcPerf').value=localStorage.getItem('bihari_perf_mode')||'balanced';
+  ['mc3d','mcParticles','mcRipple'].forEach((id,i)=>{
+    const key=['mc_3d','mc_particles','mc_ripple'][i];
+    const on=localStorage.getItem(key)!=='0';
+    q(id)?.classList.toggle('on',on);
+  });
+  ['mcCache','mcInflight','mcMobileMotion'].forEach(id=>q(id)?.classList.add('on'));
+  const chips=q('mcConnectionChips');
+  if(chips)chips.innerHTML=`<span class="mc-chip">HTTPS ${/^https:/i.test(c.url)?'OK':'CHECK'}</span><span class="mc-chip">X-API-Key HEADER</span><span class="mc-chip">${esc(new URL(c.url).pathname||c.url)}</span>`;
+}
+
+window.mcToggle=function(id){q(id)?.classList.toggle('on')}
+window.mcRevealKey=function(){const e=q('mcApiKey');if(e)e.type=e.type==='password'?'text':'password'}
+window.mcSaveConnection=function(){
+  const url=String(q('mcApiUrl')?.value||'').trim().replace(/\/+$/,'');
+  const key=String(q('mcApiKey')?.value||'').trim();
+  const timeout=Math.max(3000,Math.min(60000,Number(q('mcTimeout')?.value||12000)));
+  const refresh=Math.max(10000,Math.min(900000,Number(q('mcAutoRefresh')?.value||120000)));
+  try{new URL(url)}catch(_){mcToast('warning','Invalid URL','Enter the complete bot.php URL.');return}
+  if(!/\.php(?:\?|$)/i.test(new URL(url).pathname)){mcToast('warning','Invalid bot URL','The URL should point to bot.php.');return}
+  API_BASE_URL=url; API_KEY=key;
+  localStorage.setItem('bihari_api_url',url);
+  localStorage.setItem('bihari_api_key',key);
+  localStorage.setItem('bihari_api_timeout',String(timeout));
+  localStorage.setItem('bihari_auto_refresh',String(refresh));
+  try{clearApiCache()}catch(_){}
+  mcLoadUI();
+  mcToast('success','Master Connection Saved','All API calls now use this endpoint.');
+  mcTest();
+}
+window.mcTest=async function(){
+  const out=q('mcConnectionOutput'); if(out)out.textContent='Testing bot.php…';
+  q('mcStatus').textContent='TESTING';
+  try{
+    const r=await safeApi('botStatus',{},'GET');
+    setOut('mcConnectionOutput',r);
+    q('mcStatus').textContent=r?.success===false?'ERROR':'ONLINE';
+    if(r?.success===false)mcToast('error','Bot Test Failed',r.error||r.message||'API error');
+    else mcToast('success','Bot Connected','bot.php responded successfully.');
+  }catch(e){setOut('mcConnectionOutput',e.message||String(e));q('mcStatus').textContent='ERROR'}
+}
+window.mcRefresh=async function(){
+  try{await refreshServerData(true);mcToast('success','Data Refreshed','Server data refreshed from the bot.')}catch(e){mcToast('error','Refresh Failed',e.message||String(e))}
+}
+window.mcWebhook=async function(){
+  const out=q('mcDoctorOutput');if(out)out.textContent='Checking webhook…';
+  try{
+    const r=await safeApi('webhook_info',{},'GET');setOut('mcDoctorOutput',r);
+  }catch(e){setOut('mcDoctorOutput',e.message||String(e))}
+}
+window.mcSaveSetting=async function(){
+  const key=String(q('mcSettingKey')?.value||'').trim();
+  const value=String(q('mcSettingValue')?.value??'');
+  if(!key){mcToast('warning','Missing Key','Enter a setting key.');return}
+  try{
+    const r=await safeApi('updateSetting',{key,value},'POST');setOut('mcDoctorOutput',r);
+    if(r?.success===false)mcToast('error','Setting Failed',r.error||r.message||'Failed');
+    else mcToast('success','Setting Saved',key+' updated on bot.');
+  }catch(e){mcToast('error','Setting Failed',e.message||String(e))}
+}
+window.mcReadSetting=async function(){
+  const key=String(q('mcSettingKey')?.value||'').trim();
+  if(!key){mcToast('warning','Missing Key','Enter a setting key.');return}
+  try{
+    const r=await safeApi('getSetting',{key},'GET');setOut('mcSettingValue',r?.value!==undefined?r.value:r);
+  }catch(e){mcToast('error','Read Failed',e.message||String(e))}
+}
+window.mcQuickRead=function(key){if(q('mcSettingKey'))q('mcSettingKey').value=key;mcReadSetting()}
+window.mcRunAction=async function(){
+  const action=q('mcActionSelect')?.value;const method=q('mcActionMethod')?.value||'POST';
+  let data={};
+  try{data=JSON.parse(q('mcActionJson')?.value||'{}')}catch(_){mcToast('warning','Invalid JSON','Fix the parameters JSON first.');return}
+  setOut('mcActionOutput','Running '+action+'…');
+  try{
+    const r=await safeApi(action,data,method);setOut('mcActionOutput',r);
+    if(r?.success===false)mcToast('error',action+' failed',r.error||r.message||'Backend rejected the request');
+    else mcToast('success',action+' completed','Backend returned a response.');
+  }catch(e){setOut('mcActionOutput',e.message||String(e));mcToast('error','API Error',e.message||String(e))}
+}
+window.mcOpenActions=function(){
+  const b=document.querySelector('.mc-tab[data-mc-tab="actions"]');b?.click();
+  q('mcActionSelect')?.focus();
+}
+window.mcPresetAction=function(){
+  const a=q('mcActionSelect')?.value||'getData';
+  const presets={
+    getData:'{}',botStatus:'{}',getDiagnostics:'{}',webhook_info:'{}',getApiBalance:'{}',
+    getSetting:'{"key":"announcement"}',getDataPage:'{"table":"users","page":1,"per_page":25}'
+  };
+  if(q('mcActionJson'))q('mcActionJson').value=presets[a]||'{}';
+}
+window.mcRunDiagnostics=async function(){
+  const out=q('mcDoctorOutput');if(out)out.textContent='Running diagnostics…';
+  const results={};
+  for(const a of ['botStatus','getDiagnostics','webhook_info']){
+    try{results[a]=await safeApi(a,{},'GET')}catch(e){results[a]={success:false,error:e.message||String(e)}}
+  }
+  setOut('mcDoctorOutput',results);
+}
+window.mcSaveAppearance=function(){
+  const accent=q('mcAccent')?.value||'gold', perf=q('mcPerf')?.value||'balanced';
+  localStorage.setItem('bihari_accent',accent);localStorage.setItem('bihari_perf_mode',perf);
+  localStorage.setItem('mc_3d',q('mc3d')?.classList.contains('on')?'1':'0');
+  localStorage.setItem('mc_particles',q('mcParticles')?.classList.contains('on')?'1':'0');
+  localStorage.setItem('mc_ripple',q('mcRipple')?.classList.contains('on')?'1':'0');
+  try{if(typeof applyAccentTheme==='function')applyAccentTheme(accent);if(typeof syncEffectControls==='function')syncEffectControls()}catch(_){}
+  mcToast('success','Appearance Saved','Frontend appearance controls updated.');
+}
+window.mcSavePerformance=function(){
+  const v=q('mcPerf')?.value||'balanced';localStorage.setItem('bihari_perf_mode',v);
+  const reduced=v==='low';
+  document.documentElement.classList.toggle('reduced-motion',reduced);
+  mcToast('success','Performance Saved','Performance mode: '+v);
+}
+window.mcSaveBrand=function(){
+  const name=String(q('mcBrandName')?.value||'Bihari SMM Pro').trim();
+  const tagline=String(q('mcTagline')?.value||'').trim();
+  const logo=String(q('mcLogoUrl')?.value||'').trim();
+  localStorage.setItem('bihari_brand_name',name);localStorage.setItem('bihari_tagline',tagline);localStorage.setItem('bihari_logo_url',logo);
+  document.title=name;
+  document.querySelectorAll('.brand-name,.app-brand-name,[data-brand-name]').forEach(e=>e.textContent=name);
+  mcToast('success','Branding Saved','Branding is saved for this admin browser.');
+}
+window.mcClearFrontendCache=function(){
+  const keep=['bihari_api_url','bihari_api_key','bihari_admin_password','bihari_api_timeout','bihari_auto_refresh','bihari_accent','bihari_perf_mode'];
+  const data={};keep.forEach(k=>{const v=localStorage.getItem(k);if(v!==null)data[k]=v});
+  localStorage.clear();Object.entries(data).forEach(([k,v])=>localStorage.setItem(k,v));
+  setOut('mcStorageOutput','Frontend cache cleared. Connection credentials and core master settings were preserved.');
+  mcToast('success','Frontend Cache Cleared','Reloading the panel…');setTimeout(()=>location.reload(),500);
+}
+window.mcExport=function(){
+  const data={
+    app:'Bihari SMM Pro',
+    exported_at:new Date().toISOString(),
+    api_url:API_BASE_URL,
+    api_key_configured:!!API_KEY,
+    timeout:localStorage.getItem('bihari_api_timeout')||'12000',
+    auto_refresh:localStorage.getItem('bihari_auto_refresh')||'120000',
+    accent:localStorage.getItem('bihari_accent')||'gold',
+    performance:localStorage.getItem('bihari_perf_mode')||'balanced'
+  };
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bihari-master-config.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+document.addEventListener('DOMContentLoaded',addMasterControl);
+if(document.readyState!=='loading')setTimeout(addMasterControl,50);
+})();
+</script>
+
+
+<script id="v25-premium-boot">
+(function(){
+  try{
+    const perf=localStorage.getItem('bihari_perf_mode')||'balanced';
+    document.documentElement.dataset.performance=perf;
+    if(perf==='low')document.documentElement.classList.add('reduced-motion');
+    const name=localStorage.getItem('bihari_brand_name');
+    const tag=localStorage.getItem('bihari_tagline');
+    if(name){document.title=name;document.querySelectorAll('.brand-name,.app-brand-name,[data-brand-name]').forEach(e=>e.textContent=name)}
+    if(tag)document.querySelectorAll('.brand-tagline,[data-brand-tagline]').forEach(e=>e.textContent=tag);
+  }catch(_){}
 })();
 </script>
 
