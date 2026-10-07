@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>🎁 Referrals — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link active" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">🎁 Referrals Center</div>
+                        <div class="header-subtitle" id="headerSubtitle">Loading referral data...</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search referrers...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">🎁 Referrals Center</h1>
+                        <p class="page-description" id="pageStats">Loading referral analytics...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="exportBtn">
+                            📤 Export CSV
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="refreshAll">
+                            🔄 Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎁</div>
+                        <div class="stat-value" id="statTotalReferrals">0</div>
+                        <div class="stat-label">Total Referrals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value" id="statReferrers">0</div>
+                        <div class="stat-label">Active Referrers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value" id="statBonusPaid">₹0</div>
+                        <div class="stat-label">Total Bonus Paid</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-value" id="statTopPerformer">—</div>
+                        <div class="stat-label">Top Performer</div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="leaderboard">
+                            🏆 Leaderboard
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="referrals">
+                            📋 All Referrals
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="settings">
+                            ⚙️ Settings
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="analytics">
+                            📊 Analytics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: LEADERBOARD
+                     ==================================================== -->
+                <div id="leaderboardView">
+
+                    <!-- Top 3 Podium -->
+                    <div class="podium-container mb-lg" id="podiumContainer">
+                        <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                            <div class="loader-spinner" style="margin: 0 auto 12px;"></div>
+                            <div>Loading top referrers...</div>
+                        </div>
+                    </div>
+
+                    <!-- Full Leaderboard Table -->
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="card-header" style="padding: 16px 20px; margin: 0; border-bottom: 1px solid var(--border-light);">
+                            <h3 class="card-title">📊 All Referrers (Ranked)</h3>
+                            <div class="form-group" style="margin: 0; width: 220px;">
+                                <select class="form-select" id="leaderboardSort" style="height: 36px;">
+                                    <option value="count_desc">Most Referrals</option>
+                                    <option value="bonus_desc">Highest Bonus Earned</option>
+                                    <option value="recent_desc">Most Recent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="leaderboardTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60px;">Rank</th>
+                                        <th>Referrer</th>
+                                        <th>Referral Code</th>
+                                        <th>Total Referrals</th>
+                                        <th>Bonus Earned</th>
+                                        <th>Last Referral</th>
+                                        <th style="width: 130px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leaderboardTableBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading leaderboard...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: ALL REFERRALS
+                     ==================================================== -->
+                <div id="referralsView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="referralSearch" placeholder="Referrer or referred user...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="referralFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="referralFilterStatus">
+                                        <option value="">All</option>
+                                        <option value="active">✅ Active Referred</option>
+                                        <option value="banned">🚫 Banned Referred</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearReferralFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="referralsTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Referrer</th>
+                                        <th>Referred User</th>
+                                        <th>Bonus</th>
+                                        <th>Referred Status</th>
+                                        <th>Date</th>
+                                        <th style="width: 130px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="referralsTableBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading referrals...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: SETTINGS
+                     ==================================================== -->
+                <div id="settingsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <!-- Main Settings -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎁 Referral System Settings</h3>
+                            </div>
+                            <div class="card-body">
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Enable Referral System</div>
+                                        <div class="setting-desc">Users can invite others and earn bonus</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="referralEnabled" checked>
+                                </label>
+
+                                <div class="form-group mt-md">
+                                    <label class="form-label required">Referral Bonus (₹)</label>
+                                    <input type="number" class="form-input" id="refBonus" value="0.1" step="0.01" min="0" max="100">
+                                    <div class="form-help">Bonus given to referrer per successful signup</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Signup Bonus (₹)</label>
+                                    <input type="number" class="form-input" id="signupBonus" value="0.5" step="0.01" min="0" max="100">
+                                    <div class="form-help">Bonus given to newly registered user</div>
+                                </div>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Require First Order</div>
+                                        <div class="setting-desc">Bonus only after referred user places order</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="refRequireOrder">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Self-Referral Block</div>
+                                        <div class="setting-desc">Prevent users from referring themselves</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="refBlockSelf" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Ban Check</div>
+                                        <div class="setting-desc">Banned users cannot refer others</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="refBanCheck" checked>
+                                </label>
+
+                                <div style="text-align: right; margin-top: 16px;">
+                                    <button class="btn btn-primary" id="saveSettingsBtn">
+                                        💾 Save Settings
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Extra Controls -->
+                        <div>
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">💰 Manual Bonus Credit</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 12px;">
+                                        Manually credit bonus to a specific referrer
+                                    </p>
+
+                                    <div class="form-group">
+                                        <label class="form-label required">Referrer User ID</label>
+                                        <input type="text" class="form-input" id="manualRefUserId" placeholder="e.g. 5207471711" maxlength="20">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label required">Bonus Amount (₹)</label>
+                                        <input type="number" class="form-input" id="manualRefAmount" placeholder="10.00" step="0.01" min="0.01">
+                                    </div>
+
+                                    <div class="form-group" style="margin-bottom: 12px;">
+                                        <label class="form-label">Note</label>
+                                        <input type="text" class="form-input" id="manualRefNote" placeholder="Reason for manual bonus" maxlength="200">
+                                    </div>
+
+                                    <button class="btn btn-success btn-block" id="manualCreditBtn">
+                                        💰 Credit Bonus
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">🔄 Bulk Regenerate Codes</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 12px;">
+                                        Regenerate referral codes for users missing them
+                                    </p>
+                                    <button class="btn btn-warning btn-block" id="regenerateCodesBtn">
+                                        🔄 Fix Missing Codes
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">📢 Announcement</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 12px;">
+                                        Notify all users about referral program
+                                    </p>
+                                    <button class="btn btn-primary btn-block" id="announceReferralBtn">
+                                        📢 Send Referral Reminder
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: ANALYTICS
+                     ==================================================== -->
+                <div id="analyticsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📈 Referrals Over Time</h3>
+                                <select class="form-select" id="referralChartRange" style="width: auto; height: 32px; font-size: 12px;">
+                                    <option value="7">7 Days</option>
+                                    <option value="30" selected>30 Days</option>
+                                    <option value="90">90 Days</option>
+                                </select>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="referralChart" height="180"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎯 Top Referrers Breakdown</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="topReferrersChart" height="220"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-2 gap-md">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Referral Stats</h3>
+                            </div>
+                            <div class="card-body" id="referralStatsPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🏆 Recent Conversions</h3>
+                            </div>
+                            <div class="card-body" id="recentConversionsPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       REFERRALS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            users: [],
+            referrers: [],
+            referrals: [],
+            settings: {},
+            mainTab: 'leaderboard',
+            leaderboardSort: 'count_desc',
+            search: '',
+            referralSearch: '',
+            referralDate: '',
+            referralStatus: '',
+            referralChart: null,
+            topReferrersChart: null,
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAllData();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('refStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'refStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Podium ---- */
+                .podium-container {
+                    background: linear-gradient(135deg, rgba(255, 107, 0, 0.08), rgba(168, 85, 247, 0.08));
+                    border: 1px solid var(--border-color);
+                    border-radius: 16px;
+                    padding: 40px 20px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .podium-container::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-image:
+                        radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 107, 0, 0.15), transparent 50%);
+                    pointer-events: none;
+                }
+                .podium-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1.3fr 1fr;
+                    gap: 20px;
+                    align-items: end;
+                    position: relative;
+                    z-index: 1;
+                    max-width: 900px;
+                    margin: 0 auto;
+                }
+                .podium-item {
+                    text-align: center;
+                    padding: 24px 16px;
+                    background: var(--bg-card);
+                    border-radius: 16px;
+                    border: 2px solid var(--border-color);
+                    position: relative;
+                    transition: all 0.3s;
+                }
+                .podium-item:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+                }
+                .podium-item.first {
+                    border-color: var(--gold);
+                    background: linear-gradient(180deg, rgba(251, 191, 36, 0.1), var(--bg-card));
+                    padding: 32px 20px;
+                    box-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
+                }
+                .podium-item.second {
+                    border-color: #c0c0c0;
+                    background: linear-gradient(180deg, rgba(192, 192, 192, 0.08), var(--bg-card));
+                }
+                .podium-item.third {
+                    border-color: #cd7f32;
+                    background: linear-gradient(180deg, rgba(205, 127, 50, 0.08), var(--bg-card));
+                }
+                .podium-medal {
+                    font-size: 40px;
+                    margin-bottom: 12px;
+                    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+                }
+                .podium-item.first .podium-medal { font-size: 52px; }
+
+                .podium-avatar {
+                    width: 64px;
+                    height: 64px;
+                    margin: 0 auto 12px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, var(--primary), var(--accent));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #fff;
+                    border: 3px solid var(--bg-card);
+                    box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+                }
+                .podium-item.first .podium-avatar {
+                    width: 80px;
+                    height: 80px;
+                    font-size: 28px;
+                    border-color: var(--gold);
+                    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+                }
+
+                .podium-name {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--text-primary);
+                    margin-bottom: 4px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .podium-item.first .podium-name { font-size: 16px; }
+
+                .podium-id {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-bottom: 12px;
+                    font-family: 'SF Mono', Monaco, monospace;
+                }
+
+                .podium-count {
+                    font-size: 24px;
+                    font-weight: 800;
+                    color: var(--primary);
+                    line-height: 1;
+                }
+                .podium-item.first .podium-count { font-size: 32px; color: var(--gold); }
+
+                .podium-label {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+
+                .podium-bonus {
+                    margin-top: 8px;
+                    font-size: 12px;
+                    color: var(--success);
+                    font-weight: 600;
+                }
+
+                .podium-crown {
+                    position: absolute;
+                    top: -18px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 28px;
+                    animation: crownFloat 2s ease-in-out infinite;
+                }
+                @keyframes crownFloat {
+                    0%, 100% { transform: translateX(-50%) translateY(0); }
+                    50% { transform: translateX(-50%) translateY(-4px); }
+                }
+
+                /* ---- Rank Badge ---- */
+                .rank-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    font-weight: 800;
+                    font-size: 12px;
+                    background: var(--bg-elevated);
+                    color: var(--text-secondary);
+                    border: 2px solid var(--border-color);
+                }
+                .rank-badge.rank-1 {
+                    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                    color: #000;
+                    border-color: var(--gold);
+                }
+                .rank-badge.rank-2 {
+                    background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+                    color: #000;
+                    border-color: #9ca3af;
+                }
+                .rank-badge.rank-3 {
+                    background: linear-gradient(135deg, #d97706, #b45309);
+                    color: #fff;
+                    border-color: #cd7f32;
+                }
+
+                /* ---- Ref Code Chip ---- */
+                .ref-code-chip {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 4px 10px;
+                    background: var(--bg-input);
+                    border: 1px solid var(--border-light);
+                    border-radius: 6px;
+                    font-family: 'SF Mono', Monaco, monospace;
+                    font-size: 11px;
+                    color: var(--primary);
+                    cursor: pointer;
+                    transition: all 0.15s;
+                    max-width: 160px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .ref-code-chip:hover {
+                    background: var(--primary-light);
+                    border-color: var(--primary);
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child { flex: 1; min-width: 0; }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Conversion Item ---- */
+                .conversion-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 8px;
+                    transition: all 0.15s;
+                }
+                .conversion-item:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+
+                @media (max-width: 768px) {
+                    .podium-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    .podium-item.first {
+                        order: -1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => loadAllData(true));
+            document.getElementById('refreshAll').addEventListener('click', () => loadAllData(true));
+            document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Leaderboard sort ---- */
+            document.getElementById('leaderboardSort').addEventListener('change', (e) => {
+                State.leaderboardSort = e.target.value;
+                renderLeaderboard();
+            });
+
+            /* ---- Referral search ---- */
+            const rsInput = document.getElementById('referralSearch');
+            rsInput.addEventListener('input', Utils.debounce(() => {
+                State.referralSearch = rsInput.value.trim();
+                renderReferrals();
+            }, 300));
+
+            document.getElementById('referralFilterDate').addEventListener('change', (e) => {
+                State.referralDate = e.target.value;
+                renderReferrals();
+            });
+
+            document.getElementById('referralFilterStatus').addEventListener('change', (e) => {
+                State.referralStatus = e.target.value;
+                renderReferrals();
+            });
+
+            document.getElementById('clearReferralFilters').addEventListener('click', () => {
+                document.getElementById('referralSearch').value = '';
+                document.getElementById('referralFilterDate').value = '';
+                document.getElementById('referralFilterStatus').value = '';
+                State.referralSearch = '';
+                State.referralDate = '';
+                State.referralStatus = '';
+                renderReferrals();
+            });
+
+            /* ---- Settings ---- */
+            document.getElementById('saveSettingsBtn').addEventListener('click', saveSettings);
+
+            ['referralEnabled', 'refRequireOrder', 'refBlockSelf', 'refBanCheck'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.settings[id] = el.checked;
+                });
+            });
+
+            /* ---- Manual credit ---- */
+            document.getElementById('manualCreditBtn').addEventListener('click', manualCredit);
+
+            /* ---- Regenerate codes ---- */
+            document.getElementById('regenerateCodesBtn').addEventListener('click', regenerateCodes);
+
+            /* ---- Announce referral ---- */
+            document.getElementById('announceReferralBtn').addEventListener('click', announceReferral);
+
+            /* ---- Analytics range ---- */
+            document.getElementById('referralChartRange').addEventListener('change', buildReferralChart);
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['leaderboardView', 'referralsView', 'settingsView', 'analyticsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                leaderboard: 'leaderboardView',
+                referrals: 'referralsView',
+                settings: 'settingsView',
+                analytics: 'analyticsView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'referrals') renderReferrals();
+            if (tab === 'analytics') renderAnalytics();
+        }
+
+        /* ============================================================
+           LOAD ALL DATA
+         ============================================================ */
+        async function loadAllData(showToast = false) {
+            try {
+                /* ---- Load users + settings in parallel ---- */
+                const [usersRes, refBonusRes, signupRes, refEnabledRes, refRequireOrderRes,
+                       refBlockSelfRes, refBanCheckRes] = await Promise.allSettled([
+                    API.getDataPage('users', 1, 5000, ''),
+                    API.getSetting('ref_bonus'),
+                    API.getSetting('signup_bonus'),
+                    API.getSetting('referral_enabled'),
+                    API.getSetting('ref_require_order'),
+                    API.getSetting('ref_block_self'),
+                    API.getSetting('ref_ban_check'),
+                ]);
+
+                const users = (usersRes.status === 'fulfilled' && usersRes.value && usersRes.value.rows)
+                    ? usersRes.value.rows
+                    : [];
+
+                State.users = users;
+
+                const getVal = (res, fallback = '') => {
+                    if (res && res.status === 'fulfilled' && res.value && res.value.success && res.value.value !== undefined && res.value.value !== null) {
+                        return res.value.value;
+                    }
+                    return fallback;
+                };
+
+                State.settings = {
+                    ref_bonus: getVal(refBonusRes, '0.1'),
+                    signup_bonus: getVal(signupRes, '0.5'),
+                    referral_enabled: getVal(refEnabledRes, '1'),
+                    ref_require_order: getVal(refRequireOrderRes, '0'),
+                    ref_block_self: getVal(refBlockSelfRes, '1'),
+                    ref_ban_check: getVal(refBanCheckRes, '1'),
+                };
+
+                /* ---- Populate settings UI ---- */
+                document.getElementById('referralEnabled').checked = State.settings.referral_enabled === '1';
+                document.getElementById('refBonus').value = State.settings.ref_bonus;
+                document.getElementById('signupBonus').value = State.settings.signup_bonus;
+                document.getElementById('refRequireOrder').checked = State.settings.ref_require_order === '1';
+                document.getElementById('refBlockSelf').checked = State.settings.ref_block_self === '1';
+                document.getElementById('refBanCheck').checked = State.settings.ref_ban_check === '1';
+
+                /* ---- Build referrers + referrals data ---- */
+                buildReferralData();
+
+                /* ---- Render all views ---- */
+                renderLeaderboard();
+                renderReferrals();
+                updateStats();
+
+                if (State.mainTab === 'analytics') {
+                    renderAnalytics();
+                }
+
+                if (showToast) Toast.success('Referral data refreshed!');
+
+            } catch (err) {
+                console.error('Load failed:', err);
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           BUILD REFERRAL DATA
+         ============================================================ */
+        function buildReferralData() {
+            const users = State.users;
+
+            /* ---- Map: userId → user ---- */
+            const userMap = {};
+            users.forEach(u => {
+                userMap[String(u.user_id)] = u;
+            });
+
+            /* ---- Build referrers ---- */
+            const referrerMap = {};
+            const referrals = [];
+
+            users.forEach(u => {
+                const referredBy = String(u.referred_by || '').trim();
+                if (!referredBy) return;
+
+                /* ---- Referral record ---- */
+                referrals.push({
+                    id: 'ref_' + u.user_id,
+                    referrer_id: referredBy,
+                    referred_id: u.user_id,
+                    referred_name: u.first_name || 'User',
+                    referred_username: u.username || '',
+                    referred_banned: u.is_banned == 1,
+                    joined: u.join_date || u.created_at || '',
+                });
+
+                /* ---- Aggregate per referrer ---- */
+                if (!referrerMap[referredBy]) {
+                    const refUser = userMap[referredBy] || {};
+                    referrerMap[referredBy] = {
+                        user_id: referredBy,
+                        name: refUser.first_name || 'User',
+                        username: refUser.username || '',
+                        ref_code: refUser.referral_code || '',
+                        count: 0,
+                        bonus_earned: 0,
+                        last_referral: '',
+                        is_banned: refUser.is_banned == 1,
+                    };
+                }
+
+                referrerMap[referredBy].count++;
+
+                const joinDate = u.join_date || u.created_at || '';
+                if (joinDate && (!referrerMap[referredBy].last_referral || joinDate > referrerMap[referredBy].last_referral)) {
+                    referrerMap[referredBy].last_referral = joinDate;
+                }
+            });
+
+            /* ---- Compute bonus earned ---- */
+            const bonusPerRef = parseFloat(State.settings.ref_bonus) || 0.1;
+
+            Object.keys(referrerMap).forEach(uid => {
+                referrerMap[uid].bonus_earned = referrerMap[uid].count * bonusPerRef;
+            });
+
+            State.referrers = Object.values(referrerMap);
+            State.referrals = referrals.sort((a, b) => {
+                return String(b.joined).localeCompare(String(a.joined));
+            });
+        }
+
+        /* ============================================================
+           RENDER LEADERBOARD
+         ============================================================ */
+        function renderLeaderboard() {
+            const referrers = State.referrers.slice();
+
+            /* ---- Sort ---- */
+            if (State.leaderboardSort === 'count_desc') {
+                referrers.sort((a, b) => b.count - a.count);
+            } else if (State.leaderboardSort === 'bonus_desc') {
+                referrers.sort((a, b) => b.bonus_earned - a.bonus_earned);
+            } else if (State.leaderboardSort === 'recent_desc') {
+                referrers.sort((a, b) => String(b.last_referral).localeCompare(String(a.last_referral)));
+            }
+
+            /* ---- Podium (top 3) ---- */
+            renderPodium(referrers.slice(0, 3));
+
+            /* ---- Table ---- */
+            const tbody = document.getElementById('leaderboardTableBody');
+
+            if (referrers.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">🎁</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No referrals yet</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Referral data will appear here once users start inviting others
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = referrers.map((r, idx) => {
+                const rank = idx + 1;
+                let rankClass = '';
+                if (rank === 1) rankClass = 'rank-1';
+                else if (rank === 2) rankClass = 'rank-2';
+                else if (rank === 3) rankClass = 'rank-3';
+
+                const initial = Utils.initials(r.name);
+
+                return `
+                    <tr>
+                        <td>
+                            <div class="rank-badge ${rankClass}">
+                                ${rank <= 3 ? ['🥇','🥈','🥉'][rank - 1] : rank}
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="header-user-avatar" style="width: 36px; height: 36px; font-size: 13px; flex-shrink: 0;">
+                                    ${initial}
+                                </div>
+                                <div style="min-width: 0;">
+                                    <div style="font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">
+                                        ${Utils.escape(r.name)}
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--text-muted);">
+                                        <code>${Utils.escape(r.user_id)}</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            ${r.ref_code ? `
+                                <span class="ref-code-chip" data-copy-code="${Utils.escape(r.ref_code)}" title="Click to copy">
+                                    🎫 ${Utils.escape(r.ref_code)}
+                                </span>
+                            ` : '<span style="color: var(--text-muted); font-size: 11px;">—</span>'}
+                        </td>
+                        <td>
+                            <b style="color: var(--primary); font-size: 15px;">${Utils.number(r.count)}</b>
+                        </td>
+                        <td>
+                            <b style="color: var(--success); font-size: 15px;">${Utils.money(r.bonus_earned)}</b>
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${r.last_referral ? Utils.timeAgo(r.last_referral) : '—'}
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 2px;">
+                                <button class="btn btn-ghost btn-icon btn-sm" data-view-referrer="${Utils.escape(r.user_id)}" title="View User">
+                                    👁️
+                                </button>
+                                <button class="btn btn-success btn-icon btn-sm" data-credit-referrer="${Utils.escape(r.user_id)}" title="Manual Credit">
+                                    💰
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind code copy ---- */
+            tbody.querySelectorAll('[data-copy-code]').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    Utils.copy(chip.dataset.copyCode);
+                });
+            });
+
+            /* ---- Bind view buttons ---- */
+            tbody.querySelectorAll('[data-view-referrer]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    window.location.href = `users.html?search=${encodeURIComponent(btn.dataset.viewReferrer)}`;
+                });
+            });
+
+            /* ---- Bind credit buttons ---- */
+            tbody.querySelectorAll('[data-credit-referrer]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const uid = btn.dataset.creditReferrer;
+                    document.getElementById('manualRefUserId').value = uid;
+                    switchMainTab('settings');
+                    document.getElementById('manualRefAmount').focus();
+                });
+            });
+        }
+
+        function renderPodium(top3) {
+            const container = document.getElementById('podiumContainer');
+
+            if (top3.length === 0) {
+                container.innerHTML = `
+                    <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">🏆</div>
+                        <div>No referrers yet</div>
+                        <div style="font-size: 12px; margin-top: 8px;">Top performers will appear here</div>
+                    </div>
+                `;
+                return;
+            }
+
+            /* ---- Arrange: 2, 1, 3 for podium ---- */
+            const arranged = [];
+            if (top3[1]) arranged.push({ ...top3[1], rank: 2 });
+            if (top3[0]) arranged.push({ ...top3[0], rank: 1 });
+            if (top3[2]) arranged.push({ ...top3[2], rank: 3 });
+
+            const posMap = { 1: 'first', 2: 'second', 3: 'third' };
+            const medalMap = { 1: '🥇', 2: '🥈', 3: '🥉' };
+
+            container.innerHTML = `
+                <div class="podium-grid">
+                    ${arranged.map(r => {
+                        const initial = Utils.initials(r.name);
+                        return `
+                            <div class="podium-item ${posMap[r.rank]}">
+                                ${r.rank === 1 ? '<div class="podium-crown">👑</div>' : ''}
+                                <div class="podium-medal">${medalMap[r.rank]}</div>
+                                <div class="podium-avatar">${initial}</div>
+                                <div class="podium-name" title="${Utils.escape(r.name)}">${Utils.escape(r.name)}</div>
+                                <div class="podium-id">${Utils.escape(r.user_id)}</div>
+                                <div class="podium-count">${Utils.number(r.count)}</div>
+                                <div class="podium-label">Referrals</div>
+                                <div class="podium-bonus">💰 ${Utils.money(r.bonus_earned)}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        /* ============================================================
+           RENDER REFERRALS
+         ============================================================ */
+        function renderReferrals() {
+            const tbody = document.getElementById('referralsTableBody');
+            const userMap = {};
+            State.users.forEach(u => userMap[String(u.user_id)] = u);
+
+            let filtered = State.referrals.slice();
+
+            /* ---- Search ---- */
+            if (State.referralSearch) {
+                const q = State.referralSearch.toLowerCase();
+                filtered = filtered.filter(r =>
+                    String(r.referrer_id).includes(q) ||
+                    String(r.referred_id).includes(q) ||
+                    String(r.referred_name).toLowerCase().includes(q)
+                );
+            }
+
+            /* ---- Date ---- */
+            if (State.referralDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(r => {
+                    const dt = new Date(String(r.joined || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const rDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - rDate) / 86400000);
+
+                    if (State.referralDate === 'today') return diffDays === 0;
+                    if (State.referralDate === '7days') return diffDays <= 7;
+                    if (State.referralDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            /* ---- Status ---- */
+            if (State.referralStatus) {
+                filtered = filtered.filter(r => {
+                    if (State.referralStatus === 'banned') return r.referred_banned;
+                    if (State.referralStatus === 'active') return !r.referred_banned;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No referrals found</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const bonusPerRef = parseFloat(State.settings.ref_bonus) || 0.1;
+
+            tbody.innerHTML = filtered.map((r, idx) => {
+                const referrer = userMap[r.referrer_id] || {};
+                const referrerName = referrer.first_name || 'User';
+                const initial = Utils.initials(referrerName);
+
+                return `
+                    <tr>
+                        <td><code style="font-size: 11px;">#${idx + 1}</code></td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div class="header-user-avatar" style="width: 32px; height: 32px; font-size: 12px; flex-shrink: 0;">
+                                    ${initial}
+                                </div>
+                                <div>
+                                    <div style="font-size: 12px; font-weight: 600;">
+                                        ${Utils.escape(referrerName)}
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--text-muted);">
+                                        <code>${Utils.escape(r.referrer_id)}</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="font-size: 12px; font-weight: 500;">
+                                ${Utils.escape(r.referred_name)}
+                            </div>
+                            <div style="font-size: 10px; color: var(--text-muted);">
+                                <code>${Utils.escape(r.referred_id)}</code>
+                            </div>
+                        </td>
+                        <td>
+                            <b style="color: var(--success); font-size: 13px;">${Utils.money(bonusPerRef)}</b>
+                        </td>
+                        <td>
+                            ${r.referred_banned
+                                ? '<span class="badge badge-danger">🚫 Banned</span>'
+                                : '<span class="badge badge-success">✅ Active</span>'}
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.date(r.joined)}
+                        </td>
+                        <td>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-view-user="${Utils.escape(r.referred_id)}" title="View User">
+                                👁️
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind view buttons ---- */
+            tbody.querySelectorAll('[data-view-user]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    window.location.href = `users.html?search=${encodeURIComponent(btn.dataset.viewUser)}`;
+                });
+            });
+        }
+
+        /* ============================================================
+           ANALYTICS
+         ============================================================ */
+        function renderAnalytics() {
+            buildReferralChart();
+            buildTopReferrersChart();
+            renderReferralStats();
+            renderRecentConversions();
+        }
+
+        function buildReferralChart() {
+            const canvas = document.getElementById('referralChart');
+            if (!canvas) return;
+
+            const days = parseInt(document.getElementById('referralChartRange').value) || 30;
+
+            /* ---- Group by day ---- */
+            const buckets = {};
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date(today);
+                d.setDate(d.getDate() - i);
+                const key = d.toISOString().split('T')[0];
+                buckets[key] = 0;
+            }
+
+            State.referrals.forEach(r => {
+                const dt = String(r.joined || '').split(' ')[0];
+                if (buckets[dt] !== undefined) buckets[dt]++;
+            });
+
+            const labels = Object.keys(buckets).map(k => {
+                const d = new Date(k);
+                return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+            });
+
+            const values = Object.values(buckets);
+
+            if (State.referralChart) {
+                State.referralChart.destroy();
+            }
+
+            const ctx = canvas.getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 180);
+            gradient.addColorStop(0, 'rgba(255, 107, 0, 0.5)');
+            gradient.addColorStop(1, 'rgba(255, 107, 0, 0.02)');
+
+            State.referralChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Referrals',
+                        data: values,
+                        borderColor: '#ff6b00',
+                        backgroundColor: gradient,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: '#ff6b00',
+                        pointBorderColor: '#0a0a0f',
+                        pointBorderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#1a1a24',
+                            borderColor: '#2d2d3a',
+                            borderWidth: 1,
+                            titleColor: '#fff',
+                            bodyColor: '#a1a1aa',
+                            padding: 12,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#6b7280', stepSize: 1 },
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#6b7280', maxTicksLimit: 10 },
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildTopReferrersChart() {
+            const canvas = document.getElementById('topReferrersChart');
+            if (!canvas) return;
+
+            const top = State.referrers
+                .slice()
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 6);
+
+            const labels = [];
+            const values = [];
+            const colors = ['#fbbf24', '#e5e7eb', '#cd7f32', '#ff6b00', '#a855f7', '#3b82f6'];
+
+            top.forEach(r => {
+                labels.push(Utils.truncate(r.name, 15));
+                values.push(r.count);
+            });
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+            }
+
+            if (State.topReferrersChart) {
+                State.topReferrersChart.destroy();
+            }
+
+            const ctx = canvas.getContext('2d');
+
+            State.topReferrersChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors.slice(0, values.length),
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#a1a1aa',
+                                padding: 10,
+                                font: { size: 11 },
+                                usePointStyle: true,
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#1a1a24',
+                            borderColor: '#2d2d3a',
+                            borderWidth: 1,
+                            titleColor: '#fff',
+                            bodyColor: '#a1a1aa',
+                            padding: 12,
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderReferralStats() {
+            const panel = document.getElementById('referralStatsPanel');
+            if (!panel) return;
+
+            const totalReferrals = State.referrals.length;
+            const totalReferrers = State.referrers.length;
+            const bonusPerRef = parseFloat(State.settings.ref_bonus) || 0.1;
+            const totalBonusPaid = totalReferrals * bonusPerRef;
+
+            const bannedReferred = State.referrals.filter(r => r.referred_banned).length;
+            const activeReferred = totalReferrals - bannedReferred;
+
+            const avgRefsPerUser = totalReferrers > 0 ? (totalReferrals / totalReferrers).toFixed(2) : 0;
+
+            /* ---- Top converter ---- */
+            const top = State.referrers.slice().sort((a, b) => b.count - a.count)[0];
+
+            panel.innerHTML = `
+                <div class="grid grid-2 gap-sm">
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Avg per Referrer</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: var(--primary);">${avgRefsPerUser}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Active Referred</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: var(--success);">${activeReferred}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Banned Referred</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: var(--danger);">${bannedReferred}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Total Bonus Paid</div>
+                        <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: var(--success);">${Utils.money(totalBonusPaid)}</div>
+                    </div>
+                </div>
+
+                ${top ? `
+                    <div style="margin-top: 14px; padding: 12px; background: linear-gradient(135deg, rgba(251,191,36,0.1), var(--bg-elevated)); border-radius: 10px; border: 1px solid var(--gold);">
+                        <div style="font-size: 11px; color: var(--text-muted);">🏆 Top Performer</div>
+                        <div style="font-size: 15px; font-weight: 700; margin-top: 4px;">${Utils.escape(top.name)}</div>
+                        <div style="font-size: 12px; color: var(--primary); margin-top: 2px;">${top.count} referrals • ${Utils.money(top.bonus_earned)}</div>
+                    </div>
+                ` : ''}
+            `;
+        }
+
+        function renderRecentConversions() {
+            const panel = document.getElementById('recentConversionsPanel');
+            if (!panel) return;
+
+            const recent = State.referrals.slice(0, 6);
+            const userMap = {};
+            State.users.forEach(u => userMap[String(u.user_id)] = u);
+
+            if (recent.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 30px;">📭 No conversions yet</div>`;
+                return;
+            }
+
+            let html = '';
+
+            recent.forEach(r => {
+                const referrer = userMap[r.referrer_id] || {};
+                const referrerName = referrer.first_name || 'User';
+                const initial = Utils.initials(referrerName);
+
+                html += `
+                    <div class="conversion-item">
+                        <div class="header-user-avatar" style="width: 32px; height: 32px; font-size: 12px; flex-shrink: 0;">
+                            ${initial}
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="font-size: 12px; font-weight: 600;">
+                                ${Utils.escape(referrerName)}
+                            </div>
+                            <div style="font-size: 10px; color: var(--text-muted);">
+                                invited <b>${Utils.escape(r.referred_name)}</b>
+                            </div>
+                        </div>
+                        <div style="text-align: right; flex-shrink: 0;">
+                            <div style="font-size: 11px; color: var(--success); font-weight: 600;">
+                                +${Utils.money(parseFloat(State.settings.ref_bonus) || 0.1)}
+                            </div>
+                            <div style="font-size: 10px; color: var(--text-muted);">
+                                ${Utils.timeAgo(r.joined)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            panel.innerHTML = html;
+        }
+
+        /* ============================================================
+           SETTINGS — SAVE
+         ============================================================ */
+        async function saveSettings() {
+            Loader.show();
+
+            try {
+                const updates = [
+                    API.updateSetting('referral_enabled', document.getElementById('referralEnabled').checked ? '1' : '0'),
+                    API.updateSetting('ref_bonus', document.getElementById('refBonus').value),
+                    API.updateSetting('signup_bonus', document.getElementById('signupBonus').value),
+                    API.updateSetting('ref_require_order', document.getElementById('refRequireOrder').checked ? '1' : '0'),
+                    API.updateSetting('ref_block_self', document.getElementById('refBlockSelf').checked ? '1' : '0'),
+                    API.updateSetting('ref_ban_check', document.getElementById('refBanCheck').checked ? '1' : '0'),
+                ];
+
+                await Promise.all(updates);
+
+                Toast.success('Referral settings saved!');
+                await loadAllData();
+
+            } catch (err) {
+                console.error('Save failed:', err);
+                Toast.error('Save failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           MANUAL CREDIT
+         ============================================================ */
+        async function manualCredit() {
+            const userId = document.getElementById('manualRefUserId').value.trim();
+            const amount = parseFloat(document.getElementById('manualRefAmount').value);
+            const note = document.getElementById('manualRefNote').value.trim();
+
+            if (!userId || !/^[0-9]{5,20}$/.test(userId)) {
+                Toast.error('Valid user ID required');
+                return;
+            }
+
+            if (!amount || amount <= 0) {
+                Toast.error('Valid amount required');
+                return;
+            }
+
+            const user = State.users.find(u => String(u.user_id) === userId);
+
+            if (!user) {
+                Toast.error('User not found');
+                return;
+            }
+
+            const confirmed = await Modal.confirm({
+                title: '💰 Credit Referral Bonus',
+                message: `Credit <b>₹${amount.toFixed(2)}</b> to <b>${Utils.escape(user.first_name || 'User')}</b>?`,
+                confirmText: 'Yes, Credit',
+                type: 'success',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                const newBal = parseFloat(user.balance || 0) + amount;
+
+                const res = await API.updateUser(userId, 'balance', newBal);
+
+                if (res && res.success) {
+                    Toast.success(`Credited ₹${amount.toFixed(2)}`);
+
+                    /* ---- Send notification to user ---- */
+                    try {
+                        await API.post('broadcast', {
+                            targets: 'users',
+                            message: `🎁 <b>Referral Bonus Credited!</b>\n\n💰 Amount: ₹${amount.toFixed(2)}\n${note ? `📝 ${note}\n` : ''}\n💵 New Balance: ₹${newBal.toFixed(2)}\n\nThank you for referring! 🙏`,
+                            single_user: userId,
+                        });
+                    } catch (e) {}
+
+                    /* ---- Reset form ---- */
+                    document.getElementById('manualRefUserId').value = '';
+                    document.getElementById('manualRefAmount').value = '';
+                    document.getElementById('manualRefNote').value = '';
+
+                    await loadAllData();
+                } else {
+                    Toast.error(res?.error || 'Credit failed');
+                }
+
+            } catch (err) {
+                console.error('Credit failed:', err);
+                Toast.error('Credit failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           REGENERATE CODES
+         ============================================================ */
+        async function regenerateCodes() {
+            const missing = State.users.filter(u => !u.referral_code || String(u.referral_code).trim() === '');
+
+            if (missing.length === 0) {
+                Modal.alert('✅ All Good', 'All users have referral codes.', 'success');
+                return;
+            }
+
+            const confirmed = await Modal.confirm({
+                title: '🔄 Fix Missing Codes',
+                message: `<b>${missing.length}</b> users ke paas referral code nahi hai.\n\nFix karein?`,
+                confirmText: 'Yes, Fix All',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            let success = 0;
+            let failed = 0;
+
+            try {
+                /* ---- We use updateUser API with new codes ---- */
+                for (const user of missing) {
+                    try {
+                        /* ---- Generate code ---- */
+                        const randHex = Array.from(crypto.getRandomValues(new Uint8Array(4)))
+                            .map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+                        const code = 'BIHARI' + randHex;
+
+                        /* ---- Try update ---- */
+                        const res = await API.post('updateUserField', {
+                            id: user.user_id,
+                            field: 'referral_code',
+                            value: code,
+                        });
+
+                        if (res && res.success) success++;
+                        else failed++;
+
+                    } catch (e) {
+                        failed++;
+                    }
+                }
+
+                Toast.success(`Fixed: ${success}, Failed: ${failed}`);
+                await loadAllData();
+
+            } catch (err) {
+                console.error('Regenerate failed:', err);
+                Toast.error('Operation failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           ANNOUNCE REFERRAL
+         ============================================================ */
+        async function announceReferral() {
+            const bonus = parseFloat(State.settings.ref_bonus) || 0.1;
+            const botUser = CONFIG.BOT_USERNAME || 'bot';
+
+            const message = `🎁 <b>Referral Program!</b>\n\n💰 Earn <b>₹${bonus.toFixed(2)}</b> for every friend you refer!\n\n🚀 <b>How it works:</b>\n1️⃣ Share your referral link\n2️⃣ Friend joins using your link\n3️⃣ You get ₹${bonus.toFixed(2)} instantly!\n\n📤 <b>Get your link:</b>\n/referral\n\n👥 No limit on referrals!`;
+
+            const confirmed = await Modal.confirm({
+                title: '📢 Send Referral Reminder',
+                message: 'Send referral program announcement to ALL users?',
+                confirmText: 'Yes, Send',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                const res = await API.post('broadcast', {
+                    targets: 'users',
+                    message: message,
+                });
+
+                if (res && res.success) {
+                    Toast.success('Referral reminder sent!');
+                } else {
+                    Toast.error(res?.error || 'Send failed');
+                }
+            } catch (err) {
+                Toast.error('Send failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           STATS
+         ============================================================ */
+        function updateStats() {
+            const totalReferrals = State.referrals.length;
+            const totalReferrers = State.referrers.length;
+            const bonusPerRef = parseFloat(State.settings.ref_bonus) || 0.1;
+            const totalBonus = totalReferrals * bonusPerRef;
+
+            const top = State.referrers.slice().sort((a, b) => b.count - a.count)[0];
+
+            document.getElementById('statTotalReferrals').textContent = Utils.number(totalReferrals);
+            document.getElementById('statReferrers').textContent = Utils.number(totalReferrers);
+            document.getElementById('statBonusPaid').textContent = Utils.money(totalBonus);
+            document.getElementById('statTopPerformer').textContent = top ? Utils.truncate(top.name, 12) : '—';
+
+            document.getElementById('headerSubtitle').textContent = `${totalReferrals} referrals by ${totalReferrers} users`;
+            document.getElementById('pageStats').textContent = `Total bonus paid: ${Utils.money(totalBonus)}`;
+        }
+
+        /* ============================================================
+           EXPORT CSV
+         ============================================================ */
+        function exportCSV() {
+            /* ---- Export based on active tab ---- */
+            const isLeaderboard = State.mainTab === 'leaderboard';
+
+            let headers, rows, filename;
+
+            if (isLeaderboard) {
+                headers = ['Rank', 'User ID', 'Name', 'Username', 'Referral Code', 'Total Referrals', 'Bonus Earned', 'Last Referral'];
+
+                const sorted = State.referrers.slice().sort((a, b) => b.count - a.count);
+
+                rows = sorted.map((r, i) => [
+                    i + 1,
+                    r.user_id,
+                    r.name,
+                    r.username,
+                    r.ref_code,
+                    r.count,
+                    r.bonus_earned.toFixed(2),
+                    r.last_referral,
+                ]);
+
+                filename = `referrers_${new Date().toISOString().split('T')[0]}.csv`;
+
+            } else {
+                headers = ['Referrer ID', 'Referred User ID', 'Referred Name', 'Bonus', 'Referred Status', 'Date'];
+                const bonusPerRef = parseFloat(State.settings.ref_bonus) || 0.1;
+
+                rows = State.referrals.map(r => [
+                    r.referrer_id,
+                    r.referred_id,
+                    r.referred_name,
+                    bonusPerRef.toFixed(2),
+                    r.referred_banned ? 'Banned' : 'Active',
+                    r.joined,
+                ]);
+
+                filename = `referrals_${new Date().toISOString().split('T')[0]}.csv`;
+            }
+
+            if (rows.length === 0) {
+                Toast.error('No data to export');
+                return;
+            }
+
+            const csv = [headers, ...rows]
+                .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                .join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${rows.length} records`);
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

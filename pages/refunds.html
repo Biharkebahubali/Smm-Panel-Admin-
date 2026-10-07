@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>💸 Refunds — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link active" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">💸 Refunds Management</div>
+                        <div class="header-subtitle" id="headerSubtitle">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search refunds...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">💸 Refunds Management</h1>
+                        <p class="page-description" id="pageStats">Loading refunds...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="exportBtn">
+                            📤 Export CSV
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="refreshAll">
+                            🔄 Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">💸</div>
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">Total Refunds</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value" id="statAmount">₹0</div>
+                        <div class="stat-label">Total Refunded</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="statToday">₹0</div>
+                        <div class="stat-label">Refunded Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value" id="statAvg">₹0</div>
+                        <div class="stat-label">Avg Refund</div>
+                    </div>
+                </div>
+
+                <!-- TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="tab-btn active" data-tab="">
+                            📋 All <span class="tab-count" id="tabCountAll">0</span>
+                        </button>
+                        <button class="tab-btn" data-tab="today">
+                            📅 Today <span class="tab-count" id="tabCountToday">0</span>
+                        </button>
+                        <button class="tab-btn" data-tab="7days">
+                            📆 Last 7 Days <span class="tab-count" id="tabCount7">0</span>
+                        </button>
+                        <button class="tab-btn" data-tab="30days">
+                            🗓️ Last 30 Days <span class="tab-count" id="tabCount30">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="card mb-lg">
+                    <div class="card-body" style="padding: 0;">
+                        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">🔍 Search</label>
+                                <input type="text" class="form-input" id="searchInput" placeholder="Order ID, user, note...">
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Amount</label>
+                                <select class="form-select" id="filterAmount">
+                                    <option value="">Any</option>
+                                    <option value="0-50">₹0 - ₹50</option>
+                                    <option value="50-100">₹50 - ₹100</option>
+                                    <option value="100-500">₹100 - ₹500</option>
+                                    <option value="500-1000">₹500 - ₹1000</option>
+                                    <option value="1000+">₹1000+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Date</label>
+                                <select class="form-select" id="filterDate">
+                                    <option value="">All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="yesterday">Yesterday</option>
+                                    <option value="7days">Last 7 Days</option>
+                                    <option value="30days">Last 30 Days</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Sort By</label>
+                                <select class="form-select" id="filterSort">
+                                    <option value="id_desc">Newest First</option>
+                                    <option value="id_asc">Oldest First</option>
+                                    <option value="amount_desc">Amount: High → Low</option>
+                                    <option value="amount_asc">Amount: Low → High</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-secondary btn-icon" id="clearFilters" title="Clear Filters">
+                                ✕
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div class="table-wrapper" style="border: none;">
+                        <table class="table" id="refundsTable">
+                            <thead>
+                                <tr>
+                                    <th>Refund ID</th>
+                                    <th>Order ID</th>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>Reason / Note</th>
+                                    <th>Date</th>
+                                    <th style="width: 130px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="refundsTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                        <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                        Loading refunds...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       REFUNDS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        const State = {
+            refunds: [],
+            allRefunds: [],
+            search: '',
+            activeTab: '',
+            filters: {
+                amount: '',
+                date: '',
+            },
+            sort: 'id_desc',
+        };
+
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectTabStyles();
+            setupListeners();
+            await loadRefunds();
+        }
+
+        function injectTabStyles() {
+            if (document.getElementById('tabStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'tabStyles';
+            style.textContent = `
+                .tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 14px 18px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 13px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .tab-count {
+                    font-size: 10px;
+                    padding: 2px 7px;
+                    border-radius: 9999px;
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    min-width: 22px;
+                    text-align: center;
+                }
+                .tab-btn.active .tab-count { background: var(--primary); color: #fff; }
+                .refund-amount {
+                    display: inline-block;
+                    padding: 4px 10px;
+                    background: var(--danger-light);
+                    color: var(--danger);
+                    border-radius: 6px;
+                    font-weight: 700;
+                    font-size: 13px;
+                }
+                .refund-note {
+                    font-size: 12px;
+                    color: var(--text-secondary);
+                    max-width: 280px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    line-height: 1.4;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => loadRefunds(true));
+            document.getElementById('refreshAll').addEventListener('click', () => loadRefunds(true));
+            document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+            const searchInput = document.getElementById('searchInput');
+            const headerSearch = document.getElementById('headerSearch');
+
+            const debouncedSearch = Utils.debounce(() => {
+                State.search = searchInput.value.trim();
+                loadRefunds();
+            }, 500);
+
+            searchInput.addEventListener('input', debouncedSearch);
+            headerSearch.addEventListener('input', () => {
+                searchInput.value = headerSearch.value;
+                debouncedSearch();
+            });
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            ['filterAmount', 'filterDate', 'filterSort'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.filters.amount = document.getElementById('filterAmount').value;
+                    State.filters.date = document.getElementById('filterDate').value;
+                    State.sort = document.getElementById('filterSort').value;
+                    loadRefunds();
+                });
+            });
+
+            document.getElementById('clearFilters').addEventListener('click', () => {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('headerSearch').value = '';
+                document.getElementById('filterAmount').value = '';
+                document.getElementById('filterDate').value = '';
+                document.getElementById('filterSort').value = 'id_desc';
+
+                State.search = '';
+                State.filters = { amount: '', date: '' };
+                State.sort = 'id_desc';
+                State.activeTab = '';
+
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.toggle('active', b.dataset.tab === '');
+                });
+
+                loadRefunds();
+                Toast.info('Filters cleared');
+            });
+
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        function switchTab(tab) {
+            State.activeTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            loadRefunds();
+        }
+
+        /* ============================================================
+           LOAD REFUNDS
+           -- Data source: balance_ledger (type='refund')
+           -- Fallback: orders where refund_amount > 0
+         ============================================================ */
+        async function loadRefunds(showToast = false) {
+            const tbody = document.getElementById('refundsTableBody');
+
+            tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                Loading refunds...
+            </td></tr>`;
+
+            try {
+                let refunds = [];
+
+                /* ---- Try dedicated refunds endpoint ---- */
+                try {
+                    const res = await API.get('getRefunds');
+                    if (res && res.success && Array.isArray(res.data)) {
+                        refunds = res.data;
+                    }
+                } catch (e) {}
+
+                /* ---- Fallback: extract from orders ---- */
+                if (refunds.length === 0) {
+                    try {
+                        const res = await API.getDataPage('orders', 1, 1000, '');
+                        if (res && res.success && Array.isArray(res.rows)) {
+                            refunds = res.rows
+                                .filter(o => parseFloat(o.refund_amount || 0) > 0 || o.refunded_at)
+                                .map(o => ({
+                                    id: 'ORD-' + o.id,
+                                    order_id: o.id,
+                                    user_id: o.user_id,
+                                    username: o.username,
+                                    amount: parseFloat(o.refund_amount || 0),
+                                    note: `Order #${o.id} — ${o.service_name || 'Refund'}`,
+                                    created_at: o.refunded_at || o.completed_at || o.created_at,
+                                }));
+                        }
+                    } catch (e) {}
+                }
+
+                State.allRefunds = refunds;
+
+                computeTabCounts(refunds);
+
+                let filtered = applyTabFilter(refunds);
+                filtered = applyFilters(filtered);
+                filtered = applySort(filtered);
+
+                State.refunds = filtered;
+
+                renderTable(State.refunds);
+                updateStats(refunds);
+                updateHeaderSubtitle();
+
+                if (showToast) Toast.success('Refunds updated!');
+
+            } catch (err) {
+                console.error('Load refunds failed:', err);
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                    <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                    <div style="color: var(--text-muted); font-size: 15px;">No refunds found</div>
+                    <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                        Refunds will appear here when orders fail or are cancelled
+                    </div>
+                </td></tr>`;
+            }
+        }
+
+        function computeTabCounts(refunds) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const now = Date.now();
+
+            let cntToday = 0;
+            let cnt7 = 0;
+            let cnt30 = 0;
+
+            refunds.forEach(r => {
+                const dt = String(r.created_at || '');
+                const d = new Date(dt.replace(' ', 'T'));
+                if (isNaN(d.getTime())) return;
+
+                const diffDays = Math.floor((now - d.getTime()) / 86400000);
+
+                if (d.getTime() >= today.getTime()) cntToday++;
+                if (diffDays <= 7) cnt7++;
+                if (diffDays <= 30) cnt30++;
+            });
+
+            document.getElementById('tabCountAll').textContent = refunds.length;
+            document.getElementById('tabCountToday').textContent = cntToday;
+            document.getElementById('tabCount7').textContent = cnt7;
+            document.getElementById('tabCount30').textContent = cnt30;
+        }
+
+        function applyTabFilter(refunds) {
+            if (!State.activeTab) return refunds;
+
+            const now = Date.now();
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            return refunds.filter(r => {
+                const dt = String(r.created_at || '');
+                const d = new Date(dt.replace(' ', 'T'));
+                if (isNaN(d.getTime())) return false;
+
+                const diffDays = Math.floor((now - d.getTime()) / 86400000);
+
+                if (State.activeTab === 'today') return d.getTime() >= today.getTime();
+                if (State.activeTab === '7days') return diffDays <= 7;
+                if (State.activeTab === '30days') return diffDays <= 30;
+
+                return true;
+            });
+        }
+
+        function applyFilters(refunds) {
+            return refunds.filter(r => {
+                const amount = parseFloat(r.amount || 0);
+
+                if (State.filters.amount) {
+                    if (State.filters.amount === '0-50' && (amount < 0 || amount > 50)) return false;
+                    if (State.filters.amount === '50-100' && (amount < 50 || amount > 100)) return false;
+                    if (State.filters.amount === '100-500' && (amount < 100 || amount > 500)) return false;
+                    if (State.filters.amount === '500-1000' && (amount < 500 || amount > 1000)) return false;
+                    if (State.filters.amount === '1000+' && amount < 1000) return false;
+                }
+
+                if (State.filters.date) {
+                    const dt = String(r.created_at || '');
+                    const d = new Date(dt.replace(' ', 'T'));
+                    if (isNaN(d.getTime())) return false;
+
+                    const now = new Date();
+                    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    const refDate = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+                    const diffDays = Math.floor((today - refDate) / 86400000);
+
+                    if (State.filters.date === 'today' && diffDays !== 0) return false;
+                    if (State.filters.date === 'yesterday' && diffDays !== 1) return false;
+                    if (State.filters.date === '7days' && diffDays > 7) return false;
+                    if (State.filters.date === '30days' && diffDays > 30) return false;
+                }
+
+                return true;
+            });
+        }
+
+        function applySort(refunds) {
+            const [field, dir] = State.sort.split('_');
+
+            return refunds.slice().sort((a, b) => {
+                let va, vb;
+
+                switch (field) {
+                    case 'id':
+                        va = parseInt(a.order_id || a.id || 0) || 0;
+                        vb = parseInt(b.order_id || b.id || 0) || 0;
+                        break;
+                    case 'amount':
+                        va = parseFloat(a.amount || 0);
+                        vb = parseFloat(b.amount || 0);
+                        break;
+                    default:
+                        return 0;
+                }
+
+                return dir === 'desc' ? vb - va : va - vb;
+            });
+        }
+
+        function renderTable(refunds) {
+            const tbody = document.getElementById('refundsTableBody');
+
+            if (refunds.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No refunds found</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Refunds appear here when orders fail or are cancelled
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = refunds.map(r => {
+                const refundId = Utils.escape(r.id || '');
+                const orderId = Utils.escape(r.order_id || '—');
+                const userId = Utils.escape(r.user_id || '');
+                const username = Utils.escape(r.username || r.user_id || 'User');
+                const amount = parseFloat(r.amount || 0);
+                const note = Utils.escape(r.note || 'Refund processed');
+                const date = Utils.date(r.created_at);
+                const initial = Utils.initials(username);
+
+                return `
+                    <tr>
+                        <td><code style="font-size: 11px;">${refundId}</code></td>
+                        <td>
+                            <a href="orders.html?highlight=${orderId}" style="color: var(--primary); font-weight: 600;">
+                                #${orderId}
+                            </a>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div class="header-user-avatar" style="width: 28px; height: 28px; font-size: 11px; flex-shrink: 0;">
+                                    ${initial}
+                                </div>
+                                <div style="min-width: 0;">
+                                    <div style="font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;">
+                                        ${username}
+                                    </div>
+                                    <div style="font-size: 10px; color: var(--text-muted);">
+                                        <code>${userId}</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="refund-amount">-₹${amount.toFixed(2)}</span>
+                        </td>
+                        <td>
+                            <div class="refund-note">${note}</div>
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted);">${date}</td>
+                        <td>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-action="view" data-refund="${refundId}" data-order="${orderId}" title="View Order">
+                                👁️
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-action="user" data-user="${userId}" title="View User">
+                                👤
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            bindRowEvents();
+        }
+
+        function bindRowEvents() {
+            document.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.dataset.action;
+
+                    if (action === 'view') {
+                        window.location.href = `orders.html?highlight=${btn.dataset.order}`;
+                    }
+
+                    if (action === 'user') {
+                        window.location.href = `users.html?search=${btn.dataset.user}`;
+                    }
+                });
+            });
+        }
+
+        function updateStats(refunds) {
+            const total = refunds.length;
+            const totalAmount = refunds.reduce((sum, r) => sum + parseFloat(r.amount || 0), 0);
+            const avg = total > 0 ? totalAmount / total : 0;
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const todayAmount = refunds
+                .filter(r => {
+                    const d = new Date(String(r.created_at || '').replace(' ', 'T'));
+                    return !isNaN(d.getTime()) && d.getTime() >= today.getTime();
+                })
+                .reduce((sum, r) => sum + parseFloat(r.amount || 0), 0);
+
+            document.getElementById('statTotal').textContent = Utils.number(total);
+            document.getElementById('statAmount').textContent = Utils.money(totalAmount);
+            document.getElementById('statToday').textContent = Utils.money(todayAmount);
+            document.getElementById('statAvg').textContent = Utils.money(avg);
+        }
+
+        function updateHeaderSubtitle() {
+            document.getElementById('headerSubtitle').textContent =
+                `${State.refunds.length} refunds`;
+            document.getElementById('pageStats').textContent =
+                `${State.refunds.length} total refund records`;
+        }
+
+        function exportCSV() {
+            const refunds = State.refunds;
+            if (refunds.length === 0) {
+                Toast.error('No refunds to export');
+                return;
+            }
+
+            const headers = ['Refund ID', 'Order ID', 'User ID', 'Username', 'Amount', 'Note', 'Date'];
+
+            const rows = refunds.map(r => [
+                r.id || '',
+                r.order_id || '',
+                r.user_id || '',
+                r.username || '',
+                r.amount || 0,
+                r.note || '',
+                r.created_at || '',
+            ]);
+
+            const csv = [headers, ...rows]
+                .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                .join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `refunds_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${refunds.length} refunds`);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

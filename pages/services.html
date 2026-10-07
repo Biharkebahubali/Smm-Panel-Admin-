@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>🛒 Services — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- APP SHELL -->
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link active" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- MAIN CONTENT -->
+        <div class="app-content">
+
+            <!-- HEADER -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">🛒 Services Management</div>
+                        <div class="header-subtitle" id="headerSubtitle">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search services...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">🛒 Services Management</h1>
+                        <p class="page-description" id="pageStats">Loading services...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-warning btn-sm" id="syncBtn">
+                            🔄 Sync from API
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="exportBtn">
+                            📤 Export CSV
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="addServiceBtn">
+                            ➕ Add Manual Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">🛒</div>
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">Total Services</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value" id="statActive">0</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔒</div>
+                        <div class="stat-value" id="statManual">0</div>
+                        <div class="stat-label">Manual Price</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤑</div>
+                        <div class="stat-value" id="statAvgProfit">₹0</div>
+                        <div class="stat-label">Avg Profit / 1k</div>
+                    </div>
+                </div>
+
+                <!-- SYNC ALERT -->
+                <div class="alert alert-info" id="syncInfo" style="display: none;">
+                    <span>ℹ️</span>
+                    <div id="syncInfoText" style="flex: 1;"></div>
+                    <button class="btn btn-ghost btn-sm" onclick="document.getElementById('syncInfo').style.display='none'">✕</button>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="card mb-lg">
+                    <div class="card-body" style="padding: 0;">
+                        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">🔍 Search</label>
+                                <input type="text" class="form-input" id="searchInput" placeholder="Name, ID, category...">
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="filterCategory">
+                                    <option value="">All Categories</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="filterStatus">
+                                    <option value="">All Status</option>
+                                    <option value="1">🟢 Active</option>
+                                    <option value="0">🔴 Inactive</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Price Range</label>
+                                <select class="form-select" id="filterPrice">
+                                    <option value="">Any Price</option>
+                                    <option value="0-30">₹0 - ₹30</option>
+                                    <option value="30-50">₹30 - ₹50</option>
+                                    <option value="50-100">₹50 - ₹100</option>
+                                    <option value="100-500">₹100 - ₹500</option>
+                                    <option value="500+">₹500+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Sort By</label>
+                                <select class="form-select" id="filterSort">
+                                    <option value="id_asc">ID: Low → High</option>
+                                    <option value="id_desc">ID: High → Low</option>
+                                    <option value="price_asc">Price: Low → High</option>
+                                    <option value="price_desc">Price: High → Low</option>
+                                    <option value="profit_desc">Profit: High → Low</option>
+                                    <option value="name_asc">Name: A → Z</option>
+                                    <option value="name_desc">Name: Z → A</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-secondary btn-icon" id="clearFilters" title="Clear Filters">
+                                ✕
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BULK ACTIONS BAR -->
+                <div class="card mb-md" id="bulkBar" style="display: none;">
+                    <div class="card-body" style="padding: 12px 16px;">
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <span style="font-weight: 600; color: var(--primary);">
+                                ✅ <span id="selectedCount">0</span> selected
+                            </span>
+                            <div style="flex: 1;"></div>
+                            <button class="btn btn-success btn-sm" data-bulk="activate">🟢 Activate</button>
+                            <button class="btn btn-warning btn-sm" data-bulk="deactivate">🔴 Deactivate</button>
+                            <button class="btn btn-primary btn-sm" data-bulk="price">💰 Bulk Price</button>
+                            <button class="btn btn-info btn-sm" data-bulk="profit">🤑 Bulk Profit</button>
+                            <button class="btn btn-danger btn-sm" data-bulk="delete">🗑️ Delete</button>
+                            <button class="btn btn-ghost btn-sm" id="clearSelection">✕ Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div class="table-wrapper" style="border: none;">
+                        <table class="table" id="servicesTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px;">
+                                        <input type="checkbox" id="selectAll" style="cursor:pointer;">
+                                    </th>
+                                    <th class="sortable" data-sort="id">ID</th>
+                                    <th>Service Name</th>
+                                    <th>Category</th>
+                                    <th>API Rate</th>
+                                    <th>Selling</th>
+                                    <th>Profit</th>
+                                    <th>Min/Max</th>
+                                    <th>Mode</th>
+                                    <th>Status</th>
+                                    <th style="width: 110px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="servicesTableBody">
+                                <tr>
+                                    <td colspan="11" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                        <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                        Loading services...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="pagination" id="pagination" style="display: none;">
+                        <div class="pagination-info" id="paginationInfo"></div>
+                        <div class="pagination-controls" id="paginationControls"></div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       SERVICES PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ---- State ---- */
+        const State = {
+            services: [],
+            allServices: [],
+            page: 1,
+            perPage: 20,
+            total: 0,
+            totalPages: 1,
+            search: '',
+            filters: {
+                category: '',
+                status: '',
+                price: '',
+            },
+            sort: 'id_asc',
+            selected: new Set(),
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            setupListeners();
+            await loadServices();
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+
+            document.getElementById('refreshBtn').addEventListener('click', () => loadServices(true));
+
+            /* ---- Sync ---- */
+            document.getElementById('syncBtn').addEventListener('click', syncServices);
+
+            /* ---- Add service ---- */
+            document.getElementById('addServiceBtn').addEventListener('click', showAddServiceModal);
+
+            /* ---- Export ---- */
+            document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+            /* ---- Search ---- */
+            const searchInput = document.getElementById('searchInput');
+            const headerSearch = document.getElementById('headerSearch');
+
+            const debouncedSearch = Utils.debounce(() => {
+                State.search = searchInput.value.trim();
+                State.page = 1;
+                loadServices();
+            }, 500);
+
+            searchInput.addEventListener('input', debouncedSearch);
+            headerSearch.addEventListener('input', () => {
+                searchInput.value = headerSearch.value;
+                debouncedSearch();
+            });
+
+            /* ---- Filters ---- */
+            ['filterCategory', 'filterStatus', 'filterPrice', 'filterSort'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.filters.category = document.getElementById('filterCategory').value;
+                    State.filters.status = document.getElementById('filterStatus').value;
+                    State.filters.price = document.getElementById('filterPrice').value;
+                    State.sort = document.getElementById('filterSort').value;
+                    State.page = 1;
+                    loadServices();
+                });
+            });
+
+            /* ---- Clear filters ---- */
+            document.getElementById('clearFilters').addEventListener('click', () => {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('headerSearch').value = '';
+                document.getElementById('filterCategory').value = '';
+                document.getElementById('filterStatus').value = '';
+                document.getElementById('filterPrice').value = '';
+                document.getElementById('filterSort').value = 'id_asc';
+
+                State.search = '';
+                State.filters = { category: '', status: '', price: '' };
+                State.sort = 'id_asc';
+                State.page = 1;
+
+                loadServices();
+                Toast.info('Filters cleared');
+            });
+
+            /* ---- Select all ---- */
+            document.getElementById('selectAll').addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    State.services.forEach(s => State.selected.add(String(s.id)));
+                } else {
+                    State.selected.clear();
+                }
+                updateBulkBar();
+                updateCheckboxes();
+            });
+
+            /* ---- Bulk actions ---- */
+            document.querySelectorAll('[data-bulk]').forEach(btn => {
+                btn.addEventListener('click', () => handleBulkAction(btn.dataset.bulk));
+            });
+
+            /* ---- Clear selection ---- */
+            document.getElementById('clearSelection').addEventListener('click', () => {
+                State.selected.clear();
+                updateBulkBar();
+                updateCheckboxes();
+                document.getElementById('selectAll').checked = false;
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           LOAD SERVICES
+         ============================================================ */
+        async function loadServices(showToast = false) {
+            const tbody = document.getElementById('servicesTableBody');
+            tbody.innerHTML = `<tr><td colspan="11" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                Loading services...
+            </td></tr>`;
+
+            try {
+                const res = await API.getDataPage('services', 1, 5000, State.search);
+
+                if (!res || !res.success) {
+                    throw new Error(res?.error || 'Failed to load services');
+                }
+
+                const allServices = Array.isArray(res.rows) ? res.rows : [];
+                State.allServices = allServices;
+
+                /* ---- Populate category filter ---- */
+                populateCategoryFilter(allServices);
+
+                /* ---- Apply filters ---- */
+                let filtered = applyFilters(allServices);
+                filtered = applySort(filtered);
+
+                /* ---- Pagination ---- */
+                State.total = filtered.length;
+                State.totalPages = Math.max(1, Math.ceil(State.total / State.perPage));
+
+                if (State.page > State.totalPages) State.page = State.totalPages;
+
+                const start = (State.page - 1) * State.perPage;
+                State.services = filtered.slice(start, start + State.perPage);
+
+                /* ---- Render ---- */
+                renderTable(State.services);
+                renderPagination();
+                updateStats(allServices);
+                updateHeaderSubtitle();
+
+                if (showToast) Toast.success('Services updated!');
+
+            } catch (err) {
+                console.error('Load services failed:', err);
+                tbody.innerHTML = `<tr><td colspan="11" class="text-center" style="padding: 60px; color: var(--danger);">
+                    ❌ Failed to load services: ${Utils.escape(err.message || 'Unknown error')}
+                    <br><br>
+                    <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Retry</button>
+                </td></tr>`;
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           POPULATE CATEGORY FILTER
+         ============================================================ */
+        function populateCategoryFilter(services) {
+            const cats = [...new Set(
+                services.map(s => s.category).filter(Boolean)
+            )].sort();
+
+            const sel = document.getElementById('filterCategory');
+            const current = sel.value;
+
+            /* Preserve All option, clear rest */
+            sel.innerHTML = '<option value="">All Categories</option>';
+
+            cats.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+
+            /* Restore selection if still valid */
+            if (current && cats.includes(current)) {
+                sel.value = current;
+            }
+        }
+
+        /* ============================================================
+           APPLY FILTERS
+         ============================================================ */
+        function applyFilters(services) {
+            return services.filter(s => {
+                /* Category */
+                if (State.filters.category && s.category !== State.filters.category) {
+                    return false;
+                }
+
+                /* Status */
+                if (State.filters.status !== '') {
+                    const isActive = parseInt(s.is_active || 0);
+                    if (isActive !== parseInt(State.filters.status)) return false;
+                }
+
+                /* Price */
+                const price = parseFloat(s.selling_price || 0);
+                if (State.filters.price) {
+                    if (State.filters.price === '0-30' && (price < 0 || price > 30)) return false;
+                    if (State.filters.price === '30-50' && (price < 30 || price > 50)) return false;
+                    if (State.filters.price === '50-100' && (price < 50 || price > 100)) return false;
+                    if (State.filters.price === '100-500' && (price < 100 || price > 500)) return false;
+                    if (State.filters.price === '500+' && price < 500) return false;
+                }
+
+                return true;
+            });
+        }
+
+        function applySort(services) {
+            const [field, dir] = State.sort.split('_');
+
+            return services.slice().sort((a, b) => {
+                let va, vb;
+
+                switch (field) {
+                    case 'id':
+                        va = parseInt(a.api_service_id || 0);
+                        vb = parseInt(b.api_service_id || 0);
+                        break;
+                    case 'price':
+                        va = parseFloat(a.selling_price || 0);
+                        vb = parseFloat(b.selling_price || 0);
+                        break;
+                    case 'profit':
+                        va = parseFloat(a.profit_per_1000 || 0);
+                        vb = parseFloat(b.profit_per_1000 || 0);
+                        break;
+                    case 'name':
+                        va = String(a.name || '').toLowerCase();
+                        vb = String(b.name || '').toLowerCase();
+                        return dir === 'desc' ? vb.localeCompare(va) : va.localeCompare(vb);
+                    default:
+                        return 0;
+                }
+
+                return dir === 'desc' ? vb - va : va - vb;
+            });
+        }
+
+        /* ============================================================
+           RENDER TABLE
+         ============================================================ */
+        function renderTable(services) {
+            const tbody = document.getElementById('servicesTableBody');
+
+            if (services.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="11" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No services found</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Try syncing from API or adjusting filters
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = services.map(s => {
+                const id = Utils.escape(s.api_service_id || '');
+                const name = Utils.truncate(Utils.escape(s.name || 'Service'), 45);
+                const category = Utils.escape(s.category || 'Others');
+                const apiRate = parseFloat(s.api_rate || 0);
+                const selling = parseFloat(s.selling_price || 0);
+                const profit = parseFloat(s.profit_per_1000 || 0);
+                const minOrder = parseInt(s.min_order || 0);
+                const maxOrder = parseInt(s.max_order || 0);
+                const isActive = s.is_active == 1;
+                const isManual = s.is_manual_price == 1;
+                const isHot = s.is_hot == 1;
+                const isChecked = State.selected.has(String(s.id));
+
+                /* ---- Category emoji ---- */
+                const emoji = getCategoryEmoji(category);
+
+                /* ---- Status badge ---- */
+                const statusBadge = isActive
+                    ? '<span class="badge badge-success">🟢 Active</span>'
+                    : '<span class="badge badge-danger">🔴 Inactive</span>';
+
+                /* ---- Mode badge ---- */
+                const modeBadge = isManual
+                    ? '<span class="badge badge-warning">🔒 Manual</span>'
+                    : '<span class="badge badge-info">🤖 Auto</span>';
+
+                /* ---- Hot tag ---- */
+                const hotTag = isHot ? ' 🔥' : '';
+
+                return `
+                    <tr data-service-id="${Utils.escape(s.id)}" class="${isChecked ? 'selected' : ''}">
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-service-id="${Utils.escape(s.id)}" ${isChecked ? 'checked' : ''} style="cursor:pointer;">
+                        </td>
+                        <td><code style="font-size: 11px;">#${id}</code></td>
+                        <td>
+                            <div style="font-size: 13px; font-weight: 500; max-width: 320px; overflow: hidden; text-overflow: ellipsis;">
+                                ${name}${hotTag}
+                            </div>
+                            ${s.subcategory ? `<div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">${Utils.escape(s.subcategory)}</div>` : ''}
+                        </td>
+                        <td style="font-size: 12px;">
+                            ${emoji} ${category}
+                        </td>
+                        <td><span style="color: var(--text-muted); font-size: 12px;">₹${apiRate.toFixed(2)}</span></td>
+                        <td><b style="color: var(--primary);">₹${selling.toFixed(2)}</b></td>
+                        <td><span style="color: var(--success); font-weight: 600;">₹${profit.toFixed(2)}</span></td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.compact(minOrder)} / ${Utils.compact(maxOrder)}
+                        </td>
+                        <td>${modeBadge}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <div style="display: flex; gap: 2px;">
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="edit" data-service="${Utils.escape(s.id)}" title="Edit">
+                                    ✏️
+                                </button>
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="toggle" data-service="${Utils.escape(s.id)}" title="${isActive ? 'Deactivate' : 'Activate'}">
+                                    ${isActive ? '🔴' : '🟢'}
+                                </button>
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="menu" data-service="${Utils.escape(s.id)}" title="More">
+                                    ⋮
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            bindRowEvents();
+        }
+
+        function bindRowEvents() {
+            document.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.dataset.action;
+                    const serviceId = btn.dataset.service;
+
+                    if (action === 'edit') showEditServiceModal(serviceId);
+                    if (action === 'toggle') toggleService(serviceId);
+                    if (action === 'menu') showMoreMenu(serviceId);
+                });
+            });
+
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const id = cb.dataset.serviceId;
+                    const row = cb.closest('tr');
+
+                    if (cb.checked) {
+                        State.selected.add(id);
+                        row.classList.add('selected');
+                    } else {
+                        State.selected.delete(id);
+                        row.classList.remove('selected');
+                    }
+
+                    updateBulkBar();
+                    updateSelectAllState();
+                });
+            });
+        }
+
+        function updateCheckboxes() {
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.checked = State.selected.has(cb.dataset.serviceId);
+                cb.closest('tr').classList.toggle('selected', cb.checked);
+            });
+        }
+
+        function updateSelectAllState() {
+            const selectAll = document.getElementById('selectAll');
+            if (!selectAll) return;
+
+            const visibleIds = State.services.map(s => String(s.id));
+            const checkedCount = visibleIds.filter(id => State.selected.has(id)).length;
+
+            if (checkedCount === 0) {
+                selectAll.checked = false;
+                selectAll.indeterminate = false;
+            } else if (checkedCount === visibleIds.length) {
+                selectAll.checked = true;
+                selectAll.indeterminate = false;
+            } else {
+                selectAll.checked = false;
+                selectAll.indeterminate = true;
+            }
+        }
+
+        /* ============================================================
+           CATEGORY EMOJI
+         ============================================================ */
+        function getCategoryEmoji(cat) {
+            const map = {
+                'Instagram': '📸',
+                'Facebook': '👤',
+                'YouTube': '▶️',
+                'Twitter': '🐦',
+                'TikTok': '🎵',
+                'Telegram': '✈️',
+                'Spotify': '🎧',
+                'Website': '🌐',
+                'Discord': '💬',
+                'Threads': '🧵',
+                'Pinterest': '📌',
+                'Snapchat': '👻',
+                'LinkedIn': '💼',
+                'WhatsApp': '📱',
+                'SoundCloud': '🎵',
+                'Trustpilot': '⭐',
+                'TripAdvisor': '🦉',
+                'Backlinks': '🔗',
+                'SEO': '📈',
+                'Reviews': '⭐',
+                'Google': '🔍',
+                'Others': '📦',
+            };
+            return map[cat] || '📦';
+        }
+
+        /* ============================================================
+           STATS
+         ============================================================ */
+        function updateStats(services) {
+            const total = services.length;
+            const active = services.filter(s => s.is_active == 1).length;
+            const manual = services.filter(s => s.is_manual_price == 1).length;
+
+            const avgProfit = total > 0
+                ? services.reduce((sum, s) => sum + parseFloat(s.profit_per_1000 || 0), 0) / total
+                : 0;
+
+            document.getElementById('statTotal').textContent = Utils.number(total);
+            document.getElementById('statActive').textContent = Utils.number(active);
+            document.getElementById('statManual').textContent = Utils.number(manual);
+            document.getElementById('statAvgProfit').textContent = Utils.money(avgProfit);
+        }
+
+        function updateHeaderSubtitle() {
+            const start = State.total === 0 ? 0 : (State.page - 1) * State.perPage + 1;
+            const end = Math.min(State.page * State.perPage, State.total);
+
+            document.getElementById('headerSubtitle').textContent =
+                `Showing ${start}-${end} of ${State.total} services`;
+            document.getElementById('pageStats').textContent =
+                `${State.total} services • Page ${State.page} of ${State.totalPages}`;
+        }
+
+        /* ============================================================
+           PAGINATION
+         ============================================================ */
+        function renderPagination() {
+            const pag = document.getElementById('pagination');
+            const info = document.getElementById('paginationInfo');
+            const controls = document.getElementById('paginationControls');
+
+            if (State.totalPages <= 1) {
+                pag.style.display = 'none';
+                return;
+            }
+
+            pag.style.display = '';
+
+            const start = (State.page - 1) * State.perPage + 1;
+            const end = Math.min(State.page * State.perPage, State.total);
+
+            info.textContent = `Showing ${start}-${end} of ${State.total}`;
+
+            let html = '';
+            const maxButtons = 7;
+
+            html += `<button class="pagination-btn" data-page="prev" ${State.page === 1 ? 'disabled' : ''}>◀</button>`;
+
+            let startPage = Math.max(1, State.page - Math.floor(maxButtons / 2));
+            let endPage = Math.min(State.totalPages, startPage + maxButtons - 1);
+
+            if (endPage - startPage < maxButtons - 1) {
+                startPage = Math.max(1, endPage - maxButtons + 1);
+            }
+
+            if (startPage > 1) {
+                html += `<button class="pagination-btn" data-page="1">1</button>`;
+                if (startPage > 2) {
+                    html += `<span style="color: var(--text-muted); padding: 0 4px;">…</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button class="pagination-btn ${i === State.page ? 'active' : ''}" data-page="${i}">${i}</button>`;
+            }
+
+            if (endPage < State.totalPages) {
+                if (endPage < State.totalPages - 1) {
+                    html += `<span style="color: var(--text-muted); padding: 0 4px;">…</span>`;
+                }
+                html += `<button class="pagination-btn" data-page="${State.totalPages}">${State.totalPages}</button>`;
+            }
+
+            html += `<button class="pagination-btn" data-page="next" ${State.page === State.totalPages ? 'disabled' : ''}>▶</button>`;
+
+            controls.innerHTML = html;
+
+            controls.querySelectorAll('.pagination-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const p = btn.dataset.page;
+                    if (p === 'prev') State.page = Math.max(1, State.page - 1);
+                    else if (p === 'next') State.page = Math.min(State.totalPages, State.page + 1);
+                    else State.page = parseInt(p);
+
+                    loadServices();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        /* ============================================================
+           BULK BAR
+         ============================================================ */
+        function updateBulkBar() {
+            const bar = document.getElementById('bulkBar');
+            const count = State.selected.size;
+
+            if (count > 0) {
+                bar.style.display = '';
+                document.getElementById('selectedCount').textContent = count;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+
+        /* ============================================================
+           BULK ACTIONS
+         ============================================================ */
+        async function handleBulkAction(action) {
+            const ids = [...State.selected];
+            if (ids.length === 0) return;
+
+            if (action === 'activate' || action === 'deactivate') {
+                const isActive = action === 'activate' ? 1 : 0;
+                const label = action === 'activate' ? 'Activate' : 'Deactivate';
+
+                const confirmed = await Modal.confirm({
+                    title: `🛒 ${label} Services`,
+                    message: `${label} ${ids.length} service(s)?`,
+                    confirmText: `Yes, ${label}`,
+                    type: 'warning',
+                });
+
+                if (!confirmed) return;
+
+                Loader.show();
+                let success = 0;
+                let failed = 0;
+
+                for (const id of ids) {
+                    try {
+                        const res = await API.updateService(id, 'is_active', isActive);
+                        if (res && res.success) success++;
+                        else failed++;
+                    } catch (e) {
+                        failed++;
+                    }
+                }
+
+                Toast.success(`${label}d: ${success}${failed ? `, Failed: ${failed}` : ''}`);
+                State.selected.clear();
+                updateBulkBar();
+                loadServices();
+                Loader.hide();
+            }
+
+            if (action === 'price') {
+                showBulkPriceModal(ids);
+            }
+
+            if (action === 'profit') {
+                showBulkProfitModal(ids);
+            }
+
+            if (action === 'delete') {
+                const confirmed = await Modal.confirm({
+                    title: '🗑️ Delete Services',
+                    message: `Delete ${ids.length} service(s)? This action CANNOT be undone!`,
+                    confirmText: 'Yes, Delete All',
+                    type: 'danger',
+                });
+
+                if (!confirmed) return;
+
+                Loader.show();
+                let success = 0;
+                let failed = 0;
+
+                for (const id of ids) {
+                    try {
+                        const res = await API.deleteService(id);
+                        if (res && res.success) success++;
+                        else failed++;
+                    } catch (e) {
+                        failed++;
+                    }
+                }
+
+                Toast.success(`Deleted: ${success}${failed ? `, Failed: ${failed}` : ''}`);
+                State.selected.clear();
+                updateBulkBar();
+                loadServices();
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           BULK PRICE MODAL
+         ============================================================ */
+        function showBulkPriceModal(ids) {
+            const body = `
+                <div class="alert alert-info">
+                    💰 Bulk price change for <b>${ids.length}</b> service(s)
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Operation</label>
+                    <select class="form-select" id="bulkPriceOp">
+                        <option value="set">🔧 Set Fixed Selling Price</option>
+                        <option value="increase_pct">📈 Increase by %</option>
+                        <option value="decrease_pct">📉 Decrease by %</option>
+                        <option value="increase_fixed">➕ Increase by ₹</option>
+                        <option value="decrease_fixed">➖ Decrease by ₹</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Value</label>
+                    <input type="number" class="form-input" id="bulkPriceValue" placeholder="0.00" step="0.01" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="bulkPriceOnlyAuto" checked>
+                        <span>Only apply to auto-priced services</span>
+                    </label>
+                    <div class="form-help">Manual-priced services will not be affected</div>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-bulk-price="cancel">Cancel</button>
+                <button class="btn btn-primary" data-bulk-price="apply">✅ Apply to ${ids.length}</button>
+            `;
+
+            Modal.open({
+                title: '💰 Bulk Price Change',
+                body,
+                footer,
+                onOpen: (el) => {
+                    el.querySelector('[data-bulk-price="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-bulk-price="apply"]').addEventListener('click', async () => {
+                        const op = el.querySelector('#bulkPriceOp').value;
+                        const val = parseFloat(el.querySelector('#bulkPriceValue').value);
+                        const onlyAuto = el.querySelector('#bulkPriceOnlyAuto').checked;
+
+                        if (!val || val <= 0) {
+                            Toast.error('Enter valid value');
+                            return;
+                        }
+
+                        const btn = el.querySelector('[data-bulk-price="apply"]');
+                        btn.classList.add('loading');
+                        btn.disabled = true;
+
+                        Loader.show();
+                        let success = 0;
+                        let failed = 0;
+
+                        for (const id of ids) {
+                            try {
+                                const service = State.allServices.find(s => String(s.id) === String(id));
+                                if (!service) { failed++; continue; }
+
+                                /* Skip manual-priced if onlyAuto */
+                                if (onlyAuto && service.is_manual_price == 1) {
+                                    failed++;
+                                    continue;
+                                }
+
+                                const currentPrice = parseFloat(service.selling_price || 0);
+                                let newPrice = currentPrice;
+
+                                if (op === 'set') newPrice = val;
+                                else if (op === 'increase_pct') newPrice = currentPrice * (1 + val / 100);
+                                else if (op === 'decrease_pct') newPrice = currentPrice * (1 - val / 100);
+                                else if (op === 'increase_fixed') newPrice = currentPrice + val;
+                                else if (op === 'decrease_fixed') newPrice = Math.max(0, currentPrice - val);
+
+                                newPrice = Math.max(0, Math.round(newPrice * 100) / 100);
+
+                                const res = await API.updateService(id, 'selling_price', newPrice);
+                                if (res && res.success) success++;
+                                else failed++;
+                            } catch (e) {
+                                failed++;
+                            }
+                        }
+
+                        Loader.hide();
+                        Toast.success(`Updated: ${success}${failed ? `, Failed: ${failed}` : ''}`);
+                        el.close();
+                        State.selected.clear();
+                        updateBulkBar();
+                        loadServices();
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           BULK PROFIT MODAL
+         ============================================================ */
+        function showBulkProfitModal(ids) {
+            const body = `
+                <div class="alert alert-info">
+                    🤑 Bulk profit update for <b>${ids.length}</b> service(s)
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Profit per 1000 (₹)</label>
+                    <input type="number" class="form-input" id="bulkProfitValue" placeholder="0.00" step="0.01" min="0">
+                    <div class="form-help">New selling = API rate + this profit</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="bulkProfitOnlyAuto" checked>
+                        <span>Only apply to auto-priced services</span>
+                    </label>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-bulk-profit="cancel">Cancel</button>
+                <button class="btn btn-primary" data-bulk-profit="apply">✅ Apply to ${ids.length}</button>
+            `;
+
+            Modal.open({
+                title: '🤑 Bulk Profit Update',
+                body,
+                footer,
+                onOpen: (el) => {
+                    el.querySelector('[data-bulk-profit="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-bulk-profit="apply"]').addEventListener('click', async () => {
+                        const profit = parseFloat(el.querySelector('#bulkProfitValue').value);
+                        const onlyAuto = el.querySelector('#bulkProfitOnlyAuto').checked;
+
+                        if (!profit || profit < 0) {
+                            Toast.error('Enter valid profit');
+                            return;
+                        }
+
+                        Loader.show();
+                        let success = 0;
+                        let failed = 0;
+
+                        for (const id of ids) {
+                            try {
+                                const service = State.allServices.find(s => String(s.id) === String(id));
+                                if (!service) { failed++; continue; }
+
+                                if (onlyAuto && service.is_manual_price == 1) {
+                                    failed++;
+                                    continue;
+                                }
+
+                                const apiRate = parseFloat(service.api_rate || 0);
+                                const newSelling = Math.round((apiRate + profit) * 100) / 100;
+
+                                /* Update both selling price and profit */
+                                const res1 = await API.updateService(id, 'selling_price', newSelling);
+                                if (res1 && res1.success) success++;
+                                else failed++;
+                            } catch (e) {
+                                failed++;
+                            }
+                        }
+
+                        Loader.hide();
+                        Toast.success(`Updated: ${success}${failed ? `, Failed: ${failed}` : ''}`);
+                        el.close();
+                        State.selected.clear();
+                        updateBulkBar();
+                        loadServices();
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           SYNC SERVICES
+         ============================================================ */
+        async function syncServices() {
+            const confirmed = await Modal.confirm({
+                title: '🔄 Sync Services',
+                message: 'API se services sync karega. Ye thoda time le sakta hai (30-90 sec). Continue?',
+                confirmText: 'Yes, Sync Now',
+                type: 'info',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Syncing services... please wait');
+
+            try {
+                const res = await API.sync();
+
+                if (res && res.success) {
+                    const info = document.getElementById('syncInfo');
+                    const infoText = document.getElementById('syncInfoText');
+
+                    infoText.innerHTML = `
+                        <b>✅ Sync Complete!</b>
+                        Added: <b>${res.added || 0}</b> •
+                        Updated: <b>${res.updated || 0}</b> •
+                        Removed: <b>${res.removed || 0}</b> •
+                        Total Active: <b>${res.serverServiceCount || 0}</b>
+                        ${res.price_preserved ? ` • Price Preserved: <b>${res.price_preserved}</b>` : ''}
+                        ${res.skipped_unchanged ? ` • Unchanged: <b>${res.skipped_unchanged}</b>` : ''}
+                    `;
+                    info.style.display = 'flex';
+
+                    Toast.success(`Sync done! +${res.added || 0} added, ${res.updated || 0} updated`);
+
+                    /* ---- Auto hide after 15s ---- */
+                    setTimeout(() => { info.style.display = 'none'; }, 15000);
+
+                    loadServices();
+                } else {
+                    Toast.error(res?.error || 'Sync failed');
+                }
+            } catch (err) {
+                console.error('Sync failed:', err);
+                Toast.error('Sync failed — check API');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           TOGGLE SERVICE
+         ============================================================ */
+        async function toggleService(serviceId) {
+            const service = State.allServices.find(s => String(s.id) === String(serviceId));
+            if (!service) return;
+
+            const isActive = service.is_active == 1;
+            const newVal = isActive ? 0 : 1;
+
+            const confirmed = await Modal.confirm({
+                title: isActive ? '🔴 Deactivate' : '🟢 Activate',
+                message: `${isActive ? 'Deactivate' : 'Activate'} <b>${Utils.escape(service.name)}</b>?`,
+                confirmText: isActive ? 'Deactivate' : 'Activate',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                const res = await API.updateService(serviceId, 'is_active', newVal);
+                if (res && res.success) {
+                    Toast.success(`Service ${newVal ? 'activated' : 'deactivated'}`);
+                    loadServices();
+                } else {
+                    Toast.error(res?.error || 'Toggle failed');
+                }
+            } catch (err) {
+                Toast.error('Toggle failed');
+            }
+        }
+
+        /* ============================================================
+           MORE MENU
+         ============================================================ */
+        function showMoreMenu(serviceId) {
+            const service = State.allServices.find(s => String(s.id) === String(serviceId));
+            if (!service) return;
+
+            const isActive = service.is_active == 1;
+            const isManual = service.is_manual_price == 1;
+
+            const body = `
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-mm="view">
+                        👁️ View Details
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-mm="edit">
+                        ✏️ Edit
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-mm="togglePriceMode">
+                        ${isManual ? '🤖 Switch to Auto Price' : '🔒 Set Manual Price'}
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-mm="copy">
+                        📋 Copy Service ID
+                    </button>
+                    <div class="divider"></div>
+                    <button class="btn btn-ghost" style="justify-content: flex-start; color: ${isActive ? 'var(--warning)' : 'var(--success)'};" data-mm="toggle">
+                        ${isActive ? '🔴 Deactivate' : '🟢 Activate'}
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start; color: var(--danger);" data-mm="delete">
+                        🗑️ Delete Service
+                    </button>
+                </div>
+            `;
+
+            Modal.open({
+                title: '⚙️ Service Actions',
+                body,
+                size: 'sm',
+                onOpen: (el) => {
+                    el.querySelector('[data-mm="view"]').addEventListener('click', () => {
+                        el.close();
+                        showServiceDetail(serviceId);
+                    });
+                    el.querySelector('[data-mm="edit"]').addEventListener('click', () => {
+                        el.close();
+                        showEditServiceModal(serviceId);
+                    });
+                    el.querySelector('[data-mm="togglePriceMode"]').addEventListener('click', async () => {
+                        el.close();
+                        await API.updateService(serviceId, 'is_manual_price', isManual ? 0 : 1);
+                        Toast.success(`Price mode: ${isManual ? 'Auto' : 'Manual'}`);
+                        loadServices();
+                    });
+                    el.querySelector('[data-mm="copy"]').addEventListener('click', () => {
+                        Utils.copy(String(service.api_service_id || ''));
+                        el.close();
+                    });
+                    el.querySelector('[data-mm="toggle"]').addEventListener('click', () => {
+                        el.close();
+                        toggleService(serviceId);
+                    });
+                    el.querySelector('[data-mm="delete"]').addEventListener('click', async () => {
+                        el.close();
+                        const ok = await Modal.confirm({
+                            title: '🗑️ Delete Service',
+                            message: `Delete <b>${Utils.escape(service.name)}</b>? This cannot be undone!`,
+                            confirmText: 'Yes, Delete',
+                            type: 'danger',
+                        });
+                        if (ok) {
+                            try {
+                                await API.deleteService(serviceId);
+                                Toast.success('Service deleted');
+                                loadServices();
+                            } catch (err) {
+                                Toast.error('Delete failed');
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           SERVICE DETAIL MODAL
+         ============================================================ */
+        function showServiceDetail(serviceId) {
+            const service = State.allServices.find(s => String(s.id) === String(serviceId));
+            if (!service) return;
+
+            const apiRate = parseFloat(service.api_rate || 0);
+            const selling = parseFloat(service.selling_price || 0);
+            const profit = parseFloat(service.profit_per_1000 || 0);
+            const margin = apiRate > 0 ? ((profit / apiRate) * 100).toFixed(1) : 0;
+
+            const body = `
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                    ${service.is_active == 1
+                        ? '<span class="badge badge-success">🟢 Active</span>'
+                        : '<span class="badge badge-danger">🔴 Inactive</span>'}
+                    ${service.is_manual_price == 1
+                        ? '<span class="badge badge-warning">🔒 Manual Price</span>'
+                        : '<span class="badge badge-info">🤖 Auto Price</span>'}
+                    ${service.is_hot == 1 ? '<span class="badge badge-danger">🔥 Hot</span>' : ''}
+                    <span class="badge badge-muted">#${Utils.escape(service.api_service_id)}</span>
+                </div>
+
+                <h4 style="margin-bottom: 12px;">${Utils.escape(service.name)}</h4>
+
+                <div class="grid grid-2 gap-sm mb-lg">
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Category</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 13px;">
+                            ${getCategoryEmoji(service.category)} ${Utils.escape(service.category || 'Others')}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Subcategory</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 13px;">
+                            ${Utils.escape(service.subcategory || '—')}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">API Rate / 1k</div>
+                        <div style="font-weight: 600; margin-top: 4px; color: var(--text-muted);">
+                            ₹${apiRate.toFixed(2)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Selling Price / 1k</div>
+                        <div style="font-weight: 600; margin-top: 4px; color: var(--primary);">
+                            ₹${selling.toFixed(2)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Profit / 1k</div>
+                        <div style="font-weight: 600; margin-top: 4px; color: var(--success);">
+                            ₹${profit.toFixed(2)} (${margin}%)
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Min Order</div>
+                        <div style="font-weight: 600; margin-top: 4px;">${Utils.number(service.min_order || 0)}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Max Order</div>
+                        <div style="font-weight: 600; margin-top: 4px;">${Utils.number(service.max_order || 0)}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Added By</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 12px;">
+                            ${service.auto_added == 1 ? '🤖 API Sync' : '✋ Manual'}
+                        </div>
+                    </div>
+                </div>
+
+                ${service.description ? `
+                    <div style="margin-bottom: 12px;">
+                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">Description</div>
+                        <div style="background: var(--bg-input); padding: 10px; border-radius: 6px; font-size: 12px; line-height: 1.6;">
+                            ${Utils.escape(service.description)}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 12px; text-align: center;">
+                    Added: ${Utils.date(service.created_at)} •
+                    Updated: ${Utils.date(service.updated_at)}
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary btn-sm" data-sd="close">Close</button>
+                <button class="btn btn-primary btn-sm" data-sd="edit">✏️ Edit</button>
+            `;
+
+            Modal.open({
+                title: `🛒 Service #${Utils.escape(service.api_service_id)}`,
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-sd="close"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-sd="edit"]').addEventListener('click', () => {
+                        el.close();
+                        showEditServiceModal(serviceId);
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           ADD SERVICE MODAL
+         ============================================================ */
+        function showAddServiceModal() {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Service Name</label>
+                    <input type="text" class="form-input" id="addName" placeholder="e.g. Instagram Followers" maxlength="200" required>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label required">Category</label>
+                        <input type="text" class="form-input" id="addCategory" placeholder="e.g. Instagram" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subcategory</label>
+                        <input type="text" class="form-input" id="addSubcategory" placeholder="e.g. Followers" maxlength="100">
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label required">API Rate / 1000 (₹)</label>
+                        <input type="number" class="form-input" id="addApiRate" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Selling Price / 1000 (₹)</label>
+                        <input type="number" class="form-input" id="addSelling" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Min Order</label>
+                        <input type="number" class="form-input" id="addMinOrder" value="10" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Max Order</label>
+                        <input type="number" class="form-input" id="addMaxOrder" value="100000" min="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description (optional)</label>
+                    <textarea class="form-textarea" id="addDescription" rows="3" maxlength="500" placeholder="Service details..."></textarea>
+                </div>
+
+                <div class="alert alert-info" id="addProfitPreview" style="margin: 0;">
+                    💰 Profit: <b id="addProfitAmount">₹0.00</b> per 1000
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-add="cancel">Cancel</button>
+                <button class="btn btn-primary" data-add="create">➕ Create Service</button>
+            `;
+
+            Modal.open({
+                title: '➕ Add Manual Service',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    const apiRate = el.querySelector('#addApiRate');
+                    const selling = el.querySelector('#addSelling');
+                    const preview = el.querySelector('#addProfitAmount');
+
+                    const updatePreview = () => {
+                        const api = parseFloat(apiRate.value) || 0;
+                        const sell = parseFloat(selling.value) || 0;
+                        const profit = sell - api;
+                        preview.textContent = Utils.money(profit);
+                        preview.style.color = profit >= 0 ? 'var(--success)' : 'var(--danger)';
+                    };
+
+                    apiRate.addEventListener('input', updatePreview);
+                    selling.addEventListener('input', updatePreview);
+
+                    el.querySelector('[data-add="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-add="create"]').addEventListener('click', async () => {
+                        const name = el.querySelector('#addName').value.trim();
+                        const category = el.querySelector('#addCategory').value.trim();
+                        const subcategory = el.querySelector('#addSubcategory').value.trim();
+                        const apiRateVal = parseFloat(el.querySelector('#addApiRate').value);
+                        const sellingVal = parseFloat(el.querySelector('#addSelling').value);
+                        const minOrder = parseInt(el.querySelector('#addMinOrder').value) || 10;
+                        const maxOrder = parseInt(el.querySelector('#addMaxOrder').value) || 100000;
+                        const description = el.querySelector('#addDescription').value.trim();
+
+                        if (!name || name.length < 3) {
+                            Toast.error('Service name required (min 3 chars)');
+                            return;
+                        }
+
+                        if (!category) {
+                            Toast.error('Category required');
+                            return;
+                        }
+
+                        if (isNaN(apiRateVal) || apiRateVal < 0) {
+                            Toast.error('Valid API rate required');
+                            return;
+                        }
+
+                        if (isNaN(sellingVal) || sellingVal < 0) {
+                            Toast.error('Valid selling price required');
+                            return;
+                        }
+
+                        if (minOrder > maxOrder) {
+                            Toast.error('Min order must be ≤ max order');
+                            return;
+                        }
+
+                        const btn = el.querySelector('[data-add="create"]');
+                        btn.classList.add('loading');
+                        btn.disabled = true;
+
+                        try {
+                            const res = await API.addService({
+                                name,
+                                category,
+                                subcategory,
+                                api_rate: apiRateVal,
+                                selling_price: sellingVal,
+                                min_order: minOrder,
+                                max_order: maxOrder,
+                                description,
+                            });
+
+                            if (res && res.success) {
+                                Toast.success('Service created!');
+                                el.close();
+                                loadServices();
+                            } else {
+                                Toast.error(res?.error || 'Create failed');
+                                btn.classList.remove('loading');
+                                btn.disabled = false;
+                            }
+                        } catch (err) {
+                            Toast.error('Create failed');
+                            btn.classList.remove('loading');
+                            btn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           EDIT SERVICE MODAL
+         ============================================================ */
+        function showEditServiceModal(serviceId) {
+            const service = State.allServices.find(s => String(s.id) === String(serviceId));
+            if (!service) return;
+
+            const body = `
+                <div class="form-group">
+                    <label class="form-label">Service ID</label>
+                    <input type="text" class="form-input" value="#${Utils.escape(service.api_service_id)}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Service Name</label>
+                    <input type="text" class="form-input" id="editName" value="${Utils.escape(service.name || '')}" maxlength="200">
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <input type="text" class="form-input" id="editCategory" value="${Utils.escape(service.category || '')}" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subcategory</label>
+                        <input type="text" class="form-input" id="editSubcategory" value="${Utils.escape(service.subcategory || '')}" maxlength="100">
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">API Rate / 1000 (₹)</label>
+                        <input type="number" class="form-input" id="editApiRate" value="${parseFloat(service.api_rate || 0).toFixed(2)}" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Selling Price / 1000 (₹)</label>
+                        <input type="number" class="form-input" id="editSelling" value="${parseFloat(service.selling_price || 0).toFixed(2)}" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Min Order</label>
+                        <input type="number" class="form-input" id="editMinOrder" value="${parseInt(service.min_order || 10)}" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Max Order</label>
+                        <input type="number" class="form-input" id="editMaxOrder" value="${parseInt(service.max_order || 100000)}" min="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="editDescription" rows="3" maxlength="500">${Utils.escape(service.description || '')}</textarea>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="editIsActive" ${service.is_active == 1 ? 'checked' : ''}>
+                        <span>Active</span>
+                    </label>
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="editIsHot" ${service.is_hot == 1 ? 'checked' : ''}>
+                        <span>🔥 Mark as Hot</span>
+                    </label>
+                </div>
+
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="editIsManual" ${service.is_manual_price == 1 ? 'checked' : ''}>
+                    <span>🔒 Manual Price (don't auto-update from API)</span>
+                </label>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-ed="cancel">Cancel</button>
+                <button class="btn btn-primary" data-ed="save">💾 Save All</button>
+            `;
+
+            Modal.open({
+                title: '✏️ Edit Service',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-ed="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-ed="save"]').addEventListener('click', async () => {
+                        const updates = [
+                            { field: 'name', value: el.querySelector('#editName').value.trim() },
+                            { field: 'category', value: el.querySelector('#editCategory').value.trim() },
+                            { field: 'subcategory', value: el.querySelector('#editSubcategory').value.trim() },
+                            { field: 'api_rate', value: parseFloat(el.querySelector('#editApiRate').value) },
+                            { field: 'selling_price', value: parseFloat(el.querySelector('#editSelling').value) },
+                            { field: 'min_order', value: parseInt(el.querySelector('#editMinOrder').value) },
+                            { field: 'max_order', value: parseInt(el.querySelector('#editMaxOrder').value) },
+                            { field: 'description', value: el.querySelector('#editDescription').value.trim() },
+                            { field: 'is_active', value: el.querySelector('#editIsActive').checked ? 1 : 0 },
+                            { field: 'is_hot', value: el.querySelector('#editIsHot').checked ? 1 : 0 },
+                            { field: 'is_manual_price', value: el.querySelector('#editIsManual').checked ? 1 : 0 },
+                        ];
+
+                        const btn = el.querySelector('[data-ed="save"]');
+                        btn.classList.add('loading');
+                        btn.disabled = true;
+
+                        let success = 0;
+                        let failed = 0;
+
+                        for (const u of updates) {
+                            try {
+                                const res = await API.updateService(serviceId, u.field, u.value);
+                                if (res && res.success) success++;
+                                else failed++;
+                            } catch (e) {
+                                failed++;
+                            }
+                        }
+
+                        if (success > 0) {
+                            Toast.success(`Saved ${success} field(s)${failed ? `, ${failed} failed` : ''}`);
+                            el.close();
+                            loadServices();
+                        } else {
+                            Toast.error('Save failed');
+                            btn.classList.remove('loading');
+                            btn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           EXPORT CSV
+         ============================================================ */
+        function exportCSV() {
+            const services = State.services;
+            if (services.length === 0) {
+                Toast.error('No services to export');
+                return;
+            }
+
+            const headers = [
+                'Service ID', 'Name', 'Category', 'Subcategory',
+                'API Rate', 'Selling', 'Profit', 'Min', 'Max',
+                'Manual Price', 'Active', 'Hot'
+            ];
+
+            const rows = services.map(s => [
+                s.api_service_id || '',
+                s.name || '',
+                s.category || '',
+                s.subcategory || '',
+                s.api_rate || 0,
+                s.selling_price || 0,
+                s.profit_per_1000 || 0,
+                s.min_order || 0,
+                s.max_order || 0,
+                s.is_manual_price == 1 ? 'Yes' : 'No',
+                s.is_active == 1 ? 'Yes' : 'No',
+                s.is_hot == 1 ? 'Yes' : 'No',
+            ]);
+
+            const csv = [headers, ...rows]
+                .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                .join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `services_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${services.length} services`);
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

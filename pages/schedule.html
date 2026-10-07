@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>📅 Schedule — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📅%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link active" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">📅 Schedule Manager</div>
+                        <div class="header-subtitle" id="headerSubtitle">Automate tasks & cron jobs</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search tasks...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">📅 Schedule Manager</h1>
+                        <p class="page-description" id="pageStats">Loading schedule data...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="runAllBtn">
+                            ⚡ Run All Now
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="addTaskBtn">
+                            ➕ Add Custom Task
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="statTotalTasks">0</div>
+                        <div class="stat-label">Scheduled Tasks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🟢</div>
+                        <div class="stat-value" id="statEnabled">0</div>
+                        <div class="stat-label">Enabled</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value" id="statRunning">0</div>
+                        <div class="stat-label">Running</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-value" id="statNextTask">—</div>
+                        <div class="stat-label">Next Task</div>
+                    </div>
+                </div>
+
+                <!-- LIVE STATUS BAR -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 12px 20px; background: var(--bg-elevated); display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+                            <span class="live-dot active"></span>
+                            <b style="color: var(--success);">Cron System Active</b>
+                        </div>
+                        <div style="flex: 1;"></div>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted);">
+                            <span>🕐 Server Time: <b style="color: var(--text-primary);" id="serverTime">--:--:--</b></span>
+                            <span>🌍 IST: <b style="color: var(--text-primary);" id="istTime">--:--:--</b></span>
+                            <span>⚡ Auto-chain: <b style="color: var(--success);">Running</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="tasks">
+                            📋 All Tasks <span class="tab-count" id="tabCountTasks">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="builtin">
+                            ⚙️ Built-in Tasks
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="custom">
+                            🛠️ Custom Tasks
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="history">
+                            📜 Execution History
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="settings">
+                            ⚙️ Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: ALL TASKS
+                     ==================================================== -->
+                <div id="tasksView">
+
+                    <div class="alert alert-info mb-lg">
+                        💡 <b>Auto-Chain System:</b> Bot_v3.php uses self-triggering cron without external cron service. Tasks run automatically after each request.
+                    </div>
+
+                    <!-- Filter -->
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="taskSearch" placeholder="Task name, description...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-select" id="filterCategory">
+                                        <option value="">All Categories</option>
+                                        <option value="system">⚙️ System</option>
+                                        <option value="order">📦 Order</option>
+                                        <option value="sync">🔄 Sync</option>
+                                        <option value="backup">💾 Backup</option>
+                                        <option value="vip">👑 VIP</option>
+                                        <option value="custom">🛠️ Custom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="filterStatus">
+                                        <option value="">All Status</option>
+                                        <option value="1">🟢 Enabled</option>
+                                        <option value="0">⏸️ Disabled</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Sort By</label>
+                                    <select class="form-select" id="filterSort">
+                                        <option value="id_asc">Default</option>
+                                        <option value="name_asc">Name A-Z</option>
+                                        <option value="next_run_asc">Next Run</option>
+                                        <option value="last_run_desc">Recently Run</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearTaskFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task Grid -->
+                    <div class="tasks-grid" id="tasksGrid">
+                        <div style="padding: 60px; text-align: center; color: var(--text-muted); grid-column: 1 / -1;">
+                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                            <div>Loading tasks...</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: BUILT-IN TASKS
+                     ==================================================== -->
+                <div id="builtinView" style="display: none;">
+
+                    <div class="alert alert-info mb-lg">
+                        ℹ️ <b>Built-in Tasks</b> — Ye tasks bot_v3.php me already coded hain. Ye directly configurable nahi hain — bot code me hi change honge.
+                    </div>
+
+                    <div class="builtin-grid" id="builtinGrid">
+                        <div style="padding: 60px; text-align: center; color: var(--text-muted); grid-column: 1 / -1;">
+                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                            <div>Loading built-in tasks...</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: CUSTOM TASKS
+                     ==================================================== -->
+                <div id="customView" style="display: none;">
+
+                    <div class="alert alert-warning mb-lg">
+                        ⚠️ <b>Note:</b> Custom tasks require backend support for execution. Currently ye "schedule only" mode me hain.
+                    </div>
+
+                    <div class="custom-grid" id="customGrid">
+                        <div style="padding: 60px; text-align: center; color: var(--text-muted); grid-column: 1 / -1;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div>No custom tasks yet</div>
+                            <div style="font-size: 12px; margin-top: 8px;">Click "Add Custom Task" to create one</div>
+                            <button class="btn btn-primary mt-md" onclick="document.getElementById('addTaskBtn').click()">
+                                ➕ Add First Task
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: EXECUTION HISTORY
+                     ==================================================== -->
+                <div id="historyView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="historySearch" placeholder="Task name...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="historyFilterStatus">
+                                        <option value="">All Status</option>
+                                        <option value="success">✅ Success</option>
+                                        <option value="failed">❌ Failed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="historyFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearHistoryFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Task</th>
+                                        <th>Status</th>
+                                        <th>Duration</th>
+                                        <th>Result</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <tr>
+                                        <td colspan="6" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading history...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 5: SETTINGS
+                     ==================================================== -->
+                <div id="settingsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⚙️ Auto-Chain System</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Enable Auto-Chain</div>
+                                        <div class="setting-desc">Self-triggering cron after each request</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoChainEnabled" checked>
+                                </label>
+
+                                <div class="form-group mt-md">
+                                    <label class="form-label">Chain Interval (seconds)</label>
+                                    <input type="number" class="form-input" id="chainInterval" value="30" min="10" max="3600">
+                                    <div class="form-help">Minimum seconds between chains</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Chain Timeout (seconds)</label>
+                                    <input type="number" class="form-input" id="chainTimeout" value="60" min="10" max="300">
+                                    <div class="form-help">Max execution time for chain</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔧 Auto Tasks Configuration</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto Service Sync</div>
+                                        <div class="setting-desc">Sync services from provider automatically</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoServiceSync" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto Order Check</div>
+                                        <div class="setting-desc">Check order statuses from provider</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoOrderCheck" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto Backup</div>
+                                        <div class="setting-desc">Daily backup to log channel</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoBackup" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto VIP Expiry</div>
+                                        <div class="setting-desc">Expire VIP memberships automatically</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoVipExpiry" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto GitHub Sync</div>
+                                        <div class="setting-desc">Sync data to GitHub every 30 min</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoGithubSync" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto Local Snapshot</div>
+                                        <div class="setting-desc">Create local DB snapshots</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="autoLocalSnapshot" checked>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⏱️ Task Timing</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Order Check Frequency (minutes)</label>
+                                    <input type="number" class="form-input" id="orderCheckFreq" value="1" min="1" max="60">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Service Sync Frequency (hours)</label>
+                                    <input type="number" class="form-input" id="serviceSyncFreq" value="4" min="1" max="48">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">GitHub Sync Frequency (minutes)</label>
+                                    <input type="number" class="form-input" id="githubSyncFreq" value="30" min="5" max="1440">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Backup Frequency (hours)</label>
+                                    <input type="number" class="form-input" id="backupFreq" value="24" min="6" max="168">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Manual Triggers</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                                    Run tasks manually right now
+                                </p>
+
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <button class="btn btn-primary btn-sm btn-block" data-manual-run="order_check">
+                                        📦 Run Order Check Now
+                                    </button>
+                                    <button class="btn btn-primary btn-sm btn-block" data-manual-run="service_sync">
+                                        🛒 Sync Services Now
+                                    </button>
+                                    <button class="btn btn-primary btn-sm btn-block" data-manual-run="backup">
+                                        💾 Create Backup Now
+                                    </button>
+                                    <button class="btn btn-primary btn-sm btn-block" data-manual-run="vip_expiry">
+                                        👑 Check VIP Expiry
+                                    </button>
+                                    <button class="btn btn-primary btn-sm btn-block" data-manual-run="github_sync">
+                                        🐙 Sync to GitHub
+                                    </button>
+                                    <button class="btn btn-warning btn-sm btn-block" data-manual-run="chain_all">
+                                        ⚡ Run Auto-Chain Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary" id="saveScheduleSettings">
+                            💾 Save Settings
+                        </button>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       SCHEDULE PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            tasks: [],
+            builtinTasks: [],
+            customTasks: [],
+            history: [],
+            allHistory: [],
+            mainTab: 'tasks',
+            search: '',
+            category: '',
+            status: '',
+            sortBy: 'id_asc',
+            historySearch: '',
+            historyStatus: '',
+            historyDate: '',
+            settings: {},
+            clockTimer: null,
+            runningTasks: new Set(),
+        };
+
+        /* ============================================================
+           BUILT-IN TASKS (from bot_v3.php)
+         ============================================================ */
+        const BUILTIN_TASKS = [
+            {
+                id: 'order_check',
+                name: 'Order Status Check',
+                icon: '📦',
+                category: 'order',
+                description: 'Check processing orders status from provider API',
+                interval: 60,
+                intervalText: 'Every 60s',
+                lastRunSetting: 'last_order_check',
+                handler: 'checkOrderStatus()',
+                source: 'background',
+            },
+            {
+                id: 'service_sync',
+                name: 'Auto Service Sync',
+                icon: '🔄',
+                category: 'sync',
+                description: 'Sync services catalog from provider',
+                interval: 14400,
+                intervalText: 'Every 4 hours',
+                lastRunSetting: 'last_service_auto_sync',
+                handler: 'autoSyncServicesIfNeeded()',
+                source: 'background',
+            },
+            {
+                id: 'github_sync',
+                name: 'GitHub Auto Sync',
+                icon: '🐙',
+                category: 'sync',
+                description: 'Push data to GitHub repository',
+                interval: 1800,
+                intervalText: 'Every 30 minutes',
+                lastRunSetting: 'last_github_sync',
+                handler: 'autoSyncToGitHubIfNeeded()',
+                source: 'background',
+            },
+            {
+                id: 'daily_backup',
+                name: 'Daily Backup',
+                icon: '💾',
+                category: 'backup',
+                description: 'Send database backup to log channel',
+                interval: 86400,
+                intervalText: 'Every 24 hours',
+                lastRunSetting: 'last_daily_backup',
+                handler: 'sendDailyBackupToLogChannel()',
+                source: 'background',
+            },
+            {
+                id: 'vip_expiry',
+                name: 'VIP Auto-Expiry',
+                icon: '👑',
+                category: 'vip',
+                description: 'Expire VIP memberships past their date',
+                interval: 600,
+                intervalText: 'Every 10 minutes',
+                lastRunSetting: 'vip_expiry_last_check',
+                handler: 'expireVipUsers()',
+                source: 'background',
+            },
+            {
+                id: 'auto_restore',
+                name: 'Auto Restore (Fresh Install)',
+                icon: '📥',
+                category: 'system',
+                description: 'Restore data from GitHub on fresh install',
+                interval: 900,
+                intervalText: 'Every 15 minutes',
+                lastRunSetting: 'auto_restore_last_check',
+                handler: 'autoRestoreIfFreshInstall()',
+                source: 'background',
+            },
+            {
+                id: 'local_snapshot',
+                name: 'Local DB Snapshot',
+                icon: '📸',
+                category: 'backup',
+                description: 'Create local database snapshot',
+                interval: 21600,
+                intervalText: 'Every 6 hours',
+                lastRunSetting: 'v3_last_local_backup',
+                handler: 'v3_snapshot_local()',
+                source: 'background',
+            },
+            {
+                id: 'autochain',
+                name: 'Auto-Chain Trigger',
+                icon: '⚡',
+                category: 'system',
+                description: 'Self-triggering cron chain every 30s',
+                interval: 30,
+                intervalText: 'Every 30 seconds',
+                lastRunSetting: 'autochain_last',
+                handler: 'autoChainTrigger()',
+                source: 'background',
+            },
+            {
+                id: 'draft_cleanup',
+                name: 'Stale Draft Cleanup',
+                icon: '🧹',
+                category: 'system',
+                description: 'Delete draft orders older than 24h',
+                interval: 21600,
+                intervalText: 'Every 6 hours',
+                lastRunSetting: 'draft_cleanup_last',
+                handler: 'Inline cleanup',
+                source: 'background',
+            },
+        ];
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            loadSettingsFromStorage();
+
+            State.builtinTasks = BUILTIN_TASKS.map(t => ({ ...t, enabled: true }));
+
+            await loadCustomTasks();
+            await loadLastRuns();
+
+            buildAllTasks();
+            renderTasks();
+            renderBuiltin();
+            renderCustom();
+            updateStats();
+
+            /* ---- Start clock ---- */
+            startClock();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('scheduleStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'scheduleStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .tab-count {
+                    font-size: 10px;
+                    padding: 2px 7px;
+                    border-radius: 9999px;
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    min-width: 22px;
+                    text-align: center;
+                }
+                .main-tab-btn.active .tab-count { background: var(--primary); color: #fff; }
+
+                /* ---- Live dot ---- */
+                .live-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: var(--text-muted);
+                    display: inline-block;
+                }
+                .live-dot.active {
+                    background: var(--success);
+                    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                    animation: livePulse 1.5s infinite;
+                }
+                @keyframes livePulse {
+                    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+                }
+
+                /* ---- Tasks Grid ---- */
+                .tasks-grid,
+                .builtin-grid,
+                .custom-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                    gap: 16px;
+                }
+
+                .task-card {
+                    background: var(--bg-card);
+                    border: 1px solid var(--border-color);
+                    border-radius: 14px;
+                    padding: 18px;
+                    transition: all 0.25s ease;
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .task-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--primary), var(--accent));
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                .task-card:hover {
+                    transform: translateY(-3px);
+                    border-color: var(--border-hover);
+                    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+                }
+                .task-card:hover::before {
+                    opacity: 1;
+                }
+                .task-card.disabled {
+                    opacity: 0.55;
+                }
+                .task-card.running {
+                    border-color: var(--primary);
+                    box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.15);
+                }
+
+                .task-header {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                }
+                .task-icon {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .task-title-wrap {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .task-title {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                }
+                .task-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                .task-meta {
+                    display: flex;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                }
+                .cat-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 3px;
+                    padding: 2px 8px;
+                    border-radius: 6px;
+                    font-size: 10px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                }
+                .cat-system { background: var(--info-light);    color: var(--info); }
+                .cat-order  { background: var(--primary-light); color: var(--primary); }
+                .cat-sync   { background: var(--accent-light);  color: var(--accent); }
+                .cat-backup { background: var(--success-light); color: var(--success); }
+                .cat-vip    { background: var(--gold-light);    color: var(--gold); }
+                .cat-custom { background: var(--warning-light); color: var(--warning); }
+
+                .interval-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 2px 8px;
+                    border-radius: 6px;
+                    font-size: 10px;
+                    font-weight: 600;
+                    background: var(--bg-elevated);
+                    color: var(--text-secondary);
+                }
+
+                .task-timings {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 8px;
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                }
+                .timing-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                }
+                .timing-label {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                }
+                .timing-value {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    font-family: 'SF Mono', Monaco, monospace;
+                }
+                .timing-value.ok      { color: var(--success); }
+                .timing-value.warn    { color: var(--warning); }
+                .timing-value.danger  { color: var(--danger); }
+                .timing-value.muted   { color: var(--text-muted); }
+
+                .task-actions {
+                    display: flex;
+                    gap: 6px;
+                    align-items: center;
+                    margin-top: auto;
+                    padding-top: 12px;
+                    border-top: 1px solid var(--border-light);
+                }
+                .task-actions .btn {
+                    flex: 1;
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child { flex: 1; min-width: 0; }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Running Spinner ---- */
+                .running-spinner {
+                    width: 16px;
+                    height: 16px;
+                    border: 2px solid var(--primary-light);
+                    border-top-color: var(--primary);
+                    border-radius: 50%;
+                    animation: spin 0.8s linear infinite;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+
+                /* ---- Status Badge ---- */
+                .status-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 600;
+                }
+                .status-success { background: var(--success-light); color: var(--success); }
+                .status-failed  { background: var(--danger-light);  color: var(--danger); }
+                .status-running { background: var(--primary-light); color: var(--primary); }
+
+                @media (max-width: 768px) {
+                    .tasks-grid,
+                    .builtin-grid,
+                    .custom-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', async () => {
+                Loader.show();
+                await Promise.all([
+                    loadCustomTasks(),
+                    loadLastRuns(),
+                ]);
+                buildAllTasks();
+                renderTasks();
+                renderBuiltin();
+                renderCustom();
+                updateStats();
+                Loader.hide();
+                Toast.success('Schedule refreshed');
+            });
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Task filters ---- */
+            const taskSearch = document.getElementById('taskSearch');
+            taskSearch.addEventListener('input', Utils.debounce(() => {
+                State.search = taskSearch.value.trim();
+                renderTasks();
+            }, 300));
+
+            document.getElementById('filterCategory').addEventListener('change', (e) => {
+                State.category = e.target.value;
+                renderTasks();
+            });
+
+            document.getElementById('filterStatus').addEventListener('change', (e) => {
+                State.status = e.target.value;
+                renderTasks();
+            });
+
+            document.getElementById('filterSort').addEventListener('change', (e) => {
+                State.sortBy = e.target.value;
+                renderTasks();
+            });
+
+            document.getElementById('clearTaskFilters').addEventListener('click', () => {
+                document.getElementById('taskSearch').value = '';
+                document.getElementById('filterCategory').value = '';
+                document.getElementById('filterStatus').value = '';
+                document.getElementById('filterSort').value = 'id_asc';
+                State.search = '';
+                State.category = '';
+                State.status = '';
+                State.sortBy = 'id_asc';
+                renderTasks();
+            });
+
+            /* ---- Run all / Add custom ---- */
+            document.getElementById('runAllBtn').addEventListener('click', runAllTasks);
+            document.getElementById('addTaskBtn').addEventListener('click', showAddTaskModal);
+
+            /* ---- History filters ---- */
+            const hSearch = document.getElementById('historySearch');
+            hSearch.addEventListener('input', Utils.debounce(() => {
+                State.historySearch = hSearch.value.trim();
+                renderHistory();
+            }, 300));
+
+            document.getElementById('historyFilterStatus').addEventListener('change', (e) => {
+                State.historyStatus = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('historyFilterDate').addEventListener('change', (e) => {
+                State.historyDate = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('clearHistoryFilters').addEventListener('click', () => {
+                document.getElementById('historySearch').value = '';
+                document.getElementById('historyFilterStatus').value = '';
+                document.getElementById('historyFilterDate').value = '';
+                State.historySearch = '';
+                State.historyStatus = '';
+                State.historyDate = '';
+                renderHistory();
+            });
+
+            /* ---- Settings toggles ---- */
+            [
+                'autoChainEnabled', 'autoServiceSync', 'autoOrderCheck',
+                'autoBackup', 'autoVipExpiry', 'autoGithubSync', 'autoLocalSnapshot',
+            ].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.settings[id] = el.checked;
+                });
+            });
+
+            [
+                'chainInterval', 'chainTimeout', 'orderCheckFreq',
+                'serviceSyncFreq', 'githubSyncFreq', 'backupFreq',
+            ].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.settings[id] = parseFloat(el.value) || 0;
+                });
+            });
+
+            document.getElementById('saveScheduleSettings').addEventListener('click', saveSettings);
+
+            /* ---- Manual triggers ---- */
+            document.querySelectorAll('[data-manual-run]').forEach(btn => {
+                btn.addEventListener('click', () => manualRun(btn.dataset.manualRun));
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['tasksView', 'builtinView', 'customView', 'historyView', 'settingsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                tasks: 'tasksView',
+                builtin: 'builtinView',
+                custom: 'customView',
+                history: 'historyView',
+                settings: 'settingsView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'tasks') renderTasks();
+            if (tab === 'builtin') renderBuiltin();
+            if (tab === 'custom') renderCustom();
+            if (tab === 'history') renderHistory();
+        }
+
+        /* ============================================================
+           LOAD CUSTOM TASKS
+         ============================================================ */
+        async function loadCustomTasks() {
+            try {
+                const saved = Utils.storage.get('custom_schedule_tasks', []);
+                State.customTasks = Array.isArray(saved) ? saved : [];
+            } catch (e) {
+                State.customTasks = [];
+            }
+        }
+
+        function saveCustomTasks() {
+            try {
+                Utils.storage.set('custom_schedule_tasks', State.customTasks);
+            } catch (e) {}
+        }
+
+        /* ============================================================
+           LOAD LAST RUN TIMES
+         ============================================================ */
+        async function loadLastRuns() {
+            try {
+                const keys = [
+                    'last_order_check',
+                    'last_service_auto_sync',
+                    'last_github_sync',
+                    'last_daily_backup',
+                    'vip_expiry_last_check',
+                    'auto_restore_last_check',
+                    'v3_last_local_backup',
+                    'autochain_last',
+                    'draft_cleanup_last',
+                ];
+
+                for (const task of State.builtinTasks) {
+                    if (!task.lastRunSetting) continue;
+
+                    try {
+                        const res = await API.getSetting(task.lastRunSetting);
+                        if (res && res.success && res.value) {
+                            const ts = parseInt(res.value);
+                            if (!isNaN(ts) && ts > 0) {
+                                task.lastRun = new Date(ts * 1000).toISOString();
+                            } else if (String(res.value).match(/^\d{4}-\d{2}-\d{2}/)) {
+                                task.lastRun = res.value;
+                            }
+                        }
+                    } catch (e) {}
+                }
+            } catch (err) {
+                console.error('Load last runs failed:', err);
+            }
+        }
+
+        /* ============================================================
+           BUILD ALL TASKS
+         ============================================================ */
+        function buildAllTasks() {
+            State.tasks = [
+                ...State.builtinTasks.map(t => ({ ...t, source: 'builtin' })),
+                ...State.customTasks.map(t => ({ ...t, source: 'custom' })),
+            ];
+        }
+
+        /* ============================================================
+           RENDER TASKS
+         ============================================================ */
+        function renderTasks() {
+            const grid = document.getElementById('tasksGrid');
+
+            let filtered = State.tasks.slice();
+
+            if (State.search) {
+                const q = State.search.toLowerCase();
+                filtered = filtered.filter(t =>
+                    String(t.name || '').toLowerCase().includes(q) ||
+                    String(t.description || '').toLowerCase().includes(q) ||
+                    String(t.category || '').toLowerCase().includes(q)
+                );
+            }
+
+            if (State.category) {
+                filtered = filtered.filter(t => t.category === State.category);
+            }
+
+            if (State.status !== '') {
+                const want = State.status === '1';
+                filtered = filtered.filter(t => !!t.enabled === want);
+            }
+
+            /* ---- Sort ---- */
+            if (State.sortBy === 'name_asc') {
+                filtered.sort((a, b) => String(a.name).localeCompare(String(b.name)));
+            } else if (State.sortBy === 'last_run_desc') {
+                filtered.sort((a, b) => {
+                    const ta = a.lastRun ? new Date(a.lastRun).getTime() : 0;
+                    const tb = b.lastRun ? new Date(b.lastRun).getTime() : 0;
+                    return tb - ta;
+                });
+            } else if (State.sortBy === 'next_run_asc') {
+                filtered.sort((a, b) => {
+                    const ta = computeNextRun(a);
+                    const tb = computeNextRun(b);
+                    return ta - tb;
+                });
+            }
+
+            /* ---- Update tab count ---- */
+            document.getElementById('tabCountTasks').textContent = State.tasks.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div style="padding: 60px; text-align: center; color: var(--text-muted); grid-column: 1 / -1;">
+                        <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                        <div>No tasks found</div>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(t => renderTaskCard(t)).join('');
+
+            bindTaskEvents();
+        }
+
+        function renderTaskCard(t) {
+            const category = t.category || 'system';
+            const isRunning = State.runningTasks.has(t.id);
+            const lastRun = t.lastRun ? Utils.timeAgo(t.lastRun) : 'Never';
+            const nextRun = computeNextRun(t);
+            const nextRunText = nextRun > 0 ? Utils.timeAgo(new Date(nextRun).toISOString()) : '—';
+
+            /* ---- Last run status ---- */
+            let lastRunCls = 'muted';
+            if (t.lastRun) {
+                const hoursSince = (Date.now() - new Date(t.lastRun).getTime()) / 3600000;
+                const expectedHours = (t.interval || 3600) / 3600;
+                if (hoursSince < expectedHours * 1.5) lastRunCls = 'ok';
+                else if (hoursSince < expectedHours * 3) lastRunCls = 'warn';
+                else lastRunCls = 'danger';
+            }
+
+            /* ---- Next run status ---- */
+            let nextRunCls = 'muted';
+            if (nextRun > 0) {
+                const secondsUntil = (nextRun - Date.now()) / 1000;
+                if (secondsUntil < 60) nextRunCls = 'ok';
+                else if (secondsUntil < 300) nextRunCls = 'warn';
+                else nextRunCls = 'muted';
+            }
+
+            const sourceBadge = t.source === 'custom'
+                ? '<span class="cat-badge cat-custom">🛠️ Custom</span>'
+                : '<span class="cat-badge cat-system">⚙️ Built-in</span>';
+
+            return `
+                <div class="task-card ${!t.enabled ? 'disabled' : ''} ${isRunning ? 'running' : ''}" data-task-id="${Utils.escape(t.id)}">
+                    <div class="task-header">
+                        <div class="task-icon">${t.icon || '📅'}</div>
+                        <div class="task-title-wrap">
+                            <div class="task-title">
+                                ${Utils.escape(t.name)}
+                                ${isRunning ? '<span class="running-spinner"></span>' : ''}
+                            </div>
+                            <div class="task-desc">${Utils.escape(t.description || '')}</div>
+                        </div>
+                        <label class="toggle-wrapper">
+                            <input type="checkbox" class="toggle-input" data-toggle-task="${Utils.escape(t.id)}" ${t.enabled ? 'checked' : ''}>
+                        </label>
+                    </div>
+
+                    <div class="task-meta">
+                        <span class="cat-badge cat-${category}">${getCategoryIcon(category)} ${category}</span>
+                        <span class="interval-badge">⏱️ ${Utils.escape(t.intervalText || formatInterval(t.interval))}</span>
+                        ${sourceBadge}
+                    </div>
+
+                    <div class="task-timings">
+                        <div class="timing-item">
+                            <span class="timing-label">Last Run</span>
+                            <span class="timing-value ${lastRunCls}">${Utils.escape(lastRun)}</span>
+                        </div>
+                        <div class="timing-item">
+                            <span class="timing-label">Next Run</span>
+                            <span class="timing-value ${nextRunCls}">${Utils.escape(nextRunText)}</span>
+                        </div>
+                    </div>
+
+                    <div class="task-actions">
+                        <button class="btn btn-primary btn-sm" data-run-task="${Utils.escape(t.id)}" ${isRunning ? 'disabled' : ''}>
+                            ${isRunning ? '⏳ Running...' : '⚡ Run Now'}
+                        </button>
+                        ${t.source === 'custom' ? `
+                            <button class="btn btn-ghost btn-icon btn-sm" data-edit-task="${Utils.escape(t.id)}" title="Edit">
+                                ✏️
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-delete-task="${Utils.escape(t.id)}" title="Delete" style="color: var(--danger);">
+                                🗑️
+                            </button>
+                        ` : `
+                            <button class="btn btn-ghost btn-icon btn-sm" data-view-task="${Utils.escape(t.id)}" title="View Details">
+                                👁️
+                            </button>
+                        `}
+                    </div>
+                </div>
+            `;
+        }
+
+        function bindTaskEvents() {
+            /* ---- Toggle enable ---- */
+            document.querySelectorAll('[data-toggle-task]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const taskId = input.dataset.toggleTask;
+                    const task = State.tasks.find(t => t.id === taskId);
+                    if (task) {
+                        task.enabled = input.checked;
+
+                        if (task.source === 'custom') {
+                            saveCustomTasks();
+                        } else {
+                            State.settings['task_' + taskId + '_enabled'] = input.checked;
+                            Utils.storage.set('schedule_settings', State.settings);
+                        }
+
+                        renderTasks();
+                        updateStats();
+                        Toast.success(`Task ${input.checked ? 'enabled' : 'disabled'}`);
+                    }
+                });
+            });
+
+            /* ---- Run buttons ---- */
+            document.querySelectorAll('[data-run-task]').forEach(btn => {
+                btn.addEventListener('click', () => runTask(btn.dataset.runTask));
+            });
+
+            /* ---- View buttons ---- */
+            document.querySelectorAll('[data-view-task]').forEach(btn => {
+                btn.addEventListener('click', () => showTaskDetail(btn.dataset.viewTask));
+            });
+
+            /* ---- Edit buttons ---- */
+            document.querySelectorAll('[data-edit-task]').forEach(btn => {
+                btn.addEventListener('click', () => editCustomTask(btn.dataset.editTask));
+            });
+
+            /* ---- Delete buttons ---- */
+            document.querySelectorAll('[data-delete-task]').forEach(btn => {
+                btn.addEventListener('click', () => deleteCustomTask(btn.dataset.deleteTask));
+            });
+        }
+
+        /* ============================================================
+           RENDER BUILT-IN
+         ============================================================ */
+        function renderBuiltin() {
+            const grid = document.getElementById('builtinGrid');
+
+            grid.innerHTML = BUILTIN_TASKS.map(t => {
+                const category = t.category || 'system';
+                const runtime = State.builtinTasks.find(x => x.id === t.id);
+                const lastRun = runtime?.lastRun ? Utils.timeAgo(runtime.lastRun) : 'Never';
+
+                return `
+                    <div class="task-card" data-task-id="${t.id}">
+                        <div class="task-header">
+                            <div class="task-icon">${t.icon}</div>
+                            <div class="task-title-wrap">
+                                <div class="task-title">${Utils.escape(t.name)}</div>
+                                <div class="task-desc">${Utils.escape(t.description)}</div>
+                            </div>
+                            <span class="badge badge-success">✅</span>
+                        </div>
+
+                        <div class="task-meta">
+                            <span class="cat-badge cat-${category}">${getCategoryIcon(category)} ${category}</span>
+                            <span class="interval-badge">⏱️ ${t.intervalText}</span>
+                            <span class="cat-badge cat-system">⚙️ Auto</span>
+                        </div>
+
+                        <div class="task-timings">
+                            <div class="timing-item">
+                                <span class="timing-label">Last Run</span>
+                                <span class="timing-value">${lastRun}</span>
+                            </div>
+                            <div class="timing-item">
+                                <span class="timing-label">Handler</span>
+                                <span class="timing-value" style="font-size: 10px;">${Utils.escape(Utils.truncate(t.handler, 25))}</span>
+                            </div>
+                        </div>
+
+                        <div class="task-actions">
+                            <button class="btn btn-primary btn-sm" data-run-task="${t.id}">
+                                ⚡ Run Now
+                            </button>
+                            <button class="btn btn-ghost btn-sm" data-view-task="${t.id}">
+                                👁️ Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            /* ---- Bind ---- */
+            grid.querySelectorAll('[data-run-task]').forEach(btn => {
+                btn.addEventListener('click', () => runTask(btn.dataset.runTask));
+            });
+
+            grid.querySelectorAll('[data-view-task]').forEach(btn => {
+                btn.addEventListener('click', () => showTaskDetail(btn.dataset.viewTask));
+            });
+        }
+
+        /* ============================================================
+           RENDER CUSTOM
+         ============================================================ */
+        function renderCustom() {
+            const grid = document.getElementById('customGrid');
+
+            if (State.customTasks.length === 0) {
+                grid.innerHTML = `
+                    <div style="padding: 60px; text-align: center; color: var(--text-muted); grid-column: 1 / -1;">
+                        <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                        <div>No custom tasks yet</div>
+                        <div style="font-size: 12px; margin-top: 8px;">Click "Add Custom Task" to create one</div>
+                        <button class="btn btn-primary mt-md" onclick="document.getElementById('addTaskBtn').click()">
+                            ➕ Add First Task
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = State.customTasks.map(t => {
+                const category = t.category || 'custom';
+
+                return `
+                    <div class="task-card ${!t.enabled ? 'disabled' : ''}" data-task-id="${Utils.escape(t.id)}">
+                        <div class="task-header">
+                            <div class="task-icon">${t.icon || '🛠️'}</div>
+                            <div class="task-title-wrap">
+                                <div class="task-title">${Utils.escape(t.name)}</div>
+                                <div class="task-desc">${Utils.escape(t.description || '')}</div>
+                            </div>
+                            <label class="toggle-wrapper">
+                                <input type="checkbox" class="toggle-input" data-toggle-custom="${Utils.escape(t.id)}" ${t.enabled ? 'checked' : ''}>
+                            </label>
+                        </div>
+
+                        <div class="task-meta">
+                            <span class="cat-badge cat-${category}">🛠️ Custom</span>
+                            <span class="interval-badge">⏱️ ${formatInterval(t.interval)}</span>
+                        </div>
+
+                        <div class="task-timings">
+                            <div class="timing-item">
+                                <span class="timing-label">Type</span>
+                                <span class="timing-value">${Utils.escape(t.taskType || 'placeholder')}</span>
+                            </div>
+                            <div class="timing-item">
+                                <span class="timing-label">Created</span>
+                                <span class="timing-value">${Utils.date(t.createdAt)}</span>
+                            </div>
+                        </div>
+
+                        <div class="task-actions">
+                            <button class="btn btn-primary btn-sm" data-run-task="${Utils.escape(t.id)}">
+                                ⚡ Run Now
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-edit-task="${Utils.escape(t.id)}" title="Edit">
+                                ✏️
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-delete-task="${Utils.escape(t.id)}" title="Delete" style="color: var(--danger);">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            /* ---- Bind ---- */
+            grid.querySelectorAll('[data-toggle-custom]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const taskId = input.dataset.toggleCustom;
+                    const task = State.customTasks.find(t => t.id === taskId);
+                    if (task) {
+                        task.enabled = input.checked;
+                        saveCustomTasks();
+                        renderCustom();
+                        renderTasks();
+                        updateStats();
+                    }
+                });
+            });
+
+            grid.querySelectorAll('[data-run-task]').forEach(btn => {
+                btn.addEventListener('click', () => runTask(btn.dataset.runTask));
+            });
+
+            grid.querySelectorAll('[data-edit-task]').forEach(btn => {
+                btn.addEventListener('click', () => editCustomTask(btn.dataset.editTask));
+            });
+
+            grid.querySelectorAll('[data-delete-task]').forEach(btn => {
+                btn.addEventListener('click', () => deleteCustomTask(btn.dataset.deleteTask));
+            });
+        }
+
+        /* ============================================================
+           HELPERS
+         ============================================================ */
+        function getCategoryIcon(cat) {
+            const map = {
+                system: '⚙️',
+                order: '📦',
+                sync: '🔄',
+                backup: '💾',
+                vip: '👑',
+                custom: '🛠️',
+            };
+            return map[cat] || '📅';
+        }
+
+        function formatInterval(seconds) {
+            seconds = parseInt(seconds) || 0;
+
+            if (seconds < 60) return `${seconds}s`;
+            if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
+            if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
+            return `${Math.floor(seconds / 86400)}d`;
+        }
+
+        function computeNextRun(task) {
+            if (!task.lastRun || !task.interval) return 0;
+
+            const lastRunTs = new Date(task.lastRun).getTime();
+            if (isNaN(lastRunTs)) return 0;
+
+            return lastRunTs + (task.interval * 1000);
+        }
+
+        /* ============================================================
+           RUN TASK
+         ============================================================ */
+        async function runTask(taskId) {
+            const task = State.tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            if (State.runningTasks.has(taskId)) {
+                Toast.warning('Task already running');
+                return;
+            }
+
+            State.runningTasks.add(taskId);
+            renderTasks();
+
+            Toast.info(`Running: ${task.name}`);
+
+            const startTime = Date.now();
+            let success = false;
+            let resultMsg = '';
+
+            try {
+                switch (taskId) {
+                    case 'order_check':
+                    case 'auto_order_check': {
+                        const res = await API.checkOrders();
+                        success = !!(res && res.success);
+                        resultMsg = success
+                            ? `Checked ${res.completed || 0} completed, ${res.failed || 0} failed`
+                            : (res?.error || 'Failed');
+                        break;
+                    }
+
+                    case 'service_sync':
+                    case 'auto_service_sync': {
+                        const res = await API.sync();
+                        success = !!(res && res.success);
+                        resultMsg = success
+                            ? `Added: ${res.added || 0}, Updated: ${res.updated || 0}`
+                            : (res?.error || 'Failed');
+                        break;
+                    }
+
+                    case 'github_sync':
+                    case 'auto_github_sync': {
+                        const res = await API.syncToGitHub();
+                        success = !!(res && res.success);
+                        resultMsg = success
+                            ? `Uploaded ${((res.uploaded_size || 0) / 1024).toFixed(1)} KB`
+                            : (res?.error || 'Failed');
+                        break;
+                    }
+
+                    case 'daily_backup': {
+                        const res = await API.createBackup('json');
+                        success = !!(res && res.success);
+                        resultMsg = success
+                            ? `Backup: ${res.filename || 'created'}`
+                            : (res?.error || 'Failed');
+                        break;
+                    }
+
+                    case 'vip_expiry':
+                    case 'auto_vip_expiry': {
+                        /* ---- No direct API, use setting update ---- */
+                        try {
+                            await API.updateSetting('vip_expiry_last_check', '0');
+                            success = true;
+                            resultMsg = 'Triggered VIP expiry check';
+                        } catch (e) {
+                            success = false;
+                            resultMsg = 'Failed';
+                        }
+                        break;
+                    }
+
+                    case 'autochain': {
+                        /* ---- Trigger auto-chain manually ---- */
+                        try {
+                            await API.get('getDiagnostics', { minutes: 1 });
+                            success = true;
+                            resultMsg = 'Auto-chain ping sent';
+                        } catch (e) {
+                            success = false;
+                            resultMsg = 'Failed';
+                        }
+                        break;
+                    }
+
+                    case 'draft_cleanup': {
+                        try {
+                            await API.updateSetting('draft_cleanup_last', '0');
+                            success = true;
+                            resultMsg = 'Triggered draft cleanup';
+                        } catch (e) {
+                            success = false;
+                            resultMsg = 'Failed';
+                        }
+                        break;
+                    }
+
+                    case 'auto_restore': {
+                        try {
+                            await API.updateSetting('auto_restore_last_check', '0');
+                            success = true;
+                            resultMsg = 'Triggered auto-restore check';
+                        } catch (e) {
+                            success = false;
+                            resultMsg = 'Failed';
+                        }
+                        break;
+                    }
+
+                    case 'local_snapshot': {
+                        try {
+                            await API.updateSetting('v3_last_local_backup', '0');
+                            success = true;
+                            resultMsg = 'Triggered local snapshot';
+                        } catch (e) {
+                            success = false;
+                            resultMsg = 'Failed';
+                        }
+                        break;
+                    }
+
+                    default: {
+                        /* ---- Custom task placeholder ---- */
+                        await Utils.sleep(800);
+                        success = true;
+                        resultMsg = 'Custom task (placeholder — no backend handler)';
+                    }
+                }
+            } catch (err) {
+                success = false;
+                resultMsg = err.message || 'Exception';
+            }
+
+            const duration = Date.now() - startTime;
+
+            /* ---- Record history ---- */
+            State.allHistory.unshift({
+                id: 'exec_' + Date.now(),
+                taskId: task.id,
+                taskName: task.name,
+                taskIcon: task.icon,
+                status: success ? 'success' : 'failed',
+                duration: duration,
+                result: resultMsg,
+                timestamp: new Date().toISOString(),
+            });
+
+            State.allHistory = State.allHistory.slice(0, 200);
+            saveHistoryToStorage();
+
+            /* ---- Update last run ---- */
+            if (task.source === 'custom') {
+                const idx = State.customTasks.findIndex(t => t.id === task.id);
+                if (idx >= 0) {
+                    State.customTasks[idx].lastRun = new Date().toISOString();
+                    saveCustomTasks();
+                }
+            } else {
+                task.lastRun = new Date().toISOString();
+            }
+
+            State.runningTasks.delete(taskId);
+            renderTasks();
+            renderBuiltin();
+            renderCustom();
+            updateStats();
+
+            if (success) {
+                Toast.success(`${task.name}: ${resultMsg}`);
+            } else {
+                Toast.error(`${task.name} failed: ${resultMsg}`);
+            }
+        }
+
+        /* ============================================================
+           RUN ALL TASKS
+         ============================================================ */
+        async function runAllTasks() {
+            const confirmed = await Modal.confirm({
+                title: '⚡ Run All Tasks',
+                message: 'Run all enabled tasks right now? This may take a while.',
+                confirmText: 'Yes, Run All',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            const enabled = State.tasks.filter(t => t.enabled);
+            Toast.info(`Running ${enabled.length} tasks...`);
+
+            for (const task of enabled) {
+                await runTask(task.id);
+                await Utils.sleep(500);
+            }
+
+            Toast.success('All tasks completed');
+        }
+
+        /* ============================================================
+           MANUAL RUN FROM SETTINGS
+         ============================================================ */
+        function manualRun(taskId) {
+            const mapping = {
+                order_check: 'order_check',
+                service_sync: 'service_sync',
+                backup: 'daily_backup',
+                vip_expiry: 'vip_expiry',
+                github_sync: 'github_sync',
+                chain_all: 'autochain',
+            };
+
+            const realId = mapping[taskId] || taskId;
+            runTask(realId);
+        }
+
+        /* ============================================================
+           SHOW TASK DETAIL
+         ============================================================ */
+        function showTaskDetail(taskId) {
+            const task = State.tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            const category = task.category || 'system';
+            const lastRun = task.lastRun ? Utils.date(task.lastRun, 'full') : 'Never';
+            const nextRun = computeNextRun(task);
+            const nextRunText = nextRun > 0 ? Utils.date(new Date(nextRun).toISOString(), 'full') : '—';
+
+            const body = `
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                    <span class="cat-badge cat-${category}">${getCategoryIcon(category)} ${category}</span>
+                    <span class="interval-badge">⏱️ ${Utils.escape(task.intervalText || formatInterval(task.interval))}</span>
+                    ${task.enabled ? '<span class="badge badge-success">🟢 Enabled</span>' : '<span class="badge badge-muted">⏸️ Disabled</span>'}
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--primary-light), var(--bg-elevated)); padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+                    <div style="font-size: 16px; font-weight: 700; color: var(--text-primary);">
+                        ${Utils.escape(task.name)}
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                        ${Utils.escape(task.description || '')}
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm mb-md" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Interval</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-family: monospace;">
+                            ${task.interval || 0}s (${Utils.escape(task.intervalText || formatInterval(task.interval))})
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Source</div>
+                        <div style="font-weight: 600; margin-top: 4px;">
+                            ${task.source === 'custom' ? '🛠️ Custom Task' : '⚙️ Built-in'}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-input); padding: 12px; border-radius: 10px; margin-bottom: 12px;">
+                    <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Last Run</div>
+                    <div style="font-size: 13px; font-weight: 600;">${lastRun}</div>
+                </div>
+
+                <div style="background: var(--bg-input); padding: 12px; border-radius: 10px;">
+                    <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Next Scheduled Run</div>
+                    <div style="font-size: 13px; font-weight: 600;">${nextRunText}</div>
+                </div>
+
+                ${task.handler ? `
+                    <div style="margin-top: 12px;">
+                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">Handler Function</div>
+                        <div style="background: var(--bg-input); padding: 10px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 12px; word-break: break-all;">
+                            ${Utils.escape(task.handler)}
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+
+            const footer = task.source === 'custom'
+                ? `
+                    <button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>
+                    <button class="btn btn-primary btn-sm" data-detail-edit="${Utils.escape(task.id)}">✏️ Edit</button>
+                    <button class="btn btn-primary btn-sm" data-detail-run="${Utils.escape(task.id)}">⚡ Run Now</button>
+                `
+                : `
+                    <button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>
+                    <button class="btn btn-primary btn-sm" data-detail-run="${Utils.escape(task.id)}">⚡ Run Now</button>
+                `;
+
+            Modal.open({
+                title: '📅 Task Details',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    const runBtn = el.querySelector('[data-detail-run]');
+                    if (runBtn) {
+                        runBtn.addEventListener('click', () => {
+                            el.close();
+                            runTask(taskId);
+                        });
+                    }
+
+                    const editBtn = el.querySelector('[data-detail-edit]');
+                    if (editBtn) {
+                        editBtn.addEventListener('click', () => {
+                            el.close();
+                            editCustomTask(taskId);
+                        });
+                    }
+                }
+            });
+        }
+
+        /* ============================================================
+           ADD CUSTOM TASK
+         ============================================================ */
+        function showAddTaskModal() {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Task Name</label>
+                    <input type="text" class="form-input" id="ctName" placeholder="e.g. Weekly Report Email" maxlength="80">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="ctDescription" rows="2" maxlength="200" placeholder="What does this task do?"></textarea>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Icon</label>
+                        <input type="text" class="form-input" id="ctIcon" value="🛠️" maxlength="3">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="ctCategory">
+                            <option value="custom">🛠️ Custom</option>
+                            <option value="system">⚙️ System</option>
+                            <option value="order">📦 Order</option>
+                            <option value="sync">🔄 Sync</option>
+                            <option value="backup">💾 Backup</option>
+                            <option value="vip">👑 VIP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Interval</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <input type="number" class="form-input" id="ctIntervalValue" placeholder="30" min="1" value="30">
+                        <select class="form-select" id="ctIntervalUnit">
+                            <option value="60">Minutes</option>
+                            <option value="3600">Hours</option>
+                            <option value="86400">Days</option>
+                            <option value="1">Seconds</option>
+                        </select>
+                    </div>
+                    <div class="form-help">How often should this task run?</div>
+                </div>
+
+                <div class="alert alert-warning" style="margin-bottom: 0;">
+                    ⚠️ <b>Note:</b> Custom tasks are placeholders only. Backend handler required for actual execution.
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-ct="cancel">Cancel</button>
+                <button class="btn btn-primary" data-ct="create">➕ Create Task</button>
+            `;
+
+            Modal.open({
+                title: '➕ Add Custom Task',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-ct="cancel"]').addEventListener('click', () => el.close());
+
+                    el.querySelector('[data-ct="create"]').addEventListener('click', () => {
+                        const name = el.querySelector('#ctName').value.trim();
+
+                        if (!name) {
+                            Toast.error('Task name required');
+                            return;
+                        }
+
+                        const intervalValue = parseInt(el.querySelector('#ctIntervalValue').value) || 30;
+                        const intervalUnit = parseInt(el.querySelector('#ctIntervalUnit').value) || 60;
+                        const interval = intervalValue * intervalUnit;
+
+                        const newTask = {
+                            id: 'custom_' + Date.now(),
+                            name,
+                            description: el.querySelector('#ctDescription').value.trim(),
+                            icon: el.querySelector('#ctIcon').value.trim() || '🛠️',
+                            category: el.querySelector('#ctCategory').value,
+                            interval,
+                            intervalText: formatInterval(interval),
+                            taskType: 'placeholder',
+                            enabled: true,
+                            createdAt: new Date().toISOString(),
+                            source: 'custom',
+                        };
+
+                        State.customTasks.push(newTask);
+                        saveCustomTasks();
+
+                        buildAllTasks();
+                        renderTasks();
+                        renderCustom();
+                        updateStats();
+
+                        Toast.success('Custom task created');
+                        el.close();
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           EDIT CUSTOM TASK
+         ============================================================ */
+        function editCustomTask(taskId) {
+            const task = State.customTasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Task Name</label>
+                    <input type="text" class="form-input" id="edTaskName" value="${Utils.escape(task.name)}" maxlength="80">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="edTaskDescription" rows="2" maxlength="200">${Utils.escape(task.description || '')}</textarea>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Icon</label>
+                        <input type="text" class="form-input" id="edTaskIcon" value="${Utils.escape(task.icon || '🛠️')}" maxlength="3">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="edTaskCategory">
+                            <option value="custom" ${task.category === 'custom' ? 'selected' : ''}>🛠️ Custom</option>
+                            <option value="system" ${task.category === 'system' ? 'selected' : ''}>⚙️ System</option>
+                            <option value="order" ${task.category === 'order' ? 'selected' : ''}>📦 Order</option>
+                            <option value="sync" ${task.category === 'sync' ? 'selected' : ''}>🔄 Sync</option>
+                            <option value="backup" ${task.category === 'backup' ? 'selected' : ''}>💾 Backup</option>
+                            <option value="vip" ${task.category === 'vip' ? 'selected' : ''}>👑 VIP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label required">Interval (seconds)</label>
+                    <input type="number" class="form-input" id="edTaskInterval" value="${task.interval || 60}" min="1">
+                    <div class="form-help">Current: ${formatInterval(task.interval)}</div>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-ed-ct="cancel">Cancel</button>
+                <button class="btn btn-primary" data-ed-ct="save">💾 Save</button>
+            `;
+
+            Modal.open({
+                title: '✏️ Edit Task',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-ed-ct="cancel"]').addEventListener('click', () => el.close());
+
+                    el.querySelector('[data-ed-ct="save"]').addEventListener('click', () => {
+                        const idx = State.customTasks.findIndex(t => t.id === taskId);
+                        if (idx < 0) return;
+
+                        const intervalValue = parseInt(el.querySelector('#edTaskInterval').value) || 60;
+
+                        State.customTasks[idx].name = el.querySelector('#edTaskName').value.trim() || task.name;
+                        State.customTasks[idx].description = el.querySelector('#edTaskDescription').value.trim();
+                        State.customTasks[idx].icon = el.querySelector('#edTaskIcon').value.trim() || '🛠️';
+                        State.customTasks[idx].category = el.querySelector('#edTaskCategory').value;
+                        State.customTasks[idx].interval = intervalValue;
+                        State.customTasks[idx].intervalText = formatInterval(intervalValue);
+
+                        saveCustomTasks();
+                        buildAllTasks();
+                        renderTasks();
+                        renderCustom();
+                        updateStats();
+
+                        Toast.success('Task updated');
+                        el.close();
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           DELETE CUSTOM TASK
+         ============================================================ */
+        function deleteCustomTask(taskId) {
+            const task = State.customTasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            Modal.confirm({
+                title: '🗑️ Delete Task',
+                message: `Delete "${Utils.escape(task.name)}"?`,
+                confirmText: 'Yes, Delete',
+                type: 'danger',
+                onConfirm: () => {
+                    State.customTasks = State.customTasks.filter(t => t.id !== taskId);
+                    saveCustomTasks();
+                    buildAllTasks();
+                    renderTasks();
+                    renderCustom();
+                    updateStats();
+                    Toast.success('Task deleted');
+                }
+            });
+        }
+
+        /* ============================================================
+           HISTORY
+         ============================================================ */
+        function loadHistoryFromStorage() {
+            try {
+                const saved = Utils.storage.get('schedule_history', []);
+                State.allHistory = Array.isArray(saved) ? saved : [];
+            } catch (e) {
+                State.allHistory = [];
+            }
+        }
+
+        function saveHistoryToStorage() {
+            try {
+                Utils.storage.set('schedule_history', State.allHistory.slice(0, 100));
+            } catch (e) {}
+        }
+
+        function renderHistory() {
+            const tbody = document.getElementById('historyTableBody');
+
+            let filtered = State.allHistory.slice();
+
+            if (State.historySearch) {
+                const q = State.historySearch.toLowerCase();
+                filtered = filtered.filter(h =>
+                    String(h.taskName || '').toLowerCase().includes(q)
+                );
+            }
+
+            if (State.historyStatus) {
+                filtered = filtered.filter(h => h.status === State.historyStatus);
+            }
+
+            if (State.historyDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(h => {
+                    const dt = new Date(String(h.timestamp || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const hDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - hDate) / 86400000);
+
+                    if (State.historyDate === 'today') return diffDays === 0;
+                    if (State.historyDate === '7days') return diffDays <= 7;
+                    if (State.historyDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No execution history</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Task executions will appear here
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.slice(0, 200).map(h => `
+                <tr>
+                    <td><code style="font-size: 11px;">#${Utils.escape(String(h.id).substring(0, 12))}</code></td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 18px;">${h.taskIcon || '📅'}</span>
+                            <b style="font-size: 12px;">${Utils.escape(h.taskName)}</b>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="status-badge status-${h.status}">
+                            ${h.status === 'success' ? '✅ Success' : '❌ Failed'}
+                        </span>
+                    </td>
+                    <td style="font-size: 11px; font-family: monospace;">${h.duration}ms</td>
+                    <td>
+                        <div style="font-size: 11px; color: var(--text-muted); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${Utils.escape(h.result || '')}">
+                            ${Utils.escape(Utils.truncate(h.result || '', 60))}
+                        </div>
+                    </td>
+                    <td style="font-size: 11px; color: var(--text-muted);">
+                        ${Utils.date(h.timestamp, 'full')}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        /* ============================================================
+           SETTINGS
+         ============================================================ */
+        function loadSettingsFromStorage() {
+            const defaults = {
+                autoChainEnabled: true,
+                autoServiceSync: true,
+                autoOrderCheck: true,
+                autoBackup: true,
+                autoVipExpiry: true,
+                autoGithubSync: true,
+                autoLocalSnapshot: true,
+                chainInterval: 30,
+                chainTimeout: 60,
+                orderCheckFreq: 1,
+                serviceSyncFreq: 4,
+                githubSyncFreq: 30,
+                backupFreq: 24,
+            };
+
+            const saved = Utils.storage.get('schedule_settings', {});
+            State.settings = { ...defaults, ...saved };
+
+            Object.keys(State.settings).forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    el.checked = !!State.settings[key];
+                } else {
+                    el.value = State.settings[key];
+                }
+            });
+        }
+
+        function saveSettings() {
+            const keys = [
+                'autoChainEnabled', 'autoServiceSync', 'autoOrderCheck',
+                'autoBackup', 'autoVipExpiry', 'autoGithubSync', 'autoLocalSnapshot',
+                'chainInterval', 'chainTimeout', 'orderCheckFreq',
+                'serviceSyncFreq', 'githubSyncFreq', 'backupFreq',
+            ];
+
+            const settings = {};
+
+            keys.forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    settings[key] = el.checked;
+                } else {
+                    settings[key] = parseFloat(el.value) || 0;
+                }
+            });
+
+            State.settings = settings;
+            Utils.storage.set('schedule_settings', settings);
+
+            /* ---- Push to backend ---- */
+            try {
+                API.updateSetting('auto_service_sync_enabled', settings.autoServiceSync ? '1' : '0');
+                API.updateSetting('auto_sync_enabled', settings.autoGithubSync ? '1' : '0');
+                API.updateSetting('daily_backup_enabled', settings.autoBackup ? '1' : '0');
+                API.updateSetting('auto_restore_enabled', settings.autoChainEnabled ? '1' : '0');
+                API.updateSetting('service_sync_interval', String(settings.serviceSyncFreq * 3600));
+            } catch (e) {}
+
+            Toast.success('Settings saved!');
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            const total = State.tasks.length;
+            const enabled = State.tasks.filter(t => t.enabled).length;
+            const running = State.runningTasks.size;
+
+            /* ---- Next task ---- */
+            let nextTask = null;
+            let nextTaskTime = Infinity;
+
+            State.tasks.forEach(t => {
+                if (!t.enabled) return;
+                const next = computeNextRun(t);
+                if (next > 0 && next < nextTaskTime) {
+                    nextTaskTime = next;
+                    nextTask = t;
+                }
+            });
+
+            const nextTaskText = nextTask
+                ? `${nextTask.icon} ${Utils.timeAgo(new Date(nextTaskTime).toISOString())}`
+                : '—';
+
+            document.getElementById('statTotalTasks').textContent = Utils.number(total);
+            document.getElementById('statEnabled').textContent = Utils.number(enabled);
+            document.getElementById('statRunning').textContent = Utils.number(running);
+            document.getElementById('statNextTask').textContent = nextTaskText;
+
+            document.getElementById('headerSubtitle').textContent =
+                `${total} tasks • ${enabled} enabled • ${running} running`;
+        }
+
+        /* ============================================================
+           CLOCK
+         ============================================================ */
+        function startClock() {
+            const tick = () => {
+                const now = new Date();
+                const server = now.toLocaleTimeString('en-IN', { hour12: false });
+                document.getElementById('serverTime').textContent = server;
+
+                const ist = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (5.5 * 3600000));
+                document.getElementById('istTime').textContent =
+                    ist.toLocaleTimeString('en-IN', { hour12: false });
+            };
+
+            tick();
+            State.clockTimer = setInterval(tick, 1000);
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                loadHistoryFromStorage();
+                init();
+            });
+        } else {
+            loadHistoryFromStorage();
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

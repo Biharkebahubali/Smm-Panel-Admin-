@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>📊 Reports — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link active" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">📊 Reports Center</div>
+                        <div class="header-subtitle" id="headerSubtitle">Generate & export reports</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search reports...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">📊 Reports Center</h1>
+                        <p class="page-description" id="pageStats">Generate reports, export data, schedule automated delivery</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="quickReportBtn">
+                            ⚡ Quick Report
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="customReportBtn">
+                            ➕ Custom Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value" id="statReports">0</div>
+                        <div class="stat-label">Generated Reports</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="statScheduled">0</div>
+                        <div class="stat-label">Scheduled</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📥</div>
+                        <div class="stat-value" id="statExports">0</div>
+                        <div class="stat-label">Total Exports</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💾</div>
+                        <div class="stat-value" id="statStorage">0 MB</div>
+                        <div class="stat-label">Storage Used</div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="quick">
+                            ⚡ Quick Reports
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="builder">
+                            🛠️ Report Builder
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="scheduled">
+                            📅 Scheduled
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="history">
+                            📜 History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: QUICK REPORTS
+                     ==================================================== -->
+                <div id="quickView">
+
+                    <div class="alert alert-info mb-lg">
+                        💡 <b>Quick Reports</b> — One-click report generation with pre-built templates
+                    </div>
+
+                    <!-- Date Range Picker (Global) -->
+                    <div class="card mb-lg">
+                        <div class="card-body">
+                            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <label class="form-label" style="margin-bottom: 6px;">📅 Report Period</label>
+                                    <select class="form-select" id="quickDateRange">
+                                        <option value="today">Today</option>
+                                        <option value="yesterday">Yesterday</option>
+                                        <option value="7days" selected>Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                        <option value="month">This Month</option>
+                                        <option value="last_month">Last Month</option>
+                                        <option value="year">This Year</option>
+                                        <option value="all">All Time</option>
+                                        <option value="custom">Custom Range...</option>
+                                    </select>
+                                </div>
+
+                                <div id="customRangeInputs" style="display: none; gap: 8px; align-items: end; flex-wrap: wrap;">
+                                    <div>
+                                        <label class="form-label" style="margin-bottom: 6px;">From</label>
+                                        <input type="date" class="form-input" id="quickDateFrom">
+                                    </div>
+                                    <div>
+                                        <label class="form-label" style="margin-bottom: 6px;">To</label>
+                                        <input type="date" class="form-input" id="quickDateTo">
+                                    </div>
+                                </div>
+
+                                <div style="min-width: 160px;">
+                                    <label class="form-label" style="margin-bottom: 6px;">📄 Format</label>
+                                    <select class="form-select" id="quickFormat">
+                                        <option value="csv">📊 CSV</option>
+                                        <option value="json">📋 JSON</option>
+                                        <option value="txt">📄 Text</option>
+                                        <option value="html">🌐 HTML</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Report Cards Grid -->
+                    <div class="quick-reports-grid">
+
+                        <div class="quick-report-card" data-report="sales">
+                            <div class="qr-icon">💰</div>
+                            <div class="qr-title">Sales Report</div>
+                            <div class="qr-desc">Revenue, profit, orders by date</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-success">Popular</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All orders</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="users">
+                            <div class="qr-icon">👥</div>
+                            <div class="qr-title">Users Report</div>
+                            <div class="qr-desc">Complete user database</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-info">Popular</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All users</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="orders">
+                            <div class="qr-icon">📦</div>
+                            <div class="qr-title">Orders Report</div>
+                            <div class="qr-desc">Detailed order data</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-primary">Popular</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All orders</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="payments">
+                            <div class="qr-icon">💳</div>
+                            <div class="qr-title">Payments Report</div>
+                            <div class="qr-desc">UPI transactions & approvals</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-success">Finance</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All payments</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="services">
+                            <div class="qr-icon">🛒</div>
+                            <div class="qr-title">Services Report</div>
+                            <div class="qr-desc">Catalog with pricing & profit</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-info">Catalog</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All services</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="referrals">
+                            <div class="qr-icon">🎁</div>
+                            <div class="qr-title">Referrals Report</div>
+                            <div class="qr-desc">Referrers & bonus tracking</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-warning">Marketing</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">All referrals</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="financial">
+                            <div class="qr-icon">📊</div>
+                            <div class="qr-title">Financial Summary</div>
+                            <div class="qr-desc">P&L, revenue, costs</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-success">Finance</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">Analytics</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="activity">
+                            <div class="qr-icon">📢</div>
+                            <div class="qr-title">Activity Report</div>
+                            <div class="qr-desc">All system activity log</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-muted">System</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">Audit</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="top_users">
+                            <div class="qr-icon">🏆</div>
+                            <div class="qr-title">Top Users Report</div>
+                            <div class="qr-desc">Best customers by spending</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-gold">Insights</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">Top 100</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="top_services">
+                            <div class="qr-icon">🔥</div>
+                            <div class="qr-title">Top Services Report</div>
+                            <div class="qr-desc">Most ordered services</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-gold">Insights</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">Top 100</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="failed_orders">
+                            <div class="qr-icon">❌</div>
+                            <div class="qr-title">Failed Orders</div>
+                            <div class="qr-desc">Failed & refunded orders</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-danger">Support</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">Issues</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                        <div class="quick-report-card" data-report="vip">
+                            <div class="qr-icon">👑</div>
+                            <div class="qr-title">VIP Members Report</div>
+                            <div class="qr-desc">All VIP users with expiry</div>
+                            <div class="qr-meta">
+                                <span class="badge badge-gold">Premium</span>
+                                <span style="font-size: 11px; color: var(--text-muted);">VIP only</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm btn-block qr-btn">
+                                ⚡ Generate
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: REPORT BUILDER
+                     ==================================================== -->
+                <div id="builderView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <!-- Left: Configuration -->
+                        <div>
+
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">📊 Data Source</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label required">Primary Table</label>
+                                        <select class="form-select" id="builderTable">
+                                            <option value="orders">📦 Orders</option>
+                                            <option value="users">👥 Users</option>
+                                            <option value="payments">💳 Payments</option>
+                                            <option value="services">🛒 Services</option>
+                                            <option value="referrals">🎁 Referrals</option>
+                                            <option value="activity_log">📢 Activity Log</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label class="form-label">Join With</label>
+                                        <select class="form-select" id="builderJoin">
+                                            <option value="">No Join</option>
+                                            <option value="users">👥 Users (via user_id)</option>
+                                            <option value="services">🛒 Services (via api_service_id)</option>
+                                        </select>
+                                        <div class="form-help">Optional — enrich data</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">🔍 Filters</h3>
+                                    <button class="btn btn-ghost btn-icon btn-sm" id="addFilterBtn" title="Add Filter">
+                                        ➕
+                                    </button>
+                                </div>
+                                <div class="card-body" id="filtersContainer">
+                                    <div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 12px;">
+                                        No filters applied — all records will be included
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">📅 Date Range</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Date Column</label>
+                                        <select class="form-select" id="builderDateColumn">
+                                            <option value="created_at">created_at</option>
+                                            <option value="updated_at">updated_at</option>
+                                            <option value="completed_at">completed_at</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grid grid-2 gap-sm">
+                                        <div class="form-group" style="margin: 0;">
+                                            <label class="form-label">From</label>
+                                            <input type="date" class="form-input" id="builderDateFrom">
+                                        </div>
+                                        <div class="form-group" style="margin: 0;">
+                                            <label class="form-label">To</label>
+                                            <input type="date" class="form-input" id="builderDateTo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">📋 Columns</h3>
+                                    <button class="btn btn-ghost btn-sm" id="selectAllColumns">All</button>
+                                </div>
+                                <div class="card-body" id="columnsContainer">
+                                    <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                        Select a table first
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">⚙️ Options</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Output Format</label>
+                                        <select class="form-select" id="builderFormat">
+                                            <option value="csv">📊 CSV</option>
+                                            <option value="json">📋 JSON</option>
+                                            <option value="html">🌐 HTML</option>
+                                            <option value="txt">📄 Plain Text</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Sort By</label>
+                                        <select class="form-select" id="builderSortBy">
+                                            <option value="id_desc">Newest First</option>
+                                            <option value="id_asc">Oldest First</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Max Rows</label>
+                                        <input type="number" class="form-input" id="builderLimit" value="1000" min="1" max="50000">
+                                    </div>
+
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox" id="builderHeaders" checked>
+                                        <span>Include column headers</span>
+                                    </label>
+
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox" id="builderTotals">
+                                        <span>Add summary totals (CSV)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right: Preview & Actions -->
+                        <div>
+
+                            <div class="card mb-md" style="position: sticky; top: 80px;">
+                                <div class="card-header">
+                                    <h3 class="card-title">👁️ Preview</h3>
+                                    <button class="btn btn-ghost btn-icon btn-sm" id="refreshPreviewBtn" title="Refresh">
+                                        🔄
+                                    </button>
+                                </div>
+                                <div class="card-body" style="padding: 0;">
+                                    <div id="builderPreview" style="min-height: 300px; max-height: 400px; overflow: auto;">
+                                        <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                                            <div style="font-size: 48px; opacity: 0.3; margin-bottom: 12px;">📊</div>
+                                            <div>Configure your report and click refresh</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" style="padding: 12px 16px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted);">
+                                        <span>Rows: <b style="color: var(--primary);" id="previewRowCount">0</b></span>
+                                        <span>Columns: <b style="color: var(--primary);" id="previewColCount">0</b></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" style="background: linear-gradient(135deg, var(--primary-light), var(--bg-card)); border-color: var(--primary);">
+                                <div class="card-body" style="text-align: center;">
+                                    <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+                                        Ready to generate your custom report?
+                                    </div>
+
+                                    <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                        <button class="btn btn-secondary" id="resetBuilderBtn">
+                                            🔄 Reset
+                                        </button>
+                                        <button class="btn btn-primary" id="generateBuilderBtn">
+                                            📊 Generate Report
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: SCHEDULED
+                     ==================================================== -->
+                <div id="scheduledView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">📅 Scheduled Reports</h3>
+                            <button class="btn btn-primary btn-sm" id="addScheduleBtn">
+                                ➕ Add Schedule
+                            </button>
+                        </div>
+                        <div class="card-body" id="scheduledList">
+                            <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                                <div style="font-size: 48px; opacity: 0.3; margin-bottom: 12px;">📅</div>
+                                <div style="font-size: 14px;">No scheduled reports</div>
+                                <div style="font-size: 12px; margin-top: 8px;">Add a schedule to automate report delivery</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">✅</div>
+                                <div>
+                                    <div class="stat-value-inline" id="schedActive">0</div>
+                                    <div class="stat-label-inline">Active</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">⏸️</div>
+                                <div>
+                                    <div class="stat-value-inline" id="schedPaused">0</div>
+                                    <div class="stat-label-inline">Paused</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">📤</div>
+                                <div>
+                                    <div class="stat-value-inline" id="schedSent">0</div>
+                                    <div class="stat-label-inline">Reports Sent</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: HISTORY
+                     ==================================================== -->
+                <div id="historyView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="historySearch" placeholder="Report name, type...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Type</label>
+                                    <select class="form-select" id="historyFilterType">
+                                        <option value="">All Types</option>
+                                        <option value="sales">💰 Sales</option>
+                                        <option value="users">👥 Users</option>
+                                        <option value="orders">📦 Orders</option>
+                                        <option value="payments">💳 Payments</option>
+                                        <option value="custom">🛠️ Custom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="historyFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearHistoryFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Report Name</th>
+                                        <th>Type</th>
+                                        <th>Rows</th>
+                                        <th>Format</th>
+                                        <th>Size</th>
+                                        <th>Date</th>
+                                        <th style="width: 130px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <tr>
+                                        <td colspan="8" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                                            <div>No reports generated yet</div>
+                                            <div style="font-size: 12px; margin-top: 8px;">Generated reports will appear here</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       REPORTS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            mainTab: 'quick',
+            users: [],
+            orders: [],
+            payments: [],
+            services: [],
+            activityLog: [],
+            generatedReports: [],
+            scheduledReports: [],
+            activeFilters: [],
+            builderColumns: [],
+            builderPreviewData: null,
+            historySearch: '',
+            historyType: '',
+            historyDate: '',
+        };
+
+        /* ============================================================
+           TABLE SCHEMAS
+         ============================================================ */
+        const TABLE_SCHEMAS = {
+            orders: {
+                label: 'Orders',
+                icon: '📦',
+                columns: ['id', 'user_id', 'username', 'service_name', 'link', 'quantity', 'user_price', 'api_cost', 'profit', 'api_order_id', 'status', 'created_at', 'completed_at', 'refund_amount'],
+                dateColumns: ['created_at', 'updated_at', 'completed_at'],
+            },
+            users: {
+                label: 'Users',
+                icon: '👥',
+                columns: ['user_id', 'username', 'first_name', 'last_name', 'phone', 'email', 'city', 'balance', 'total_spent', 'total_orders', 'is_vip', 'vip_expiry', 'is_banned', 'referral_code', 'referred_by', 'join_date', 'last_active'],
+                dateColumns: ['join_date', 'last_active', 'profile_completed_at'],
+            },
+            payments: {
+                label: 'Payments',
+                icon: '💳',
+                columns: ['id', 'user_id', 'username', 'amount', 'type', 'item_id', 'utr', 'status', 'created_at', 'approved_at'],
+                dateColumns: ['created_at', 'approved_at'],
+            },
+            services: {
+                label: 'Services',
+                icon: '🛒',
+                columns: ['api_service_id', 'name', 'category', 'subcategory', 'api_rate', 'selling_price', 'profit_per_1000', 'min_order', 'max_order', 'is_active', 'is_hot', 'is_manual_price'],
+                dateColumns: ['created_at', 'updated_at'],
+            },
+            referrals: {
+                label: 'Referrals',
+                icon: '🎁',
+                columns: ['user_id', 'first_name', 'username', 'referral_code', 'referred_by', 'is_vip', 'balance', 'total_orders', 'join_date'],
+                dateColumns: ['join_date'],
+            },
+            activity_log: {
+                label: 'Activity Log',
+                icon: '📢',
+                columns: ['id', 'user', 'action', 'icon', 'color', 'created_at'],
+                dateColumns: ['created_at'],
+            },
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAllData();
+            loadScheduledFromStorage();
+            renderScheduledList();
+            updateStats();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('reportStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'reportStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Quick Reports Grid ---- */
+                .quick-reports-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                    gap: 16px;
+                }
+
+                .quick-report-card {
+                    background: var(--bg-card);
+                    border: 1px solid var(--border-color);
+                    border-radius: 14px;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    transition: all 0.25s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .quick-report-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--primary), var(--accent));
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                .quick-report-card:hover {
+                    transform: translateY(-4px);
+                    border-color: var(--border-hover);
+                    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+                }
+                .quick-report-card:hover::before {
+                    opacity: 1;
+                }
+
+                .qr-icon {
+                    font-size: 36px;
+                    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+                }
+                .qr-title {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: var(--text-primary);
+                    line-height: 1.2;
+                }
+                .qr-desc {
+                    font-size: 12px;
+                    color: var(--text-muted);
+                    line-height: 1.4;
+                    flex: 1;
+                }
+                .qr-meta {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    justify-content: space-between;
+                }
+                .qr-btn {
+                    margin-top: 4px;
+                }
+
+                /* ---- Inline Stat ---- */
+                .stat-card-inline {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+                .stat-icon-inline {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background: var(--primary-light);
+                    color: var(--primary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .stat-value-inline {
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--text-primary);
+                }
+                .stat-label-inline {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                }
+
+                /* ---- Filter Row ---- */
+                .filter-row {
+                    display: grid;
+                    grid-template-columns: 1.5fr 1fr 1.5fr auto;
+                    gap: 8px;
+                    align-items: center;
+                    padding: 10px;
+                    background: var(--bg-elevated);
+                    border-radius: 8px;
+                    margin-bottom: 8px;
+                }
+                .filter-row .form-select,
+                .filter-row .form-input {
+                    height: 34px;
+                    font-size: 12px;
+                    padding: 4px 10px;
+                }
+                .filter-row .btn-icon {
+                    width: 34px;
+                    height: 34px;
+                }
+
+                /* ---- Column Checkboxes ---- */
+                .column-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 6px;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    padding: 4px;
+                }
+                .column-checkbox {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 8px 10px;
+                    background: var(--bg-elevated);
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.15s;
+                    font-size: 12px;
+                    border: 1px solid transparent;
+                }
+                .column-checkbox:hover {
+                    background: var(--bg-hover);
+                }
+                .column-checkbox.checked {
+                    background: var(--primary-light);
+                    border-color: var(--primary);
+                    color: var(--primary);
+                }
+                .column-checkbox input {
+                    cursor: pointer;
+                    accent-color: var(--primary);
+                }
+
+                /* ---- Preview Table ---- */
+                .preview-table-wrapper {
+                    max-height: 400px;
+                    overflow: auto;
+                }
+                .preview-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-size: 11px;
+                }
+                .preview-table th {
+                    position: sticky;
+                    top: 0;
+                    background: var(--bg-elevated);
+                    padding: 8px 10px;
+                    text-align: left;
+                    font-weight: 600;
+                    color: var(--text-secondary);
+                    border-bottom: 1px solid var(--border-color);
+                    white-space: nowrap;
+                    z-index: 1;
+                }
+                .preview-table td {
+                    padding: 6px 10px;
+                    border-bottom: 1px solid var(--border-light);
+                    color: var(--text-primary);
+                    max-width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .preview-table tbody tr:hover {
+                    background: var(--bg-hover);
+                }
+
+                /* ---- Scheduled Card ---- */
+                .scheduled-card {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 16px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 12px;
+                    margin-bottom: 12px;
+                    transition: all 0.2s;
+                }
+                .scheduled-card:hover {
+                    border-color: var(--border-hover);
+                }
+                .scheduled-card.paused {
+                    opacity: 0.6;
+                }
+                .scheduled-icon {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .scheduled-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .scheduled-title {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .scheduled-meta {
+                    display: flex;
+                    gap: 12px;
+                    margin-top: 6px;
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    flex-wrap: wrap;
+                }
+                .scheduled-meta span {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+                .scheduled-actions {
+                    display: flex;
+                    gap: 4px;
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                /* ---- History Table Type Badge ---- */
+                .type-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 600;
+                    white-space: nowrap;
+                }
+                .type-sales { background: var(--success-light); color: var(--success); }
+                .type-users { background: var(--info-light); color: var(--info); }
+                .type-orders { background: var(--primary-light); color: var(--primary); }
+                .type-payments { background: var(--gold-light); color: var(--gold); }
+                .type-custom { background: var(--accent-light); color: var(--accent); }
+                .type-other { background: var(--bg-elevated); color: var(--text-muted); }
+
+                @media (max-width: 768px) {
+                    .filter-row {
+                        grid-template-columns: 1fr;
+                    }
+                    .column-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    .scheduled-card {
+                        flex-wrap: wrap;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadAllData(true);
+                updateStats();
+            });
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Quick reports ---- */
+            document.getElementById('quickDateRange').addEventListener('change', (e) => {
+                const isCustom = e.target.value === 'custom';
+                document.getElementById('customRangeInputs').style.display = isCustom ? 'flex' : 'none';
+            });
+
+            document.querySelectorAll('[data-report]').forEach(card => {
+                const btn = card.querySelector('.qr-btn');
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    generateQuickReport(card.dataset.report);
+                });
+                card.addEventListener('click', () => generateQuickReport(card.dataset.report));
+            });
+
+            document.getElementById('quickReportBtn').addEventListener('click', () => {
+                switchMainTab('quick');
+            });
+
+            document.getElementById('customReportBtn').addEventListener('click', () => {
+                switchMainTab('builder');
+            });
+
+            /* ---- Builder ---- */
+            document.getElementById('builderTable').addEventListener('change', loadBuilderTable);
+            document.getElementById('addFilterBtn').addEventListener('click', addFilterRow);
+            document.getElementById('refreshPreviewBtn').addEventListener('click', refreshBuilderPreview);
+            document.getElementById('resetBuilderBtn').addEventListener('click', resetBuilder);
+            document.getElementById('generateBuilderBtn').addEventListener('click', generateCustomReport);
+
+            document.getElementById('selectAllColumns').addEventListener('click', () => {
+                const checkboxes = document.querySelectorAll('#columnsContainer input[type="checkbox"]');
+                const allChecked = Array.from(checkboxes).every(c => c.checked);
+
+                checkboxes.forEach(c => {
+                    c.checked = !allChecked;
+                    c.closest('.column-checkbox').classList.toggle('checked', !allChecked);
+                });
+            });
+
+            /* ---- Scheduled ---- */
+            document.getElementById('addScheduleBtn').addEventListener('click', showAddScheduleModal);
+
+            /* ---- History filters ---- */
+            const hsInput = document.getElementById('historySearch');
+            hsInput.addEventListener('input', Utils.debounce(() => {
+                State.historySearch = hsInput.value.trim();
+                renderHistory();
+            }, 300));
+
+            document.getElementById('historyFilterType').addEventListener('change', (e) => {
+                State.historyType = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('historyFilterDate').addEventListener('change', (e) => {
+                State.historyDate = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('clearHistoryFilters').addEventListener('click', () => {
+                document.getElementById('historySearch').value = '';
+                document.getElementById('historyFilterType').value = '';
+                document.getElementById('historyFilterDate').value = '';
+                State.historySearch = '';
+                State.historyType = '';
+                State.historyDate = '';
+                renderHistory();
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['quickView', 'builderView', 'scheduledView', 'historyView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                quick: 'quickView',
+                builder: 'builderView',
+                scheduled: 'scheduledView',
+                history: 'historyView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'history') renderHistory();
+            if (tab === 'scheduled') renderScheduledList();
+        }
+
+        /* ============================================================
+           LOAD ALL DATA
+         ============================================================ */
+        async function loadAllData(showToast = false) {
+            try {
+                const [usersRes, ordersRes, paymentsRes, servicesRes, activityRes] = await Promise.allSettled([
+                    API.getDataPage('users', 1, 5000, ''),
+                    API.getDataPage('orders', 1, 5000, ''),
+                    API.getDataPage('payments', 1, 5000, ''),
+                    API.getDataPage('services', 1, 5000, ''),
+                    API.getActivity(),
+                ]);
+
+                State.users = (usersRes.status === 'fulfilled' && usersRes.value && usersRes.value.rows) ? usersRes.value.rows : [];
+                State.orders = (ordersRes.status === 'fulfilled' && ordersRes.value && ordersRes.value.rows) ? ordersRes.value.rows : [];
+                State.payments = (paymentsRes.status === 'fulfilled' && paymentsRes.value && paymentsRes.value.rows) ? paymentsRes.value.rows : [];
+                State.services = (servicesRes.status === 'fulfilled' && servicesRes.value && servicesRes.value.rows) ? servicesRes.value.rows : [];
+                State.activityLog = (activityRes.status === 'fulfilled' && activityRes.value && activityRes.value.data) ? activityRes.value.data : [];
+
+                if (showToast) Toast.success('Data refreshed!');
+
+            } catch (err) {
+                console.error('Load failed:', err);
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           DATE RANGE HELPERS
+         ============================================================ */
+        function getDateRange(rangeValue, customFrom = null, customTo = null) {
+            const now = new Date();
+            now.setHours(23, 59, 59, 999);
+
+            const start = new Date();
+            start.setHours(0, 0, 0, 0);
+
+            switch (rangeValue) {
+                case 'today':
+                    return { from: start, to: now };
+
+                case 'yesterday':
+                    start.setDate(start.getDate() - 1);
+                    const yEnd = new Date(start);
+                    yEnd.setHours(23, 59, 59, 999);
+                    return { from: start, to: yEnd };
+
+                case '7days':
+                    start.setDate(start.getDate() - 7);
+                    return { from: start, to: now };
+
+                case '30days':
+                    start.setDate(start.getDate() - 30);
+                    return { from: start, to: now };
+
+                case 'month':
+                    start.setDate(1);
+                    return { from: start, to: now };
+
+                case 'last_month':
+                    const lmEnd = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59);
+                    const lmStart = new Date(now.getFullYear(), now.getMonth() - 1, 1, 0, 0, 0);
+                    return { from: lmStart, to: lmEnd };
+
+                case 'year':
+                    start.setMonth(0, 1);
+                    return { from: start, to: now };
+
+                case 'custom':
+                    if (customFrom && customTo) {
+                        return {
+                            from: new Date(customFrom + 'T00:00:00'),
+                            to: new Date(customTo + 'T23:59:59'),
+                        };
+                    }
+                    return { from: start, to: now };
+
+                case 'all':
+                default:
+                    return { from: new Date(0), to: now };
+            }
+        }
+
+        function filterByDateRange(items, dateField, from, to) {
+            return items.filter(item => {
+                const dt = String(item[dateField] || '').replace(' ', 'T');
+                const d = new Date(dt).getTime();
+                if (isNaN(d)) return false;
+                return d >= from.getTime() && d <= to.getTime();
+            });
+        }
+
+        /* ============================================================
+           GENERATE QUICK REPORT
+         ============================================================ */
+        async function generateQuickReport(type) {
+            const rangeValue = document.getElementById('quickDateRange').value;
+            const format = document.getElementById('quickFormat').value;
+
+            let customFrom = null;
+            let customTo = null;
+
+            if (rangeValue === 'custom') {
+                customFrom = document.getElementById('quickDateFrom').value;
+                customTo = document.getElementById('quickDateTo').value;
+
+                if (!customFrom || !customTo) {
+                    Toast.error('Please select custom date range');
+                    return;
+                }
+            }
+
+            const { from, to } = getDateRange(rangeValue, customFrom, customTo);
+
+            Loader.show();
+
+            try {
+                let data = null;
+                let reportName = '';
+                let headers = [];
+
+                switch (type) {
+                    case 'sales':
+                        data = buildSalesReport(from, to);
+                        reportName = 'Sales Report';
+                        break;
+                    case 'users':
+                        data = buildUsersReport(from, to);
+                        reportName = 'Users Report';
+                        break;
+                    case 'orders':
+                        data = buildOrdersReport(from, to);
+                        reportName = 'Orders Report';
+                        break;
+                    case 'payments':
+                        data = buildPaymentsReport(from, to);
+                        reportName = 'Payments Report';
+                        break;
+                    case 'services':
+                        data = buildServicesReport();
+                        reportName = 'Services Report';
+                        break;
+                    case 'referrals':
+                        data = buildReferralsReport(from, to);
+                        reportName = 'Referrals Report';
+                        break;
+                    case 'financial':
+                        data = buildFinancialReport(from, to);
+                        reportName = 'Financial Summary';
+                        break;
+                    case 'activity':
+                        data = buildActivityReport(from, to);
+                        reportName = 'Activity Report';
+                        break;
+                    case 'top_users':
+                        data = buildTopUsersReport(from, to);
+                        reportName = 'Top Users Report';
+                        break;
+                    case 'top_services':
+                        data = buildTopServicesReport(from, to);
+                        reportName = 'Top Services Report';
+                        break;
+                    case 'failed_orders':
+                        data = buildFailedOrdersReport(from, to);
+                        reportName = 'Failed Orders Report';
+                        break;
+                    case 'vip':
+                        data = buildVipReport();
+                        reportName = 'VIP Members Report';
+                        break;
+                }
+
+                if (!data || data.rows.length === 0) {
+                    Toast.warning('No data found for selected range');
+                    return;
+                }
+
+                await downloadReport(data, reportName, format);
+
+                /* ---- Add to history ---- */
+                State.generatedReports.unshift({
+                    id: 'rpt_' + Date.now(),
+                    name: reportName,
+                    type: type,
+                    rows: data.rows.length,
+                    format: format,
+                    size: 0,
+                    created_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
+                });
+
+                updateStats();
+                Toast.success(`${reportName} generated!`);
+
+            } catch (err) {
+                console.error('Generate failed:', err);
+                Toast.error('Report generation failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           REPORT BUILDERS
+         ============================================================ */
+        function buildSalesReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to)
+                .filter(o => o.status === 'completed');
+
+            const headers = ['Order ID', 'Date', 'User ID', 'Username', 'Service', 'Quantity', 'Revenue', 'Cost', 'Profit', 'Margin %'];
+
+            const rows = orders.map(o => {
+                const revenue = parseFloat(o.user_price || 0);
+                const cost = parseFloat(o.api_cost || 0);
+                const profit = parseFloat(o.profit || 0);
+                const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
+
+                return [
+                    o.id,
+                    o.created_at,
+                    o.user_id,
+                    o.username || '',
+                    o.service_name || '',
+                    o.quantity || 0,
+                    revenue.toFixed(2),
+                    cost.toFixed(2),
+                    profit.toFixed(2),
+                    margin.toFixed(2),
+                ];
+            });
+
+            /* ---- Totals row ---- */
+            const totalRevenue = orders.reduce((s, o) => s + parseFloat(o.user_price || 0), 0);
+            const totalCost = orders.reduce((s, o) => s + parseFloat(o.api_cost || 0), 0);
+            const totalProfit = orders.reduce((s, o) => s + parseFloat(o.profit || 0), 0);
+
+            return {
+                headers,
+                rows,
+                totals: {
+                    label: 'TOTAL',
+                    values: ['', '', '', '', '', '', totalRevenue.toFixed(2), totalCost.toFixed(2), totalProfit.toFixed(2), ''],
+                },
+            };
+        }
+
+        function buildUsersReport(from, to) {
+            const users = filterByDateRange(State.users, 'join_date', from, to);
+
+            const headers = ['User ID', 'Username', 'First Name', 'Last Name', 'Phone', 'Email', 'City', 'Balance', 'Total Spent', 'Total Orders', 'VIP', 'Banned', 'Joined'];
+
+            const rows = users.map(u => [
+                u.user_id,
+                u.username || '',
+                u.first_name || '',
+                u.last_name || '',
+                u.phone || '',
+                u.email || '',
+                u.city || '',
+                parseFloat(u.balance || 0).toFixed(2),
+                parseFloat(u.total_spent || 0).toFixed(2),
+                u.total_orders || 0,
+                u.is_vip == 1 ? 'Yes' : 'No',
+                u.is_banned == 1 ? 'Yes' : 'No',
+                u.join_date,
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildOrdersReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to);
+
+            const headers = ['Order ID', 'Date', 'User ID', 'Service', 'Link', 'Quantity', 'Amount', 'Status', 'API Order ID', 'Completed'];
+
+            const rows = orders.map(o => [
+                o.id,
+                o.created_at,
+                o.user_id,
+                o.service_name || '',
+                Utils.truncate(o.link || '', 60),
+                o.quantity || 0,
+                parseFloat(o.user_price || 0).toFixed(2),
+                o.status || '',
+                o.api_order_id || '',
+                o.completed_at || '',
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildPaymentsReport(from, to) {
+            const payments = filterByDateRange(State.payments, 'created_at', from, to);
+
+            const headers = ['Payment ID', 'Date', 'User ID', 'Username', 'Amount', 'Type', 'UTR', 'Status', 'Approved At'];
+
+            const rows = payments.map(p => [
+                p.id,
+                p.created_at,
+                p.user_id,
+                p.username || '',
+                parseFloat(p.amount || 0).toFixed(2),
+                p.type || 'credits',
+                p.utr || '',
+                p.status || '',
+                p.approved_at || '',
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildServicesReport() {
+            const services = State.services;
+
+            const headers = ['Service ID', 'Name', 'Category', 'Subcategory', 'API Rate', 'Selling Price', 'Profit/1k', 'Min', 'Max', 'Active', 'Manual Price'];
+
+            const rows = services.map(s => [
+                s.api_service_id,
+                s.name || '',
+                s.category || '',
+                s.subcategory || '',
+                parseFloat(s.api_rate || 0).toFixed(2),
+                parseFloat(s.selling_price || 0).toFixed(2),
+                parseFloat(s.profit_per_1000 || 0).toFixed(2),
+                s.min_order || 0,
+                s.max_order || 0,
+                s.is_active == 1 ? 'Yes' : 'No',
+                s.is_manual_price == 1 ? 'Yes' : 'No',
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildReferralsReport(from, to) {
+            const users = State.users;
+            const referrerMap = {};
+
+            users.forEach(u => {
+                const refBy = String(u.referred_by || '').trim();
+                if (!refBy) return;
+
+                const joinDate = new Date(String(u.join_date || '').replace(' ', 'T'));
+                if (joinDate < from || joinDate > to) return;
+
+                if (!referrerMap[refBy]) {
+                    const refUser = users.find(x => String(x.user_id) === refBy) || {};
+                    referrerMap[refBy] = {
+                        ref_id: refBy,
+                        ref_name: refUser.first_name || '',
+                        ref_username: refUser.username || '',
+                        ref_code: refUser.referral_code || '',
+                        referrals: [],
+                    };
+                }
+
+                referrerMap[refBy].referrals.push(u);
+            });
+
+            const headers = ['Referrer ID', 'Referrer Name', 'Referral Code', 'Total Referrals', 'Referred Users'];
+
+            const rows = Object.values(referrerMap).map(r => [
+                r.ref_id,
+                r.ref_name,
+                r.ref_code,
+                r.referrals.length,
+                r.referrals.map(u => u.user_id).join('; '),
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildFinancialReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to);
+            const payments = filterByDateRange(State.payments, 'created_at', from, to);
+
+            const completedOrders = orders.filter(o => o.status === 'completed');
+            const approvedPayments = payments.filter(p => p.status === 'approved');
+
+            const grossRevenue = completedOrders.reduce((s, o) => s + parseFloat(o.user_price || 0), 0);
+            const apiCost = completedOrders.reduce((s, o) => s + parseFloat(o.api_cost || 0), 0);
+            const profit = completedOrders.reduce((s, o) => s + parseFloat(o.profit || 0), 0);
+            const deposits = approvedPayments.reduce((s, p) => s + parseFloat(p.amount || 0), 0);
+
+            const refunded = orders.reduce((s, o) => s + parseFloat(o.refund_amount || 0), 0);
+
+            const headers = ['Metric', 'Value'];
+
+            const rows = [
+                ['Report Period', `${from.toLocaleDateString('en-IN')} - ${to.toLocaleDateString('en-IN')}`],
+                ['Total Orders', orders.length],
+                ['Completed Orders', completedOrders.length],
+                ['Gross Revenue', '₹' + grossRevenue.toFixed(2)],
+                ['API Cost', '₹' + apiCost.toFixed(2)],
+                ['Net Profit', '₹' + profit.toFixed(2)],
+                ['Profit Margin', grossRevenue > 0 ? ((profit / grossRevenue) * 100).toFixed(2) + '%' : '0%'],
+                ['Total Deposits', '₹' + deposits.toFixed(2)],
+                ['Total Refunds', '₹' + refunded.toFixed(2)],
+                ['Approved Payments', approvedPayments.length],
+                ['Avg Order Value', completedOrders.length > 0 ? '₹' + (grossRevenue / completedOrders.length).toFixed(2) : '₹0'],
+            ];
+
+            return { headers, rows };
+        }
+
+        function buildActivityReport(from, to) {
+            const activity = filterByDateRange(State.activityLog, 'created_at', from, to);
+
+            const headers = ['ID', 'Date', 'User', 'Action'];
+
+            const rows = activity.map(a => [
+                a.id,
+                a.created_at,
+                a.user || 'System',
+                a.action || '',
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildTopUsersReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to)
+                .filter(o => o.status === 'completed');
+
+            const userMap = {};
+
+            orders.forEach(o => {
+                const uid = String(o.user_id || '');
+                if (!userMap[uid]) {
+                    const u = State.users.find(x => String(x.user_id) === uid) || {};
+                    userMap[uid] = {
+                        user_id: uid,
+                        username: u.username || '',
+                        first_name: u.first_name || '',
+                        orders: 0,
+                        spent: 0,
+                        profit: 0,
+                    };
+                }
+                userMap[uid].orders++;
+                userMap[uid].spent += parseFloat(o.user_price || 0);
+                userMap[uid].profit += parseFloat(o.profit || 0);
+            });
+
+            const top = Object.values(userMap)
+                .sort((a, b) => b.spent - a.spent)
+                .slice(0, 100);
+
+            const headers = ['Rank', 'User ID', 'Username', 'First Name', 'Total Orders', 'Total Spent', 'Profit Generated'];
+
+            const rows = top.map((t, i) => [
+                i + 1,
+                t.user_id,
+                t.username,
+                t.first_name,
+                t.orders,
+                t.spent.toFixed(2),
+                t.profit.toFixed(2),
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildTopServicesReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to)
+                .filter(o => o.status === 'completed');
+
+            const svcMap = {};
+
+            orders.forEach(o => {
+                const name = String(o.service_name || 'Unknown');
+                if (!svcMap[name]) {
+                    svcMap[name] = {
+                        name,
+                        api_id: o.api_service_id || '',
+                        orders: 0,
+                        quantity: 0,
+                        revenue: 0,
+                        profit: 0,
+                    };
+                }
+                svcMap[name].orders++;
+                svcMap[name].quantity += parseInt(o.quantity || 0);
+                svcMap[name].revenue += parseFloat(o.user_price || 0);
+                svcMap[name].profit += parseFloat(o.profit || 0);
+            });
+
+            const top = Object.values(svcMap)
+                .sort((a, b) => b.revenue - a.revenue)
+                .slice(0, 100);
+
+            const headers = ['Rank', 'Service ID', 'Service Name', 'Orders', 'Total Quantity', 'Revenue', 'Profit'];
+
+            const rows = top.map((t, i) => [
+                i + 1,
+                t.api_id,
+                t.name,
+                t.orders,
+                t.quantity,
+                t.revenue.toFixed(2),
+                t.profit.toFixed(2),
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildFailedOrdersReport(from, to) {
+            const orders = filterByDateRange(State.orders, 'created_at', from, to)
+                .filter(o => o.status === 'failed' || o.status === 'cancelled' || parseFloat(o.refund_amount || 0) > 0);
+
+            const headers = ['Order ID', 'Date', 'User ID', 'Service', 'Amount', 'Status', 'Refund Amount', 'Refunded At'];
+
+            const rows = orders.map(o => [
+                o.id,
+                o.created_at,
+                o.user_id,
+                o.service_name || '',
+                parseFloat(o.user_price || 0).toFixed(2),
+                o.status || '',
+                parseFloat(o.refund_amount || 0).toFixed(2),
+                o.refunded_at || '',
+            ]);
+
+            return { headers, rows };
+        }
+
+        function buildVipReport() {
+            const vips = State.users.filter(u => u.is_vip == 1);
+
+            const headers = ['User ID', 'Username', 'First Name', 'VIP Expiry', 'Days Remaining', 'Balance', 'Total Spent'];
+
+            const now = Date.now();
+
+            const rows = vips.map(u => {
+                let daysRemaining = 'N/A';
+                if (u.vip_expiry) {
+                    const expiry = new Date(String(u.vip_expiry).replace(' ', 'T')).getTime();
+                    if (!isNaN(expiry)) {
+                        daysRemaining = Math.max(0, Math.floor((expiry - now) / 86400000));
+                    }
+                }
+
+                return [
+                    u.user_id,
+                    u.username || '',
+                    u.first_name || '',
+                    u.vip_expiry || '',
+                    daysRemaining,
+                    parseFloat(u.balance || 0).toFixed(2),
+                    parseFloat(u.total_spent || 0).toFixed(2),
+                ];
+            });
+
+            return { headers, rows };
+        }
+
+        /* ============================================================
+           DOWNLOAD REPORT
+         ============================================================ */
+        async function downloadReport(data, reportName, format) {
+            const { headers, rows, totals } = data;
+
+            let content = '';
+            let mimeType = 'text/plain;charset=utf-8;';
+            let extension = 'txt';
+
+            if (format === 'csv') {
+                const allRows = [headers, ...rows];
+                if (totals) {
+                    allRows.push(totals.values);
+                }
+                content = allRows
+                    .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                    .join('\n');
+                mimeType = 'text/csv;charset=utf-8;';
+                extension = 'csv';
+
+            } else if (format === 'json') {
+                const jsonData = rows.map(row => {
+                    const obj = {};
+                    headers.forEach((h, i) => obj[h] = row[i]);
+                    return obj;
+                });
+                content = JSON.stringify({
+                    report: reportName,
+                    generated: new Date().toISOString(),
+                    count: rows.length,
+                    data: jsonData,
+                }, null, 2);
+                mimeType = 'application/json;charset=utf-8;';
+                extension = 'json';
+
+            } else if (format === 'html') {
+                content = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${reportName}</title>
+<style>
+body { font-family: -apple-system, sans-serif; padding: 24px; background: #f5f5f5; }
+h1 { color: #ff6b00; margin-bottom: 8px; }
+.meta { color: #666; margin-bottom: 24px; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+th { background: #ff6b00; color: #fff; padding: 12px; text-align: left; font-size: 12px; }
+td { padding: 10px 12px; border-bottom: 1px solid #eee; font-size: 12px; }
+tr:hover { background: #fafafa; }
+.total-row { background: #fff3e0; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>📊 ${reportName}</h1>
+<div class="meta">Generated: ${new Date().toLocaleString('en-IN')} • Rows: ${rows.length}</div>
+<table>
+<thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+<tbody>
+${rows.map(r => `<tr>${r.map(c => `<td>${String(c).replace(/</g, '&lt;')}</td>`).join('')}</tr>`).join('')}
+${totals ? `<tr class="total-row">${totals.values.map(c => `<td>${String(c)}</td>`).join('')}</tr>` : ''}
+</tbody>
+</table>
+</body>
+</html>`;
+                mimeType = 'text/html;charset=utf-8;';
+                extension = 'html';
+
+            } else {
+                content = `${reportName}\n`;
+                content += `Generated: ${new Date().toLocaleString('en-IN')}\n`;
+                content += `Rows: ${rows.length}\n\n`;
+                content += headers.join(' | ') + '\n';
+                content += '-'.repeat(80) + '\n';
+                content += rows.map(r => r.join(' | ')).join('\n');
+                mimeType = 'text/plain;charset=utf-8;';
+                extension = 'txt';
+            }
+
+            /* ---- Create download ---- */
+            const blob = new Blob(['\uFEFF' + content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const safeName = reportName.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+            a.href = url;
+            a.download = `${safeName}_${new Date().toISOString().split('T')[0]}.${extension}`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        /* ============================================================
+           BUILDER: TABLE LOAD
+         ============================================================ */
+        function loadBuilderTable() {
+            const table = document.getElementById('builderTable').value;
+            const schema = TABLE_SCHEMAS[table];
+
+            if (!schema) return;
+
+            /* ---- Reset columns ---- */
+            State.builderColumns = [];
+
+            const container = document.getElementById('columnsContainer');
+            container.innerHTML = `
+                <div class="column-grid">
+                    ${schema.columns.map(col => `
+                        <label class="column-checkbox" data-col="${col}">
+                            <input type="checkbox" value="${col}">
+                            <span>${col}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+
+            /* ---- Bind column checkbox ---- */
+            container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    cb.closest('.column-checkbox').classList.toggle('checked', cb.checked);
+                });
+            });
+
+            /* ---- Populate date columns ---- */
+            const dateColSelect = document.getElementById('builderDateColumn');
+            dateColSelect.innerHTML = schema.dateColumns.map(c =>
+                `<option value="${c}">${c}</option>`
+            ).join('');
+
+            /* ---- Reset filters ---- */
+            document.getElementById('filtersContainer').innerHTML = `
+                <div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 12px;">
+                    No filters applied — all records will be included
+                </div>
+            `;
+            State.activeFilters = [];
+        }
+
+        /* ============================================================
+           BUILDER: ADD FILTER
+         ============================================================ */
+        function addFilterRow() {
+            const table = document.getElementById('builderTable').value;
+            const schema = TABLE_SCHEMAS[table];
+            if (!schema) return;
+
+            const container = document.getElementById('filtersContainer');
+
+            /* ---- Clear empty message ---- */
+            if (container.querySelector('div[style]')) {
+                container.innerHTML = '';
+            }
+
+            const filterId = 'filter_' + Date.now();
+            const row = document.createElement('div');
+            row.className = 'filter-row';
+            row.dataset.filterId = filterId;
+
+            row.innerHTML = `
+                <select class="form-select filter-col">
+                    ${schema.columns.map(c => `<option value="${c}">${c}</option>`).join('')}
+                </select>
+                <select class="form-select filter-op">
+                    <option value="eq">=</option>
+                    <option value="neq">≠</option>
+                    <option value="gt">&gt;</option>
+                    <option value="lt">&lt;</option>
+                    <option value="gte">≥</option>
+                    <option value="lte">≤</option>
+                    <option value="contains">contains</option>
+                    <option value="starts">starts with</option>
+                </select>
+                <input type="text" class="form-input filter-val" placeholder="Value...">
+                <button class="btn btn-danger btn-icon filter-remove" title="Remove">✕</button>
+            `;
+
+            row.querySelector('.filter-remove').addEventListener('click', () => {
+                row.remove();
+                if (!container.children.length) {
+                    container.innerHTML = `
+                        <div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 12px;">
+                            No filters applied — all records will be included
+                        </div>
+                    `;
+                }
+            });
+
+            container.appendChild(row);
+        }
+
+        /* ============================================================
+           BUILDER: APPLY FILTERS
+         ============================================================ */
+        function applyBuilderFilters(rows) {
+            const filters = [];
+
+            document.querySelectorAll('.filter-row').forEach(row => {
+                const col = row.querySelector('.filter-col').value;
+                const op = row.querySelector('.filter-op').value;
+                const val = row.querySelector('.filter-val').value.trim();
+
+                if (val !== '') filters.push({ col, op, val });
+            });
+
+            return rows.filter(row => {
+                return filters.every(f => {
+                    const cellVal = String(row[f.col] || '');
+                    const numVal = parseFloat(cellVal);
+                    const filterNum = parseFloat(f.val);
+
+                    switch (f.op) {
+                        case 'eq': return cellVal.toLowerCase() === f.val.toLowerCase();
+                        case 'neq': return cellVal.toLowerCase() !== f.val.toLowerCase();
+                        case 'gt': return !isNaN(numVal) && numVal > filterNum;
+                        case 'lt': return !isNaN(numVal) && numVal < filterNum;
+                        case 'gte': return !isNaN(numVal) && numVal >= filterNum;
+                        case 'lte': return !isNaN(numVal) && numVal <= filterNum;
+                        case 'contains': return cellVal.toLowerCase().includes(f.val.toLowerCase());
+                        case 'starts': return cellVal.toLowerCase().startsWith(f.val.toLowerCase());
+                        default: return true;
+                    }
+                });
+            });
+        }
+
+        /* ============================================================
+           BUILDER: REFRESH PREVIEW
+         ============================================================ */
+        async function refreshBuilderPreview() {
+            const table = document.getElementById('builderTable').value;
+            const columns = Array.from(document.querySelectorAll('#columnsContainer input[type="checkbox"]:checked')).map(c => c.value);
+
+            if (columns.length === 0) {
+                Toast.warning('Please select at least one column');
+                return;
+            }
+
+            const dateCol = document.getElementById('builderDateColumn').value;
+            const fromVal = document.getElementById('builderDateFrom').value;
+            const toVal = document.getElementById('builderDateTo').value;
+            const limit = parseInt(document.getElementById('builderLimit').value) || 1000;
+
+            /* ---- Get raw data ---- */
+            let rawData = getDataForTable(table);
+
+            /* ---- Date filter ---- */
+            if (fromVal || toVal) {
+                const from = fromVal ? new Date(fromVal + 'T00:00:00') : new Date(0);
+                const to = toVal ? new Date(toVal + 'T23:59:59') : new Date();
+
+                rawData = filterByDateRange(rawData, dateCol, from, to);
+            }
+
+            /* ---- Apply filters ---- */
+            rawData = applyBuilderFilters(rawData);
+
+            /* ---- Sort ---- */
+            const sortBy = document.getElementById('builderSortBy').value;
+            if (sortBy === 'id_desc') {
+                rawData = rawData.slice().sort((a, b) => (parseInt(b.id) || 0) - (parseInt(a.id) || 0));
+            } else if (sortBy === 'id_asc') {
+                rawData = rawData.slice().sort((a, b) => (parseInt(a.id) || 0) - (parseInt(b.id) || 0));
+            }
+
+            /* ---- Limit ---- */
+            rawData = rawData.slice(0, limit);
+
+            /* ---- Build preview ---- */
+            const preview = document.getElementById('builderPreview');
+
+            if (rawData.length === 0) {
+                preview.innerHTML = `
+                    <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 48px; opacity: 0.3; margin-bottom: 12px;">📭</div>
+                        <div>No matching records</div>
+                    </div>
+                `;
+                document.getElementById('previewRowCount').textContent = '0';
+                document.getElementById('previewColCount').textContent = '0';
+                return;
+            }
+
+            State.builderPreviewData = { rawData, columns };
+
+            const previewRows = rawData.slice(0, 100);
+
+            preview.innerHTML = `
+                <div class="preview-table-wrapper">
+                    <table class="preview-table">
+                        <thead>
+                            <tr>${columns.map(c => `<th>${c}</th>`).join('')}</tr>
+                        </thead>
+                        <tbody>
+                            ${previewRows.map(r => `
+                                <tr>
+                                    ${columns.map(c => `<td title="${Utils.escape(String(r[c] || ''))}">${Utils.escape(String(r[c] || ''))}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            document.getElementById('previewRowCount').textContent = Utils.number(rawData.length);
+            document.getElementById('previewColCount').textContent = columns.length;
+
+            Toast.success(`Preview: ${rawData.length} rows`);
+        }
+
+        function getDataForTable(table) {
+            switch (table) {
+                case 'orders': return State.orders;
+                case 'users': return State.users;
+                case 'payments': return State.payments;
+                case 'services': return State.services;
+                case 'referrals': return State.users.filter(u => u.referred_by);
+                case 'activity_log': return State.activityLog;
+                default: return [];
+            }
+        }
+
+        /* ============================================================
+           BUILDER: RESET
+         ============================================================ */
+        function resetBuilder() {
+            Modal.confirm({
+                title: '🔄 Reset Builder',
+                message: 'Reset all builder settings?',
+                confirmText: 'Yes, Reset',
+                type: 'warning',
+                onConfirm: () => {
+                    document.getElementById('builderTable').value = 'orders';
+                    document.getElementById('builderJoin').value = '';
+                    document.getElementById('builderDateFrom').value = '';
+                    document.getElementById('builderDateTo').value = '';
+                    document.getElementById('builderLimit').value = '1000';
+                    document.getElementById('builderSortBy').value = 'id_desc';
+                    document.getElementById('builderFormat').value = 'csv';
+                    document.getElementById('builderHeaders').checked = true;
+                    document.getElementById('builderTotals').checked = false;
+
+                    document.getElementById('filtersContainer').innerHTML = `
+                        <div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 12px;">
+                            No filters applied — all records will be included
+                        </div>
+                    `;
+
+                    document.getElementById('builderPreview').innerHTML = `
+                        <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                            <div style="font-size: 48px; opacity: 0.3; margin-bottom: 12px;">📊</div>
+                            <div>Configure your report and click refresh</div>
+                        </div>
+                    `;
+
+                    document.getElementById('previewRowCount').textContent = '0';
+                    document.getElementById('previewColCount').textContent = '0';
+
+                    loadBuilderTable();
+                    Toast.success('Builder reset');
+                }
+            });
+        }
+
+        /* ============================================================
+           BUILDER: GENERATE
+         ============================================================ */
+        async function generateCustomReport() {
+            if (!State.builderPreviewData || !State.builderPreviewData.rawData.length) {
+                Toast.warning('Please refresh preview first');
+                return;
+            }
+
+            const columns = State.builderPreviewData.columns;
+            const rawData = State.builderPreviewData.rawData;
+            const format = document.getElementById('builderFormat').value;
+            const includeHeaders = document.getElementById('builderHeaders').checked;
+            const includeTotals = document.getElementById('builderTotals').checked;
+
+            /* ---- Build report data ---- */
+            const headers = columns;
+            const rows = rawData.map(r => columns.map(c => {
+                const v = r[c];
+                if (v === null || v === undefined) return '';
+                if (typeof v === 'number') return v.toFixed(2);
+                return String(v);
+            }));
+
+            /* ---- Totals ---- */
+            let totals = null;
+            if (includeTotals && format === 'csv') {
+                const totalValues = columns.map((col, i) => {
+                    if (i === 0) return 'TOTAL';
+
+                    /* ---- Try to sum numeric columns ---- */
+                    let sum = 0;
+                    let isNumeric = true;
+
+                    for (const r of rawData) {
+                        const v = r[col];
+                        if (v !== null && v !== undefined && v !== '') {
+                            const num = parseFloat(v);
+                            if (isNaN(num)) { isNumeric = false; break; }
+                            sum += num;
+                        }
+                    }
+
+                    if (isNumeric && rawData.length > 0) {
+                        return sum.toFixed(2);
+                    }
+                    return '';
+                });
+
+                totals = { label: 'TOTAL', values: totalValues };
+            }
+
+            Loader.show();
+
+            try {
+                const reportName = `Custom Report - ${TABLE_SCHEMAS[document.getElementById('builderTable').value].label}`;
+
+                await downloadReport({ headers, rows, totals }, reportName, format);
+
+                State.generatedReports.unshift({
+                    id: 'rpt_' + Date.now(),
+                    name: reportName,
+                    type: 'custom',
+                    rows: rows.length,
+                    format: format,
+                    size: 0,
+                    created_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
+                });
+
+                updateStats();
+                Toast.success(`${reportName} generated!`);
+
+            } catch (err) {
+                console.error('Generate failed:', err);
+                Toast.error('Generation failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           SCHEDULED REPORTS
+         ============================================================ */
+        function loadScheduledFromStorage() {
+            try {
+                State.scheduledReports = Utils.storage.get('scheduled_reports', []) || [];
+            } catch (e) {
+                State.scheduledReports = [];
+            }
+        }
+
+        function saveScheduledToStorage() {
+            try {
+                Utils.storage.set('scheduled_reports', State.scheduledReports);
+            } catch (e) {}
+        }
+
+        function renderScheduledList() {
+            const container = document.getElementById('scheduledList');
+
+            if (State.scheduledReports.length === 0) {
+                container.innerHTML = `
+                    <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 48px; opacity: 0.3; margin-bottom: 12px;">📅</div>
+                        <div style="font-size: 14px;">No scheduled reports</div>
+                        <div style="font-size: 12px; margin-top: 8px;">Add a schedule to automate report delivery</div>
+                    </div>
+                `;
+                updateScheduleStats();
+                return;
+            }
+
+            container.innerHTML = State.scheduledReports.map(s => {
+                const iconMap = {
+                    sales: '💰', users: '👥', orders: '📦',
+                    payments: '💳', services: '🛒', referrals: '🎁',
+                    financial: '📊', custom: '🛠️',
+                };
+
+                return `
+                    <div class="scheduled-card ${!s.enabled ? 'paused' : ''}" data-schedule-id="${s.id}">
+                        <div class="scheduled-icon">${iconMap[s.reportType] || '📊'}</div>
+                        <div class="scheduled-info">
+                            <div class="scheduled-title">${Utils.escape(s.name)}</div>
+                            <div class="scheduled-meta">
+                                <span>📅 ${Utils.escape(s.frequency || 'Daily')}</span>
+                                <span>⏰ ${Utils.escape(s.time || '09:00')}</span>
+                                <span>📄 ${String(s.format || 'csv').toUpperCase()}</span>
+                                <span>📤 ${Utils.escape(s.deliveryMethod || 'Telegram')}</span>
+                                ${s.lastRun ? `<span>🕐 Last: ${Utils.timeAgo(s.lastRun)}</span>` : '<span>🕐 Never run</span>'}
+                            </div>
+                        </div>
+                        <div class="scheduled-actions">
+                            <label class="toggle-wrapper" style="margin-right: 8px;">
+                                <input type="checkbox" class="toggle-input" data-toggle-schedule="${s.id}" ${s.enabled ? 'checked' : ''}>
+                            </label>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-run-schedule="${s.id}" title="Run Now">
+                                ▶️
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-edit-schedule="${s.id}" title="Edit">
+                                ✏️
+                            </button>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-delete-schedule="${s.id}" title="Delete" style="color: var(--danger);">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            /* ---- Bind events ---- */
+            container.querySelectorAll('[data-toggle-schedule]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const id = input.dataset.toggleSchedule;
+                    const s = State.scheduledReports.find(x => x.id === id);
+                    if (s) {
+                        s.enabled = input.checked;
+                        saveScheduledToStorage();
+                        renderScheduledList();
+                        updateScheduleStats();
+                        Toast.success(s.enabled ? 'Schedule enabled' : 'Schedule paused');
+                    }
+                });
+            });
+
+            container.querySelectorAll('[data-run-schedule]').forEach(btn => {
+                btn.addEventListener('click', () => runScheduledNow(btn.dataset.runSchedule));
+            });
+
+            container.querySelectorAll('[data-edit-schedule]').forEach(btn => {
+                btn.addEventListener('click', () => editSchedule(btn.dataset.editSchedule));
+            });
+
+            container.querySelectorAll('[data-delete-schedule]').forEach(btn => {
+                btn.addEventListener('click', () => deleteSchedule(btn.dataset.deleteSchedule));
+            });
+
+            updateScheduleStats();
+        }
+
+        function updateScheduleStats() {
+            const active = State.scheduledReports.filter(s => s.enabled).length;
+            const paused = State.scheduledReports.filter(s => !s.enabled).length;
+            const sent = State.scheduledReports.reduce((sum, s) => sum + (parseInt(s.runsCount) || 0), 0);
+
+            document.getElementById('schedActive').textContent = active;
+            document.getElementById('schedPaused').textContent = paused;
+            document.getElementById('schedSent').textContent = sent;
+        }
+
+        function showAddScheduleModal() {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Schedule Name</label>
+                    <input type="text" class="form-input" id="schName" placeholder="e.g. Daily Sales Report" maxlength="80">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Report Type</label>
+                    <select class="form-select" id="schType">
+                        <option value="sales">💰 Sales Report</option>
+                        <option value="users">👥 Users Report</option>
+                        <option value="orders">📦 Orders Report</option>
+                        <option value="payments">💳 Payments Report</option>
+                        <option value="financial">📊 Financial Summary</option>
+                        <option value="referrals">🎁 Referrals Report</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Frequency</label>
+                    <select class="form-select" id="schFrequency">
+                        <option value="daily">📅 Daily</option>
+                        <option value="weekly">📅 Weekly</option>
+                        <option value="monthly">📅 Monthly</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Time (24h)</label>
+                        <input type="time" class="form-input" id="schTime" value="09:00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Format</label>
+                        <select class="form-select" id="schFormat">
+                            <option value="csv">📊 CSV</option>
+                            <option value="json">📋 JSON</option>
+                            <option value="html">🌐 HTML</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Delivery Method</label>
+                    <select class="form-select" id="schDelivery">
+                        <option value="telegram">📱 Telegram (Admin DM)</option>
+                        <option value="channel">📢 Log Channel</option>
+                        <option value="email">📧 Email (requires setup)</option>
+                    </select>
+                </div>
+
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="schEnabled" checked>
+                    <span>Enable immediately</span>
+                </label>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-sch="cancel">Cancel</button>
+                <button class="btn btn-primary" data-sch="create">➕ Create Schedule</button>
+            `;
+
+            Modal.open({
+                title: '📅 Add Scheduled Report',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-sch="cancel"]').addEventListener('click', () => el.close());
+
+                    el.querySelector('[data-sch="create"]').addEventListener('click', () => {
+                        const name = el.querySelector('#schName').value.trim();
+                        const type = el.querySelector('#schType').value;
+                        const frequency = el.querySelector('#schFrequency').value;
+                        const time = el.querySelector('#schTime').value;
+                        const format = el.querySelector('#schFormat').value;
+                        const delivery = el.querySelector('#schDelivery').value;
+                        const enabled = el.querySelector('#schEnabled').checked;
+
+                        if (!name) {
+                            Toast.error('Schedule name required');
+                            return;
+                        }
+
+                        const schedule = {
+                            id: 'sch_' + Date.now(),
+                            name,
+                            reportType: type,
+                            frequency,
+                            time,
+                            format,
+                            deliveryMethod: delivery,
+                            enabled,
+                            runsCount: 0,
+                            lastRun: null,
+                            createdAt: new Date().toISOString(),
+                        };
+
+                        State.scheduledReports.push(schedule);
+                        saveScheduledToStorage();
+                        renderScheduledList();
+
+                        Toast.success('Schedule created!');
+                        el.close();
+                    });
+                }
+            });
+        }
+
+        function editSchedule(id) {
+            const s = State.scheduledReports.find(x => x.id === id);
+            if (!s) return;
+
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Schedule Name</label>
+                    <input type="text" class="form-input" id="edSchName" value="${Utils.escape(s.name)}" maxlength="80">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Report Type</label>
+                    <select class="form-select" id="edSchType">
+                        <option value="sales" ${s.reportType === 'sales' ? 'selected' : ''}>💰 Sales Report</option>
+                        <option value="users" ${s.reportType === 'users' ? 'selected' : ''}>👥 Users Report</option>
+                        <option value="orders" ${s.reportType === 'orders' ? 'selected' : ''}>📦 Orders Report</option>
+                        <option value="payments" ${s.reportType === 'payments' ? 'selected' : ''}>💳 Payments Report</option>
+                        <option value="financial" ${s.reportType === 'financial' ? 'selected' : ''}>📊 Financial Summary</option>
+                        <option value="referrals" ${s.reportType === 'referrals' ? 'selected' : ''}>🎁 Referrals Report</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Frequency</label>
+                        <select class="form-select" id="edSchFrequency">
+                            <option value="daily" ${s.frequency === 'daily' ? 'selected' : ''}>Daily</option>
+                            <option value="weekly" ${s.frequency === 'weekly' ? 'selected' : ''}>Weekly</option>
+                            <option value="monthly" ${s.frequency === 'monthly' ? 'selected' : ''}>Monthly</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <input type="time" class="form-input" id="edSchTime" value="${s.time || '09:00'}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Format</label>
+                    <select class="form-select" id="edSchFormat">
+                        <option value="csv" ${s.format === 'csv' ? 'selected' : ''}>📊 CSV</option>
+                        <option value="json" ${s.format === 'json' ? 'selected' : ''}>📋 JSON</option>
+                        <option value="html" ${s.format === 'html' ? 'selected' : ''}>🌐 HTML</option>
+                    </select>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-ed-sch="cancel">Cancel</button>
+                <button class="btn btn-primary" data-ed-sch="save">💾 Save</button>
+            `;
+
+            Modal.open({
+                title: '✏️ Edit Schedule',
+                body,
+                footer,
+                onOpen: (el) => {
+                    el.querySelector('[data-ed-sch="cancel"]').addEventListener('click', () => el.close());
+
+                    el.querySelector('[data-ed-sch="save"]').addEventListener('click', () => {
+                        s.name = el.querySelector('#edSchName').value.trim() || s.name;
+                        s.reportType = el.querySelector('#edSchType').value;
+                        s.frequency = el.querySelector('#edSchFrequency').value;
+                        s.time = el.querySelector('#edSchTime').value;
+                        s.format = el.querySelector('#edSchFormat').value;
+
+                        saveScheduledToStorage();
+                        renderScheduledList();
+                        Toast.success('Schedule updated!');
+                        el.close();
+                    });
+                }
+            });
+        }
+
+        function deleteSchedule(id) {
+            const s = State.scheduledReports.find(x => x.id === id);
+            if (!s) return;
+
+            Modal.confirm({
+                title: '🗑️ Delete Schedule',
+                message: `Delete "${s.name}"?`,
+                confirmText: 'Yes, Delete',
+                type: 'danger',
+                onConfirm: () => {
+                    State.scheduledReports = State.scheduledReports.filter(x => x.id !== id);
+                    saveScheduledToStorage();
+                    renderScheduledList();
+                    Toast.success('Schedule deleted');
+                }
+            });
+        }
+
+        async function runScheduledNow(id) {
+            const s = State.scheduledReports.find(x => x.id === id);
+            if (!s) return;
+
+            Toast.info(`Running ${s.name}...`);
+
+            try {
+                await generateQuickReport(s.reportType);
+
+                s.lastRun = new Date().toISOString().slice(0, 19).replace('T', ' ');
+                s.runsCount = (parseInt(s.runsCount) || 0) + 1;
+
+                saveScheduledToStorage();
+                renderScheduledList();
+
+            } catch (e) {
+                Toast.error('Failed to run');
+            }
+        }
+
+        /* ============================================================
+           STATS
+         ============================================================ */
+        function updateStats() {
+            const totalReports = State.generatedReports.length;
+            const scheduled = State.scheduledReports.filter(s => s.enabled).length;
+            const exports = State.generatedReports.reduce((sum, r) => sum + (r.rows || 0), 0);
+            const storage = State.generatedReports.reduce((sum, r) => sum + (r.size || 0), 0);
+
+            document.getElementById('statReports').textContent = Utils.number(totalReports);
+            document.getElementById('statScheduled').textContent = Utils.number(scheduled);
+            document.getElementById('statExports').textContent = Utils.number(exports);
+            document.getElementById('statStorage').textContent = (storage / 1024 / 1024).toFixed(2) + ' MB';
+
+            document.getElementById('headerSubtitle').textContent = `${totalReports} reports • ${scheduled} scheduled`;
+        }
+
+        /* ============================================================
+           HISTORY
+         ============================================================ */
+        function renderHistory() {
+            const tbody = document.getElementById('historyTableBody');
+
+            let filtered = State.generatedReports.slice();
+
+            if (State.historySearch) {
+                const q = State.historySearch.toLowerCase();
+                filtered = filtered.filter(r =>
+                    r.name.toLowerCase().includes(q) ||
+                    r.type.toLowerCase().includes(q)
+                );
+            }
+
+            if (State.historyType) {
+                filtered = filtered.filter(r => r.type === State.historyType);
+            }
+
+            if (State.historyDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(r => {
+                    const dt = new Date(String(r.created_at || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const rDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - rDate) / 86400000);
+
+                    if (State.historyDate === 'today') return diffDays === 0;
+                    if (State.historyDate === '7days') return diffDays <= 7;
+                    if (State.historyDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No reports found</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Generated reports will appear here
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const typeMap = {
+                sales: { icon: '💰', cls: 'sales', label: 'Sales' },
+                users: { icon: '👥', cls: 'users', label: 'Users' },
+                orders: { icon: '📦', cls: 'orders', label: 'Orders' },
+                payments: { icon: '💳', cls: 'payments', label: 'Payments' },
+                custom: { icon: '🛠️', cls: 'custom', label: 'Custom' },
+                referrals: { icon: '🎁', cls: 'other', label: 'Referrals' },
+                services: { icon: '🛒', cls: 'other', label: 'Services' },
+                financial: { icon: '📊', cls: 'sales', label: 'Financial' },
+                activity: { icon: '📢', cls: 'other', label: 'Activity' },
+                top_users: { icon: '🏆', cls: 'other', label: 'Top Users' },
+                top_services: { icon: '🔥', cls: 'other', label: 'Top Services' },
+                failed_orders: { icon: '❌', cls: 'other', label: 'Failed' },
+                vip: { icon: '👑', cls: 'other', label: 'VIP' },
+            };
+
+            tbody.innerHTML = filtered.map(r => {
+                const info = typeMap[r.type] || typeMap.custom;
+
+                return `
+                    <tr>
+                        <td><code style="font-size: 11px;">#${Utils.escape(r.id)}</code></td>
+                        <td>
+                            <div style="font-size: 12px; font-weight: 600;">
+                                ${Utils.escape(r.name)}
+                            </div>
+                        </td>
+                        <td>
+                            <span class="type-pill type-${info.cls}">
+                                ${info.icon} ${info.label}
+                            </span>
+                        </td>
+                        <td><b style="color: var(--primary);">${Utils.number(r.rows || 0)}</b></td>
+                        <td><span class="badge badge-muted">${String(r.format || 'csv').toUpperCase()}</span></td>
+                        <td style="font-size: 11px; color: var(--text-muted);">${(r.size || 0) > 0 ? (r.size / 1024).toFixed(1) + ' KB' : '—'}</td>
+                        <td style="font-size: 11px; color: var(--text-muted);">${Utils.date(r.created_at)}</td>
+                        <td>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-rerun="${r.type}" title="Regenerate">
+                                🔄
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind rerun buttons ---- */
+            tbody.querySelectorAll('[data-rerun]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const type = btn.dataset.rerun;
+                    switchMainTab('quick');
+
+                    setTimeout(() => {
+                        generateQuickReport(type);
+                    }, 300);
+                });
+            });
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

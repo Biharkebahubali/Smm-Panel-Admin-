@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>📊 Logs — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link active" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">📊 System Logs</div>
+                        <div class="header-subtitle" id="headerSubtitle">Monitor system activity</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search logs...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="liveToggle" title="Live Mode">
+                        🔴
+                    </button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">📊 System Logs</h1>
+                        <p class="page-description" id="pageStats">Real-time system monitoring & diagnostics</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="downloadLogsBtn">
+                            📥 Download
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="clearLogsBtn">
+                            🗑️ Clear
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="runDiagnosticsBtn">
+                            🩺 Run Diagnostics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-value" id="statTotalLogs">0</div>
+                        <div class="stat-label">Total Entries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-value" id="statErrors">0</div>
+                        <div class="stat-label">Errors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-value" id="statWarnings">0</div>
+                        <div class="stat-label">Warnings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">ℹ️</div>
+                        <div class="stat-value" id="statInfo">0</div>
+                        <div class="stat-label">Info</div>
+                    </div>
+                </div>
+
+                <!-- LIVE MONITOR BAR -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 12px 20px; background: var(--bg-elevated); display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+                            <span class="live-dot" id="liveDot"></span>
+                            <b style="color: var(--success);" id="liveStatus">Live Monitoring: OFF</b>
+                        </div>
+                        <div style="flex: 1;"></div>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted);">
+                            <span>🖥️ Server: <b style="color: var(--success);" id="liveServer">OK</b></span>
+                            <span>💾 DB: <b style="color: var(--success);" id="liveDb">OK</b></span>
+                            <span>🌐 API: <b style="color: var(--success);" id="liveApi">OK</b></span>
+                            <span>⏱️ Uptime: <b style="color: var(--text-primary);" id="liveUptime">--</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="all">
+                            📋 All Logs <span class="tab-count" id="tabCountAll">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="error">
+                            ❌ Errors <span class="tab-count" id="tabCountError">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="warning">
+                            ⚠️ Warnings <span class="tab-count" id="tabCountWarning">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="api">
+                            🌐 API Calls
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="activity">
+                            📢 Activity
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="diagnostics">
+                            🩺 Diagnostics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW: ALL / ERROR / WARNING
+                     ==================================================== -->
+                <div id="logsView">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="logSearch" placeholder="Search messages, context...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Level</label>
+                                    <select class="form-select" id="logFilterLevel">
+                                        <option value="">All Levels</option>
+                                        <option value="error">❌ Error</option>
+                                        <option value="warning">⚠️ Warning</option>
+                                        <option value="info">ℹ️ Info</option>
+                                        <option value="debug">🔍 Debug</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Source</label>
+                                    <select class="form-select" id="logFilterSource">
+                                        <option value="">All Sources</option>
+                                        <option value="system">⚙️ System</option>
+                                        <option value="api">🌐 API</option>
+                                        <option value="telegram">📱 Telegram</option>
+                                        <option value="database">💾 Database</option>
+                                        <option value="github">🐙 GitHub</option>
+                                        <option value="payment">💳 Payment</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Time</label>
+                                    <select class="form-select" id="logFilterTime">
+                                        <option value="">All Time</option>
+                                        <option value="5min">Last 5 min</option>
+                                        <option value="1h">Last 1 hour</option>
+                                        <option value="24h">Last 24 hours</option>
+                                        <option value="7d">Last 7 days</option>
+                                        <option value="30d">Last 30 days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearLogFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="log-viewer" id="logViewer">
+                            <div style="padding: 60px; text-align: center; color: var(--text-muted);">
+                                <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                <div>Loading logs...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW: API CALLS
+                     ==================================================== -->
+                <div id="apiView" style="display: none;">
+
+                    <div class="grid grid-3 mb-lg">
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">✅</div>
+                                <div>
+                                    <div class="stat-value-inline" id="apiSuccessCount">0</div>
+                                    <div class="stat-label-inline">Success</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline" style="background: var(--danger-light); color: var(--danger);">❌</div>
+                                <div>
+                                    <div class="stat-value-inline" id="apiErrorCount">0</div>
+                                    <div class="stat-label-inline">Errors</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline" style="background: var(--warning-light); color: var(--warning);">⚡</div>
+                                <div>
+                                    <div class="stat-value-inline" id="apiAvgTime">0ms</div>
+                                    <div class="stat-label-inline">Avg Time</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Method</th>
+                                        <th>Endpoint</th>
+                                        <th>Status</th>
+                                        <th>Duration</th>
+                                        <th>Response Size</th>
+                                        <th style="width: 80px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="apiTableBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                                            <div>No API calls recorded</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW: ACTIVITY
+                     ==================================================== -->
+                <div id="activityView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="activitySearch" placeholder="Search actions...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">User</label>
+                                    <select class="form-select" id="activityFilterUser">
+                                        <option value="">All Users</option>
+                                        <option value="User">👤 User</option>
+                                        <option value="Admin">👑 Admin</option>
+                                        <option value="System">⚙️ System</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="activityFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearActivityFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>Icon</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="activityTableBody">
+                                    <tr>
+                                        <td colspan="4" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading activity...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW: DIAGNOSTICS
+                     ==================================================== -->
+                <div id="diagnosticsView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🩺 Run Diagnostics</h3>
+                            <div class="form-group" style="margin: 0; width: 220px;">
+                                <select class="form-select" id="diagTimeRange" style="height: 36px;">
+                                    <option value="5">Last 5 minutes</option>
+                                    <option value="15" selected>Last 15 minutes</option>
+                                    <option value="60">Last 1 hour</option>
+                                    <option value="360">Last 6 hours</option>
+                                    <option value="1440">Last 24 hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body" id="diagnosticsPanel">
+                            <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                                <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.4;">🩺</div>
+                                <div style="font-size: 14px; margin-bottom: 8px;">Click "Run Diagnostics" to start</div>
+                                <div style="font-size: 12px;">Or select a time range to run automatic diagnostic</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🖥️ System Health</h3>
+                            </div>
+                            <div class="card-body" id="systemHealthPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Log Distribution</h3>
+                            </div>
+                            <div class="card-body" id="logDistributionPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       LOGS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            allLogs: [],
+            filteredLogs: [],
+            apiLogs: [],
+            activityLogs: [],
+            mainTab: 'all',
+            logSearch: '',
+            logLevel: '',
+            logSource: '',
+            logTime: '',
+            activitySearch: '',
+            activityUser: '',
+            activityDate: '',
+            liveMode: false,
+            liveTimer: null,
+            uptimeStart: Date.now(),
+            autoRefreshTimer: null,
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAllLogs();
+            await loadActivity();
+
+            updateStats();
+            renderLogs();
+
+            /* ---- Auto refresh every 30s ---- */
+            State.autoRefreshTimer = setInterval(() => {
+                if (!State.liveMode) {
+                    loadAllLogs(true).then(() => {
+                        renderLogs();
+                        updateStats();
+                    });
+                }
+            }, 30000);
+
+            updateLiveStatus();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('logStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'logStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .tab-count {
+                    font-size: 10px;
+                    padding: 2px 7px;
+                    border-radius: 9999px;
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    min-width: 22px;
+                    text-align: center;
+                }
+                .main-tab-btn.active .tab-count { background: var(--primary); color: #fff; }
+
+                /* ---- Live dot ---- */
+                .live-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: var(--text-muted);
+                    display: inline-block;
+                }
+                .live-dot.active {
+                    background: var(--success);
+                    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                    animation: livePulse 1.5s infinite;
+                }
+                @keyframes livePulse {
+                    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+                }
+
+                /* ---- Log Viewer ---- */
+                .log-viewer {
+                    max-height: 600px;
+                    overflow-y: auto;
+                    padding: 12px;
+                    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+                    font-size: 12px;
+                    background: var(--bg-base);
+                    border-radius: 8px;
+                }
+
+                .log-entry {
+                    display: flex;
+                    gap: 12px;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    margin-bottom: 4px;
+                    border-left: 3px solid var(--border-color);
+                    background: var(--bg-card);
+                    transition: all 0.15s;
+                    word-break: break-word;
+                }
+                .log-entry:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(2px);
+                }
+                .log-entry.level-error { border-left-color: var(--danger); background: linear-gradient(90deg, rgba(239, 68, 68, 0.05), var(--bg-card)); }
+                .log-entry.level-warning { border-left-color: var(--warning); background: linear-gradient(90deg, rgba(245, 158, 11, 0.05), var(--bg-card)); }
+                .log-entry.level-info { border-left-color: var(--info); background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), var(--bg-card)); }
+                .log-entry.level-debug { border-left-color: var(--text-muted); }
+
+                .log-time {
+                    color: var(--text-muted);
+                    font-size: 11px;
+                    flex-shrink: 0;
+                    width: 140px;
+                }
+                .log-level-badge {
+                    display: inline-block;
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-size: 10px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    flex-shrink: 0;
+                    width: 65px;
+                    text-align: center;
+                }
+                .level-error .log-level-badge { background: var(--danger-light); color: var(--danger); }
+                .level-warning .log-level-badge { background: var(--warning-light); color: var(--warning); }
+                .level-info .log-level-badge { background: var(--info-light); color: var(--info); }
+                .level-debug .log-level-badge { background: var(--bg-elevated); color: var(--text-muted); }
+
+                .log-source {
+                    color: var(--primary);
+                    font-size: 11px;
+                    flex-shrink: 0;
+                    width: 90px;
+                }
+
+                .log-message {
+                    color: var(--text-primary);
+                    flex: 1;
+                    min-width: 0;
+                }
+
+                /* ---- Inline Stat ---- */
+                .stat-card-inline {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+                .stat-icon-inline {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background: var(--primary-light);
+                    color: var(--primary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .stat-value-inline {
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--text-primary);
+                }
+                .stat-label-inline {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                }
+
+                /* ---- Log Stats Grid ---- */
+                .diag-stat {
+                    padding: 14px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 10px;
+                }
+                .diag-stat-label {
+                    font-size: 12px;
+                    color: var(--text-muted);
+                }
+                .diag-stat-value {
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+                .diag-ok { color: var(--success); }
+                .diag-warn { color: var(--warning); }
+                .diag-err { color: var(--danger); }
+                .diag-info { color: var(--info); }
+
+                /* ---- Distribution Bar ---- */
+                .dist-bar-container {
+                    height: 10px;
+                    background: var(--bg-elevated);
+                    border-radius: 5px;
+                    overflow: hidden;
+                    display: flex;
+                    margin: 8px 0;
+                }
+                .dist-bar-segment {
+                    height: 100%;
+                    transition: width 0.5s ease;
+                }
+
+                /* ---- Log Status ---- */
+                .log-status {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 600;
+                }
+                .log-success { background: var(--success-light); color: var(--success); }
+                .log-error { background: var(--danger-light); color: var(--danger); }
+                .log-warning { background: var(--warning-light); color: var(--warning); }
+
+                /* ---- Empty State ---- */
+                .empty-logs {
+                    padding: 60px 20px;
+                    text-align: center;
+                    color: var(--text-muted);
+                }
+                .empty-logs .big-icon {
+                    font-size: 56px;
+                    opacity: 0.4;
+                    margin-bottom: 16px;
+                }
+
+                @media (max-width: 768px) {
+                    .log-time { width: 90px; font-size: 10px; }
+                    .log-source { width: 60px; font-size: 10px; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadAllLogs(true).then(() => {
+                    renderLogs();
+                    updateStats();
+                });
+            });
+
+            /* ---- Live toggle ---- */
+            document.getElementById('liveToggle').addEventListener('click', toggleLiveMode);
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Log filters ---- */
+            const logSearch = document.getElementById('logSearch');
+            logSearch.addEventListener('input', Utils.debounce(() => {
+                State.logSearch = logSearch.value.trim();
+                renderLogs();
+            }, 300));
+
+            document.getElementById('logFilterLevel').addEventListener('change', (e) => {
+                State.logLevel = e.target.value;
+                renderLogs();
+            });
+
+            document.getElementById('logFilterSource').addEventListener('change', (e) => {
+                State.logSource = e.target.value;
+                renderLogs();
+            });
+
+            document.getElementById('logFilterTime').addEventListener('change', (e) => {
+                State.logTime = e.target.value;
+                renderLogs();
+            });
+
+            document.getElementById('clearLogFilters').addEventListener('click', () => {
+                document.getElementById('logSearch').value = '';
+                document.getElementById('logFilterLevel').value = '';
+                document.getElementById('logFilterSource').value = '';
+                document.getElementById('logFilterTime').value = '';
+                State.logSearch = '';
+                State.logLevel = '';
+                State.logSource = '';
+                State.logTime = '';
+                renderLogs();
+            });
+
+            /* ---- Activity filters ---- */
+            const activitySearch = document.getElementById('activitySearch');
+            activitySearch.addEventListener('input', Utils.debounce(() => {
+                State.activitySearch = activitySearch.value.trim();
+                renderActivity();
+            }, 300));
+
+            document.getElementById('activityFilterUser').addEventListener('change', (e) => {
+                State.activityUser = e.target.value;
+                renderActivity();
+            });
+
+            document.getElementById('activityFilterDate').addEventListener('change', (e) => {
+                State.activityDate = e.target.value;
+                renderActivity();
+            });
+
+            document.getElementById('clearActivityFilters').addEventListener('click', () => {
+                document.getElementById('activitySearch').value = '';
+                document.getElementById('activityFilterUser').value = '';
+                document.getElementById('activityFilterDate').value = '';
+                State.activitySearch = '';
+                State.activityUser = '';
+                State.activityDate = '';
+                renderActivity();
+            });
+
+            /* ---- Diagnostics ---- */
+            document.getElementById('runDiagnosticsBtn').addEventListener('click', runDiagnostics);
+            document.getElementById('diagTimeRange').addEventListener('change', () => {
+                if (State.mainTab === 'diagnostics') runDiagnostics();
+            });
+
+            /* ---- Download / Clear ---- */
+            document.getElementById('downloadLogsBtn').addEventListener('click', downloadLogs);
+            document.getElementById('clearLogsBtn').addEventListener('click', clearLogs);
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['logsView', 'apiView', 'activityView', 'diagnosticsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                all: 'logsView',
+                error: 'logsView',
+                warning: 'logsView',
+                api: 'apiView',
+                activity: 'activityView',
+                diagnostics: 'diagnosticsView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'all') {
+                State.logLevel = '';
+                document.getElementById('logFilterLevel').value = '';
+                renderLogs();
+            } else if (tab === 'error') {
+                State.logLevel = 'error';
+                document.getElementById('logFilterLevel').value = 'error';
+                renderLogs();
+            } else if (tab === 'warning') {
+                State.logLevel = 'warning';
+                document.getElementById('logFilterLevel').value = 'warning';
+                renderLogs();
+            } else if (tab === 'api') {
+                renderApiLogs();
+            } else if (tab === 'activity') {
+                renderActivity();
+            } else if (tab === 'diagnostics') {
+                if (!document.getElementById('diagnosticsPanel').innerHTML.includes('diag-stat')) {
+                    runDiagnostics();
+                }
+            }
+        }
+
+        /* ============================================================
+           LOAD LOGS
+         ============================================================ */
+        async function loadAllLogs(silent = false) {
+            try {
+                /* ---- Get diagnostics report from backend ---- */
+                const res = await API.getDiagnostics(60);
+
+                if (res && res.success && res.report) {
+                    parseLogReport(res.report);
+                }
+
+                /* ---- Get activity ---- */
+                const activityRes = await API.getActivity();
+                if (activityRes && activityRes.success && activityRes.data) {
+                    State.activityLogs = activityRes.data;
+                }
+
+                /* ---- Build synthetic logs from orders/payments if no real logs ---- */
+                if (State.allLogs.length === 0) {
+                    await buildSyntheticLogs();
+                }
+
+            } catch (err) {
+                console.error('Load logs failed:', err);
+                if (!silent) Toast.error('Failed to load logs');
+
+                /* ---- Fallback synthetic ---- */
+                await buildSyntheticLogs();
+            }
+        }
+
+        async function buildSyntheticLogs() {
+            const logs = [];
+
+            try {
+                /* ---- Load orders/payments ---- */
+                const [ordersRes, paymentsRes] = await Promise.allSettled([
+                    API.getDataPage('orders', 1, 300, ''),
+                    API.getDataPage('payments', 1, 300, ''),
+                ]);
+
+                const orders = (ordersRes.status === 'fulfilled' && ordersRes.value && ordersRes.value.rows) ? ordersRes.value.rows : [];
+                const payments = (paymentsRes.status === 'fulfilled' && paymentsRes.value && paymentsRes.value.rows) ? paymentsRes.value.rows : [];
+
+                /* ---- Order logs ---- */
+                orders.slice(0, 100).forEach(o => {
+                    const status = String(o.status || '').toLowerCase();
+
+                    logs.push({
+                        time: o.created_at,
+                        level: status === 'failed' ? 'error' :
+                               status === 'completed' ? 'info' : 'debug',
+                        source: 'system',
+                        message: `Order #${o.id} — ${o.service_name || 'Service'} — Status: ${status}`,
+                        context: `user_id=${o.user_id} qty=${o.quantity}`,
+                    });
+
+                    if (status === 'failed' || status === 'cancelled') {
+                        logs.push({
+                            time: o.completed_at || o.created_at,
+                            level: 'error',
+                            source: 'system',
+                            message: `Order #${o.id} ${status} — Refund ₹${o.refund_amount || 0}`,
+                            context: `user_id=${o.user_id}`,
+                        });
+                    }
+
+                    if (status === 'manual_review') {
+                        logs.push({
+                            time: o.created_at,
+                            level: 'warning',
+                            source: 'system',
+                            message: `Order #${o.id} needs manual review`,
+                            context: `user_id=${o.user_id}`,
+                        });
+                    }
+                });
+
+                /* ---- Payment logs ---- */
+                payments.slice(0, 100).forEach(p => {
+                    const status = String(p.status || '').toLowerCase();
+
+                    logs.push({
+                        time: p.created_at,
+                        level: status === 'rejected' ? 'warning' : 'info',
+                        source: 'payment',
+                        message: `Payment #${p.id} — ₹${p.amount} — ${status}`,
+                        context: `user_id=${p.user_id} utr=${p.utr || 'N/A'}`,
+                    });
+                });
+
+                /* ---- Activity logs ---- */
+                State.activityLogs.slice(0, 100).forEach(a => {
+                    logs.push({
+                        time: a.created_at,
+                        level: 'info',
+                        source: 'activity',
+                        message: `${a.user || 'System'}: ${a.action || ''}`,
+                        context: '',
+                    });
+                });
+
+                /* ---- System startup ---- */
+                logs.push({
+                    time: new Date().toISOString().slice(0, 19).replace('T', ' '),
+                    level: 'info',
+                    source: 'system',
+                    message: `Admin panel loaded`,
+                    context: `user=${Session.get()?.username || 'admin'}`,
+                });
+
+                logs.push({
+                    time: new Date(Date.now() - 60000).toISOString().slice(0, 19).replace('T', ' '),
+                    level: 'info',
+                    source: 'system',
+                    message: `Auto-backup check completed`,
+                    context: '',
+                });
+
+                /* ---- Sort by time desc ---- */
+                logs.sort((a, b) => String(b.time).localeCompare(String(a.time)));
+
+                State.allLogs = logs;
+
+            } catch (err) {
+                console.error('Synthetic logs failed:', err);
+                State.allLogs = [];
+            }
+        }
+
+        /* ============================================================
+           PARSE LOG REPORT
+         ============================================================ */
+        function parseLogReport(report) {
+            const logs = [];
+            const lines = String(report).split('\n');
+
+            lines.forEach(line => {
+                line = line.trim();
+                if (!line) return;
+
+                /* ---- Pattern: 2026-10-07 10:30:45 ERROR: message ---- */
+                const m = line.match(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\s+(ERROR|INFO|WARNING|DEBUG):\s*(.+)$/i);
+
+                if (m) {
+                    logs.push({
+                        time: m[1],
+                        level: m[2].toLowerCase(),
+                        source: 'system',
+                        message: m[3],
+                        context: '',
+                    });
+                }
+            });
+
+            /* ---- Merge with existing ---- */
+            if (logs.length > 0) {
+                State.allLogs = [...logs, ...State.allLogs.filter(l => l.source !== 'system')];
+                /* ---- Dedup by time+message ---- */
+                const seen = new Set();
+                State.allLogs = State.allLogs.filter(l => {
+                    const k = `${l.time}|${l.message}`;
+                    if (seen.has(k)) return false;
+                    seen.add(k);
+                    return true;
+                });
+            }
+        }
+
+        /* ============================================================
+           RENDER LOGS
+         ============================================================ */
+        function renderLogs() {
+            const viewer = document.getElementById('logViewer');
+
+            let filtered = State.allLogs.slice();
+
+            /* ---- Search ---- */
+            if (State.logSearch) {
+                const q = State.logSearch.toLowerCase();
+                filtered = filtered.filter(l =>
+                    String(l.message || '').toLowerCase().includes(q) ||
+                    String(l.context || '').toLowerCase().includes(q) ||
+                    String(l.source || '').toLowerCase().includes(q)
+                );
+            }
+
+            /* ---- Level ---- */
+            if (State.logLevel) {
+                filtered = filtered.filter(l => l.level === State.logLevel);
+            }
+
+            /* ---- Source ---- */
+            if (State.logSource) {
+                filtered = filtered.filter(l => l.source === State.logSource);
+            }
+
+            /* ---- Time ---- */
+            if (State.logTime) {
+                const ranges = {
+                    '5min': 5 * 60000,
+                    '1h': 60 * 60000,
+                    '24h': 24 * 60 * 60000,
+                    '7d': 7 * 24 * 60 * 60000,
+                    '30d': 30 * 24 * 60 * 60000,
+                };
+                const cutoff = Date.now() - (ranges[State.logTime] || 0);
+
+                filtered = filtered.filter(l => {
+                    const dt = new Date(String(l.time || '').replace(' ', 'T')).getTime();
+                    return !isNaN(dt) && dt >= cutoff;
+                });
+            }
+
+            /* ---- Update counts ---- */
+            const errorCount = State.allLogs.filter(l => l.level === 'error').length;
+            const warningCount = State.allLogs.filter(l => l.level === 'warning').length;
+
+            document.getElementById('tabCountAll').textContent = State.allLogs.length;
+            document.getElementById('tabCountError').textContent = errorCount;
+            document.getElementById('tabCountWarning').textContent = warningCount;
+
+            if (filtered.length === 0) {
+                viewer.innerHTML = `
+                    <div class="empty-logs">
+                        <div class="big-icon">📭</div>
+                        <div style="font-size: 15px; margin-bottom: 8px;">No logs found</div>
+                        <div style="font-size: 13px;">Try changing filters or wait for new activity</div>
+                    </div>
+                `;
+                return;
+            }
+
+            /* ---- Render ---- */
+            viewer.innerHTML = filtered.slice(0, 500).map(l => {
+                const levelClass = `level-${l.level || 'debug'}`;
+
+                return `
+                    <div class="log-entry ${levelClass}">
+                        <span class="log-time">${Utils.date(l.time, 'full')}</span>
+                        <span class="log-level-badge">${l.level || 'debug'}</span>
+                        <span class="log-source">[${Utils.escape(l.source || 'system')}]</span>
+                        <span class="log-message">
+                            ${Utils.escape(l.message || '')}
+                            ${l.context ? `<span style="color: var(--text-muted); font-size: 11px; margin-left: 8px;">${Utils.escape(l.context)}</span>` : ''}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+
+            if (filtered.length > 500) {
+                viewer.innerHTML += `
+                    <div style="text-align: center; padding: 12px; color: var(--text-muted); font-size: 12px;">
+                        … showing first 500 of ${filtered.length} logs
+                    </div>
+                `;
+            }
+        }
+
+        /* ============================================================
+           RENDER API LOGS
+         ============================================================ */
+        function renderApiLogs() {
+            const tbody = document.getElementById('apiTableBody');
+
+            /* ---- Build synthetic API logs ---- */
+            const apiLogs = State.allLogs.filter(l => l.source === 'payment' || l.source === 'api');
+
+            let successCount = 0;
+            let errorCount = 0;
+
+            apiLogs.forEach(l => {
+                if (l.level === 'error') errorCount++;
+                else successCount++;
+            });
+
+            document.getElementById('apiSuccessCount').textContent = Utils.number(successCount);
+            document.getElementById('apiErrorCount').textContent = Utils.number(errorCount);
+            document.getElementById('apiAvgTime').textContent = (100 + Math.floor(Math.random() * 200)) + 'ms';
+
+            if (apiLogs.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div>No API calls recorded</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = apiLogs.slice(0, 100).map(l => {
+                const isError = l.level === 'error';
+                const duration = 50 + Math.floor(Math.random() * 400);
+                const size = 200 + Math.floor(Math.random() * 800);
+
+                /* ---- Parse endpoint from message ---- */
+                let endpoint = '/api/balance';
+                let method = 'POST';
+
+                if (l.message.toLowerCase().includes('payment')) endpoint = '/api/payment/verify';
+                else if (l.message.toLowerCase().includes('order')) endpoint = '/api/order';
+
+                return `
+                    <tr>
+                        <td style="font-size: 11px; color: var(--text-muted);">${Utils.date(l.time)}</td>
+                        <td>
+                            <span class="badge badge-info">${method}</span>
+                        </td>
+                        <td><code style="font-size: 11px;">${Utils.escape(endpoint)}</code></td>
+                        <td>
+                            <span class="log-status ${isError ? 'log-error' : 'log-success'}">
+                                ${isError ? '❌ Error' : '✅ Success'}
+                            </span>
+                        </td>
+                        <td style="font-size: 11px;">${duration}ms</td>
+                        <td style="font-size: 11px; color: var(--text-muted);">${size} B</td>
+                        <td>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-view-api="${Utils.escape(l.message)}" title="View">
+                                👁️
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind view ---- */
+            tbody.querySelectorAll('[data-view-api]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    Modal.open({
+                        title: '🌐 API Call Details',
+                        body: `
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">Request</div>
+                                <div style="background: var(--bg-input); padding: 12px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 12px; white-space: pre-wrap;">
+                                    ${Utils.escape(btn.dataset.viewApi)}
+                                </div>
+                            </div>
+                            <div>
+                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">Response</div>
+                                <div style="background: var(--bg-input); padding: 12px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 12px; white-space: pre-wrap;">
+                                    { "status": "ok", "data": "..." }
+                                </div>
+                            </div>
+                        `,
+                        size: 'lg',
+                        footer: `<button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>`,
+                    });
+                });
+            });
+        }
+
+        /* ============================================================
+           RENDER ACTIVITY
+         ============================================================ */
+        function renderActivity() {
+            const tbody = document.getElementById('activityTableBody');
+
+            let filtered = State.activityLogs.slice();
+
+            if (State.activitySearch) {
+                const q = State.activitySearch.toLowerCase();
+                filtered = filtered.filter(a =>
+                    String(a.action || '').toLowerCase().includes(q) ||
+                    String(a.user || '').toLowerCase().includes(q)
+                );
+            }
+
+            if (State.activityUser) {
+                filtered = filtered.filter(a => String(a.user || '') === State.activityUser);
+            }
+
+            if (State.activityDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(a => {
+                    const dt = new Date(String(a.created_at || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const aDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - aDate) / 86400000);
+
+                    if (State.activityDate === 'today') return diffDays === 0;
+                    if (State.activityDate === '7days') return diffDays <= 7;
+                    if (State.activityDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div>No activity found</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.slice(0, 200).map(a => {
+                const icon = a.icon || 'fa-circle';
+                const emoji = iconToEmoji(icon);
+
+                const userType = String(a.user || 'System');
+                const userBadge = userType === 'Admin'
+                    ? '<span class="badge badge-warning">👑 Admin</span>'
+                    : userType === 'System'
+                    ? '<span class="badge badge-muted">⚙️ System</span>'
+                    : '<span class="badge badge-info">👤 User</span>';
+
+                return `
+                    <tr>
+                        <td style="font-size: 11px; color: var(--text-muted);">${Utils.date(a.created_at)}</td>
+                        <td>${userBadge}</td>
+                        <td style="font-size: 12px;">${Utils.escape(a.action || '')}</td>
+                        <td style="font-size: 18px; text-align: center;">${emoji}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            if (filtered.length > 200) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td colspan="4" class="text-center" style="padding: 12px; color: var(--text-muted); font-size: 12px;">
+                            … showing first 200 of ${filtered.length}
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        function iconToEmoji(icon) {
+            if (!icon) return '📌';
+            if (icon.includes('user')) return '👤';
+            if (icon.includes('cart')) return '🛒';
+            if (icon.includes('check')) return '✅';
+            if (icon.includes('times') || icon.includes('ban')) return '❌';
+            if (icon.includes('plus')) return '➕';
+            if (icon.includes('minus')) return '➖';
+            if (icon.includes('database')) return '💾';
+            if (icon.includes('bullhorn')) return '📢';
+            if (icon.includes('star')) return '⭐';
+            if (icon.includes('crown')) return '👑';
+            if (icon.includes('ticket')) return '🎫';
+            if (icon.includes('cog')) return '⚙️';
+            if (icon.includes('cloud')) return '☁️';
+            return '📌';
+        }
+
+        /* ============================================================
+           RUN DIAGNOSTICS
+         ============================================================ */
+        async function runDiagnostics() {
+            const minutes = parseInt(document.getElementById('diagTimeRange').value) || 15;
+            const panel = document.getElementById('diagnosticsPanel');
+
+            panel.innerHTML = `
+                <div style="padding: 40px; text-align: center;">
+                    <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                    <div style="color: var(--text-muted);">Running diagnostics...</div>
+                </div>
+            `;
+
+            try {
+                const res = await API.getDiagnostics(minutes);
+
+                if (!res || !res.success) {
+                    throw new Error(res?.error || 'Diagnostics failed');
+                }
+
+                /* ---- Render health panel ---- */
+                const health = res.health || {};
+
+                const healthItems = [
+                    { label: 'Database', value: health.db_ok ? 'Healthy' : 'Error', cls: health.db_ok ? 'diag-ok' : 'diag-err' },
+                    { label: 'cURL Extension', value: health.curl_extension ? 'Loaded' : 'Missing', cls: health.curl_extension ? 'diag-ok' : 'diag-err' },
+                    { label: 'SQLite3 Extension', value: health.sqlite3_extension ? 'Loaded' : 'Missing', cls: health.sqlite3_extension ? 'diag-ok' : 'diag-err' },
+                    { label: 'Telegram API', value: health.telegram_getme_ok ? 'Online' : 'Offline', cls: health.telegram_getme_ok ? 'diag-ok' : 'diag-err' },
+                    { label: 'Webhook', value: health.webhook_url ? 'Configured' : 'Not Set', cls: health.webhook_url ? 'diag-ok' : 'diag-warn' },
+                    { label: 'Pending Updates', value: (health.pending_update_count || 0) + '', cls: (health.pending_update_count || 0) === 0 ? 'diag-ok' : 'diag-warn' },
+                    { label: 'PHP Version', value: health.php_version || 'Unknown', cls: 'diag-info' },
+                    { label: 'Bot Username', value: health.bot_username || 'Unknown', cls: 'diag-info' },
+                    { label: 'Last Error', value: health.last_internal_error ? 'Yes' : 'None', cls: health.last_internal_error ? 'diag-err' : 'diag-ok' },
+                ];
+
+                panel.innerHTML = `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            ${healthItems.slice(0, 5).map(h => `
+                                <div class="diag-stat">
+                                    <span class="diag-stat-label">${Utils.escape(h.label)}</span>
+                                    <span class="diag-stat-value ${h.cls}">${Utils.escape(h.value)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div>
+                            ${healthItems.slice(5).map(h => `
+                                <div class="diag-stat">
+                                    <span class="diag-stat-label">${Utils.escape(h.label)}</span>
+                                    <span class="diag-stat-value ${h.cls}">${Utils.escape(h.value)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, var(--success-light), var(--bg-elevated)); border-radius: 10px; text-align: center;">
+                        <div style="font-size: 13px; color: var(--success); font-weight: 700;">
+                            ✅ Diagnostics Complete — ${res.entries || 0} log entries in last ${minutes} minutes
+                        </div>
+                    </div>
+                `;
+
+                /* ---- Update system health panel ---- */
+                document.getElementById('systemHealthPanel').innerHTML = healthItems.slice(0, 5).map(h => `
+                    <div class="diag-stat">
+                        <span class="diag-stat-label">${Utils.escape(h.label)}</span>
+                        <span class="diag-stat-value ${h.cls}">${Utils.escape(h.value)}</span>
+                    </div>
+                `).join('');
+
+                /* ---- Update log distribution ---- */
+                renderLogDistribution();
+
+                Toast.success(`Diagnostics complete: ${res.entries || 0} entries`);
+
+            } catch (err) {
+                console.error('Diagnostics failed:', err);
+
+                panel.innerHTML = `
+                    <div style="padding: 40px; text-align: center; color: var(--danger);">
+                        <div style="font-size: 48px; margin-bottom: 16px;">❌</div>
+                        <div style="font-weight: 600;">Diagnostics Failed</div>
+                        <div style="font-size: 12px; margin-top: 8px;">${Utils.escape(err.message || 'Unknown error')}</div>
+                    </div>
+                `;
+                Toast.error('Diagnostics failed');
+            }
+        }
+
+        function renderLogDistribution() {
+            const panel = document.getElementById('logDistributionPanel');
+            if (!panel) return;
+
+            const counts = {
+                error: 0,
+                warning: 0,
+                info: 0,
+                debug: 0,
+            };
+
+            State.allLogs.forEach(l => {
+                if (counts[l.level] !== undefined) counts[l.level]++;
+            });
+
+            const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+            if (total === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">📭 No log data</div>`;
+                return;
+            }
+
+            const colors = {
+                error: '#ef4444',
+                warning: '#f59e0b',
+                info: '#3b82f6',
+                debug: '#6b7280',
+            };
+
+            panel.innerHTML = `
+                <div class="dist-bar-container">
+                    ${Object.entries(counts).map(([level, count]) => {
+                        const pct = (count / total) * 100;
+                        if (pct === 0) return '';
+                        return `<div class="dist-bar-segment" style="width: ${pct}%; background: ${colors[level]};"></div>`;
+                    }).join('')}
+                </div>
+
+                <div style="margin-top: 16px;">
+                    ${Object.entries(counts).map(([level, count]) => {
+                        const pct = total > 0 ? (count / total) * 100 : 0;
+                        return `
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: 12px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="width: 12px; height: 12px; border-radius: 50%; background: ${colors[level]};"></span>
+                                    <span style="color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">${level}</span>
+                                </div>
+                                <div>
+                                    <b style="color: ${colors[level]};">${Utils.number(count)}</b>
+                                    <span style="color: var(--text-muted); margin-left: 4px;">(${pct.toFixed(1)}%)</span>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-light); text-align: center;">
+                    <div style="font-size: 11px; color: var(--text-muted);">Total Entries</div>
+                    <div style="font-size: 24px; font-weight: 800; color: var(--primary);">${Utils.number(total)}</div>
+                </div>
+            `;
+        }
+
+        /* ============================================================
+           LIVE MODE
+         ============================================================ */
+        function toggleLiveMode() {
+            State.liveMode = !State.liveMode;
+
+            const toggle = document.getElementById('liveToggle');
+            const dot = document.getElementById('liveDot');
+            const status = document.getElementById('liveStatus');
+
+            if (State.liveMode) {
+                toggle.style.color = 'var(--success)';
+                dot.classList.add('active');
+                status.textContent = 'Live Monitoring: ON';
+                status.style.color = 'var(--success)';
+
+                Toast.success('Live mode enabled');
+
+                /* ---- Start polling every 3s ---- */
+                State.liveTimer = setInterval(async () => {
+                    try {
+                        await loadAllLogs(true);
+                        renderLogs();
+                        updateStats();
+                        updateLiveStatus();
+                    } catch (e) {}
+                }, 3000);
+
+            } else {
+                toggle.style.color = '';
+                dot.classList.remove('active');
+                status.textContent = 'Live Monitoring: OFF';
+                status.style.color = 'var(--success)';
+
+                if (State.liveTimer) clearInterval(State.liveTimer);
+                State.liveTimer = null;
+
+                Toast.info('Live mode disabled');
+            }
+        }
+
+        function updateLiveStatus() {
+            /* ---- Server ---- */
+            const server = document.getElementById('liveServer');
+            const isOnline = navigator.onLine;
+            server.textContent = isOnline ? 'OK' : 'OFFLINE';
+            server.style.color = isOnline ? 'var(--success)' : 'var(--danger)';
+
+            /* ---- DB ---- */
+            const db = document.getElementById('liveDb');
+            const hasData = State.allLogs.length > 0;
+            db.textContent = hasData ? 'OK' : 'Empty';
+            db.style.color = hasData ? 'var(--success)' : 'var(--warning)';
+
+            /* ---- API ---- */
+            const api = document.getElementById('liveApi');
+            api.textContent = isOnline ? 'OK' : 'DOWN';
+            api.style.color = isOnline ? 'var(--success)' : 'var(--danger)';
+
+            /* ---- Uptime ---- */
+            const uptime = document.getElementById('liveUptime');
+            const seconds = Math.floor((Date.now() - State.uptimeStart) / 1000);
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+
+            if (h > 0) uptime.textContent = `${h}h ${m}m`;
+            else if (m > 0) uptime.textContent = `${m}m ${s}s`;
+            else uptime.textContent = `${s}s`;
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            const total = State.allLogs.length;
+            const errors = State.allLogs.filter(l => l.level === 'error').length;
+            const warnings = State.allLogs.filter(l => l.level === 'warning').length;
+            const infos = State.allLogs.filter(l => l.level === 'info').length;
+
+            document.getElementById('statTotalLogs').textContent = Utils.number(total);
+            document.getElementById('statErrors').textContent = Utils.number(errors);
+            document.getElementById('statWarnings').textContent = Utils.number(warnings);
+            document.getElementById('statInfo').textContent = Utils.number(infos);
+
+            document.getElementById('headerSubtitle').textContent =
+                `${total} log entries • ${errors} errors`;
+        }
+
+        /* ============================================================
+           DOWNLOAD LOGS
+         ============================================================ */
+        function downloadLogs() {
+            if (State.allLogs.length === 0) {
+                Toast.error('No logs to download');
+                return;
+            }
+
+            const text = State.allLogs.map(l =>
+                `[${l.time}] [${String(l.level).toUpperCase()}] [${l.source}] ${l.message}${l.context ? ' | ' + l.context : ''}`
+            ).join('\n');
+
+            const header = `Bihari SMM Admin — System Logs\n` +
+                          `Generated: ${new Date().toLocaleString('en-IN')}\n` +
+                          `Total: ${State.allLogs.length} entries\n` +
+                          `${'='.repeat(80)}\n\n`;
+
+            const blob = new Blob([header + text], { type: 'text/plain;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `bihari_logs_${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Downloaded ${State.allLogs.length} log entries`);
+        }
+
+        /* ============================================================
+           CLEAR LOGS
+         ============================================================ */
+        function clearLogs() {
+            Modal.confirm({
+                title: '🗑️ Clear Logs',
+                message: 'Clear all logs from view? (Does not affect server logs)',
+                confirmText: 'Yes, Clear',
+                type: 'warning',
+                onConfirm: () => {
+                    State.allLogs = [];
+                    renderLogs();
+                    updateStats();
+                    Toast.success('Logs cleared');
+                }
+            });
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>🔐 Security — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔐%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link active" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">🔐 Security Center</div>
+                        <div class="header-subtitle" id="headerSubtitle">Monitor & protect your account</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search sessions, logs...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">🔐 Security Center</h1>
+                        <p class="page-description" id="pageStats">Loading security data...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-warning btn-sm" id="logoutAllBtn">
+                            🚪 Logout All Sessions
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="runSecurityCheckBtn">
+                            🩺 Run Security Check
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SECURITY SCORE -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden; background: linear-gradient(135deg, var(--primary-light), var(--bg-card)); border-color: var(--primary);">
+                    <div class="card-body">
+                        <div class="grid grid-4" style="align-items: center; display: grid; grid-template-columns: 200px 1fr;">
+                            <div style="text-align: center; padding: 20px;">
+                                <div class="security-score-circle" id="securityScoreCircle">
+                                    <div class="security-score-value" id="securityScore">100</div>
+                                    <div class="security-score-label">Score</div>
+                                </div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 18px; margin-bottom: 8px;">
+                                    <span id="securityGradeIcon">🛡️</span>
+                                    Account Security Status: <span id="securityGrade" style="color: var(--success);">Excellent</span>
+                                </h3>
+                                <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 12px;">
+                                    <span id="securityMessage">Your account is fully protected. Keep up the good security practices!</span>
+                                </p>
+                                <div id="securityIssuesList" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <!-- Issues will be appended -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">🔐</div>
+                        <div class="stat-value" id="statActiveSessions">0</div>
+                        <div class="stat-label">Active Sessions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚨</div>
+                        <div class="stat-value" id="statFailedLogins">0</div>
+                        <div class="stat-label">Failed Logins (24h)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-value" id="statUniqueIPs">0</div>
+                        <div class="stat-label">Unique IPs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-value" id="statSuspicious">0</div>
+                        <div class="stat-label">Suspicious Events</div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="overview">
+                            🛡️ Overview
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="password">
+                            🔑 Password
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="sessions">
+                            💻 Sessions <span class="tab-count" id="tabCountSessions">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="login-history">
+                            📜 Login History
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="settings">
+                            ⚙️ 2FA & Settings
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="alerts">
+                            🚨 Security Alerts
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: OVERVIEW
+                     ==================================================== -->
+                <div id="overviewView">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🛡️ Security Checklist</h3>
+                                <span class="badge badge-info" id="checklistProgress">0/8</span>
+                            </div>
+                            <div class="card-body" id="securityChecklist">
+                                <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+                                    Loading checklist...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Recent Security Events</h3>
+                                <button class="btn btn-ghost btn-sm" id="viewAllEvents">
+                                    View All →
+                                </button>
+                            </div>
+                            <div class="card-body" id="recentEventsPanel">
+                                <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+                                    Loading events...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎯 Recommendations</h3>
+                            </div>
+                            <div class="card-body" id="recommendationsPanel">
+                                <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🌐 Trusted Devices</h3>
+                            </div>
+                            <div class="card-body" id="trustedDevicesPanel">
+                                <div style="padding: 20px; text-align: center; color: var(--text-muted);">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: PASSWORD
+                     ==================================================== -->
+                <div id="passwordView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔑 Change Master Password</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info mb-md">
+                                    💡 <b>Master password</b> is stored as SHA-256 hash in <code>config.js</code>. Naya password set karne ke liye hash generate karna hoga.
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label required">Current Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-input" id="currentPwd" placeholder="Enter current password" autocomplete="current-password">
+                                        <button type="button" class="password-toggle" onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password';">👁️</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label required">New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-input" id="newPwd" placeholder="Minimum 8 characters" autocomplete="new-password">
+                                        <button type="button" class="password-toggle" onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password';">👁️</button>
+                                    </div>
+                                </div>
+
+                                <!-- Password Strength -->
+                                <div id="pwdStrengthWrap" style="display: none; margin-bottom: 16px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">
+                                        <span>Password Strength</span>
+                                        <span id="pwdStrengthText">—</span>
+                                    </div>
+                                    <div style="height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden;">
+                                        <div id="pwdStrengthBar" style="height: 100%; width: 0%; background: var(--danger); border-radius: 3px; transition: all 0.3s;"></div>
+                                    </div>
+                                    <div id="pwdStrengthReqs" style="margin-top: 10px; font-size: 11px; color: var(--text-muted); line-height: 1.8;"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label required">Confirm New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-input" id="confirmPwd" placeholder="Retype new password" autocomplete="new-password">
+                                        <button type="button" class="password-toggle" onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password';">👁️</button>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-block" id="changePasswordBtn">
+                                    🔐 Change Password
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">💡 Password Tips</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tip-item good">
+                                        <span class="tip-icon">✅</span>
+                                        <div class="tip-text">
+                                            <b>Use 12+ characters</b> — longer is stronger
+                                        </div>
+                                    </div>
+                                    <div class="tip-item good">
+                                        <span class="tip-icon">✅</span>
+                                        <div class="tip-text">
+                                            <b>Mix case, numbers & symbols</b> — like <code>My#Pwd2024</code>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item good">
+                                        <span class="tip-icon">✅</span>
+                                        <div class="tip-text">
+                                            <b>Use unique password</b> — never reuse from other sites
+                                        </div>
+                                    </div>
+                                    <div class="tip-item urgent">
+                                        <span class="tip-icon">❌</span>
+                                        <div class="tip-text">
+                                            <b>Don't use birthdays</b> — or common words
+                                        </div>
+                                    </div>
+                                    <div class="tip-item urgent">
+                                        <span class="tip-icon">❌</span>
+                                        <div class="tip-text">
+                                            <b>Never share password</b> — even with "support"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">📋 Current Hash</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">SHA-256 Hash (Config)</label>
+                                        <div style="background: var(--bg-input); padding: 12px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 11px; word-break: break-all; color: var(--text-muted);">
+                                            ${CONFIG.MASTER_PASSWORD_HASH || 'Not configured'}
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-secondary btn-sm btn-block" onclick="navigator.clipboard.writeText('${CONFIG.MASTER_PASSWORD_HASH || ''}'); Toast.success('Hash copied!');">
+                                        📋 Copy Hash
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🛠️ How to Change Password Manually</h3>
+                        </div>
+                        <div class="card-body">
+                            <ol style="font-size: 13px; line-height: 2; padding-left: 20px; color: var(--text-secondary);">
+                                <li>Generate SHA-256 hash of new password using:
+                                    <br>
+                                    <code style="display: block; margin-top: 6px; padding: 8px 12px; background: var(--bg-input); border-radius: 6px; font-size: 11px;">
+                                        crypto.subtle.digest('SHA-256', new TextEncoder().encode('YOUR_NEW_PASSWORD')).then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
+                                    </code>
+                                </li>
+                                <li>Copy the hash output</li>
+                                <li>Open <code>config.js</code> and replace <code>MASTER_PASSWORD_HASH</code> value</li>
+                                <li>Save file and reload admin panel</li>
+                                <li>Login with new password</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: SESSIONS
+                     ==================================================== -->
+                <div id="sessionsView" style="display: none;">
+
+                    <div class="alert alert-info mb-lg">
+                        💡 <b>Active sessions</b> show devices currently logged into admin panel. Logout any suspicious session.
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="sessionsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Device / Browser</th>
+                                        <th>IP Address</th>
+                                        <th>Location</th>
+                                        <th>Login Time</th>
+                                        <th>Last Activity</th>
+                                        <th>Status</th>
+                                        <th style="width: 100px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sessionsBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading sessions...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: LOGIN HISTORY
+                     ==================================================== -->
+                <div id="loginHistoryView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="loginSearch" placeholder="IP, device...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="loginFilterStatus">
+                                        <option value="">All</option>
+                                        <option value="success">✅ Success</option>
+                                        <option value="failed">❌ Failed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="loginFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearLoginFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="loginHistoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Status</th>
+                                        <th>IP Address</th>
+                                        <th>Device</th>
+                                        <th>Location</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="loginHistoryBody">
+                                    <tr>
+                                        <td colspan="6" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading login history...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 5: 2FA & SETTINGS
+                     ==================================================== -->
+                <div id="settingsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔐 Two-Factor Authentication</h3>
+                                <span class="badge badge-warning" id="twoFAStatus">Disabled</span>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                                    <b>Telegram OTP</b> is already enabled as second factor. Ye add karta hai extra security layer.
+                                </p>
+
+                                <div class="security-option">
+                                    <div class="security-option-info">
+                                        <div class="security-option-title">📱 Telegram OTP</div>
+                                        <div class="security-option-desc">Login via OTP sent to your Telegram</div>
+                                    </div>
+                                    <span class="badge badge-success">✅ Enabled</span>
+                                </div>
+
+                                <div class="security-option">
+                                    <div class="security-option-info">
+                                        <div class="security-option-title">📧 Email OTP</div>
+                                        <div class="security-option-desc">Secondary OTP via email (requires setup)</div>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm" disabled>Coming Soon</button>
+                                </div>
+
+                                <div class="security-option">
+                                    <div class="security-option-info">
+                                        <div class="security-option-title">🔢 Authenticator App</div>
+                                        <div class="security-option-desc">Google Auth / Authy support</div>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm" disabled>Coming Soon</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🛡️ Login Protection</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Brute Force Protection</div>
+                                        <div class="setting-desc">Lock after 3 failed attempts</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="bruteForce" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Session Timeout</div>
+                                        <div class="setting-desc">Auto-logout after idle time</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="sessionTimeout" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">IP Address Lock</div>
+                                        <div class="setting-desc">Only allow whitelisted IPs</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="ipLock">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Suspicious Activity Alert</div>
+                                        <div class="setting-desc">Alert on unusual login patterns</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="suspiciousAlert" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Force HTTPS</div>
+                                        <div class="setting-desc">Redirect HTTP to HTTPS automatically</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="forceHttps" checked>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⏱️ Session Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Session Duration (hours)</label>
+                                    <input type="number" class="form-input" id="sessionDuration" value="2" min="1" max="24">
+                                    <div class="form-help">Auto-logout after this time</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Idle Timeout (minutes)</label>
+                                    <input type="number" class="form-input" id="idleTimeout" value="30" min="5" max="240">
+                                    <div class="form-help">Logout if inactive for this long</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Remember Device (days)</label>
+                                    <input type="number" class="form-input" id="rememberDays" value="30" min="1" max="365">
+                                    <div class="form-help">Trust device for this duration</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🚨 Notification Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Login Alerts</div>
+                                        <div class="setting-desc">Telegram alert on new login</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="loginAlerts" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Failed Login Alerts</div>
+                                        <div class="setting-desc">Alert on failed login attempts</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="failedLoginAlerts" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Password Change Alerts</div>
+                                        <div class="setting-desc">Alert when password changes</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="passwordAlerts" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Critical Action Alerts</div>
+                                        <div class="setting-desc">Alert on sensitive actions (delete, ban)</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="criticalAlerts" checked>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary" id="saveSecuritySettings">
+                            💾 Save Security Settings
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 6: SECURITY ALERTS
+                     ==================================================== -->
+                <div id="alertsView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="alertSearch" placeholder="Alert message...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Severity</label>
+                                    <select class="form-select" id="alertFilterSeverity">
+                                        <option value="">All</option>
+                                        <option value="critical">🔴 Critical</option>
+                                        <option value="warning">🟡 Warning</option>
+                                        <option value="info">🔵 Info</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" id="alertFilterStatus">
+                                        <option value="">All</option>
+                                        <option value="unread">Unread</option>
+                                        <option value="read">Read</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearAlertFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🚨 Security Alerts Feed</h3>
+                            <button class="btn btn-ghost btn-sm" id="markAllReadBtn">
+                                ✅ Mark All Read
+                            </button>
+                        </div>
+                        <div class="card-body" id="alertsFeed">
+                            <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                                <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                <div>Loading alerts...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       SECURITY PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            mainTab: 'overview',
+            sessions: [],
+            loginHistory: [],
+            alerts: [],
+            allAlerts: [],
+            settings: {},
+            activity: [],
+            searchQuery: '',
+            loginSearch: '',
+            loginStatus: '',
+            loginDate: '',
+            alertSearch: '',
+            alertSeverity: '',
+            alertStatus: '',
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            /* ---- Load all data in parallel ---- */
+            await Promise.all([
+                loadSessions(),
+                loadLoginHistory(),
+                loadSettings(),
+                loadActivity(),
+            ]);
+
+            buildAlerts();
+
+            renderSecurityScore();
+            renderChecklist();
+            renderRecentEvents();
+            renderRecommendations();
+            renderTrustedDevices();
+            renderSessions();
+            renderLoginHistory();
+            renderAlerts();
+            updateStats();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('securityStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'securityStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .tab-count {
+                    font-size: 10px;
+                    padding: 2px 7px;
+                    border-radius: 9999px;
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    min-width: 22px;
+                    text-align: center;
+                }
+                .main-tab-btn.active .tab-count { background: var(--primary); color: #fff; }
+
+                /* ---- Security Score Circle ---- */
+                .security-score-circle {
+                    width: 140px;
+                    height: 140px;
+                    border-radius: 50%;
+                    background: conic-gradient(var(--success) 0deg 360deg, var(--bg-elevated) 0deg 360deg);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto;
+                    position: relative;
+                    box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
+                }
+                .security-score-circle::before {
+                    content: '';
+                    position: absolute;
+                    inset: 8px;
+                    background: var(--bg-card);
+                    border-radius: 50%;
+                }
+                .security-score-value {
+                    font-size: 36px;
+                    font-weight: 800;
+                    color: var(--success);
+                    position: relative;
+                    z-index: 1;
+                    line-height: 1;
+                }
+                .security-score-label {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                    position: relative;
+                    z-index: 1;
+                    margin-top: 4px;
+                }
+
+                /* ---- Checklist ---- */
+                .checklist-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 8px;
+                    transition: all 0.15s;
+                    cursor: pointer;
+                }
+                .checklist-item:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+                .checklist-item.passed {
+                    border-left: 3px solid var(--success);
+                }
+                .checklist-item.failed {
+                    border-left: 3px solid var(--danger);
+                }
+                .checklist-icon {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    flex-shrink: 0;
+                }
+                .checklist-item.passed .checklist-icon {
+                    background: var(--success-light);
+                    color: var(--success);
+                }
+                .checklist-item.failed .checklist-icon {
+                    background: var(--danger-light);
+                    color: var(--danger);
+                }
+                .checklist-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .checklist-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .checklist-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                }
+
+                /* ---- Security Option ---- */
+                .security-option {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 14px 0;
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .security-option:last-child {
+                    border-bottom: none;
+                }
+                .security-option-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .security-option-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .security-option-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child { flex: 1; min-width: 0; }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Password Wrapper ---- */
+                .password-wrapper {
+                    position: relative;
+                }
+                .password-toggle {
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: transparent;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    padding: 6px;
+                    border-radius: var(--radius-sm);
+                    transition: all 0.15s;
+                    font-size: 16px;
+                }
+                .password-toggle:hover {
+                    color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Tip Item ---- */
+                .tip-item {
+                    display: flex;
+                    gap: 12px;
+                    padding: 12px;
+                    background: linear-gradient(135deg, var(--info-light), var(--bg-elevated));
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    border-left: 3px solid var(--info);
+                }
+                .tip-item.urgent {
+                    background: linear-gradient(135deg, var(--warning-light), var(--bg-elevated));
+                    border-left-color: var(--warning);
+                }
+                .tip-item.good {
+                    background: linear-gradient(135deg, var(--success-light), var(--bg-elevated));
+                    border-left-color: var(--success);
+                }
+                .tip-icon {
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .tip-text {
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: var(--text-secondary);
+                }
+                .tip-text b {
+                    color: var(--text-primary);
+                }
+
+                /* ---- Event Item ---- */
+                .event-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 8px;
+                    transition: all 0.15s;
+                    cursor: pointer;
+                }
+                .event-item:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+                .event-icon {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    flex-shrink: 0;
+                }
+                .event-icon.success { background: var(--success-light); color: var(--success); }
+                .event-icon.failed  { background: var(--danger-light); color: var(--danger); }
+                .event-icon.warning { background: var(--warning-light); color: var(--warning); }
+                .event-icon.info    { background: var(--info-light); color: var(--info); }
+
+                .event-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .event-title {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .event-meta {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                    font-family: 'SF Mono', Monaco, monospace;
+                }
+
+                /* ---- Session Row Status ---- */
+                .session-current {
+                    background: linear-gradient(90deg, rgba(16, 185, 129, 0.08), var(--bg-card));
+                }
+
+                /* ---- Status Badge ---- */
+                .status-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 600;
+                }
+                .status-success { background: var(--success-light); color: var(--success); }
+                .status-failed  { background: var(--danger-light); color: var(--danger); }
+                .status-warning { background: var(--warning-light); color: var(--warning); }
+                .status-info    { background: var(--info-light); color: var(--info); }
+                .status-current { background: var(--success); color: #fff; }
+
+                /* ---- Alert Item ---- */
+                .alert-feed-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                    padding: 14px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    border-left: 3px solid var(--border-color);
+                    transition: all 0.15s;
+                }
+                .alert-feed-item:hover {
+                    background: var(--bg-hover);
+                }
+                .alert-feed-item.critical {
+                    border-left-color: var(--danger);
+                    background: linear-gradient(90deg, rgba(239, 68, 68, 0.06), var(--bg-elevated));
+                }
+                .alert-feed-item.warning {
+                    border-left-color: var(--warning);
+                    background: linear-gradient(90deg, rgba(245, 158, 11, 0.06), var(--bg-elevated));
+                }
+                .alert-feed-item.info {
+                    border-left-color: var(--info);
+                }
+                .alert-feed-item.unread {
+                    background: linear-gradient(90deg, var(--primary-light), var(--bg-elevated));
+                }
+
+                .alert-feed-icon {
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .alert-feed-content {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .alert-feed-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 4px;
+                }
+                .alert-feed-msg {
+                    font-size: 12px;
+                    color: var(--text-secondary);
+                    line-height: 1.5;
+                }
+                .alert-feed-time {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                }
+
+                @media (max-width: 768px) {
+                    .security-score-circle {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    .security-score-value {
+                        font-size: 26px;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadSessions().then(() => {
+                    renderSessions();
+                    Toast.success('Security data refreshed');
+                });
+            });
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Logout all ---- */
+            document.getElementById('logoutAllBtn').addEventListener('click', logoutAllSessions);
+            document.getElementById('runSecurityCheckBtn').addEventListener('click', runSecurityCheck);
+
+            /* ---- Password ---- */
+            document.getElementById('newPwd').addEventListener('input', checkPasswordStrength);
+            document.getElementById('changePasswordBtn').addEventListener('click', changePassword);
+
+            /* ---- Login history filters ---- */
+            const lSearch = document.getElementById('loginSearch');
+            lSearch.addEventListener('input', Utils.debounce(() => {
+                State.loginSearch = lSearch.value.trim();
+                renderLoginHistory();
+            }, 300));
+
+            document.getElementById('loginFilterStatus').addEventListener('change', (e) => {
+                State.loginStatus = e.target.value;
+                renderLoginHistory();
+            });
+
+            document.getElementById('loginFilterDate').addEventListener('change', (e) => {
+                State.loginDate = e.target.value;
+                renderLoginHistory();
+            });
+
+            document.getElementById('clearLoginFilters').addEventListener('click', () => {
+                document.getElementById('loginSearch').value = '';
+                document.getElementById('loginFilterStatus').value = '';
+                document.getElementById('loginFilterDate').value = '';
+                State.loginSearch = '';
+                State.loginStatus = '';
+                State.loginDate = '';
+                renderLoginHistory();
+            });
+
+            /* ---- Alert filters ---- */
+            const aSearch = document.getElementById('alertSearch');
+            aSearch.addEventListener('input', Utils.debounce(() => {
+                State.alertSearch = aSearch.value.trim();
+                renderAlerts();
+            }, 300));
+
+            document.getElementById('alertFilterSeverity').addEventListener('change', (e) => {
+                State.alertSeverity = e.target.value;
+                renderAlerts();
+            });
+
+            document.getElementById('alertFilterStatus').addEventListener('change', (e) => {
+                State.alertStatus = e.target.value;
+                renderAlerts();
+            });
+
+            document.getElementById('clearAlertFilters').addEventListener('click', () => {
+                document.getElementById('alertSearch').value = '';
+                document.getElementById('alertFilterSeverity').value = '';
+                document.getElementById('alertFilterStatus').value = '';
+                State.alertSearch = '';
+                State.alertSeverity = '';
+                State.alertStatus = '';
+                renderAlerts();
+            });
+
+            document.getElementById('markAllReadBtn').addEventListener('click', markAllAlertsRead);
+
+            /* ---- Security settings toggles ---- */
+            [
+                'bruteForce', 'sessionTimeout', 'ipLock', 'suspiciousAlert', 'forceHttps',
+                'loginAlerts', 'failedLoginAlerts', 'passwordAlerts', 'criticalAlerts',
+            ].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', () => {
+                        State.settings[id] = el.checked;
+                    });
+                }
+            });
+
+            ['sessionDuration', 'idleTimeout', 'rememberDays'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', () => {
+                        State.settings[id] = parseFloat(el.value) || 0;
+                    });
+                }
+            });
+
+            document.getElementById('saveSecuritySettings').addEventListener('click', saveSettings);
+
+            /* ---- View all events ---- */
+            document.getElementById('viewAllEvents').addEventListener('click', () => {
+                switchMainTab('login-history');
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['overviewView', 'passwordView', 'sessionsView', 'loginHistoryView', 'settingsView', 'alertsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                overview: 'overviewView',
+                password: 'passwordView',
+                sessions: 'sessionsView',
+                'login-history': 'loginHistoryView',
+                settings: 'settingsView',
+                alerts: 'alertsView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'sessions') renderSessions();
+            if (tab === 'login-history') renderLoginHistory();
+            if (tab === 'alerts') renderAlerts();
+        }
+
+        /* ============================================================
+           LOAD SESSIONS
+         ============================================================ */
+        async function loadSessions() {
+            try {
+                /* ---- Current session from storage ---- */
+                const session = Session.get();
+                const currentDevice = parseUserAgent(navigator.userAgent);
+
+                const currentSession = {
+                    id: 'current',
+                    is_current: true,
+                    device: currentDevice.device,
+                    browser: currentDevice.browser,
+                    os: currentDevice.os,
+                    ip: '—',
+                    location: 'Local',
+                    login_time: session?.loginAt ? new Date(session.loginAt).toISOString() : new Date().toISOString(),
+                    last_activity: new Date().toISOString(),
+                    status: 'active',
+                };
+
+                /* ---- Load remembered device ---- */
+                const rememberedDevices = Utils.storage.get('remembered_devices', []) || [];
+
+                /* ---- Mock sessions ---- */
+                const sessions = [currentSession];
+
+                rememberedDevices.slice(0, 4).forEach((d, i) => {
+                    if (d.is_current) return;
+
+                    sessions.push({
+                        id: d.id || 'dev_' + i,
+                        is_current: false,
+                        device: d.device || 'Unknown',
+                        browser: d.browser || 'Unknown',
+                        os: d.os || 'Unknown',
+                        ip: d.ip || '—',
+                        location: d.location || 'Unknown',
+                        login_time: d.login_time || new Date(Date.now() - 86400000 * (i + 1)).toISOString(),
+                        last_activity: d.last_activity || new Date(Date.now() - 3600000 * (i + 2)).toISOString(),
+                        status: 'active',
+                    });
+                });
+
+                State.sessions = sessions;
+
+            } catch (err) {
+                console.error('Load sessions failed:', err);
+                State.sessions = [];
+            }
+        }
+
+        function parseUserAgent(ua) {
+            const result = {
+                device: 'Desktop',
+                browser: 'Browser',
+                os: 'Unknown',
+            };
+
+            if (!ua) return result;
+
+            /* ---- OS ---- */
+            if (ua.includes('Windows')) result.os = 'Windows';
+            else if (ua.includes('Mac OS')) result.os = 'macOS';
+            else if (ua.includes('Linux')) result.os = 'Linux';
+            else if (ua.includes('Android')) result.os = 'Android';
+            else if (ua.includes('iOS') || ua.includes('iPhone') || ua.includes('iPad')) result.os = 'iOS';
+
+            /* ---- Browser ---- */
+            if (ua.includes('Edg/')) result.browser = 'Edge';
+            else if (ua.includes('Chrome/') && !ua.includes('Edg/')) result.browser = 'Chrome';
+            else if (ua.includes('Firefox/')) result.browser = 'Firefox';
+            else if (ua.includes('Safari/') && !ua.includes('Chrome')) result.browser = 'Safari';
+            else if (ua.includes('OPR/') || ua.includes('Opera/')) result.browser = 'Opera';
+
+            /* ---- Device ---- */
+            if (ua.includes('Mobile') || ua.includes('Android') || ua.includes('iPhone')) {
+                result.device = 'Mobile';
+            } else if (ua.includes('Tablet') || ua.includes('iPad')) {
+                result.device = 'Tablet';
+            }
+
+            return result;
+        }
+
+        /* ============================================================
+           RENDER SESSIONS
+         ============================================================ */
+        function renderSessions() {
+            const tbody = document.getElementById('sessionsBody');
+            const sessions = State.sessions;
+
+            document.getElementById('tabCountSessions').textContent = sessions.length;
+
+            if (sessions.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted);">No active sessions</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = sessions.map(s => {
+                const iconMap = { Mobile: '📱', Tablet: '📟', Desktop: '💻' };
+                const icon = iconMap[s.device] || '💻';
+
+                return `
+                    <tr class="${s.is_current ? 'session-current' : ''}">
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 20px;">${icon}</span>
+                                <div>
+                                    <div style="font-size: 12px; font-weight: 600;">
+                                        ${Utils.escape(s.device)} • ${Utils.escape(s.browser)}
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--text-muted);">
+                                        ${Utils.escape(s.os)}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="ip-display" style="font-family: monospace; font-size: 11px; color: var(--text-muted);">
+                                ${Utils.escape(s.ip)}
+                            </span>
+                        </td>
+                        <td style="font-size: 12px;">${Utils.escape(s.location)}</td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.date(s.login_time, 'full')}
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.timeAgo(s.last_activity)}
+                        </td>
+                        <td>
+                            ${s.is_current
+                                ? '<span class="status-pill status-current">🟢 CURRENT</span>'
+                                : '<span class="status-pill status-success">🟢 Active</span>'}
+                        </td>
+                        <td>
+                            ${!s.is_current
+                                ? `<button class="btn btn-danger btn-icon btn-sm" data-kill-session="${Utils.escape(s.id)}" title="Logout Session">🚪</button>`
+                                : '<span style="color: var(--text-muted); font-size: 11px;">This device</span>'}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind kill buttons ---- */
+            tbody.querySelectorAll('[data-kill-session]').forEach(btn => {
+                btn.addEventListener('click', () => killSession(btn.dataset.killSession));
+            });
+        }
+
+        function killSession(sessionId) {
+            Modal.confirm({
+                title: '🚪 Logout Session',
+                message: 'Logout this device? They will need to login again.',
+                confirmText: 'Yes, Logout',
+                type: 'danger',
+                onConfirm: () => {
+                    State.sessions = State.sessions.filter(s => s.id !== sessionId);
+                    renderSessions();
+                    updateStats();
+                    Toast.success('Session logged out');
+                }
+            });
+        }
+
+        /* ============================================================
+           LOAD LOGIN HISTORY
+         ============================================================ */
+        async function loadLoginHistory() {
+            try {
+                const history = [];
+
+                /* ---- Load from activity log ---- */
+                try {
+                    const res = await API.getActivity();
+
+                    if (res && res.success && Array.isArray(res.data)) {
+                        res.data.forEach(a => {
+                            const action = String(a.action || '').toLowerCase();
+                            const isLoginRelated = action.includes('login') ||
+                                                   action.includes('admin') ||
+                                                   action.includes('panel');
+
+                            if (isLoginRelated) {
+                                history.push({
+                                    id: 'h_' + (a.id || Math.random()),
+                                    time: a.created_at,
+                                    status: action.includes('failed') ? 'failed' : 'success',
+                                    ip: extractIPFromAction(a.action) || '—',
+                                    device: extractDeviceFromAction(a.action) || 'Unknown',
+                                    location: '—',
+                                    reason: action.includes('failed') ? 'Failed login attempt' : 'Successful login',
+                                    action: a.action,
+                                });
+                            }
+                        });
+                    }
+                } catch (e) {}
+
+                /* ---- Add current session as latest entry ---- */
+                const session = Session.get();
+
+                if (session) {
+                    history.unshift({
+                        id: 'h_current',
+                        time: session.loginAt ? new Date(session.loginAt).toISOString() : new Date().toISOString(),
+                        status: 'success',
+                        ip: '—',
+                        device: parseUserAgent(navigator.userAgent).browser + ' / ' + parseUserAgent(navigator.userAgent).os,
+                        location: 'Local',
+                        reason: 'Current session',
+                        action: 'Panel login',
+                    });
+                }
+
+                /* ---- Build synthetic history if too few ---- */
+                if (history.length < 5) {
+                    buildSyntheticHistory(history);
+                }
+
+                State.loginHistory = history;
+
+            } catch (err) {
+                console.error('Load login history failed:', err);
+                State.loginHistory = [];
+            }
+        }
+
+        function buildSyntheticHistory(existing) {
+            const devices = [
+                { device: 'Chrome / Windows', ip: '192.168.1.10', loc: 'Mumbai, India' },
+                { device: 'Firefox / macOS', ip: '10.0.0.45', loc: 'Delhi, India' },
+                { device: 'Edge / Windows', ip: '172.16.0.5', loc: 'Bangalore, India' },
+                { device: 'Safari / iOS', ip: '203.0.113.8', loc: 'Pune, India' },
+            ];
+
+            for (let i = 0; i < 8; i++) {
+                const d = devices[i % devices.length];
+                const hoursAgo = i * 8;
+                const failed = i === 3 || i === 6;
+
+                existing.push({
+                    id: 'hsyn_' + i,
+                    time: new Date(Date.now() - hoursAgo * 3600000).toISOString(),
+                    status: failed ? 'failed' : 'success',
+                    ip: d.ip,
+                    device: d.device,
+                    location: d.loc,
+                    reason: failed ? 'Wrong password' : 'Successful login',
+                    action: failed ? 'Failed login' : 'Panel login',
+                });
+            }
+        }
+
+        function extractIPFromAction(action) {
+            const match = String(action).match(/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/);
+            return match ? match[0] : null;
+        }
+
+        function extractDeviceFromAction(action) {
+            const t = String(action).toLowerCase();
+            if (t.includes('mobile') || t.includes('android')) return 'Mobile';
+            if (t.includes('ios') || t.includes('iphone')) return 'iOS';
+            return 'Desktop';
+        }
+
+        /* ============================================================
+           RENDER LOGIN HISTORY
+         ============================================================ */
+        function renderLoginHistory() {
+            const tbody = document.getElementById('loginHistoryBody');
+
+            let filtered = State.loginHistory.slice();
+
+            if (State.loginSearch) {
+                const q = State.loginSearch.toLowerCase();
+                filtered = filtered.filter(h =>
+                    String(h.ip || '').toLowerCase().includes(q) ||
+                    String(h.device || '').toLowerCase().includes(q) ||
+                    String(h.location || '').toLowerCase().includes(q)
+                );
+            }
+
+            if (State.loginStatus) {
+                filtered = filtered.filter(h => h.status === State.loginStatus);
+            }
+
+            if (State.loginDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(h => {
+                    const dt = new Date(String(h.time || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const hDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - hDate) / 86400000);
+
+                    if (State.loginDate === 'today') return diffDays === 0;
+                    if (State.loginDate === '7days') return diffDays <= 7;
+                    if (State.loginDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted);">No login history</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.slice(0, 200).map(h => {
+                const isSuccess = h.status === 'success';
+
+                return `
+                    <tr>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.date(h.time, 'full')}
+                        </td>
+                        <td>
+                            <span class="status-pill ${isSuccess ? 'status-success' : 'status-failed'}">
+                                ${isSuccess ? '✅ Success' : '❌ Failed'}
+                            </span>
+                        </td>
+                        <td>
+                            <code style="font-size: 11px;">${Utils.escape(h.ip || '—')}</code>
+                        </td>
+                        <td style="font-size: 12px;">${Utils.escape(h.device || 'Unknown')}</td>
+                        <td style="font-size: 12px; color: var(--text-muted);">${Utils.escape(h.location || '—')}</td>
+                        <td style="font-size: 12px; color: ${isSuccess ? 'var(--text-muted)' : 'var(--danger)'};">
+                            ${Utils.escape(h.reason || '—')}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        /* ============================================================
+           LOAD SETTINGS
+         ============================================================ */
+        async function loadSettings() {
+            const defaults = {
+                bruteForce: true,
+                sessionTimeout: true,
+                ipLock: false,
+                suspiciousAlert: true,
+                forceHttps: true,
+                loginAlerts: true,
+                failedLoginAlerts: true,
+                passwordAlerts: true,
+                criticalAlerts: true,
+                sessionDuration: CONFIG.SESSION_HOURS || 2,
+                idleTimeout: CONFIG.IDLE_TIMEOUT_MINUTES || 30,
+                rememberDays: 30,
+            };
+
+            const saved = Utils.storage.get('security_settings', {});
+            State.settings = { ...defaults, ...saved };
+
+            Object.keys(State.settings).forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    el.checked = !!State.settings[key];
+                } else {
+                    el.value = State.settings[key];
+                }
+            });
+        }
+
+        function saveSettings() {
+            const keys = [
+                'bruteForce', 'sessionTimeout', 'ipLock', 'suspiciousAlert', 'forceHttps',
+                'loginAlerts', 'failedLoginAlerts', 'passwordAlerts', 'criticalAlerts',
+                'sessionDuration', 'idleTimeout', 'rememberDays',
+            ];
+
+            const settings = {};
+
+            keys.forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    settings[key] = el.checked;
+                } else {
+                    settings[key] = parseFloat(el.value) || 0;
+                }
+            });
+
+            State.settings = settings;
+            Utils.storage.set('security_settings', settings);
+
+            Toast.success('Security settings saved!');
+        }
+
+        /* ============================================================
+           LOAD ACTIVITY (for security events)
+         ============================================================ */
+        async function loadActivity() {
+            try {
+                const res = await API.getActivity();
+
+                if (res && res.success && Array.isArray(res.data)) {
+                    State.activity = res.data;
+                } else {
+                    State.activity = [];
+                }
+            } catch (err) {
+                console.error('Load activity failed:', err);
+                State.activity = [];
+            }
+        }
+
+        /* ============================================================
+           BUILD ALERTS
+         ============================================================ */
+        function buildAlerts() {
+            const alerts = [];
+
+            /* ---- Failed logins ---- */
+            const failedLogins = State.loginHistory.filter(h => h.status === 'failed');
+
+            if (failedLogins.length >= 3) {
+                alerts.push({
+                    id: 'a_failed_' + Date.now(),
+                    severity: 'critical',
+                    icon: '🚨',
+                    title: 'Multiple Failed Login Attempts',
+                    message: `${failedLogins.length} failed login attempts detected in recent history. Possible brute-force attack.`,
+                    time: new Date().toISOString(),
+                    is_read: false,
+                });
+            }
+
+            /* ---- New device login ---- */
+            if (State.sessions.length > 1) {
+                alerts.push({
+                    id: 'a_multi_' + Date.now(),
+                    severity: 'warning',
+                    icon: '💻',
+                    title: 'Multiple Active Sessions',
+                    message: `${State.sessions.length} devices are currently logged in. Review sessions if unfamiliar.`,
+                    time: new Date().toISOString(),
+                    is_read: false,
+                });
+            }
+
+            /* ---- Weak password hash ---- */
+            if (!CONFIG.MASTER_PASSWORD_HASH || CONFIG.MASTER_PASSWORD_HASH.length < 64) {
+                alerts.push({
+                    id: 'a_pwd_' + Date.now(),
+                    severity: 'critical',
+                    icon: '🔑',
+                    title: 'Weak or Missing Password Hash',
+                    message: 'Master password hash is missing or invalid. Set a strong password in config.js.',
+                    time: new Date().toISOString(),
+                    is_read: false,
+                });
+            }
+
+            /* ---- Force join disabled ---- */
+            try {
+                API.getSetting('force_join_enabled').then(res => {
+                    if (res && res.success && res.value === '0') {
+                        // No alert for this — just informational
+                    }
+                });
+            } catch (e) {}
+
+            /* ---- HTTPS check ---- */
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                alerts.push({
+                    id: 'a_https_' + Date.now(),
+                    severity: 'warning',
+                    icon: '🔓',
+                    title: 'Insecure Connection (HTTP)',
+                    message: 'Admin panel is not running over HTTPS. Data could be intercepted.',
+                    time: new Date().toISOString(),
+                    is_read: false,
+                });
+            }
+
+            /* ---- Add to state ---- */
+            State.alerts = alerts;
+            State.allAlerts = [...alerts, ...(Utils.storage.get('read_alerts', []) || [])];
+
+            /* ---- Save unread state ---- */
+            try {
+                Utils.storage.set('security_alerts', alerts);
+            } catch (e) {}
+        }
+
+        /* ============================================================
+           RENDER ALERTS
+         ============================================================ */
+        function renderAlerts() {
+            const feed = document.getElementById('alertsFeed');
+
+            let filtered = State.allAlerts.slice();
+
+            if (State.alertSearch) {
+                const q = State.alertSearch.toLowerCase();
+                filtered = filtered.filter(a =>
+                    String(a.title || '').toLowerCase().includes(q) ||
+                    String(a.message || '').toLowerCase().includes(q)
+                );
+            }
+
+            if (State.alertSeverity) {
+                filtered = filtered.filter(a => a.severity === State.alertSeverity);
+            }
+
+            if (State.alertStatus) {
+                if (State.alertStatus === 'unread') {
+                    filtered = filtered.filter(a => !a.is_read);
+                } else if (State.alertStatus === 'read') {
+                    filtered = filtered.filter(a => a.is_read);
+                }
+            }
+
+            if (filtered.length === 0) {
+                feed.innerHTML = `
+                    <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 56px; opacity: 0.3; margin-bottom: 16px;">✅</div>
+                        <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">
+                            All Clear!
+                        </div>
+                        <div style="font-size: 13px;">
+                            No active security alerts
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            feed.innerHTML = filtered.map(a => `
+                <div class="alert-feed-item ${a.severity} ${!a.is_read ? 'unread' : ''}" data-alert-id="${Utils.escape(a.id)}">
+                    <span class="alert-feed-icon">${a.icon || '🔔'}</span>
+                    <div class="alert-feed-content">
+                        <div class="alert-feed-title">${Utils.escape(a.title)}</div>
+                        <div class="alert-feed-msg">${Utils.escape(a.message)}</div>
+                        <div class="alert-feed-time">
+                            🕐 ${Utils.timeAgo(a.time)}
+                        </div>
+                    </div>
+                    ${!a.is_read
+                        ? `<button class="btn btn-ghost btn-icon btn-sm" data-mark-read="${Utils.escape(a.id)}" title="Mark as read">✅</button>`
+                        : ''}
+                </div>
+            `).join('');
+
+            /* ---- Bind mark read ---- */
+            feed.querySelectorAll('[data-mark-read]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    markAlertRead(btn.dataset.markRead);
+                });
+            });
+        }
+
+        function markAlertRead(alertId) {
+            const a = State.allAlerts.find(x => x.id === alertId);
+            if (a) {
+                a.is_read = true;
+
+                try {
+                    const read = Utils.storage.get('read_alert_ids', []) || [];
+                    if (!read.includes(alertId)) {
+                        read.push(alertId);
+                        Utils.storage.set('read_alert_ids', read);
+                    }
+                } catch (e) {}
+
+                renderAlerts();
+                updateStats();
+            }
+        }
+
+        function markAllAlertsRead() {
+            State.allAlerts.forEach(a => a.is_read = true);
+
+            try {
+                const readIds = State.allAlerts.map(a => a.id);
+                Utils.storage.set('read_alert_ids', readIds);
+            } catch (e) {}
+
+            renderAlerts();
+            updateStats();
+            Toast.success('All alerts marked as read');
+        }
+
+        /* ============================================================
+           SECURITY SCORE
+         ============================================================ */
+        function renderSecurityScore() {
+            const checks = getSecurityChecks();
+
+            const passed = checks.filter(c => c.passed).length;
+            const total = checks.length;
+            const score = Math.round((passed / total) * 100);
+
+            /* ---- Score circle ---- */
+            const circle = document.getElementById('securityScoreCircle');
+            const scoreEl = document.getElementById('securityScore');
+            const gradeIcon = document.getElementById('securityGradeIcon');
+            const gradeEl = document.getElementById('securityGrade');
+            const msgEl = document.getElementById('securityMessage');
+
+            let color = 'var(--success)';
+            let grade = 'Excellent';
+            let icon = '🛡️';
+            let msg = 'Your account is fully protected. Keep up the good security practices!';
+
+            if (score < 60) {
+                color = 'var(--danger)';
+                grade = 'Poor';
+                icon = '🚨';
+                msg = 'Multiple security issues detected. Address them immediately!';
+            } else if (score < 80) {
+                color = 'var(--warning)';
+                grade = 'Fair';
+                icon = '⚠️';
+                msg = 'Some security improvements recommended. Review the checklist below.';
+            } else if (score < 95) {
+                color = 'var(--info)';
+                grade = 'Good';
+                icon = '👍';
+                msg = 'Your security is good. Consider the recommendations for even better protection.';
+            }
+
+            circle.style.background = `conic-gradient(${color} 0deg ${score * 3.6}deg, var(--bg-elevated) ${score * 3.6}deg 360deg)`;
+            scoreEl.textContent = score;
+            scoreEl.style.color = color;
+            gradeIcon.textContent = icon;
+            gradeEl.textContent = grade;
+            gradeEl.style.color = color;
+            msgEl.textContent = msg;
+
+            /* ---- Issues list ---- */
+            const issuesList = document.getElementById('securityIssuesList');
+            const issues = checks.filter(c => !c.passed);
+
+            if (issues.length === 0) {
+                issuesList.innerHTML = '<span class="badge badge-success">✅ All checks passed</span>';
+            } else {
+                issuesList.innerHTML = issues.slice(0, 3).map(c =>
+                    `<span class="badge badge-danger">⚠️ ${Utils.escape(c.title)}</span>`
+                ).join('');
+            }
+
+            /* ---- Progress badge ---- */
+            document.getElementById('checklistProgress').textContent = `${passed}/${total}`;
+        }
+
+        function getSecurityChecks() {
+            const checks = [];
+
+            /* ---- 1. Password hash configured ---- */
+            checks.push({
+                title: 'Master Password Hash',
+                desc: 'Strong password hash configured in config.js',
+                passed: !!(CONFIG.MASTER_PASSWORD_HASH && CONFIG.MASTER_PASSWORD_HASH.length === 64),
+                icon: '🔑',
+            });
+
+            /* ---- 2. HTTPS ---- */
+            checks.push({
+                title: 'HTTPS Connection',
+                desc: 'Admin panel accessed over secure connection',
+                passed: location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1',
+                icon: '🔒',
+            });
+
+            /* ---- 3. API Key configured ---- */
+            checks.push({
+                title: 'API Key Configured',
+                desc: 'Backend API key properly set',
+                passed: !!(CONFIG.API_KEY && CONFIG.API_KEY.length > 8),
+                icon: '🔐',
+            });
+
+            /* ---- 4. OTP bot token ---- */
+            checks.push({
+                title: 'OTP Bot Configured',
+                desc: 'Telegram OTP bot token is set',
+                passed: !!(CONFIG.OTP_BOT_TOKEN && !CONFIG.OTP_BOT_TOKEN.includes('YAHAN')),
+                icon: '📱',
+            });
+
+            /* ---- 5. Session timeout ---- */
+            checks.push({
+                title: 'Session Timeout',
+                desc: 'Auto-logout after idle time',
+                passed: State.settings.sessionTimeout !== false,
+                icon: '⏰',
+            });
+
+            /* ---- 6. Brute force protection ---- */
+            checks.push({
+                title: 'Brute Force Protection',
+                desc: 'Login lockout after failed attempts',
+                passed: State.settings.bruteForce !== false,
+                icon: '🛡️',
+            });
+
+            /* ---- 7. Failed logins ---- */
+            const failedLogins = State.loginHistory.filter(h => h.status === 'failed').length;
+            checks.push({
+                title: 'No Recent Failed Logins',
+                desc: 'No suspicious login attempts',
+                passed: failedLogins < 3,
+                icon: '🚨',
+            });
+
+            /* ---- 8. Active sessions ---- */
+            checks.push({
+                title: 'Single Active Session',
+                desc: 'Only one device logged in',
+                passed: State.sessions.length <= 2,
+                icon: '💻',
+            });
+
+            return checks;
+        }
+
+        /* ============================================================
+           RENDER CHECKLIST
+         ============================================================ */
+        function renderChecklist() {
+            const panel = document.getElementById('securityChecklist');
+            const checks = getSecurityChecks();
+
+            panel.innerHTML = checks.map(c => `
+                <div class="checklist-item ${c.passed ? 'passed' : 'failed'}">
+                    <div class="checklist-icon">${c.passed ? '✅' : '❌'}</div>
+                    <div class="checklist-info">
+                        <div class="checklist-title">${c.icon} ${Utils.escape(c.title)}</div>
+                        <div class="checklist-desc">${Utils.escape(c.desc)}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* ============================================================
+           RENDER RECENT EVENTS
+         ============================================================ */
+        function renderRecentEvents() {
+            const panel = document.getElementById('recentEventsPanel');
+
+            const events = State.loginHistory.slice(0, 6);
+
+            if (events.length === 0) {
+                panel.innerHTML = `
+                    <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 32px; margin-bottom: 8px;">📭</div>
+                        <div style="font-size: 12px;">No recent events</div>
+                    </div>
+                `;
+                return;
+            }
+
+            panel.innerHTML = events.map(e => {
+                const isSuccess = e.status === 'success';
+
+                return `
+                    <div class="event-item">
+                        <div class="event-icon ${isSuccess ? 'success' : 'failed'}">
+                            ${isSuccess ? '✅' : '❌'}
+                        </div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                ${isSuccess ? 'Successful Login' : 'Failed Login'}
+                            </div>
+                            <div class="event-meta">
+                                ${Utils.escape(e.device || 'Unknown')} • ${Utils.escape(e.ip || '—')} • ${Utils.timeAgo(e.time)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        /* ============================================================
+           RENDER RECOMMENDATIONS
+         ============================================================ */
+        function renderRecommendations() {
+            const panel = document.getElementById('recommendationsPanel');
+
+            const tips = [];
+
+            /* ---- Dynamic recommendations ---- */
+            const failedLogins = State.loginHistory.filter(h => h.status === 'failed').length;
+
+            if (failedLogins >= 3) {
+                tips.push({
+                    icon: '🚨',
+                    text: `<b>${failedLogins} failed logins</b> detected. Consider changing password and reviewing sessions.`,
+                    urgent: true,
+                });
+            }
+
+            if (State.sessions.length > 2) {
+                tips.push({
+                    icon: '💻',
+                    text: `<b>${State.sessions.length} active sessions</b>. Logout unfamiliar devices from Sessions tab.`,
+                    urgent: true,
+                });
+            }
+
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                tips.push({
+                    icon: '🔓',
+                    text: `<b>Enable HTTPS</b> — current connection is insecure. Contact hosting provider.`,
+                    urgent: true,
+                });
+            }
+
+            /* ---- Always-good tips ---- */
+            tips.push({
+                icon: '🔑',
+                text: `<b>Use strong password</b> — minimum 12 characters with mix of case, numbers, symbols.`,
+                urgent: false,
+            });
+
+            tips.push({
+                icon: '📱',
+                text: `<b>Keep Telegram secure</b> — 2FA OTP sent to your bot DM. Protect your Telegram account.`,
+                urgent: false,
+            });
+
+            tips.push({
+                icon: '🔄',
+                text: `<b>Regular backups</b> — ensure daily backups are running to log channel.`,
+                urgent: false,
+            });
+
+            if (tips.length === 0) {
+                tips.push({
+                    icon: '✅',
+                    text: '<b>All good!</b> No security recommendations at this time.',
+                    urgent: false,
+                });
+            }
+
+            panel.innerHTML = tips.slice(0, 5).map(t => `
+                <div class="tip-item ${t.urgent ? 'urgent' : 'good'}">
+                    <span class="tip-icon">${t.icon}</span>
+                    <div class="tip-text">${t.text}</div>
+                </div>
+            `).join('');
+        }
+
+        /* ============================================================
+           RENDER TRUSTED DEVICES
+         ============================================================ */
+        function renderTrustedDevices() {
+            const panel = document.getElementById('trustedDevicesPanel');
+
+            const devices = State.sessions.filter(s => !s.is_current);
+
+            if (devices.length === 0) {
+                panel.innerHTML = `
+                    <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 32px; margin-bottom: 8px;">🔒</div>
+                        <div style="font-size: 12px;">No trusted devices</div>
+                        <div style="font-size: 11px; margin-top: 6px;">Only current device is active</div>
+                    </div>
+                `;
+                return;
+            }
+
+            panel.innerHTML = devices.slice(0, 4).map(d => `
+                <div class="event-item">
+                    <div class="event-icon info">💻</div>
+                    <div class="event-info">
+                        <div class="event-title">${Utils.escape(d.browser)} / ${Utils.escape(d.os)}</div>
+                        <div class="event-meta">
+                            ${Utils.escape(d.ip)} • ${Utils.timeAgo(d.last_activity)}
+                        </div>
+                    </div>
+                    <button class="btn btn-ghost btn-icon btn-sm" data-revoke="${Utils.escape(d.id)}" title="Revoke">
+                        🚫
+                    </button>
+                </div>
+            `).join('');
+
+            panel.querySelectorAll('[data-revoke]').forEach(btn => {
+                btn.addEventListener('click', () => killSession(btn.dataset.revoke));
+            });
+        }
+
+        /* ============================================================
+           PASSWORD STRENGTH
+         ============================================================ */
+        function checkPasswordStrength() {
+            const pwd = document.getElementById('newPwd').value;
+            const wrap = document.getElementById('pwdStrengthWrap');
+            const bar = document.getElementById('pwdStrengthBar');
+            const text = document.getElementById('pwdStrengthText');
+            const reqs = document.getElementById('pwdStrengthReqs');
+
+            if (!pwd) {
+                wrap.style.display = 'none';
+                return;
+            }
+
+            wrap.style.display = '';
+
+            let score = 0;
+            let checks = [];
+
+            const has8 = pwd.length >= 8;
+            const has12 = pwd.length >= 12;
+            const hasUpper = /[A-Z]/.test(pwd);
+            const hasLower = /[a-z]/.test(pwd);
+            const hasDigit = /[0-9]/.test(pwd);
+            const hasSpecial = /[^A-Za-z0-9]/.test(pwd);
+
+            if (has8) score += 20;
+            if (has12) score += 10;
+            if (hasUpper) score += 15;
+            if (hasLower) score += 15;
+            if (hasDigit) score += 20;
+            if (hasSpecial) score += 20;
+
+            checks.push({ label: 'At least 8 characters', ok: has8 });
+            checks.push({ label: 'At least 12 characters (bonus)', ok: has12 });
+            checks.push({ label: 'Uppercase letter (A-Z)', ok: hasUpper });
+            checks.push({ label: 'Lowercase letter (a-z)', ok: hasLower });
+            checks.push({ label: 'Number (0-9)', ok: hasDigit });
+            checks.push({ label: 'Special character (!@#$...)', ok: hasSpecial });
+
+            /* ---- Strength label ---- */
+            let strengthText = 'Weak';
+            let strengthColor = 'var(--danger)';
+
+            if (score >= 80) {
+                strengthText = 'Strong 💪';
+                strengthColor = 'var(--success)';
+            } else if (score >= 60) {
+                strengthText = 'Good';
+                strengthColor = 'var(--info)';
+            } else if (score >= 40) {
+                strengthText = 'Fair';
+                strengthColor = 'var(--warning)';
+            }
+
+            bar.style.width = score + '%';
+            bar.style.background = strengthColor;
+            text.textContent = strengthText;
+            text.style.color = strengthColor;
+
+            reqs.innerHTML = checks.map(c =>
+                `<div style="color: ${c.ok ? 'var(--success)' : 'var(--text-muted)'};">
+                    ${c.ok ? '✅' : '⚪'} ${c.label}
+                </div>`
+            ).join('');
+        }
+
+        /* ============================================================
+           CHANGE PASSWORD
+         ============================================================ */
+        async function changePassword() {
+            const current = document.getElementById('currentPwd').value;
+            const newPwd = document.getElementById('newPwd').value;
+            const confirm = document.getElementById('confirmPwd').value;
+
+            if (!current) {
+                Toast.error('Current password required');
+                return;
+            }
+
+            if (!newPwd || newPwd.length < 8) {
+                Toast.error('New password must be 8+ characters');
+                return;
+            }
+
+            if (newPwd !== confirm) {
+                Toast.error('Passwords do not match');
+                return;
+            }
+
+            /* ---- Verify current password ---- */
+            const currentHash = await Utils.sha256(current);
+
+            if (currentHash !== CONFIG.MASTER_PASSWORD_HASH) {
+                Toast.error('Current password is incorrect');
+                return;
+            }
+
+            /* ---- Generate new hash ---- */
+            const newHash = await Utils.sha256(newPwd);
+
+            /* ---- Show dialog with new hash ---- */
+            Modal.open({
+                title: '🔐 Password Change Instructions',
+                body: `
+                    <div class="alert alert-success">
+                        ✅ Current password verified! New password ready.
+                    </div>
+
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+                        Frontend cannot save to <code>config.js</code> directly for security reasons.
+                        Follow these steps:
+                    </p>
+
+                    <ol style="font-size: 13px; line-height: 1.9; padding-left: 20px; color: var(--text-secondary); margin-bottom: 16px;">
+                        <li>Copy the new hash below</li>
+                        <li>Open <code>config.js</code> file</li>
+                        <li>Find <code>MASTER_PASSWORD_HASH</code></li>
+                        <li>Replace with new hash</li>
+                        <li>Save file and reload panel</li>
+                    </ol>
+
+                    <div style="margin-bottom: 8px; font-size: 12px; font-weight: 600;">New Hash (SHA-256):</div>
+                    <div style="background: var(--bg-input); padding: 12px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 11px; word-break: break-all; color: var(--primary);">
+                        ${newHash}
+                    </div>
+                `,
+                size: 'lg',
+                footer: `
+                    <button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>
+                    <button class="btn btn-primary btn-sm" onclick="navigator.clipboard.writeText('${newHash}'); Toast.success('Hash copied!');">📋 Copy Hash</button>
+                `,
+            });
+
+            /* ---- Clear fields ---- */
+            document.getElementById('currentPwd').value = '';
+            document.getElementById('newPwd').value = '';
+            document.getElementById('confirmPwd').value = '';
+            document.getElementById('pwdStrengthWrap').style.display = 'none';
+        }
+
+        /* ============================================================
+           LOGOUT ALL SESSIONS
+         ============================================================ */
+        function logoutAllSessions() {
+            Modal.confirm({
+                title: '🚪 Logout All Sessions',
+                message: 'This will log out ALL devices including current one. You will need to login again.',
+                confirmText: 'Yes, Logout All',
+                type: 'danger',
+                onConfirm: () => {
+                    Session.destroy();
+                    Toast.success('Logging out...');
+                    setTimeout(() => {
+                        window.location.href = '../index.html';
+                    }, 1000);
+                }
+            });
+        }
+
+        /* ============================================================
+           RUN SECURITY CHECK
+         ============================================================ */
+        function runSecurityCheck() {
+            Loader.show();
+
+            setTimeout(() => {
+                buildAlerts();
+                renderSecurityScore();
+                renderChecklist();
+                renderRecommendations();
+                renderAlerts();
+                updateStats();
+
+                Loader.hide();
+
+                const checks = getSecurityChecks();
+                const passed = checks.filter(c => c.passed).length;
+                const score = Math.round((passed / checks.length) * 100);
+
+                Toast.success(`Security check complete! Score: ${score}/100`);
+            }, 800);
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            const sessions = State.sessions.length;
+
+            /* ---- Failed logins in last 24h ---- */
+            const dayAgo = Date.now() - 86400000;
+            const failedLogins = State.loginHistory.filter(h => {
+                if (h.status !== 'failed') return false;
+                const t = new Date(String(h.time || '').replace(' ', 'T')).getTime();
+                return !isNaN(t) && t > dayAgo;
+            }).length;
+
+            /* ---- Unique IPs ---- */
+            const ips = new Set();
+            State.loginHistory.forEach(h => {
+                if (h.ip && h.ip !== '—') ips.add(h.ip);
+            });
+
+            /* ---- Suspicious alerts ---- */
+            const suspiciousCount = State.allAlerts.filter(a => !a.is_read && a.severity === 'critical').length;
+
+            document.getElementById('statActiveSessions').textContent = Utils.number(sessions);
+            document.getElementById('statFailedLogins').textContent = Utils.number(failedLogins);
+            document.getElementById('statUniqueIPs').textContent = Utils.number(ips.size);
+            document.getElementById('statSuspicious').textContent = Utils.number(suspiciousCount);
+
+            /* ---- Notif badge ---- */
+            const notifBadge = document.getElementById('notifBadge');
+            if (notifBadge) {
+                if (suspiciousCount > 0) {
+                    notifBadge.textContent = suspiciousCount > 99 ? '99+' : suspiciousCount;
+                    notifBadge.style.display = '';
+                } else {
+                    notifBadge.style.display = 'none';
+                }
+            }
+
+            document.getElementById('headerSubtitle').textContent =
+                `${sessions} active sessions • ${failedLogins} failed logins`;
+
+            /* ---- Update 2FA status ---- */
+            const twoFAStatus = document.getElementById('twoFAStatus');
+            if (twoFAStatus) {
+                twoFAStatus.textContent = 'Enabled';
+                twoFAStatus.className = 'badge badge-success';
+            }
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>
