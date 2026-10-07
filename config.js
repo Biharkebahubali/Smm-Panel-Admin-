@@ -6,7 +6,7 @@
 const CONFIG = Object.freeze({
     API_URL: 'https://rana-hosting.myvipsite.fun/bots/bot_6ab3b0ca457a0/bot.php',
     API_KEY: 'Vikram@8936',
-    OTP_BOT_TOKEN: '8621924474:AAEx1kIoXD2x2awK4Y5UiijG4NfLpehClqc',
+    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
     OTP_CHAT_ID: '5207471711',
     MASTER_PASSWORD_HASH: '2456fbdb6551e3d3610f178345c7c906e437cbc378d71dee4b588bfcaa482f8e',
     SESSION_HOURS: 2,
