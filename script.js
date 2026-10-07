@@ -853,456 +853,226 @@ const Session = {
    ============================================================ */
 
 const LoginFlow = {
-
     step: 1,
-    username: '',
+    username: CONFIG.ADMIN_USERNAME || 'admin',
     otpInput: '',
+    passwordVerified: false,
 
     init() {
-        /* ---- Branding from config ---- */
         const brandName = Utils.$('#brandName');
         const brandVer = Utils.$('#brandVersion');
         const logoIcon = Utils.$('#logoIcon');
         const yearSpan = Utils.$('#yearSpan');
-
         if (brandName) brandName.textContent = CONFIG.APP_NAME;
         if (brandVer) brandVer.textContent = 'v' + CONFIG.APP_VERSION;
         if (logoIcon) logoIcon.textContent = CONFIG.APP_LOGO;
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-        /* ---- Auto-redirect if already logged in ---- */
         if (Session.isValid() && !Session.isIdle()) {
             window.location.href = 'pages/dashboard.html';
             return;
         }
-
-        /* ---- Remember device prefill ---- */
-        const savedUser = Utils.storage.get(STORAGE_KEYS.USERNAME);
-        if (savedUser) {
-            const input = Utils.$('#usernameInput');
-            if (input) input.value = savedUser;
-        }
-
-        /* ---- Attach listeners ---- */
         this.attachStep1();
         this.attachStep2();
-        this.attachStep3();
-
-        /* ---- Focus first input ---- */
-        setTimeout(() => {
-            const input = Utils.$('#usernameInput');
-            if (input && !input.value) input.focus();
-        }, 300);
+        setTimeout(() => Utils.$('#passwordInput')?.focus(), 300);
     },
 
-    /* ---- Navigation between steps ---- */
     goTo(step) {
         this.step = step;
         Utils.$$('.login-step').forEach(el => el.classList.remove('active'));
-        const target = Utils.$(`#step${step}`);
-        if (target) target.classList.add('active');
+        Utils.$(`#step${step}`)?.classList.add('active');
         Alert.hide();
     },
 
-    /* ============================================================
-       STEP 1 — Username submit
-       ============================================================ */
+    /* Password is checked first; only then is OTP sent. */
     attachStep1() {
-        const form = Utils.$('#usernameForm');
-        const input = Utils.$('#usernameInput');
+        const form = Utils.$('#passwordForm');
+        const input = Utils.$('#passwordInput');
+        const toggle = Utils.$('#passwordToggle');
         const btn = Utils.$('#sendOtpBtn');
-
         if (!form || !input || !btn) return;
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            await this.sendOTP();
+        toggle?.addEventListener('click', () => {
+            input.type = input.type === 'password' ? 'text' : 'password';
         });
-
-        input.addEventListener('input', () => {
-            const group = Utils.$('#usernameGroup');
-            if (group) group.classList.remove('has-error');
+        input.addEventListener('input', () => Utils.$('#passwordGroup')?.classList.remove('has-error'));
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            await this.verifyPasswordAndSendOTP();
         });
     },
 
-    async sendOTP() {
-        const input = Utils.$('#usernameInput');
+    async verifyPasswordAndSendOTP() {
+        const input = Utils.$('#passwordInput');
         const btn = Utils.$('#sendOtpBtn');
-        const username = input.value.trim();
-
-        /* ---- Validate ---- */
-        if (!username) {
-            Alert.show('Username required hai', 'error');
-            Utils.$('#usernameGroup').classList.add('has-error');
-            input.focus();
+        const password = input?.value || '';
+        if (!password) {
+            Alert.show('Password required hai', 'error');
+            Utils.$('#passwordGroup')?.classList.add('has-error');
+            input?.focus();
             return;
         }
 
-        if (username.length < 3) {
-            Alert.show('Username kam se kam 3 characters ka hona chahiye', 'error');
-            Utils.$('#usernameGroup').classList.add('has-error');
-            return;
-        }
-
-        /* ---- Save username ---- */
-        this.username = username;
-
-        /* ---- Loading state ---- */
         btn.classList.add('loading');
         btn.disabled = true;
-
         try {
-            /* ---- Send OTP ---- */
-            await OTP.send(username);
-
-            /* ---- Success ---- */
-            Toast.success('OTP bhej diya gaya!');
-
-            /* ---- Update OTP target preview ---- */
+            const hash = await Utils.sha256(password);
+            if (hash !== CONFIG.MASTER_PASSWORD_HASH) {
+                throw new Error('Galat password!');
+            }
+            this.passwordVerified = true;
+            await OTP.send(this.username);
+            Utils.storage.set(STORAGE_KEYS.USERNAME, this.username);
+            Toast.success('Password sahi hai — OTP bhej diya gaya!');
             const preview = Utils.$('#otpTargetPreview');
             if (preview) preview.textContent = 'Telegram';
-
-            /* ---- Go to step 2 ---- */
+            input.value = '';
             this.goTo(2);
-
-            /* ---- Setup OTP inputs ---- */
-            setTimeout(() => {
-                const firstOtp = Utils.$('.otp-input');
-                if (firstOtp) firstOtp.focus();
-            }, 300);
-
-            /* ---- Start timer ---- */
+            this.clearOTPInputs();
+            setTimeout(() => Utils.$('.otp-input')?.focus(), 300);
             this.startOTPTimer();
-
-            /* ---- Start resend cooldown ---- */
             this.startResendCooldown();
-
         } catch (err) {
-            console.error('Send OTP failed:', err);
-            Alert.show(err.message || 'OTP send nahi ho paya. Please try again.', 'error', 6000);
+            this.passwordVerified = false;
+            Alert.show(err.message || 'Password verify nahi ho paya.', 'error', 6000);
+            Utils.$('#passwordGroup')?.classList.add('has-error');
         } finally {
             btn.classList.remove('loading');
             btn.disabled = false;
         }
     },
 
-    /* ============================================================
-       STEP 2 — OTP verify
-       ============================================================ */
     attachStep2() {
         const form = Utils.$('#otpForm');
         const inputs = Utils.$$('.otp-input');
         const backBtn = Utils.$('#backToStep1Btn');
         const resendBtn = Utils.$('#resendOtpBtn');
-
         if (!form) return;
 
-        /* ---- OTP input handling ---- */
         inputs.forEach((inp, idx) => {
-            inp.addEventListener('input', (e) => {
-                let v = e.target.value.replace(/\D/g, '');
-
-                if (v.length > 1) {
-                    /* Handle paste */
-                    const digits = v.split('');
-                    for (let i = 0; i < digits.length && (idx + i) < inputs.length; i++) {
-                        inputs[idx + i].value = digits[i];
-                        inputs[idx + i].classList.add('filled');
-                    }
-                    const nextIdx = Math.min(idx + digits.length, inputs.length - 1);
-                    inputs[nextIdx].focus();
-                    this.checkOTPComplete();
-                    return;
+            inp.addEventListener('input', event => {
+                const digits = event.target.value.replace(/\D/g, '').split('');
+                inputs[idx].value = digits[0] || '';
+                inputs[idx].classList.toggle('filled', !!digits[0]);
+                if (digits.length > 1) {
+                    digits.slice(1).forEach((digit, offset) => {
+                        if (inputs[idx + 1 + offset]) {
+                            inputs[idx + 1 + offset].value = digit;
+                            inputs[idx + 1 + offset].classList.add('filled');
+                        }
+                    });
                 }
-
-                e.target.value = v;
-                if (v) {
-                    e.target.classList.add('filled');
-                    if (idx < inputs.length - 1) {
-                        inputs[idx + 1].focus();
-                    }
-                } else {
-                    e.target.classList.remove('filled');
+                if (digits.length && inputs[Math.min(idx + digits.length, inputs.length - 1)]) {
+                    inputs[Math.min(idx + digits.length, inputs.length - 1)].focus();
                 }
-
                 this.checkOTPComplete();
             });
-
-            inp.addEventListener('keydown', (e) => {
-                if (e.key === 'Backspace' && !e.target.value && idx > 0) {
-                    inputs[idx - 1].focus();
-                    inputs[idx - 1].value = '';
-                    inputs[idx - 1].classList.remove('filled');
-                }
-                if (e.key === 'ArrowLeft' && idx > 0) {
-                    inputs[idx - 1].focus();
-                }
-                if (e.key === 'ArrowRight' && idx < inputs.length - 1) {
-                    inputs[idx + 1].focus();
-                }
+            inp.addEventListener('keydown', event => {
+                if (event.key === 'Backspace' && !inp.value && idx > 0) inputs[idx - 1].focus();
+                if (event.key === 'ArrowLeft' && idx > 0) inputs[idx - 1].focus();
+                if (event.key === 'ArrowRight' && idx < inputs.length - 1) inputs[idx + 1].focus();
             });
-
-            inp.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const pasted = (e.clipboardData || window.clipboardData).getData('text');
-                const digits = pasted.replace(/\D/g, '').split('');
-
-                for (let i = 0; i < digits.length && (idx + i) < inputs.length; i++) {
-                    inputs[idx + i].value = digits[i];
-                    inputs[idx + i].classList.add('filled');
-                }
-
-                const nextIdx = Math.min(idx + digits.length, inputs.length - 1);
-                inputs[nextIdx].focus();
+            inp.addEventListener('paste', event => {
+                event.preventDefault();
+                const digits = (event.clipboardData?.getData('text') || '').replace(/\D/g, '').split('');
+                digits.slice(0, inputs.length).forEach((digit, i) => {
+                    inputs[i].value = digit;
+                    inputs[i].classList.add('filled');
+                });
                 this.checkOTPComplete();
-            });
-
-            inp.addEventListener('focus', (e) => {
-                e.target.select();
             });
         });
-
-        /* ---- Submit ---- */
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
             await this.verifyOTP();
         });
-
-        /* ---- Back button ---- */
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                OTP.clear();
-                this.goTo(1);
-            });
-        }
-
-        /* ---- Resend button ---- */
-        if (resendBtn) {
-            resendBtn.addEventListener('click', () => this.resendOTP());
-        }
+        backBtn?.addEventListener('click', () => { OTP.clear(); this.passwordVerified = false; this.goTo(1); });
+        resendBtn?.addEventListener('click', () => this.resendOTP());
     },
 
     checkOTPComplete() {
         const inputs = Utils.$$('.otp-input');
-        const filled = inputs.every(i => i.value.length === 1);
         const btn = Utils.$('#verifyOtpBtn');
-        if (btn) btn.disabled = !filled;
+        if (btn) btn.disabled = !inputs.every(input => input.value.length === 1);
     },
 
-    getOTPValue() {
-        return Utils.$$('.otp-input').map(i => i.value).join('');
+    getOTPValue() { return Utils.$$('.otp-input').map(input => input.value).join(''); },
+
+    clearOTPInputs() {
+        Utils.$$('.otp-input').forEach(input => {
+            input.value = '';
+            input.classList.remove('filled', 'error');
+        });
+        this.checkOTPComplete();
     },
 
     async verifyOTP() {
         const otp = this.getOTPValue();
         const btn = Utils.$('#verifyOtpBtn');
-
+        if (!this.passwordVerified) {
+            Alert.show('Pehle password verify karein.', 'error');
+            this.goTo(1);
+            return;
+        }
         if (otp.length !== CONFIG.OTP_LENGTH) {
             Alert.show('Kripya pura 6-digit OTP dalein', 'error');
             return;
         }
-
         btn.classList.add('loading');
         btn.disabled = true;
-
-        await Utils.sleep(300);
-
         const result = OTP.verify(otp);
-
         btn.classList.remove('loading');
-        btn.disabled = false;
-
         if (!result.success) {
-            /* ---- Shake inputs ---- */
-            Utils.$$('.otp-input').forEach(i => i.classList.add('error'));
-
-            setTimeout(() => {
-                Utils.$$('.otp-input').forEach(i => {
-                    i.classList.remove('error');
-                    i.value = '';
-                    i.classList.remove('filled');
-                });
-                const first = Utils.$('.otp-input');
-                if (first) first.focus();
-            }, 600);
-
-            if (result.reason === 'expired') {
-                Alert.show('OTP expire ho gaya. Naya OTP bhejein.', 'error');
-            } else {
-                Alert.show('Galat OTP! Dobara try karein.', 'error');
-            }
+            Utils.$$('.otp-input').forEach(input => input.classList.add('error'));
+            setTimeout(() => this.clearOTPInputs(), 600);
+            Alert.show(result.reason === 'expired' ? 'OTP expire ho gaya.' : 'Galat OTP! Dobara try karein.', 'error');
             return;
         }
-
-        /* ---- OTP Correct → Step 3 ---- */
-        this.otpInput = otp;
         OTP.clear();
-        Toast.success('OTP verified!');
-
-        this.goTo(3);
-
-        setTimeout(() => {
-            const pw = Utils.$('#passwordInput');
-            if (pw) pw.focus();
-        }, 300);
+        Session.create(this.username);
+        Toast.success('OTP verified — dashboard open ho raha hai!');
+        window.location.href = 'pages/dashboard.html';
     },
 
     startOTPTimer() {
         const timerEl = Utils.$('#otpTimer');
         const valueEl = Utils.$('#otpTimerValue');
-
         if (!timerEl || !valueEl) return;
-
         timerEl.classList.remove('expired');
-
-        OTP.startTimer(
-            () => {
-                /* On expire */
-                timerEl.classList.add('expired');
-                valueEl.textContent = 'Expired';
-                Alert.show('OTP expire ho gaya. Naya OTP bhejein.', 'warning');
-                const btn = Utils.$('#verifyOtpBtn');
-                if (btn) btn.disabled = true;
-            },
-            (remaining) => {
-                valueEl.textContent = OTP.formatTime(remaining);
-            }
-        );
+        OTP.startTimer(() => {
+            timerEl.classList.add('expired');
+            valueEl.textContent = 'Expired';
+            Utils.$('#verifyOtpBtn').disabled = true;
+            Alert.show('OTP expire ho gaya. Naya OTP bhejein.', 'warning');
+        }, remaining => { valueEl.textContent = OTP.formatTime(remaining); });
     },
 
     startResendCooldown() {
         const btn = Utils.$('#resendOtpBtn');
         if (!btn) return;
-
         btn.disabled = true;
-
-        OTP.startResendCooldown(30, (remaining) => {
-            if (remaining > 0) {
-                btn.textContent = `🔄 Resend in ${remaining}s`;
-                btn.disabled = true;
-            } else {
-                btn.textContent = '🔄 Resend OTP';
-                btn.disabled = false;
-            }
+        OTP.startResendCooldown(30, remaining => {
+            btn.textContent = remaining ? `🔄 Resend in ${remaining}s` : '🔄 Resend OTP';
+            btn.disabled = remaining > 0;
         });
     },
 
     async resendOTP() {
         const btn = Utils.$('#resendOtpBtn');
         if (!btn || btn.disabled) return;
-
         btn.disabled = true;
-        btn.textContent = '🔄 Sending...';
-
         try {
             await OTP.send(this.username);
             Toast.success('Naya OTP bhej diya!');
-
-            /* ---- Reset OTP inputs ---- */
-            Utils.$$('.otp-input').forEach(i => {
-                i.value = '';
-                i.classList.remove('filled', 'error');
-            });
-
-            const first = Utils.$('.otp-input');
-            if (first) first.focus();
-
-            /* ---- Restart timer ---- */
+            this.clearOTPInputs();
+            Utils.$('.otp-input')?.focus();
             this.startOTPTimer();
             this.startResendCooldown();
-
         } catch (err) {
-            Toast.error('Resend fail — dobara try karein');
+            Alert.show(err.message || 'OTP resend nahi ho paya.', 'error');
             btn.disabled = false;
-            btn.textContent = '🔄 Resend OTP';
         }
-    },
-
-    /* ============================================================
-       STEP 3 — Password
-       ============================================================ */
-    attachStep3() {
-        const form = Utils.$('#passwordForm');
-        const toggle = Utils.$('#passwordToggle');
-        const backBtn = Utils.$('#backToStep2Btn');
-        const input = Utils.$('#passwordInput');
-
-        if (!form) return;
-
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                if (!input) return;
-                const isPw = input.type === 'password';
-                input.type = isPw ? 'text' : 'password';
-                toggle.textContent = isPw ? '🙈' : '👁️';
-            });
-        }
-
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                this.goTo(2);
-            });
-        }
-
-        if (input) {
-            input.addEventListener('input', () => {
-                Utils.$('#passwordGroup').classList.remove('has-error');
-            });
-        }
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            await this.login();
-        });
-    },
-
-    async login() {
-        const input = Utils.$('#passwordInput');
-        const btn = Utils.$('#loginBtn');
-
-        if (!input || !btn) return;
-
-        const password = input.value;
-
-        if (!password) {
-            Alert.show('Password required hai', 'error');
-            Utils.$('#passwordGroup').classList.add('has-error');
-            input.focus();
-            return;
-        }
-
-        btn.classList.add('loading');
-        btn.disabled = true;
-
-        await Utils.sleep(400);
-
-        const hash = await Utils.sha256(password);
-
-        if (hash !== CONFIG.MASTER_PASSWORD_HASH) {
-            btn.classList.remove('loading');
-            btn.disabled = false;
-
-            Alert.show('Galat password!', 'error');
-            Utils.$('#passwordGroup').classList.add('has-error');
-            input.value = '';
-            input.focus();
-            return;
-        }
-
-        /* ---- Login success ---- */
-        const remember = Utils.$('#rememberDevice');
-        Session.create(this.username);
-
-        if (!remember || !remember.checked) {
-            /* Session only for this tab — handled by storage anyway */
-        }
-
-        Toast.success('Login successful!');
-
-        setTimeout(() => {
-            window.location.href = 'pages/dashboard.html';
-        }, 800);
-    },
+    }
 };
 
 /* ============================================================

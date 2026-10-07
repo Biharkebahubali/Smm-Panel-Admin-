@@ -47,3 +47,13 @@ File-only mode में `bot.php` के top पर API key, password, Telegram
 आपके supplied bot में `sendOTP`, `verifyOTP` और `verifyPassword` actions नहीं हैं, इसलिए login frontend का OTP/password flow local रखा गया है। यह existing bot को बदलकर fake server login नहीं बनाता।
 
 Render पर पूरा project deploy करना हो तो **Web Service → Docker** चुनें; Static Site `bot.php` execute नहीं करेगी।
+
+
+## Login flow
+
+अब login क्रम यह है:
+
+1. केवल admin password डालें।
+2. Password सही होने पर Telegram OTP भेजा जाएगा।
+3. OTP सही होने पर सीधे `pages/dashboard.html` खुलेगा।
+4. Username field और अलग password step हटाए गए हैं; account identity `ADMIN_USERNAME` से आती है।
