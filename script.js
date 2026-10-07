@@ -1,7 +1,7 @@
 /* ============================================================
    BIHARI SMM ADMIN PANEL — MAIN JAVASCRIPT
    File: script.js
-   Version: 7.0
+   Version: 7.0.2 (Auto Backup + GitHub Sync)
    ============================================================ */
 
 'use strict';
@@ -1193,3 +1193,207 @@ window.Session = Session;
 window.LoginFlow = LoginFlow;
 window.Idle = Idle;
 window.logout = logout;
+
+/* ============================================================
+   14. AUTO MOBILE FIXER — JUGAAD
+   Ye har page par automatically inline styles aur canvas fix karega
+   ============================================================ */
+(function() {
+
+    function autoFixMobile() {
+        try {
+            /* ---- Fix 1: Har canvas se height/width attribute hatao ---- */
+            document.querySelectorAll('canvas[height], canvas[width]').forEach(function(canvas) {
+                canvas.removeAttribute('height');
+                canvas.removeAttribute('width');
+            });
+
+            /* ---- Fix 2: Canvas ke parent ko chart-container banao ---- */
+            document.querySelectorAll('canvas').forEach(function(canvas) {
+                var parent = canvas.parentElement;
+                if (!parent) return;
+
+                /* Agar pehle se chart-container hai to skip */
+                if (parent.classList.contains('chart-container')) return;
+
+                /* Inline styles hatao jo mobile tod rahe hain */
+                parent.style.display = '';
+                parent.style.alignItems = '';
+                parent.style.justifyContent = '';
+                parent.style.minHeight = '';
+                parent.style.height = '';
+
+                /* Naya class laga */
+                parent.classList.add('chart-container');
+            });
+
+            /* ---- Fix 3: Inline style jo form-select ko tod rahe ---- */
+            document.querySelectorAll('select[style]').forEach(function(sel) {
+                if (sel.style.height) sel.style.height = '';
+                if (sel.style.fontSize) sel.style.fontSize = '';
+            });
+
+            /* ---- Fix 4: Inline padding wale card-body ko theek karo ---- */
+            document.querySelectorAll('.card-body[style*="padding: 0"], .card-body[style*="padding:0"]').forEach(function(el) {
+                el.style.overflow = 'hidden';
+                el.style.borderRadius = 'var(--radius-md)';
+            });
+
+            /* ---- Fix 5: Inline min-height wale card-body bhi fix karo ---- */
+            document.querySelectorAll('.card-body[style*="min-height"]').forEach(function(el) {
+                if (!el.classList.contains('chart-container')) {
+                    el.classList.add('chart-container');
+                }
+            });
+
+        } catch (e) {
+            console.warn('Auto mobile fix error:', e);
+        }
+    }
+
+    /* ---- DOM ready hone ke baad run ---- */
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', autoFixMobile);
+    } else {
+        autoFixMobile();
+    }
+
+    /* ---- Dynamic content ke liye multiple runs ---- */
+    setTimeout(autoFixMobile, 300);
+    setTimeout(autoFixMobile, 1000);
+    setTimeout(autoFixMobile, 2000);
+
+    /* ---- Load hone par bhi run ---- */
+    window.addEventListener('load', autoFixMobile);
+
+})();
+
+/* ============================================================
+   15. AUTO BACKUP — Panel khulte hi automatic backup
+   ============================================================ */
+(function() {
+
+    /* ---- Config ---- */
+    const AUTO_BACKUP_ENABLED = true;      /* false karo to band */
+    const LAST_BACKUP_KEY = 'last_auto_backup_date';
+
+    async function autoBackupOnLoad() {
+        if (!AUTO_BACKUP_ENABLED) return;
+
+        /* --- Sirf logged-in page par --- */
+        if (typeof Session === 'undefined' || !Session.isValid()) return;
+        if (typeof API === 'undefined') return;
+
+        /* --- Aaj backup ho chuka hai? --- */
+        const today = new Date().toISOString().split('T')[0];
+        const lastBackup = localStorage.getItem(LAST_BACKUP_KEY);
+
+        if (lastBackup === today) {
+            console.log('⏭️ Aaj ka backup ho chuka hai');
+            return;
+        }
+
+        console.log('🔄 Auto backup shuru...');
+
+        try {
+            const result = await API.createBackup('json');
+
+            if (result && result.success) {
+                localStorage.setItem(LAST_BACKUP_KEY, today);
+                console.log('✅ Auto backup safal');
+                if (typeof Toast !== 'undefined') {
+                    Toast.success('💾 Auto backup ho gaya');
+                }
+            } else {
+                console.warn('⚠️ Auto backup fail:', result && result.error);
+            }
+        } catch (err) {
+            console.warn('⚠️ Auto backup error:', err.message);
+        }
+    }
+
+    /* ---- Page load hone ke 4 second baad ---- */
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(autoBackupOnLoad, 4000));
+    } else {
+        setTimeout(autoBackupOnLoad, 4000);
+    }
+
+    /* ---- Manual trigger ke liye expose ---- */
+    window.autoBackupOnLoad = autoBackupOnLoad;
+
+})();
+
+/* ============================================================
+   16. AUTO GITHUB RESTORE — Panel khulte hi GitHub se data laao
+   ============================================================ */
+(function() {
+
+    /* ---- Config ---- */
+    const GITHUB_RESTORE_ENABLED = true;   /* false karo to band */
+    const GITHUB_RESTORE_INTERVAL_HOURS = 1; /* Har 1 ghante me ek baar */
+    const LAST_KEY = 'last_github_restore';
+
+    async function autoRestoreFromGitHub() {
+        if (!GITHUB_RESTORE_ENABLED) return;
+
+        /* --- Sirf logged-in page par --- */
+        if (typeof Session === 'undefined' || !Session.isValid()) return;
+        if (typeof API === 'undefined') return;
+
+        /* --- Pichle restore ka time --- */
+        const last = parseInt(localStorage.getItem(LAST_KEY) || '0');
+        const now = Date.now();
+        const gapMs = now - last;
+        const intervalMs = GITHUB_RESTORE_INTERVAL_HOURS * 60 * 60 * 1000;
+
+        /* --- Abhi restore karna hai? --- */
+        if (gapMs < intervalMs) {
+            console.log('⏭️ GitHub restore skipped — ' +
+                Math.round(gapMs / 60000) + ' min pehle hua tha');
+            return;
+        }
+
+        console.log('🔄 GitHub se data laa raha hun...');
+
+        try {
+            if (typeof API.restoreFromGitHub === 'function') {
+                const result = await API.restoreFromGitHub();
+
+                if (result && result.success) {
+                    console.log('✅ GitHub se data mil gaya');
+                    localStorage.setItem(LAST_KEY, String(now));
+
+                    /* --- Toast dikhao --- */
+                    if (typeof Toast !== 'undefined') {
+                        Toast.success('📥 GitHub se data sync ho gaya');
+                    }
+
+                    /* --- Dashboard refresh karo (agar dashboard par hain) --- */
+                    if (window.location.pathname.indexOf('dashboard') !== -1) {
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 1500);
+                    }
+                } else {
+                    console.warn('⚠️ GitHub restore fail:', result && result.error);
+                }
+            } else {
+                console.warn('⚠️ restoreFromGitHub function nahi mila');
+            }
+        } catch (err) {
+            console.warn('⚠️ GitHub restore error:', err.message);
+        }
+    }
+
+    /* ---- Page load hone ke 2 second baad (backup se pehle) ---- */
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(autoRestoreFromGitHub, 2000));
+    } else {
+        setTimeout(autoRestoreFromGitHub, 2000);
+    }
+
+    /* ---- Manual trigger ke liye expose ---- */
+    window.autoRestoreFromGitHub = autoRestoreFromGitHub;
+
+})();

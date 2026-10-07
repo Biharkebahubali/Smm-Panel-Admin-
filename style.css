@@ -1,6 +1,6 @@
 /* ============================================================
    BIHARI SMM ADMIN PANEL — MAIN STYLESHEET
-   Version: 7.0
+   Version: 7.0.2 (Mobile Compact Professional)
    Theme: Dark Premium
    ============================================================ */
 
@@ -16,6 +16,7 @@
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -26,6 +27,7 @@ body {
     font-size: 14px;
     line-height: 1.6;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -203,6 +205,7 @@ code {
    ============================================================ */
 .login-page {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -405,10 +408,11 @@ code {
     border: none;
     color: var(--text-muted);
     cursor: pointer;
-    padding: 6px;
+    padding: 8px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
     font-size: 16px;
+    line-height: 1;
 }
 
 .password-toggle:hover {
@@ -448,6 +452,7 @@ code {
     user-select: none;
     font-size: 13px;
     color: var(--text-secondary);
+    min-height: 44px;
 }
 
 .checkbox-wrapper input[type="checkbox"] {
@@ -455,6 +460,7 @@ code {
     height: 18px;
     accent-color: var(--primary);
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .checkbox-wrapper:hover { color: var(--text-primary); }
@@ -480,6 +486,7 @@ code {
     position: relative;
     overflow: hidden;
     height: 42px;
+    min-height: 42px;
 }
 
 .btn:disabled {
@@ -554,13 +561,15 @@ code {
 .btn-outline:not(:disabled):hover { background: var(--primary-light); }
 
 .btn-sm {
-    height: 32px;
-    padding: 6px 12px;
-    font-size: 12px;
+    height: 34px;
+    min-height: 34px;
+    padding: 6px 14px;
+    font-size: 13px;
 }
 
 .btn-lg {
     height: 52px;
+    min-height: 52px;
     padding: 14px 28px;
     font-size: 15px;
 }
@@ -575,8 +584,8 @@ code {
 }
 
 .btn-icon.btn-sm {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
 }
 
 .btn.loading {
@@ -803,6 +812,7 @@ code {
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.2;
+    word-break: break-word;
 }
 
 .stat-label {
@@ -898,6 +908,7 @@ code {
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-color);
     background: var(--bg-card);
+    -webkit-overflow-scrolling: touch;
 }
 
 .table {
@@ -973,11 +984,12 @@ code {
     display: flex;
     gap: 4px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .pagination-btn {
-    min-width: 34px;
-    height: 34px;
+    min-width: 38px;
+    height: 38px;
     padding: 0 10px;
     border-radius: var(--radius-md);
     background: var(--bg-elevated);
@@ -1071,8 +1083,8 @@ code {
 }
 
 .modal-close {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-md);
     background: transparent;
     color: var(--text-muted);
@@ -1150,6 +1162,7 @@ code {
     flex: 1;
     color: var(--text-primary);
     line-height: 1.5;
+    word-break: break-word;
 }
 
 .toast-close {
@@ -1157,7 +1170,7 @@ code {
     border: none;
     color: var(--text-muted);
     cursor: pointer;
-    padding: 2px;
+    padding: 4px;
     font-size: 14px;
     flex-shrink: 0;
     opacity: 0.6;
@@ -1187,6 +1200,7 @@ code {
 .app-container {
     display: flex;
     min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
 }
 
@@ -1194,9 +1208,11 @@ code {
     flex: 1;
     margin-left: var(--sidebar-width);
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     transition: margin-left var(--transition-base);
+    min-width: 0;
 }
 
 .app-main {
@@ -1259,6 +1275,7 @@ code {
     flex: 1;
     overflow-y: auto;
     padding: var(--space-md) 0;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sidebar-group {
@@ -1278,7 +1295,7 @@ code {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px var(--space-lg);
+    padding: 12px var(--space-lg);
     color: var(--text-secondary);
     font-size: 13px;
     font-weight: 500;
@@ -1287,6 +1304,7 @@ code {
     position: relative;
     border-left: 3px solid transparent;
     text-decoration: none;
+    min-height: 44px;
 }
 
 .sidebar-link:hover {
@@ -1340,7 +1358,7 @@ code {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 14px;
+    padding: 12px 14px;
     background: var(--danger-light);
     color: var(--danger);
     border-radius: var(--radius-md);
@@ -1351,6 +1369,7 @@ code {
     border: 1px solid transparent;
     width: 100%;
     justify-content: center;
+    min-height: 44px;
 }
 
 .sidebar-logout:hover {
@@ -1390,16 +1409,17 @@ code {
 
 .header-menu-toggle {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     background: transparent;
     border-radius: var(--radius-md);
-    font-size: 20px;
+    font-size: 22px;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .header-menu-toggle:hover {
@@ -1418,6 +1438,9 @@ code {
 .header-subtitle {
     font-size: 12px;
     color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-search {
@@ -1428,7 +1451,7 @@ code {
 
 .header-search input {
     width: 100%;
-    height: 38px;
+    height: 40px;
     padding: 8px 14px 8px 38px;
     background: var(--bg-input);
     border: 1px solid var(--border-color);
@@ -1458,12 +1481,13 @@ code {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    flex-shrink: 0;
 }
 
 .header-icon-btn {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1474,6 +1498,7 @@ code {
     font-size: 18px;
     cursor: pointer;
     transition: all var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .header-icon-btn:hover {
@@ -1483,8 +1508,8 @@ code {
 
 .header-icon-btn-badge {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 6px;
+    right: 6px;
     min-width: 18px;
     height: 18px;
     padding: 0 5px;
@@ -1509,6 +1534,7 @@ code {
     cursor: pointer;
     transition: all var(--transition-fast);
     border: 1px solid var(--border-color);
+    min-height: 44px;
 }
 
 .header-user:hover { border-color: var(--border-hover); }
@@ -1560,6 +1586,8 @@ code {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    min-width: 0;
+    flex: 1;
 }
 
 .page-title {
@@ -1568,6 +1596,7 @@ code {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .page-description {
@@ -1677,6 +1706,7 @@ code {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sidebar-overlay.active {
@@ -1685,7 +1715,24 @@ code {
 }
 
 /* ============================================================
-   21. RESPONSIVE
+   21. CHART CONTAINER
+   ============================================================ */
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    position: relative;
+}
+
+.card-body canvas {
+    max-height: 320px;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ============================================================
+   22. RESPONSIVE — TABLET
    ============================================================ */
 @media (max-width: 1200px) {
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -1695,60 +1742,260 @@ code {
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ============================================================
+   23. RESPONSIVE — MOBILE (768px) — COMPACT PROFESSIONAL
+   ============================================================ */
 @media (max-width: 768px) {
     :root {
         --sidebar-width: 260px;
+        --header-height: 52px;
     }
 
+    /* ============================================
+       BODY & LAYOUT
+       ============================================ */
+    body {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* ============================================
+       SIDEBAR — Compact
+       ============================================ */
     .sidebar {
         transform: translateX(-100%);
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
     }
 
     .sidebar.active {
         transform: translateX(0);
     }
 
-    .app-content {
-        margin-left: 0;
+    .sidebar-header {
+        padding: 12px 16px;
+        gap: 8px;
     }
 
+    .sidebar-logo { font-size: 24px; }
+    .sidebar-brand h2 { font-size: 14px; }
+    .sidebar-brand p { font-size: 10px; }
+
+    .sidebar-group { margin-bottom: 6px; }
+
+    .sidebar-group-title {
+        padding: 6px 16px;
+        font-size: 9px;
+    }
+
+    .sidebar-link {
+        padding: 10px 16px;
+        font-size: 13px;
+        gap: 10px;
+        min-height: 40px;
+    }
+
+    .sidebar-link-icon {
+        font-size: 15px;
+        width: 18px;
+    }
+
+    .sidebar-link-badge {
+        font-size: 9px;
+        padding: 1px 6px;
+    }
+
+    .sidebar-footer { padding: 8px 16px; }
+
+    .sidebar-logout {
+        padding: 10px 14px;
+        font-size: 12px;
+        min-height: 40px;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .app-content { margin-left: 0; }
+
+    .app-main {
+        padding: 10px;
+        padding-top: calc(var(--header-height) + 10px);
+    }
+
+    /* ============================================
+       HEADER — Compact
+       ============================================ */
     .header {
         left: 0;
-        padding: 0 var(--space-md);
+        padding: 0 10px;
+        gap: 6px;
     }
 
     .header-menu-toggle {
         display: flex;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
     }
 
-    .header-search {
-        display: none;
+    .header-search { display: none; }
+
+    .header-title { font-size: 14px; }
+    .header-subtitle { font-size: 10px; }
+
+    .header-icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
     }
 
-    .app-main {
-        padding: var(--space-md);
-        padding-top: calc(var(--header-height) + var(--space-md));
+    .header-icon-btn-badge {
+        top: 4px;
+        right: 4px;
+        min-width: 16px;
+        height: 16px;
+        font-size: 9px;
     }
 
+    .header-user {
+        padding: 3px 8px 3px 3px;
+        min-height: 36px;
+        gap: 6px;
+    }
+
+    .header-user-avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .header-user-name { font-size: 11px; }
+    .header-user-role { font-size: 9px; }
+
+    /* ============================================
+       PAGE HEADER — Compact
+       ============================================ */
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .page-title {
+        font-size: 17px;
+        gap: 6px;
+    }
+
+    .page-description { font-size: 11px; }
+
+    .page-header-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .page-header-actions .btn {
+        width: 100%;
+        justify-content: center;
+        height: 36px;
+        min-height: 36px;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* ============================================
+       STAT CARDS — 2 PER ROW (COMPACT)
+       ============================================ */
+    #statCards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .stat-card {
+        padding: 10px !important;
+        border-radius: 10px !important;
+        gap: 2px !important;
+        min-height: auto !important;
+    }
+
+    .stat-card:hover { transform: none; }
+
+    .stat-icon {
+        font-size: 16px !important;
+        margin-bottom: 1px !important;
+        line-height: 1 !important;
+    }
+
+    .stat-value {
+        font-size: 16px !important;
+        line-height: 1.15 !important;
+        font-weight: 700 !important;
+    }
+
+    .stat-label {
+        font-size: 9px !important;
+        letter-spacing: 0 !important;
+        line-height: 1.15 !important;
+    }
+
+    .stat-trend {
+        font-size: 9px !important;
+        padding: 1px 5px !important;
+        margin-top: 1px !important;
+    }
+
+    /* ============================================
+       GRID COLLAPSE
+       ============================================ */
     .grid-2,
     .grid-3,
     .grid-4 {
         grid-template-columns: 1fr;
+        gap: 8px;
     }
 
-    .page-header {
-        flex-direction: column;
-        align-items: flex-start;
+    .grid-auto { grid-template-columns: 1fr; }
+
+    /* ============================================
+       CARDS — Compact
+       ============================================ */
+    .card {
+        padding: 10px !important;
+        border-radius: 10px !important;
+        margin-bottom: 8px !important;
     }
 
-    .page-header-actions {
-        width: 100%;
+    .card:hover { transform: none; }
+
+    .card-header {
+        padding-bottom: 6px !important;
+        margin-bottom: 6px !important;
+        gap: 6px !important;
     }
 
+    .card-title {
+        font-size: 13px !important;
+        gap: 6px !important;
+    }
+
+    .card-body { padding: 4px 0 !important; }
+
+    .card-footer {
+        padding-top: 6px !important;
+        margin-top: 6px !important;
+    }
+
+    /* ============================================
+       MODALS — Bottom Sheet
+       ============================================ */
     .modal {
         max-width: 100%;
-        max-height: 100vh;
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        max-height: 90vh;
+        border-radius: 16px 16px 0 0;
         margin-top: auto;
     }
 
@@ -1757,56 +2004,403 @@ code {
         align-items: flex-end;
     }
 
-    .toast-container {
-        top: auto;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        max-width: none;
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 12px !important;
     }
 
-    .toast {
-        min-width: 0;
-        width: 100%;
+    .modal-title { font-size: 15px; }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 6px;
     }
 
-    .login-card {
-        padding: 28px 24px;
-    }
+    .modal-footer .btn { width: 100%; }
 
-    .otp-input {
-        width: 42px;
-        height: 50px;
-        font-size: 20px;
-    }
-
-    .otp-inputs {
-        gap: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-user-info { display: none; }
-    .header-user { padding: 4px; }
-    .header-title { font-size: 16px; }
-
-    .otp-input {
-        width: 38px;
-        height: 46px;
+    .modal-close {
+        width: 32px;
+        height: 32px;
         font-size: 18px;
     }
 
-    .pagination {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-sm);
+    /* ============================================
+       TOASTS — Top
+       ============================================ */
+    .toast-container {
+        top: calc(var(--header-height) + 10px);
+        bottom: auto;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        gap: 8px;
     }
 
-    .pagination-controls { justify-content: center; }
+   .toast {
+        min-width: 0;
+        width: 100%;
+        font-size: 12px;
+        padding: 10px 12px;
+        animation: toastSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.removing {
+        animation: toastSlideUp 0.25s ease forwards;
+    }
+    
+    @keyframes toastSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+    }
+
+    @keyframes toastSlideUp {
+        from {
+           opacity: 1;
+           transform: translateY(0);
+        }
+        to {
+           opacity: 0;
+           transform: translateY(-30px);
+        }
+    }
+
+    /* ============================================
+       LOGIN — Compact
+       ============================================ */
+    .login-card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .login-logo {
+        margin-bottom: 14px;
+    }
+
+    .login-logo-icon {
+        font-size: 40px;
+        margin-bottom: 4px;
+    }
+
+    .login-logo h1 { font-size: 20px; }
+    .login-logo p { font-size: 11px; }
+
+    .login-step-title { font-size: 15px; }
+    .login-step-subtitle { font-size: 12px; margin-bottom: 12px; }
+
+    .login-footer {
+        margin-top: 12px;
+        padding-top: 12px;
+        font-size: 10px;
+    }
+
+    .otp-inputs {
+        gap: 6px;
+        margin: 12px 0;
+    }
+
+    .otp-input {
+        width: 40px;
+        height: 46px;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+    .otp-timer { font-size: 11px; margin-top: 8px; }
+
+    .checkbox-wrapper {
+        font-size: 12px;
+        margin: 10px 0;
+        min-height: 32px;
+    }
+
+    /* ============================================
+       TYPOGRAPHY — Compact
+       ============================================ */
+    h1 { font-size: 18px; }
+    h2 { font-size: 16px; }
+    h3 { font-size: 14px; }
+
+    /* ============================================
+       TABLES — Compact
+       ============================================ */
+    .table-wrapper {
+        background-image: linear-gradient(to right, transparent 0%, transparent 95%, rgba(255, 107, 0, 0.08) 100%);
+        background-repeat: no-repeat;
+        background-size: 40px 100%;
+        background-position: right;
+        border-radius: 10px;
+    }
+
+    .table {
+        font-size: 12px;
+        min-width: 500px;
+    }
+
+    .table th {
+        padding: 8px 10px !important;
+        font-size: 10px;
+    }
+
+    .table td { padding: 8px 10px !important; }
+
+    /* ============================================
+       PAGINATION — Compact
+       ============================================ */
+    .pagination {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .pagination-info { font-size: 11px; }
+
+    .pagination-btn {
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    /* ============================================
+       FORMS (iOS zoom fix)
+       ============================================ */
+    input,
+    textarea,
+    select,
+    .form-control,
+    .form-input,
+    .form-select,
+    .form-textarea,
+    .header-search input {
+        font-size: 16px !important;
+    }
+
+    .form-group { margin-bottom: 10px; }
+
+    .form-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .form-control,
+    .form-input,
+    .form-select {
+        height: 42px;
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+
+    .form-textarea {
+        min-height: 80px;
+        padding: 10px 12px;
+    }
+
+    /* ============================================
+       BUTTONS — Compact
+       ============================================ */
+    .btn {
+        height: 40px;
+        min-height: 40px;
+        padding: 8px 14px;
+        font-size: 13px;
+        gap: 5px;
+    }
+
+    .btn-sm {
+        height: 34px;
+        min-height: 34px;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .btn-lg {
+        height: 48px;
+        min-height: 48px;
+        font-size: 14px;
+    }
+
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-icon.btn-sm {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* ============================================
+       BADGES — Compact
+       ============================================ */
+    .badge {
+        font-size: 9px;
+        padding: 2px 7px;
+        gap: 3px;
+    }
+
+    /* ============================================
+       CHART — Compact
+       ============================================ */
+    .chart-container {
+        min-height: 200px;
+    }
+
+    .card-body canvas {
+        max-height: 220px !important;
+    }
+
+    /* ============================================
+       SPACING — Compact
+       ============================================ */
+    .mb-lg { margin-bottom: 8px !important; }
+    .mt-lg { margin-top: 8px !important; }
+    .gap-md { gap: 8px; }
+    .gap-lg { gap: 10px; }
+
+    /* ============================================
+       FLEX WRAP FIX
+       ============================================ */
+    .flex.justify-between {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    /* ============================================
+       CODE
+       ============================================ */
+    code {
+        font-size: 11px;
+        padding: 1px 4px;
+    }
 }
 
 /* ============================================================
-   22. UTILITY
+   24. RESPONSIVE — SMALL MOBILE (480px)
+   ============================================================ */
+@media (max-width: 480px) {
+    /* ----- Header ----- */
+    .header-user-info { display: none; }
+    .header-user { padding: 3px; min-height: 34px; }
+    .header-title { font-size: 13px; }
+    .header-subtitle { display: none; }
+    .header-icon-btn { width: 34px; height: 34px; font-size: 14px; }
+    .header-menu-toggle { width: 34px; height: 34px; font-size: 18px; }
+
+    /* ----- Page header actions stack ----- */
+    .page-header-actions { grid-template-columns: 1fr; }
+
+    .page-title { font-size: 16px; }
+
+    /* ----- Stat cards still 2 per row ----- */
+    #statCards {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+    }
+
+    .stat-card { padding: 8px !important; }
+    .stat-value { font-size: 15px !important; }
+    .stat-icon { font-size: 15px !important; }
+    .stat-label { font-size: 8px !important; }
+    .stat-trend { font-size: 8px !important; padding: 1px 4px !important; }
+
+    /* ----- OTP ----- */
+    .otp-input {
+        width: 38px;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    .otp-inputs { gap: 5px; }
+
+    /* ----- Pagination ----- */
+    .pagination {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    .pagination-controls { justify-content: center; }
+
+    /* ----- Login Card ----- */
+    .login-card {
+        padding: 18px 14px;
+        border-radius: 12px;
+    }
+
+    .login-logo-icon { font-size: 36px; }
+    .login-logo h1 { font-size: 18px; }
+    .login-logo p { font-size: 10px; }
+    .login-step-title { font-size: 14px; }
+    .login-step-subtitle { font-size: 11px; }
+
+    /* ----- Grids ----- */
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+
+    /* ----- Cards ----- */
+    .card { padding: 10px !important; }
+
+    /* ----- Tables ----- */
+    .table {
+        min-width: 460px;
+        font-size: 11px;
+    }
+
+    .table th,
+    .table td { padding: 7px 8px !important; }
+
+    /* ----- Buttons ----- */
+    .btn {
+        height: 38px;
+        min-height: 38px;
+        font-size: 12px;
+    }
+
+    .btn-sm {
+        height: 32px;
+        min-height: 32px;
+        font-size: 11px;
+    }
+
+    .btn-icon { width: 38px; height: 38px; }
+
+    /* ----- Typography ----- */
+    h1 { font-size: 17px; }
+    h2 { font-size: 15px; }
+    h3 { font-size: 13px; }
+}
+
+/* ============================================================
+   25. RESPONSIVE — VERY SMALL (360px)
+   ============================================================ */
+@media (max-width: 360px) {
+    .otp-input {
+        width: 34px;
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .otp-inputs { gap: 4px; }
+
+    .stat-card { padding: 7px !important; }
+    .stat-value { font-size: 14px !important; }
+    .stat-label { font-size: 8px !important; }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .page-title { font-size: 15px; }
+}
+
+/* ============================================================
+   26. UTILITY
    ============================================================ */
 .hidden    { display: none !important; }
 .visible   { display: block !important; }
@@ -1822,7 +2416,7 @@ code {
 }
 
 /* ============================================================
-   23. ANIMATIONS (Utility)
+   27. ANIMATIONS (Utility)
    ============================================================ */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -1842,3 +2436,34 @@ code {
 .animate-fade-in    { animation: fadeIn 0.3s ease; }
 .animate-fade-in-up { animation: fadeInUp 0.4s ease; }
 .animate-slide-in   { animation: slideInRight 0.3s ease; }
+
+/* ============================================================
+   28. TOUCH DEVICE OPTIMIZATIONS
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+    .btn:not(:disabled):hover { transform: none; }
+    .stat-card:hover { transform: none; }
+
+    .btn:not(:disabled):active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+    }
+
+    .sidebar-link:active {
+        background: var(--bg-active);
+    }
+}
+
+/* ============================================================
+   29. ACCESSIBILITY — REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
