@@ -1,7 +1,7 @@
 /* ============================================================
    BIHARI SMM ADMIN PANEL — MAIN JAVASCRIPT
    File: script.js
-   Version: 7.0.2 (Auto Backup + GitHub Sync)
+   Version: 7.0.3 (No Blink + Silent Refresh)
    ============================================================ */
 
 'use strict';
@@ -1269,16 +1269,19 @@ window.logout = logout;
 })();
 
 /* ============================================================
-   15. AUTO BACKUP — Panel khulte hi automatic backup
+   15. AUTO BACKUP — Silent, no blink
+   Panel khulte hi automatic backup (page reload NAHI karega)
    ============================================================ */
 (function() {
 
     /* ---- Config ---- */
     const AUTO_BACKUP_ENABLED = true;      /* false karo to band */
     const LAST_BACKUP_KEY = 'last_auto_backup_date';
+    let isBackingUp = false;               /* Loop rokne ke liye */
 
     async function autoBackupOnLoad() {
         if (!AUTO_BACKUP_ENABLED) return;
+        if (isBackingUp) return;           /* Ek hi baar chalega */
 
         /* --- Sirf logged-in page par --- */
         if (typeof Session === 'undefined' || !Session.isValid()) return;
@@ -1286,21 +1289,31 @@ window.logout = logout;
 
         /* --- Aaj backup ho chuka hai? --- */
         const today = new Date().toISOString().split('T')[0];
-        const lastBackup = localStorage.getItem(LAST_BACKUP_KEY);
+        let lastBackup = null;
+        try { lastBackup = localStorage.getItem(LAST_BACKUP_KEY); } catch (e) {}
 
         if (lastBackup === today) {
             console.log('⏭️ Aaj ka backup ho chuka hai');
             return;
         }
 
-        console.log('🔄 Auto backup shuru...');
+        /* --- Pehle hi mark karo (loop rok ne ke liye) --- */
+        try { localStorage.setItem(LAST_BACKUP_KEY, today); } catch (e) {}
+
+        isBackingUp = true;
+        console.log('🔄 Auto backup shuru (silent)...');
 
         try {
             const result = await API.createBackup('json');
 
             if (result && result.success) {
-                localStorage.setItem(LAST_BACKUP_KEY, today);
                 console.log('✅ Auto backup safal');
+
+                /* --- Data silently refresh karo (no reload!) --- */
+                if (typeof window.loadAll === 'function') {
+                    try { window.loadAll(false); } catch (e) {}
+                }
+
                 if (typeof Toast !== 'undefined') {
                     Toast.success('💾 Auto backup ho gaya');
                 }
@@ -1309,6 +1322,8 @@ window.logout = logout;
             }
         } catch (err) {
             console.warn('⚠️ Auto backup error:', err.message);
+        } finally {
+            isBackingUp = false;
         }
     }
 
@@ -1325,24 +1340,30 @@ window.logout = logout;
 })();
 
 /* ============================================================
-   16. AUTO GITHUB RESTORE — Panel khulte hi GitHub se data laao
+   16. AUTO GITHUB RESTORE — Silent, no blink
+   Panel khulte hi GitHub se data (page reload NAHI karega)
    ============================================================ */
 (function() {
 
     /* ---- Config ---- */
-    const GITHUB_RESTORE_ENABLED = true;   /* false karo to band */
-    const GITHUB_RESTORE_INTERVAL_HOURS = 1; /* Har 1 ghante me ek baar */
+    const GITHUB_RESTORE_ENABLED = true;      /* false karo to band */
+    const GITHUB_RESTORE_INTERVAL_HOURS = 1;  /* Har 1 ghante me ek baar */
     const LAST_KEY = 'last_github_restore';
+    let isRestoring = false;                  /* Loop rokne ke liye */
 
     async function autoRestoreFromGitHub() {
         if (!GITHUB_RESTORE_ENABLED) return;
+        if (isRestoring) return;              /* Ek hi baar chalega */
 
         /* --- Sirf logged-in page par --- */
         if (typeof Session === 'undefined' || !Session.isValid()) return;
         if (typeof API === 'undefined') return;
 
         /* --- Pichle restore ka time --- */
-        const last = parseInt(localStorage.getItem(LAST_KEY) || '0');
+        let last = 0;
+        try { last = parseInt(localStorage.getItem(LAST_KEY) || '0', 10) || 0; }
+        catch (e) { last = 0; }
+
         const now = Date.now();
         const gapMs = now - last;
         const intervalMs = GITHUB_RESTORE_INTERVAL_HOURS * 60 * 60 * 1000;
@@ -1354,7 +1375,11 @@ window.logout = logout;
             return;
         }
 
-        console.log('🔄 GitHub se data laa raha hun...');
+        /* --- Pehle hi time save karo (loop rok ne ke liye) --- */
+        try { localStorage.setItem(LAST_KEY, String(now)); } catch (e) {}
+
+        isRestoring = true;
+        console.log('🔄 GitHub se data laa raha hun (silent)...');
 
         try {
             if (typeof API.restoreFromGitHub === 'function') {
@@ -1362,18 +1387,14 @@ window.logout = logout;
 
                 if (result && result.success) {
                     console.log('✅ GitHub se data mil gaya');
-                    localStorage.setItem(LAST_KEY, String(now));
 
-                    /* --- Toast dikhao --- */
-                    if (typeof Toast !== 'undefined') {
-                        Toast.success('📥 GitHub se data sync ho gaya');
+                    /* --- Data silently refresh karo (NO reload!) --- */
+                    if (typeof window.loadAll === 'function') {
+                        try { window.loadAll(false); } catch (e) {}
                     }
 
-                    /* --- Dashboard refresh karo (agar dashboard par hain) --- */
-                    if (window.location.pathname.indexOf('dashboard') !== -1) {
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 1500);
+                    if (typeof Toast !== 'undefined') {
+                        Toast.success('📥 GitHub se data sync ho gaya');
                     }
                 } else {
                     console.warn('⚠️ GitHub restore fail:', result && result.error);
@@ -1383,10 +1404,12 @@ window.logout = logout;
             }
         } catch (err) {
             console.warn('⚠️ GitHub restore error:', err.message);
+        } finally {
+            isRestoring = false;
         }
     }
 
-    /* ---- Page load hone ke 2 second baad (backup se pehle) ---- */
+    /* ---- Page load hone ke 2 second baad ---- */
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => setTimeout(autoRestoreFromGitHub, 2000));
     } else {
