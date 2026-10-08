@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>🔍 Audit Log — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link active" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">🔍 Audit Log</div>
+                        <div class="header-subtitle" id="headerSubtitle">Track every admin action</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search audit actions...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="liveToggle" title="Live Feed">
+                        🔴
+                    </button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">🔍 Audit Log</h1>
+                        <p class="page-description" id="pageStats">Track every admin action for compliance & security</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="exportAuditBtn">
+                            📥 Export
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="generateReportBtn">
+                            📊 Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-value" id="statTotalActions">0</div>
+                        <div class="stat-label">Total Actions</div>
+                        <div class="stat-trend up" id="trendTotal">Today: 0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👑</div>
+                        <div class="stat-value" id="statAdminActions">0</div>
+                        <div class="stat-label">Admin Actions</div>
+                        <div class="stat-trend" id="trendAdmin">From panel</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚨</div>
+                        <div class="stat-value" id="statCriticalActions">0</div>
+                        <div class="stat-label">Critical</div>
+                        <div class="stat-trend down" id="trendCritical">High risk</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value" id="statUniqueAdmins">0</div>
+                        <div class="stat-label">Active Admins</div>
+                        <div class="stat-trend up" id="trendAdmins">In session</div>
+                    </div>
+                </div>
+
+                <!-- LIVE FEED BAR -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 12px 20px; background: var(--bg-elevated); display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+                            <span class="live-dot" id="liveDot"></span>
+                            <b id="liveStatus" style="color: var(--text-muted);">Live Feed: OFF</b>
+                        </div>
+                        <div style="flex: 1;"></div>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted);">
+                            <span>🕐 Last action: <b style="color: var(--text-primary);" id="lastActionTime">—</b></span>
+                            <span>👤 By: <b style="color: var(--primary);" id="lastActionBy">—</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="all">
+                            📋 All Actions <span class="tab-count" id="tabCountAll">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="admin">
+                            👑 Admin Actions <span class="tab-count" id="tabCountAdmin">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="critical">
+                            🚨 Critical <span class="tab-count" id="tabCountCritical">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="system">
+                            ⚙️ System <span class="tab-count" id="tabCountSystem">0</span>
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="timeline">
+                            ⏱️ Timeline View
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="stats">
+                            📊 Statistics
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: ALL / ADMIN / CRITICAL / SYSTEM
+                     ==================================================== -->
+                <div id="logsView">
+
+                    <!-- FILTER BAR -->
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="auditSearch" placeholder="Action, target, admin...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-select" id="filterCategory">
+                                        <option value="">All Categories</option>
+                                        <option value="user">👤 User</option>
+                                        <option value="order">📦 Order</option>
+                                        <option value="payment">💳 Payment</option>
+                                        <option value="service">🛒 Service</option>
+                                        <option value="setting">⚙️ Setting</option>
+                                        <option value="auth">🔐 Auth</option>
+                                        <option value="system">⚙️ System</option>
+                                        <option value="balance">💰 Balance</option>
+                                        <option value="broadcast">📢 Broadcast</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Admin</label>
+                                    <select class="form-select" id="filterAdmin">
+                                        <option value="">All Admins</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="filterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="yesterday">Yesterday</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearFilters" title="Clear Filters">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BULK BAR -->
+                    <div class="card mb-md" id="bulkBar" style="display: none;">
+                        <div class="card-body" style="padding: 12px 16px;">
+                            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span style="font-weight: 600; color: var(--primary);">
+                                    ✅ <span id="selectedCount">0</span> selected
+                                </span>
+                                <div style="flex: 1;"></div>
+                                <button class="btn btn-danger btn-sm" data-bulk="delete">🗑️ Delete</button>
+                                <button class="btn btn-warning btn-sm" data-bulk="export">📥 Export Selected</button>
+                                <button class="btn btn-ghost btn-sm" id="clearSelection">✕ Clear</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AUDIT TABLE -->
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="auditTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40px;">
+                                            <input type="checkbox" id="selectAll" style="cursor:pointer;">
+                                        </th>
+                                        <th>Time</th>
+                                        <th>Admin</th>
+                                        <th>Category</th>
+                                        <th>Action</th>
+                                        <th>Target</th>
+                                        <th>IP Address</th>
+                                        <th style="width: 90px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="auditTableBody">
+                                    <tr>
+                                        <td colspan="8" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading audit log...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: TIMELINE
+                     ==================================================== -->
+                <div id="timelineView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="timelineSearch" placeholder="Search actions...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Admin</label>
+                                    <select class="form-select" id="timelineFilterAdmin">
+                                        <option value="">All Admins</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="timelineFilterDate">
+                                        <option value="today">Today</option>
+                                        <option value="yesterday">Yesterday</option>
+                                        <option value="7days" selected>Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearTimelineFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⏱️ Activity Timeline</h3>
+                            <span class="badge badge-info" id="timelineCount">0 events</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="audit-timeline" id="auditTimeline">
+                                <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                                    <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                    <div>Building timeline...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: STATISTICS
+                     ==================================================== -->
+                <div id="statsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Actions by Category</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="categoryChart" height="240"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📈 Actions Over Time</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="actionsTrendChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">👑 Admin Activity</h3>
+                            </div>
+                            <div class="card-body" id="adminActivityPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔝 Top Actions</h3>
+                            </div>
+                            <div class="card-body" id="topActionsPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⏰ Activity by Hour</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="hourlyChart" height="180"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <script>
+    /* ============================================================
+       AUDIT LOG PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            allActions: [],
+            filtered: [],
+            admins: [],
+            mainTab: 'all',
+            search: '',
+            category: '',
+            admin: '',
+            dateRange: '',
+            selected: new Set(),
+            liveMode: false,
+            liveTimer: null,
+            timelineSearch: '',
+            timelineAdmin: '',
+            timelineDate: '7days',
+            charts: {
+                category: null,
+                trend: null,
+                hourly: null,
+            },
+        };
+
+        /* ============================================================
+           CATEGORY MAPPINGS
+         ============================================================ */
+        const CATEGORY_MAP = {
+            'user.create': { cat: 'user', icon: '👤', label: 'User Created', level: 'info' },
+            'user.update': { cat: 'user', icon: '✏️', label: 'User Updated', level: 'info' },
+            'user.delete': { cat: 'user', icon: '🗑️', label: 'User Deleted', level: 'critical' },
+            'user.ban': { cat: 'user', icon: '🚫', label: 'User Banned', level: 'warning' },
+            'user.unban': { cat: 'user', icon: '🔓', label: 'User Unbanned', level: 'info' },
+            'user.vip_on': { cat: 'user', icon: '👑', label: 'VIP Activated', level: 'info' },
+            'user.vip_off': { cat: 'user', icon: '👑', label: 'VIP Removed', level: 'info' },
+            'user.balance_update': { cat: 'balance', icon: '💰', label: 'Balance Updated', level: 'warning' },
+            'order.status_change': { cat: 'order', icon: '📦', label: 'Order Status Changed', level: 'info' },
+            'order.cancel': { cat: 'order', icon: '❌', label: 'Order Cancelled', level: 'warning' },
+            'order.refund': { cat: 'order', icon: '💸', label: 'Order Refunded', level: 'warning' },
+            'payment.approve': { cat: 'payment', icon: '✅', label: 'Payment Approved', level: 'info' },
+            'payment.reject': { cat: 'payment', icon: '❌', label: 'Payment Rejected', level: 'warning' },
+            'service.create': { cat: 'service', icon: '➕', label: 'Service Added', level: 'info' },
+            'service.update': { cat: 'service', icon: '✏️', label: 'Service Updated', level: 'info' },
+            'service.delete': { cat: 'service', icon: '🗑️', label: 'Service Deleted', level: 'critical' },
+            'setting.update': { cat: 'setting', icon: '⚙️', label: 'Setting Changed', level: 'warning' },
+            'auth.login': { cat: 'auth', icon: '🔐', label: 'Login', level: 'info' },
+            'auth.logout': { cat: 'auth', icon: '🚪', label: 'Logout', level: 'info' },
+            'auth.login_failed': { cat: 'auth', icon: '⚠️', label: 'Failed Login', level: 'critical' },
+            'balance.add': { cat: 'balance', icon: '➕', label: 'Balance Added', level: 'info' },
+            'balance.sub': { cat: 'balance', icon: '➖', label: 'Balance Deducted', level: 'warning' },
+            'broadcast.send': { cat: 'broadcast', icon: '📢', label: 'Broadcast Sent', level: 'warning' },
+            'system.backup': { cat: 'system', icon: '💾', label: 'Backup Created', level: 'info' },
+            'system.restore': { cat: 'system', icon: '📥', label: 'Backup Restored', level: 'critical' },
+            'system.sync': { cat: 'system', icon: '🔄', label: 'Data Synced', level: 'info' },
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAuditLog();
+
+            updateStats();
+            renderAuditTable();
+            populateAdminFilter();
+
+            /* ---- Auto refresh every 60s ---- */
+            setInterval(() => {
+                if (!State.liveMode) {
+                    loadAuditLog(true).then(() => {
+                        renderAuditTable();
+                        updateStats();
+                    });
+                }
+            }, 60000);
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('auditStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'auditStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .tab-count {
+                    font-size: 10px;
+                    padding: 2px 7px;
+                    border-radius: 9999px;
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    min-width: 22px;
+                    text-align: center;
+                }
+                .main-tab-btn.active .tab-count { background: var(--primary); color: #fff; }
+
+                /* ---- Live dot ---- */
+                .live-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: var(--text-muted);
+                    display: inline-block;
+                }
+                .live-dot.active {
+                    background: var(--success);
+                    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                    animation: livePulse 1.5s infinite;
+                }
+                @keyframes livePulse {
+                    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+                    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+                }
+
+                /* ---- Category Badge ---- */
+                .audit-cat-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 600;
+                    white-space: nowrap;
+                }
+                .cat-user     { background: var(--info-light);    color: var(--info); }
+                .cat-order    { background: var(--primary-light); color: var(--primary); }
+                .cat-payment  { background: var(--success-light); color: var(--success); }
+                .cat-service  { background: var(--accent-light);  color: var(--accent); }
+                .cat-setting  { background: var(--warning-light); color: var(--warning); }
+                .cat-auth     { background: var(--danger-light);  color: var(--danger); }
+                .cat-system   { background: var(--bg-elevated);   color: var(--text-secondary); }
+                .cat-balance  { background: var(--gold-light);    color: var(--gold); }
+                .cat-broadcast{ background: var(--accent-light);  color: var(--accent); }
+                .cat-other    { background: var(--bg-elevated);   color: var(--text-muted); }
+
+                /* ---- Level Indicator ---- */
+                .level-dot-sm {
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    margin-right: 6px;
+                }
+                .level-info .level-dot-sm     { background: var(--info); }
+                .level-warning .level-dot-sm  { background: var(--warning); }
+                .level-critical .level-dot-sm { background: var(--danger); animation: livePulse 1.5s infinite; }
+
+                /* ---- Timeline ---- */
+                .audit-timeline {
+                    position: relative;
+                    padding-left: 40px;
+                    max-height: 700px;
+                    overflow-y: auto;
+                    padding-right: 20px;
+                }
+                .audit-timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 15px;
+                    top: 12px;
+                    bottom: 12px;
+                    width: 2px;
+                    background: var(--border-color);
+                }
+
+                .timeline-event {
+                    position: relative;
+                    padding-bottom: 24px;
+                    animation: timelineIn 0.4s ease;
+                }
+                @keyframes timelineIn {
+                    from { opacity: 0; transform: translateX(-10px); }
+                    to   { opacity: 1; transform: translateX(0); }
+                }
+
+                .timeline-dot-event {
+                    position: absolute;
+                    left: -32px;
+                    top: 4px;
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    background: var(--bg-card);
+                    border: 2px solid var(--border-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    z-index: 1;
+                }
+                .timeline-event.level-info .timeline-dot-event     { background: var(--info-light); border-color: var(--info); }
+                .timeline-event.level-warning .timeline-dot-event  { background: var(--warning-light); border-color: var(--warning); }
+                .timeline-event.level-critical .timeline-dot-event { background: var(--danger-light); border-color: var(--danger); }
+
+                .timeline-time {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    font-family: 'SF Mono', Monaco, monospace;
+                    margin-bottom: 4px;
+                }
+
+                .timeline-content {
+                    background: var(--bg-elevated);
+                    padding: 12px 14px;
+                    border-radius: 10px;
+                    border-left: 3px solid var(--border-color);
+                    transition: all 0.15s;
+                    cursor: pointer;
+                }
+                .timeline-content:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+                .timeline-event.level-info .timeline-content     { border-left-color: var(--info); }
+                .timeline-event.level-warning .timeline-content  { border-left-color: var(--warning); }
+                .timeline-event.level-critical .timeline-content { border-left-color: var(--danger); }
+
+                .timeline-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 4px;
+                }
+                .timeline-meta {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    display: flex;
+                    gap: 12px;
+                    flex-wrap: wrap;
+                    margin-top: 6px;
+                }
+
+                /* ---- Admin Chip ---- */
+                .admin-chip {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    font-size: 11px;
+                }
+                .admin-chip-avatar {
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, var(--primary), var(--accent));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 10px;
+                    font-weight: 700;
+                    color: #fff;
+                }
+                .admin-chip-system .admin-chip-avatar {
+                    background: var(--bg-elevated);
+                    color: var(--text-muted);
+                }
+
+                /* ---- IP Display ---- */
+                .ip-display {
+                    font-family: 'SF Mono', Monaco, monospace;
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    padding: 2px 6px;
+                    background: var(--bg-input);
+                    border-radius: 4px;
+                }
+
+                /* ---- Detail Modal Styles ---- */
+                .audit-detail-block {
+                    background: var(--bg-input);
+                    padding: 12px;
+                    border-radius: 10px;
+                    font-family: 'SF Mono', Monaco, monospace;
+                    font-size: 12px;
+                    line-height: 1.6;
+                    word-break: break-word;
+                    max-height: 250px;
+                    overflow-y: auto;
+                    white-space: pre-wrap;
+                }
+
+                .audit-detail-row {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    font-size: 13px;
+                }
+                .audit-detail-row:last-child {
+                    border-bottom: none;
+                }
+                .audit-detail-label {
+                    color: var(--text-muted);
+                }
+                .audit-detail-value {
+                    color: var(--text-primary);
+                    font-weight: 500;
+                }
+
+                /* ---- Diff Viewer ---- */
+                .diff-viewer {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                    margin-top: 12px;
+                }
+                .diff-col {
+                    padding: 12px;
+                    border-radius: 10px;
+                }
+                .diff-col.before {
+                    background: rgba(239, 68, 68, 0.08);
+                    border: 1px solid rgba(239, 68, 68, 0.2);
+                }
+                .diff-col.after {
+                    background: rgba(16, 185, 129, 0.08);
+                    border: 1px solid rgba(16, 185, 129, 0.2);
+                }
+                .diff-col-title {
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                }
+                .diff-col.before .diff-col-title { color: var(--danger); }
+                .diff-col.after .diff-col-title  { color: var(--success); }
+                .diff-col-content {
+                    font-family: 'SF Mono', Monaco, monospace;
+                    font-size: 11px;
+                    line-height: 1.5;
+                    color: var(--text-primary);
+                    white-space: pre-wrap;
+                    word-break: break-word;
+                    max-height: 200px;
+                    overflow-y: auto;
+                }
+
+                /* ---- Stats Panels ---- */
+                .rank-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 8px;
+                    transition: all 0.15s;
+                }
+                .rank-item:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+                .rank-number {
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--bg-card);
+                    font-size: 12px;
+                    font-weight: 800;
+                    color: var(--text-secondary);
+                    flex-shrink: 0;
+                }
+                .rank-number.rank-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+                .rank-number.rank-2 { background: linear-gradient(135deg, #e5e7eb, #9ca3af); color: #000; }
+                .rank-number.rank-3 { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
+
+                .rank-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .rank-name {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .rank-sub {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+                .rank-count {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--primary);
+                    flex-shrink: 0;
+                }
+
+                @media (max-width: 768px) {
+                    .diff-viewer { grid-template-columns: 1fr; }
+                    .audit-timeline { padding-left: 30px; }
+                    .timeline-dot-event { left: -26px; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadAuditLog(true).then(() => {
+                    renderAuditTable();
+                    updateStats();
+                    Toast.success('Audit log refreshed');
+                });
+            });
+
+            document.getElementById('liveToggle').addEventListener('click', toggleLiveMode);
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Filters ---- */
+            const auditSearch = document.getElementById('auditSearch');
+            auditSearch.addEventListener('input', Utils.debounce(() => {
+                State.search = auditSearch.value.trim();
+                renderAuditTable();
+            }, 300));
+
+            document.getElementById('filterCategory').addEventListener('change', (e) => {
+                State.category = e.target.value;
+                renderAuditTable();
+            });
+
+            document.getElementById('filterAdmin').addEventListener('change', (e) => {
+                State.admin = e.target.value;
+                renderAuditTable();
+            });
+
+            document.getElementById('filterDate').addEventListener('change', (e) => {
+                State.dateRange = e.target.value;
+                renderAuditTable();
+            });
+
+            document.getElementById('clearFilters').addEventListener('click', () => {
+                document.getElementById('auditSearch').value = '';
+                document.getElementById('filterCategory').value = '';
+                document.getElementById('filterAdmin').value = '';
+                document.getElementById('filterDate').value = '';
+                State.search = '';
+                State.category = '';
+                State.admin = '';
+                State.dateRange = '';
+                renderAuditTable();
+            });
+
+            /* ---- Select all ---- */
+            document.getElementById('selectAll').addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    State.filtered.slice(0, 500).forEach(a => State.selected.add(a.id));
+                } else {
+                    State.selected.clear();
+                }
+                updateBulkBar();
+                updateCheckboxes();
+            });
+
+            /* ---- Bulk actions ---- */
+            document.querySelectorAll('[data-bulk]').forEach(btn => {
+                btn.addEventListener('click', () => handleBulkAction(btn.dataset.bulk));
+            });
+
+            document.getElementById('clearSelection').addEventListener('click', () => {
+                State.selected.clear();
+                updateBulkBar();
+                updateCheckboxes();
+                document.getElementById('selectAll').checked = false;
+            });
+
+            /* ---- Timeline filters ---- */
+            const timelineSearch = document.getElementById('timelineSearch');
+            timelineSearch.addEventListener('input', Utils.debounce(() => {
+                State.timelineSearch = timelineSearch.value.trim();
+                renderTimeline();
+            }, 300));
+
+            document.getElementById('timelineFilterAdmin').addEventListener('change', (e) => {
+                State.timelineAdmin = e.target.value;
+                renderTimeline();
+            });
+
+            document.getElementById('timelineFilterDate').addEventListener('change', (e) => {
+                State.timelineDate = e.target.value;
+                renderTimeline();
+            });
+
+            document.getElementById('clearTimelineFilters').addEventListener('click', () => {
+                document.getElementById('timelineSearch').value = '';
+                document.getElementById('timelineFilterAdmin').value = '';
+                document.getElementById('timelineFilterDate').value = '7days';
+                State.timelineSearch = '';
+                State.timelineAdmin = '';
+                State.timelineDate = '7days';
+                renderTimeline();
+            });
+
+            /* ---- Export / Reports ---- */
+            document.getElementById('exportAuditBtn').addEventListener('click', exportAuditLog);
+            document.getElementById('generateReportBtn').addEventListener('click', generateReport);
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['logsView', 'timelineView', 'statsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            if (tab === 'all' || tab === 'admin' || tab === 'critical' || tab === 'system') {
+                document.getElementById('logsView').style.display = '';
+                renderAuditTable();
+            } else if (tab === 'timeline') {
+                document.getElementById('timelineView').style.display = '';
+                renderTimeline();
+            } else if (tab === 'stats') {
+                document.getElementById('statsView').style.display = '';
+                renderStats();
+            }
+        }
+
+        /* ============================================================
+           LOAD AUDIT LOG
+         ============================================================ */
+        async function loadAuditLog(silent = false) {
+            try {
+                /* ---- Build from available data sources ---- */
+                const actions = [];
+
+                /* ---- Try fetching audit_log table ---- */
+                try {
+                    const res = await API.getDataPage('audit_log', 1, 500, '');
+
+                    if (res && res.success && Array.isArray(res.rows)) {
+                        res.rows.forEach(row => {
+                            actions.push(normalizeAuditRow(row));
+                        });
+                    }
+                } catch (e) {}
+
+                /* ---- Try v3_audit_log table ---- */
+                if (actions.length === 0) {
+                    try {
+                        const res = await API.getDataPage('v3_audit_log', 1, 500, '');
+
+                        if (res && res.success && Array.isArray(res.rows)) {
+                            res.rows.forEach(row => {
+                                actions.push(normalizeAuditRow(row));
+                            });
+                        }
+                    } catch (e) {}
+                }
+
+                /* ---- Fallback: derive from activity_log ---- */
+                if (actions.length === 0) {
+                    try {
+                        const res = await API.getActivity();
+
+                        if (res && res.success && Array.isArray(res.data)) {
+                            res.data.forEach(row => {
+                                actions.push({
+                                    id: 'act_' + (row.id || Math.random().toString(36).substr(2, 9)),
+                                    time: row.created_at || new Date().toISOString(),
+                                    actor: row.user || 'System',
+                                    action: row.action || 'Action',
+                                    category: detectCategoryFromText(row.action || ''),
+                                    target: '',
+                                    ip: '',
+                                    before: null,
+                                    after: null,
+                                    meta: { icon: row.icon, color: row.color },
+                                });
+                            });
+                        }
+                    } catch (e) {}
+                }
+
+                /* ---- Fallback: build from orders/payments/users ---- */
+                if (actions.length < 5) {
+                    const syntheticActions = await buildSyntheticAudit();
+
+                    if (syntheticActions.length > 0) {
+                        actions.push(...syntheticActions);
+                    }
+                }
+
+                /* ---- Sort by time desc ---- */
+                actions.sort((a, b) => String(b.time).localeCompare(String(a.time)));
+
+                State.allActions = actions;
+
+                if (!silent) Toast.success(`Loaded ${actions.length} audit entries`);
+
+            } catch (err) {
+                console.error('Load audit log failed:', err);
+                if (!silent) Toast.error('Failed to load audit log');
+            }
+        }
+
+        function normalizeAuditRow(row) {
+            const actionKey = String(row.action || row.event || 'unknown');
+            const meta = CATEGORY_MAP[actionKey] || {};
+
+            let before = null;
+            let after = null;
+            let target = '';
+
+            try {
+                if (row.before_json) before = JSON.parse(row.before_json);
+                if (row.after_json) after = JSON.parse(row.after_json);
+
+                if (row.target_type && row.target_id) {
+                    target = `${row.target_type} #${row.target_id}`;
+                } else if (row.target_id) {
+                    target = `#${row.target_id}`;
+                }
+            } catch (e) {}
+
+            return {
+                id: String(row.id || ('audit_' + Math.random().toString(36).substr(2, 9))),
+                time: row.created_at || row.time || new Date().toISOString(),
+                actor: String(row.actor_id || row.actor || 'System'),
+                action: actionKey,
+                actionLabel: meta.label || actionKey,
+                category: meta.cat || 'system',
+                icon: meta.icon || '⚙️',
+                level: meta.level || 'info',
+                target: target,
+                ip: String(row.ip || ''),
+                before: before,
+                after: after,
+                meta: { event: row.event_name },
+            };
+        }
+
+        function detectCategoryFromText(text) {
+            const t = String(text || '').toLowerCase();
+            if (t.includes('order') || t.includes('placed')) return 'order';
+            if (t.includes('payment') || t.includes('utr')) return 'payment';
+            if (t.includes('user') || t.includes('register')) return 'user';
+            if (t.includes('balance')) return 'balance';
+            if (t.includes('service')) return 'service';
+            if (t.includes('setting')) return 'setting';
+            if (t.includes('broadcast')) return 'broadcast';
+            return 'system';
+        }
+
+        async function buildSyntheticAudit() {
+            const actions = [];
+
+            try {
+                const [usersRes, ordersRes, paymentsRes] = await Promise.allSettled([
+                    API.getDataPage('users', 1, 200, ''),
+                    API.getDataPage('orders', 1, 200, ''),
+                    API.getDataPage('payments', 1, 200, ''),
+                ]);
+
+                const users = (usersRes.status === 'fulfilled' && usersRes.value && usersRes.value.rows) ? usersRes.value.rows : [];
+                const orders = (ordersRes.status === 'fulfilled' && ordersRes.value && ordersRes.value.rows) ? ordersRes.value.rows : [];
+                const payments = (paymentsRes.status === 'fulfilled' && paymentsRes.value && paymentsRes.value.rows) ? paymentsRes.value.rows : [];
+
+                /* ---- User actions ---- */
+                users.forEach(u => {
+                    const meta = CATEGORY_MAP['user.create'];
+                    actions.push({
+                        id: 'a_user_' + u.user_id,
+                        time: u.join_date || new Date().toISOString(),
+                        actor: 'System',
+                        action: 'user.create',
+                        actionLabel: meta.label,
+                        category: meta.cat,
+                        icon: meta.icon,
+                        level: meta.level,
+                        target: `User #${u.user_id}`,
+                        ip: '',
+                        before: null,
+                        after: { first_name: u.first_name, balance: u.balance },
+                    });
+                });
+
+                /* ---- Payment actions ---- */
+                payments.slice(0, 50).forEach(p => {
+                    if (p.status === 'approved') {
+                        const meta = CATEGORY_MAP['payment.approve'];
+                        actions.push({
+                            id: 'a_pay_' + p.id,
+                            time: p.approved_at || p.created_at,
+                            actor: CONFIG.OTP_CHAT_ID || 'admin',
+                            action: 'payment.approve',
+                            actionLabel: meta.label,
+                            category: meta.cat,
+                            icon: meta.icon,
+                            level: meta.level,
+                            target: `Payment #${p.id} (${p.user_id})`,
+                            ip: '',
+                            before: null,
+                            after: { amount: p.amount, status: 'approved' },
+                        });
+                    } else if (p.status === 'rejected') {
+                        const meta = CATEGORY_MAP['payment.reject'];
+                        actions.push({
+                            id: 'a_payrej_' + p.id,
+                            time: p.created_at,
+                            actor: CONFIG.OTP_CHAT_ID || 'admin',
+                            action: 'payment.reject',
+                            actionLabel: meta.label,
+                            category: meta.cat,
+                            icon: meta.icon,
+                            level: meta.level,
+                            target: `Payment #${p.id}`,
+                            ip: '',
+                            before: null,
+                            after: { status: 'rejected' },
+                        });
+                    }
+                });
+
+                /* ---- Order actions ---- */
+                orders.slice(0, 50).forEach(o => {
+                    const status = String(o.status || '').toLowerCase();
+
+                    if (status === 'completed') {
+                        const meta = CATEGORY_MAP['order.status_change'];
+                        actions.push({
+                            id: 'a_order_' + o.id,
+                            time: o.completed_at || o.created_at,
+                            actor: 'System',
+                            action: 'order.status_change',
+                            actionLabel: 'Order Completed',
+                            category: 'order',
+                            icon: '✅',
+                            level: 'info',
+                            target: `Order #${o.id}`,
+                            ip: '',
+                            before: { status: 'processing' },
+                            after: { status: 'completed' },
+                        });
+                    } else if (status === 'cancelled' || status === 'failed') {
+                        const meta = CATEGORY_MAP['order.cancel'];
+                        actions.push({
+                            id: 'a_ordercancel_' + o.id,
+                            time: o.completed_at || o.created_at,
+                            actor: 'System',
+                            action: 'order.cancel',
+                            actionLabel: meta.label,
+                            category: 'order',
+                            icon: meta.icon,
+                            level: meta.level,
+                            target: `Order #${o.id}`,
+                            ip: '',
+                            before: { status: 'processing' },
+                            after: { status, refund: o.refund_amount },
+                        });
+                    }
+                });
+
+                /* ---- Startup event ---- */
+                actions.push({
+                    id: 'a_session_start',
+                    time: new Date().toISOString(),
+                    actor: Session.get()?.username || 'admin',
+                    action: 'auth.login',
+                    actionLabel: 'Admin Panel Access',
+                    category: 'auth',
+                    icon: '🔐',
+                    level: 'info',
+                    target: 'Admin session',
+                    ip: '127.0.0.1',
+                    before: null,
+                    after: { session: 'active' },
+                });
+
+            } catch (err) {
+                console.error('Build synthetic failed:', err);
+            }
+
+            return actions;
+        }
+
+        /* ============================================================
+           POPULATE ADMIN FILTER
+         ============================================================ */
+        function populateAdminFilter() {
+            const admins = new Set();
+            State.allActions.forEach(a => {
+                if (a.actor && a.actor !== 'System') admins.add(a.actor);
+            });
+
+            const select = document.getElementById('filterAdmin');
+            const timelineSelect = document.getElementById('timelineFilterAdmin');
+
+            const options = Array.from(admins).sort();
+
+            [select, timelineSelect].forEach(sel => {
+                if (!sel) return;
+
+                sel.innerHTML = '<option value="">All Admins</option>';
+
+                options.forEach(admin => {
+                    const opt = document.createElement('option');
+                    opt.value = admin;
+                    opt.textContent = admin === (CONFIG.OTP_CHAT_ID) ? `Admin (${admin})` : admin;
+                    sel.appendChild(opt);
+                });
+            });
+        }
+
+        /* ============================================================
+           RENDER AUDIT TABLE
+         ============================================================ */
+        function renderAuditTable() {
+            const tbody = document.getElementById('auditTableBody');
+
+            let filtered = State.allActions.slice();
+
+            /* ---- Tab filter ---- */
+            if (State.mainTab === 'admin') {
+                filtered = filtered.filter(a =>
+                    a.actor && a.actor !== 'System' && String(a.actor).match(/^[0-9]+$/)
+                );
+            } else if (State.mainTab === 'critical') {
+                filtered = filtered.filter(a => a.level === 'critical');
+            } else if (State.mainTab === 'system') {
+                filtered = filtered.filter(a =>
+                    !a.actor || a.actor === 'System'
+                );
+            }
+
+            /* ---- Search ---- */
+            if (State.search) {
+                const q = State.search.toLowerCase();
+                filtered = filtered.filter(a =>
+                    String(a.actionLabel || '').toLowerCase().includes(q) ||
+                    String(a.action || '').toLowerCase().includes(q) ||
+                    String(a.target || '').toLowerCase().includes(q) ||
+                    String(a.actor || '').toLowerCase().includes(q)
+                );
+            }
+
+            /* ---- Category ---- */
+            if (State.category) {
+                filtered = filtered.filter(a => a.category === State.category);
+            }
+
+            /* ---- Admin ---- */
+            if (State.admin) {
+                filtered = filtered.filter(a => String(a.actor) === State.admin);
+            }
+
+            /* ---- Date ---- */
+            if (State.dateRange) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(a => {
+                    const dt = new Date(String(a.time || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const aDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - aDate) / 86400000);
+
+                    if (State.dateRange === 'today') return diffDays === 0;
+                    if (State.dateRange === 'yesterday') return diffDays === 1;
+                    if (State.dateRange === '7days') return diffDays <= 7;
+                    if (State.dateRange === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            State.filtered = filtered;
+
+            /* ---- Update tab counts ---- */
+            const adminCount = State.allActions.filter(a =>
+                a.actor && a.actor !== 'System' && String(a.actor).match(/^[0-9]+$/)
+            ).length;
+            const criticalCount = State.allActions.filter(a => a.level === 'critical').length;
+            const systemCount = State.allActions.filter(a => !a.actor || a.actor === 'System').length;
+
+            document.getElementById('tabCountAll').textContent = State.allActions.length;
+            document.getElementById('tabCountAdmin').textContent = adminCount;
+            document.getElementById('tabCountCritical').textContent = criticalCount;
+            document.getElementById('tabCountSystem').textContent = systemCount;
+
+            /* ---- Update last action ---- */
+            if (State.allActions.length > 0) {
+                const last = State.allActions[0];
+                document.getElementById('lastActionTime').textContent = Utils.timeAgo(last.time);
+                document.getElementById('lastActionBy').textContent = last.actor || 'System';
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No audit actions found</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Try changing filters or wait for new activity
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.slice(0, 300).map(a => {
+                const isChecked = State.selected.has(a.id);
+                const actor = String(a.actor || 'System');
+                const isSystem = actor === 'System';
+                const initial = isSystem ? '⚙' : Utils.initials(actor === CONFIG.OTP_CHAT_ID ? 'Admin' : actor);
+                const catClass = 'cat-' + (a.category || 'system');
+
+                return `
+                    <tr data-audit-id="${Utils.escape(a.id)}" class="${isChecked ? 'selected' : ''}" style="cursor: pointer;">
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-audit-id="${Utils.escape(a.id)}" ${isChecked ? 'checked' : ''} style="cursor:pointer;">
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted); white-space: nowrap;">
+                            ${Utils.date(a.time, 'full')}
+                        </td>
+                        <td>
+                            <div class="admin-chip ${isSystem ? 'admin-chip-system' : ''}">
+                                <div class="admin-chip-avatar">${initial}</div>
+                                <span>${Utils.escape(actor === CONFIG.OTP_CHAT_ID ? 'Admin' : Utils.truncate(actor, 15))}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="audit-cat-badge ${catClass}">
+                                ${a.icon} ${a.category}
+                            </span>
+                        </td>
+                        <td class="level-${a.level}">
+                            <span class="level-dot-sm"></span>
+                            <b style="font-size: 12px;">${Utils.escape(a.actionLabel || a.action)}</b>
+                        </td>
+                        <td style="font-size: 12px; color: var(--text-secondary);">
+                            ${a.target ? Utils.escape(Utils.truncate(a.target, 30)) : '—'}
+                        </td>
+                        <td>
+                            ${a.ip ? `<span class="ip-display">${Utils.escape(a.ip)}</span>` : '<span style="color: var(--text-muted);">—</span>'}
+                        </td>
+                        <td>
+                            <button class="btn btn-ghost btn-icon btn-sm" data-view-audit="${Utils.escape(a.id)}" title="View Details">
+                                👁️
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            if (filtered.length > 300) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td colspan="8" class="text-center" style="padding: 12px; color: var(--text-muted); font-size: 12px;">
+                            … showing first 300 of ${filtered.length} entries
+                        </td>
+                    </tr>
+                `;
+            }
+
+            /* ---- Bind events ---- */
+            bindAuditEvents();
+        }
+
+        function bindAuditEvents() {
+            document.querySelectorAll('[data-view-audit]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    showAuditDetail(btn.dataset.viewAudit);
+                });
+            });
+
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.addEventListener('change', (e) => {
+                    e.stopPropagation();
+                    const id = cb.dataset.auditId;
+                    const row = cb.closest('tr');
+
+                    if (cb.checked) {
+                        State.selected.add(id);
+                        row.classList.add('selected');
+                    } else {
+                        State.selected.delete(id);
+                        row.classList.remove('selected');
+                    }
+
+                    updateBulkBar();
+                });
+            });
+
+            document.querySelectorAll('#auditTableBody tr').forEach(tr => {
+                tr.addEventListener('click', (e) => {
+                    if (e.target.closest('button') || e.target.closest('input')) return;
+                    const id = tr.dataset.auditId;
+                    if (id) showAuditDetail(id);
+                });
+            });
+        }
+
+        function updateCheckboxes() {
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.checked = State.selected.has(cb.dataset.auditId);
+                cb.closest('tr').classList.toggle('selected', cb.checked);
+            });
+        }
+
+        function updateBulkBar() {
+            const bar = document.getElementById('bulkBar');
+            const count = State.selected.size;
+
+            if (count > 0) {
+                bar.style.display = '';
+                document.getElementById('selectedCount').textContent = count;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+
+        /* ============================================================
+           SHOW DETAIL MODAL
+         ============================================================ */
+        function showAuditDetail(id) {
+            const action = State.allActions.find(a => String(a.id) === String(id));
+            if (!action) return;
+
+            const actor = String(action.actor || 'System');
+            const isSystem = actor === 'System';
+            const catClass = 'cat-' + (action.category || 'system');
+
+            let body = `
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                    <span class="audit-cat-badge ${catClass}">${action.icon} ${action.category}</span>
+                    <span class="badge badge-${action.level === 'critical' ? 'danger' : action.level === 'warning' ? 'warning' : 'info'}">
+                        ${action.level}
+                    </span>
+                </div>
+
+                <div class="audit-detail-block" style="background: linear-gradient(135deg, var(--primary-light), var(--bg-input)); margin-bottom: 16px;">
+                    <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+                        ${Utils.escape(action.actionLabel || action.action)}
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-muted); font-family: inherit;">
+                        ${Utils.escape(action.action || '')}
+                    </div>
+                </div>
+
+                <div class="grid grid-2 gap-sm mb-lg" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Actor</div>
+                        <div style="font-weight: 600; margin-top: 4px;">
+                            ${isSystem ? '⚙️ System' : `👤 ${Utils.escape(actor)}`}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Time</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 12px;">
+                            ${Utils.date(action.time, 'full')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            if (action.target) {
+                body += `
+                    <div class="audit-detail-row">
+                        <span class="audit-detail-label">Target</span>
+                        <span class="audit-detail-value">
+                            <code>${Utils.escape(action.target)}</code>
+                        </span>
+                    </div>
+                `;
+            }
+
+            if (action.ip) {
+                body += `
+                    <div class="audit-detail-row">
+                        <span class="audit-detail-label">IP Address</span>
+                        <span class="audit-detail-value">
+                            <span class="ip-display">${Utils.escape(action.ip)}</span>
+                        </span>
+                    </div>
+                `;
+            }
+
+            /* ---- Diff viewer ---- */
+            if (action.before || action.after) {
+                const beforeStr = action.before ? JSON.stringify(action.before, null, 2) : 'null';
+                const afterStr = action.after ? JSON.stringify(action.after, null, 2) : 'null';
+
+                body += `
+                    <div style="margin-top: 16px;">
+                        <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+                            📊 Changes
+                        </div>
+                        <div class="diff-viewer">
+                            <div class="diff-col before">
+                                <div class="diff-col-title">❌ Before</div>
+                                <div class="diff-col-content">${Utils.escape(beforeStr)}</div>
+                            </div>
+                            <div class="diff-col after">
+                                <div class="diff-col-title">✅ After</div>
+                                <div class="diff-col-content">${Utils.escape(afterStr)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            Modal.open({
+                title: '🔍 Audit Detail',
+                body,
+                size: 'lg',
+                footer: `
+                    <button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>
+                    <button class="btn btn-ghost btn-sm" onclick="navigator.clipboard.writeText('${Utils.escape(JSON.stringify(action))}'); Toast.success('Copied!');">📋 Copy JSON</button>
+                `,
+            });
+        }
+
+        /* ============================================================
+           RENDER TIMELINE
+         ============================================================ */
+        function renderTimeline() {
+            const container = document.getElementById('auditTimeline');
+
+            let filtered = State.allActions.slice();
+
+            /* ---- Search ---- */
+            if (State.timelineSearch) {
+                const q = State.timelineSearch.toLowerCase();
+                filtered = filtered.filter(a =>
+                    String(a.actionLabel || '').toLowerCase().includes(q) ||
+                    String(a.target || '').toLowerCase().includes(q) ||
+                    String(a.actor || '').toLowerCase().includes(q)
+                );
+            }
+
+            /* ---- Admin ---- */
+            if (State.timelineAdmin) {
+                filtered = filtered.filter(a => String(a.actor) === State.timelineAdmin);
+            }
+
+            /* ---- Date ---- */
+            if (State.timelineDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(a => {
+                    const dt = new Date(String(a.time || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const aDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - aDate) / 86400000);
+
+                    if (State.timelineDate === 'today') return diffDays === 0;
+                    if (State.timelineDate === 'yesterday') return diffDays === 1;
+                    if (State.timelineDate === '7days') return diffDays <= 7;
+                    if (State.timelineDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            document.getElementById('timelineCount').textContent = `${filtered.length} events`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="padding: 60px 20px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                        <div>No events in this period</div>
+                    </div>
+                `;
+                return;
+            }
+
+            /* ---- Group by date ---- */
+            const grouped = {};
+
+            filtered.slice(0, 200).forEach(a => {
+                const d = new Date(String(a.time || '').replace(' ', 'T'));
+                const dateKey = isNaN(d.getTime()) ? 'Unknown' : d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+
+                if (!grouped[dateKey]) grouped[dateKey] = [];
+                grouped[dateKey].push(a);
+            });
+
+            let html = '';
+
+            Object.entries(grouped).forEach(([date, actions]) => {
+                html += `
+                    <div style="font-size: 12px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 0 8px; border-bottom: 1px solid var(--border-light); margin-bottom: 16px;">
+                        📅 ${date} — ${actions.length} events
+                    </div>
+                `;
+
+                actions.forEach(a => {
+                    const isSystem = String(a.actor) === 'System';
+                    const actorLabel = isSystem ? '⚙️ System' : `👤 ${Utils.truncate(a.actor === CONFIG.OTP_CHAT_ID ? 'Admin' : a.actor, 20)}`;
+
+                    html += `
+                        <div class="timeline-event level-${a.level}" data-audit-id="${Utils.escape(a.id)}">
+                            <div class="timeline-dot-event">${a.icon || '⚙️'}</div>
+                            <div class="timeline-time">${Utils.date(a.time, 'time')}</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">${Utils.escape(a.actionLabel || a.action)}</div>
+                                ${a.target ? `<div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">🎯 ${Utils.escape(a.target)}</div>` : ''}
+                                <div class="timeline-meta">
+                                    <span>${actorLabel}</span>
+                                    ${a.ip ? `<span>🌐 ${Utils.escape(a.ip)}</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+
+            container.innerHTML = html;
+
+            /* ---- Bind click ---- */
+            container.querySelectorAll('.timeline-content').forEach(el => {
+                el.addEventListener('click', () => {
+                    const eventEl = el.closest('.timeline-event');
+                    if (eventEl && eventEl.dataset.auditId) {
+                        showAuditDetail(eventEl.dataset.auditId);
+                    }
+                });
+            });
+        }
+
+        /* ============================================================
+           RENDER STATS
+         ============================================================ */
+        function renderStats() {
+            buildCategoryChart();
+            buildActionsTrendChart();
+            renderAdminActivity();
+            renderTopActions();
+            buildHourlyChart();
+        }
+
+        function buildCategoryChart() {
+            const canvas = document.getElementById('categoryChart');
+            if (!canvas) return;
+
+            const counts = {};
+
+            State.allActions.forEach(a => {
+                const cat = a.category || 'system';
+                counts[cat] = (counts[cat] || 0) + 1;
+            });
+
+            const labels = Object.keys(counts);
+            const values = Object.values(counts);
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+            }
+
+            const colors = {
+                user: '#3b82f6',
+                order: '#ff6b00',
+                payment: '#10b981',
+                service: '#a855f7',
+                setting: '#f59e0b',
+                auth: '#ef4444',
+                system: '#6b7280',
+                balance: '#fbbf24',
+                broadcast: '#06b6d4',
+            };
+
+            if (State.charts.category) State.charts.category.destroy();
+
+            State.charts.category = new Chart(canvas.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: labels.map(l => l.charAt(0).toUpperCase() + l.slice(1)),
+                    datasets: [{
+                        data: values,
+                        backgroundColor: labels.map(l => colors[l] || '#4b5563'),
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true, font: { size: 11 } } },
+                        tooltip: { backgroundColor: '#1a1a24', borderColor: '#2d2d3a', borderWidth: 1, padding: 12 }
+                    }
+                }
+            });
+        }
+
+        function buildActionsTrendChart() {
+            const canvas = document.getElementById('actionsTrendChart');
+            if (!canvas) return;
+
+            const days = {};
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date(today);
+                d.setDate(d.getDate() - i);
+                days[d.toISOString().split('T')[0]] = 0;
+            }
+
+            State.allActions.forEach(a => {
+                const dt = String(a.time || '').split(' ')[0];
+                if (days[dt] !== undefined) days[dt]++;
+            });
+
+            const labels = Object.keys(days).map(k => {
+                const d = new Date(k);
+                return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+            });
+
+            if (State.charts.trend) State.charts.trend.destroy();
+
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, 0, 200);
+            grad.addColorStop(0, 'rgba(255, 107, 0, 0.4)');
+            grad.addColorStop(1, 'rgba(255, 107, 0, 0.02)');
+
+            State.charts.trend = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Actions',
+                        data: Object.values(days),
+                        borderColor: '#ff6b00',
+                        backgroundColor: grad,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#ff6b00',
+                        pointBorderColor: '#0a0a0f',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function renderAdminActivity() {
+            const panel = document.getElementById('adminActivityPanel');
+            if (!panel) return;
+
+            const admins = {};
+
+            State.allActions.forEach(a => {
+                if (!a.actor || a.actor === 'System') return;
+                if (!String(a.actor).match(/^[0-9]+$/)) return;
+
+                admins[a.actor] = (admins[a.actor] || 0) + 1;
+            });
+
+            const sorted = Object.entries(admins).sort((a, b) => b[1] - a[1]);
+
+            if (sorted.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 30px;">📭 No admin activity</div>`;
+                return;
+            }
+
+            panel.innerHTML = sorted.slice(0, 10).map(([admin, count], i) => {
+                const label = admin === CONFIG.OTP_CHAT_ID ? `Admin (${admin})` : admin;
+                const initial = Utils.initials(label);
+
+                return `
+                    <div class="rank-item">
+                        <div class="rank-number ${i < 3 ? 'rank-' + (i + 1) : ''}">${i + 1}</div>
+                        <div class="admin-chip-avatar">${initial}</div>
+                        <div class="rank-info">
+                            <div class="rank-name">${Utils.escape(label)}</div>
+                            <div class="rank-sub">Admin ID: ${Utils.escape(admin)}</div>
+                        </div>
+                        <div class="rank-count">${count}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTopActions() {
+            const panel = document.getElementById('topActionsPanel');
+            if (!panel) return;
+
+            const actions = {};
+
+            State.allActions.forEach(a => {
+                const key = a.actionLabel || a.action || 'unknown';
+                if (!actions[key]) actions[key] = { count: 0, icon: a.icon || '⚙️' };
+                actions[key].count++;
+            });
+
+            const sorted = Object.entries(actions).sort((a, b) => b[1].count - a[1].count);
+
+            if (sorted.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 30px;">📭 No actions</div>`;
+                return;
+            }
+
+            panel.innerHTML = sorted.slice(0, 10).map(([action, data], i) => `
+                <div class="rank-item">
+                    <div class="rank-number ${i < 3 ? 'rank-' + (i + 1) : ''}">${i + 1}</div>
+                    <div style="font-size: 20px; flex-shrink: 0;">${data.icon}</div>
+                    <div class="rank-info">
+                        <div class="rank-name">${Utils.escape(action)}</div>
+                    </div>
+                    <div class="rank-count">${data.count}</div>
+                </div>
+            `).join('');
+        }
+
+        function buildHourlyChart() {
+            const canvas = document.getElementById('hourlyChart');
+            if (!canvas) return;
+
+            const hours = new Array(24).fill(0);
+
+            State.allActions.forEach(a => {
+                const t = String(a.time || '').split(' ')[1] || '';
+                const h = parseInt(t.split(':')[0]);
+                if (h >= 0 && h < 24) hours[h]++;
+            });
+
+            const labels = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, '0'));
+
+            if (State.charts.hourly) State.charts.hourly.destroy();
+
+            State.charts.hourly = new Chart(canvas.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: hours,
+                        backgroundColor: 'rgba(255, 107, 0, 0.7)',
+                        borderColor: '#ff6b00',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 }, maxTicksLimit: 12 } }
+                    }
+                }
+            });
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            const total = State.allActions.length;
+
+            const adminActions = State.allActions.filter(a =>
+                a.actor && a.actor !== 'System' && String(a.actor).match(/^[0-9]+$/)
+            ).length;
+
+            const criticalActions = State.allActions.filter(a => a.level === 'critical').length;
+
+            /* ---- Unique admins ---- */
+            const uniqueAdmins = new Set();
+            State.allActions.forEach(a => {
+                if (a.actor && a.actor !== 'System' && String(a.actor).match(/^[0-9]+$/)) {
+                    uniqueAdmins.add(a.actor);
+                }
+            });
+
+            /* ---- Today count ---- */
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const todayCount = State.allActions.filter(a => {
+                const dt = new Date(String(a.time || '').replace(' ', 'T')).getTime();
+                return !isNaN(dt) && dt >= today.getTime();
+            }).length;
+
+            document.getElementById('statTotalActions').textContent = Utils.number(total);
+            document.getElementById('statAdminActions').textContent = Utils.number(adminActions);
+            document.getElementById('statCriticalActions').textContent = Utils.number(criticalActions);
+            document.getElementById('statUniqueAdmins').textContent = Utils.number(uniqueAdmins.size);
+
+            document.getElementById('trendTotal').textContent = `Today: ${todayCount}`;
+            document.getElementById('trendAdmin').textContent = `${adminActions} actions`;
+            document.getElementById('trendCritical').textContent = `${criticalActions} high risk`;
+            document.getElementById('trendAdmins').textContent = `${uniqueAdmins.size} unique`;
+
+            document.getElementById('headerSubtitle').textContent =
+                `${total} audit entries • ${adminActions} admin actions • ${criticalActions} critical`;
+        }
+
+        /* ============================================================
+           LIVE MODE
+         ============================================================ */
+        function toggleLiveMode() {
+            State.liveMode = !State.liveMode;
+
+            const toggle = document.getElementById('liveToggle');
+            const dot = document.getElementById('liveDot');
+            const status = document.getElementById('liveStatus');
+
+            if (State.liveMode) {
+                toggle.style.color = 'var(--danger)';
+                dot.classList.add('active');
+                status.textContent = 'Live Feed: ON (5s refresh)';
+                status.style.color = 'var(--success)';
+
+                Toast.success('Live feed enabled');
+
+                State.liveTimer = setInterval(async () => {
+                    try {
+                        await loadAuditLog(true);
+                        renderAuditTable();
+                        updateStats();
+                    } catch (e) {}
+                }, 5000);
+
+            } else {
+                toggle.style.color = '';
+                dot.classList.remove('active');
+                status.textContent = 'Live Feed: OFF';
+                status.style.color = 'var(--text-muted)';
+
+                if (State.liveTimer) clearInterval(State.liveTimer);
+                State.liveTimer = null;
+
+                Toast.info('Live feed disabled');
+            }
+        }
+
+        /* ============================================================
+           BULK ACTIONS
+         ============================================================ */
+        async function handleBulkAction(action) {
+            const ids = Array.from(State.selected);
+            if (ids.length === 0) return;
+
+            if (action === 'delete') {
+                const confirmed = await Modal.confirm({
+                    title: '🗑️ Delete Audit Entries',
+                    message: `Delete ${ids.length} selected audit entries? This cannot be undone.`,
+                    confirmText: 'Yes, Delete',
+                    type: 'danger',
+                });
+
+                if (!confirmed) return;
+
+                /* ---- Client-side removal only ---- */
+                State.allActions = State.allActions.filter(a => !ids.includes(a.id));
+                State.selected.clear();
+
+                renderAuditTable();
+                updateStats();
+                updateBulkBar();
+                Toast.success(`Deleted ${ids.length} entries`);
+            }
+
+            if (action === 'export') {
+                exportSelected(ids);
+            }
+        }
+
+        function exportSelected(ids) {
+            const selected = State.allActions.filter(a => ids.includes(a.id));
+
+            if (selected.length === 0) {
+                Toast.error('No data to export');
+                return;
+            }
+
+            const csv = [
+                ['Time', 'Actor', 'Action', 'Category', 'Level', 'Target', 'IP'],
+                ...selected.map(a => [
+                    a.time,
+                    a.actor,
+                    a.actionLabel || a.action,
+                    a.category,
+                    a.level,
+                    a.target,
+                    a.ip,
+                ])
+            ].map(row => row.map(c => `"${String(c || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `audit_selected_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${selected.length} entries`);
+        }
+
+        /* ============================================================
+           EXPORT AUDIT LOG
+         ============================================================ */
+        function exportAuditLog() {
+            if (State.filtered.length === 0 && State.allActions.length === 0) {
+                Toast.error('No data to export');
+                return;
+            }
+
+            const data = State.filtered.length > 0 ? State.filtered : State.allActions;
+
+            const csv = [
+                ['Time', 'Actor', 'Action', 'Action Code', 'Category', 'Level', 'Target', 'IP', 'Before', 'After'],
+                ...data.map(a => [
+                    a.time,
+                    a.actor,
+                    a.actionLabel || a.action,
+                    a.action,
+                    a.category,
+                    a.level,
+                    a.target,
+                    a.ip,
+                    a.before ? JSON.stringify(a.before) : '',
+                    a.after ? JSON.stringify(a.after) : '',
+                ])
+            ].map(row => row.map(c => `"${String(c || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `audit_log_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${data.length} entries`);
+        }
+
+        /* ============================================================
+           GENERATE REPORT
+         ============================================================ */
+        function generateReport() {
+            const total = State.allActions.length;
+            const admins = new Set();
+            const categories = {};
+
+            State.allActions.forEach(a => {
+                if (a.actor && a.actor !== 'System') admins.add(a.actor);
+                const cat = a.category || 'other';
+                categories[cat] = (categories[cat] || 0) + 1;
+            });
+
+            const critical = State.allActions.filter(a => a.level === 'critical').length;
+            const warnings = State.allActions.filter(a => a.level === 'warning').length;
+
+            const body = `
+                <div style="background: linear-gradient(135deg, var(--primary-light), var(--bg-elevated)); padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
+                    <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Total Actions</div>
+                    <div style="font-size: 48px; font-weight: 800; color: var(--primary); margin-top: 8px;">${Utils.number(total)}</div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+                        Generated: ${new Date().toLocaleString('en-IN')}
+                    </div>
+                </div>
+
+                <div class="grid grid-3 gap-sm mb-md" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Admins</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--info); margin-top: 4px;">${admins.size}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Critical</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--danger); margin-top: 4px;">${critical}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Warnings</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--warning); margin-top: 4px;">${warnings}</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <div style="font-size: 13px; font-weight: 700; margin-bottom: 12px;">📊 Actions by Category</div>
+                    ${Object.entries(categories).sort((a, b) => b[1] - a[1]).map(([cat, count]) => {
+                        const pct = (count / total * 100).toFixed(1);
+                        return `
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 12px;">
+                                <span>${cat.charAt(0).toUpperCase() + cat.slice(1)}</span>
+                                <span><b style="color: var(--primary);">${count}</b> <span style="color: var(--text-muted);">(${pct}%)</span></span>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--success-light), var(--bg-elevated)); padding: 14px; border-radius: 10px; font-size: 12px; line-height: 1.6;">
+                    <b>✅ Report Summary:</b><br>
+                    • Total of <b>${Utils.number(total)}</b> audited actions<br>
+                    • From <b>${admins.size}</b> admin account(s)<br>
+                    • <b>${critical}</b> critical actions require review<br>
+                    • <b>${warnings}</b> warnings logged<br>
+                    • Covering <b>${Object.keys(categories).length}</b> categories
+                </div>
+            `;
+
+            Modal.open({
+                title: '📊 Audit Report',
+                body,
+                size: 'lg',
+                footer: `
+                    <button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Print</button>
+                `,
+            });
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

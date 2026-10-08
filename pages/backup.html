@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>💾 Backup — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link active" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">💾 Backup & Restore</div>
+                        <div class="header-subtitle" id="headerSubtitle">Protect your data</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search backups...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">💾 Backup & Restore</h1>
+                        <p class="page-description" id="pageStats">Loading backup info...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="syncGithubBtn">
+                            📤 Sync to GitHub
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="createBackupBtn">
+                            ➕ Create Backup
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">💾</div>
+                        <div class="stat-value" id="statTotalBackups">0</div>
+                        <div class="stat-label">Total Backups</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value" id="statLastBackup">—</div>
+                        <div class="stat-label">Last Backup</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🐙</div>
+                        <div class="stat-value" id="statLastSync">—</div>
+                        <div class="stat-label">Last GitHub Sync</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value" id="statDbSize">0 MB</div>
+                        <div class="stat-label">Database Size</div>
+                    </div>
+                </div>
+
+                <!-- ALERT BANNER -->
+                <div class="alert alert-warning mb-lg">
+                    <span style="font-size: 20px;">⚠️</span>
+                    <div style="flex: 1;">
+                        <b>Important:</b> Backups are critical for disaster recovery. Regular backups recommended.
+                        <div style="font-size: 12px; opacity: 0.8; margin-top: 2px;">
+                            Manual backups download to browser. Auto backups save on server.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="create">
+                            ➕ Create Backup
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="history">
+                            📜 History
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="restore">
+                            📥 Restore
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="github">
+                            🐙 GitHub Sync
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="settings">
+                            ⚙️ Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: CREATE BACKUP
+                     ==================================================== -->
+                <div id="createView">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💾 Manual Backup</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                                    Create a complete backup of your database. Choose format based on your needs.
+                                </p>
+
+                                <div class="backup-formats-grid">
+                                    <div class="backup-format-card" data-format="json">
+                                        <div class="backup-format-icon">📋</div>
+                                        <div class="backup-format-title">JSON Format</div>
+                                        <div class="backup-format-desc">
+                                            Human-readable, easy to restore via panel, larger file size
+                                        </div>
+                                        <div class="backup-format-badge">Recommended</div>
+                                    </div>
+
+                                    <div class="backup-format-card" data-format="sql">
+                                        <div class="backup-format-icon">📊</div>
+                                        <div class="backup-format-title">SQL Format</div>
+                                        <div class="backup-format-desc">
+                                            Standard SQL dump, compatible with SQLite tools, smaller size
+                                        </div>
+                                        <div class="backup-format-badge">Advanced</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mt-md">
+                                    <label class="form-label">Backup Mode</label>
+                                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                        <label class="radio-option">
+                                            <input type="radio" name="backupMode" value="download" checked>
+                                            <div class="radio-option-content">
+                                                <span class="radio-icon">📥</span>
+                                                <div>
+                                                    <div class="radio-title">Download</div>
+                                                    <div class="radio-desc">Direct browser download</div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="backupMode" value="telegram">
+                                            <div class="radio-option-content">
+                                                <span class="radio-icon">📱</span>
+                                                <div>
+                                                    <div class="radio-title">Telegram</div>
+                                                    <div class="radio-desc">Send to admin DM</div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-block btn-lg mt-md" id="createBackupNowBtn">
+                                    💾 Create Backup Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 What's Included</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="included-list">
+                                    <div class="included-item">
+                                        <span class="included-icon">👥</span>
+                                        <div>
+                                            <div class="included-title">Users</div>
+                                            <div class="included-desc">All user accounts, profiles, balances</div>
+                                        </div>
+                                    </div>
+                                    <div class="included-item">
+                                        <span class="included-icon">📦</span>
+                                        <div>
+                                            <div class="included-title">Orders</div>
+                                            <div class="included-desc">Complete order history & status</div>
+                                        </div>
+                                    </div>
+                                    <div class="included-item">
+                                        <span class="included-icon">💳</span>
+                                        <div>
+                                            <div class="included-title">Payments</div>
+                                            <div class="included-desc">All payment records & UTRs</div>
+                                        </div>
+                                    </div>
+                                    <div class="included-item">
+                                        <span class="included-icon">🛒</span>
+                                        <div>
+                                            <div class="included-title">Services</div>
+                                            <div class="included-desc">Service catalog & pricing</div>
+                                        </div>
+                                    </div>
+                                    <div class="included-item">
+                                        <span class="included-icon">⚙️</span>
+                                        <div>
+                                            <div class="included-title">Settings</div>
+                                            <div class="included-desc">Bot configuration</div>
+                                        </div>
+                                    </div>
+                                    <div class="included-item">
+                                        <span class="included-icon">📊</span>
+                                        <div>
+                                            <div class="included-title">Analytics</div>
+                                            <div class="included-desc">Activity logs & audit trail</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- QUICK BACKUP -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⚡ Quick Actions</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 gap-md">
+                                <button class="quick-action-card" id="quickBackupJsonBtn">
+                                    <div class="quick-action-icon">📋</div>
+                                    <div class="quick-action-title">JSON Backup</div>
+                                    <div class="quick-action-desc">Full JSON export</div>
+                                </button>
+                                <button class="quick-action-card" id="quickBackupSqlBtn">
+                                    <div class="quick-action-icon">📊</div>
+                                    <div class="quick-action-title">SQL Backup</div>
+                                    <div class="quick-action-desc">SQL dump export</div>
+                                </button>
+                                <button class="quick-action-card" id="quickSyncGithubBtn">
+                                    <div class="quick-action-icon">🐙</div>
+                                    <div class="quick-action-title">Push to GitHub</div>
+                                    <div class="quick-action-desc">Sync to cloud</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: HISTORY
+                     ==================================================== -->
+                <div id="historyView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-body" style="padding: 0;">
+                            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 10px; align-items: end;">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">🔍 Search</label>
+                                    <input type="text" class="form-input" id="historySearch" placeholder="Filename, date...">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Format</label>
+                                    <select class="form-select" id="historyFilterFormat">
+                                        <option value="">All</option>
+                                        <option value="json">📋 JSON</option>
+                                        <option value="sql">📊 SQL</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date</label>
+                                    <select class="form-select" id="historyFilterDate">
+                                        <option value="">All Time</option>
+                                        <option value="today">Today</option>
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary btn-icon" id="clearHistoryFilters" title="Clear">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="padding: 0; overflow: hidden;">
+                        <div class="table-wrapper" style="border: none;">
+                            <table class="table" id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Filename</th>
+                                        <th>Format</th>
+                                        <th>Size</th>
+                                        <th>Source</th>
+                                        <th>Date</th>
+                                        <th style="width: 160px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                            <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                            Loading backups...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: RESTORE
+                     ==================================================== -->
+                <div id="restoreView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📥 Upload & Restore</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger" style="margin-bottom: 16px;">
+                                    <span>⚠️</span>
+                                    <div style="font-size: 12px;">
+                                        <b>Warning:</b> Restore will <b>OVERWRITE</b> all current data.
+                                        A pre-restore backup will be created automatically.
+                                    </div>
+                                </div>
+
+                                <div class="restore-dropzone" id="restoreDropzone">
+                                    <div class="restore-icon">📁</div>
+                                    <div class="restore-text">
+                                        <div style="font-weight: 600;">Drag & drop backup file</div>
+                                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                                            or click to browse (.json, .sql)
+                                        </div>
+                                    </div>
+                                    <input type="file" id="restoreFileInput" style="display: none;" accept=".json,.sql">
+                                </div>
+
+                                <div id="selectedRestoreFile" style="display: none; margin-top: 12px;">
+                                    <div class="attachment-chip">
+                                        <span class="attachment-chip-icon">📄</span>
+                                        <div class="attachment-chip-info">
+                                            <div class="attachment-chip-name" id="restoreFileName">backup.json</div>
+                                            <div class="attachment-chip-size" id="restoreFileInfo">0 KB</div>
+                                        </div>
+                                        <button class="btn btn-ghost btn-icon btn-sm" id="removeRestoreFile">
+                                            ✕
+                                        </button>
+                                    </div>
+
+                                    <label class="checkbox-wrapper" style="margin-top: 12px;">
+                                        <input type="checkbox" id="confirmRestore">
+                                        <span>I understand this will overwrite current data</span>
+                                    </label>
+
+                                    <button class="btn btn-danger btn-block btn-lg mt-md" id="restoreNowBtn" disabled>
+                                        🔄 Restore Database
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🐙 Restore from GitHub</h3>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                                    Pull the latest backup from your GitHub data repository.
+                                </p>
+
+                                <div class="github-info-card">
+                                    <div class="github-info-row">
+                                        <span>Repository</span>
+                                        <code id="githubRepo">Loading...</code>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>Last Sync</span>
+                                        <span id="githubLastSync">Never</span>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>File</span>
+                                        <code>bot_data.json</code>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-warning" style="margin-top: 16px;">
+                                    <span>⚠️</span>
+                                    <div style="font-size: 12px;">
+                                        GitHub restore will overwrite current data. Ensure GitHub backup is recent.
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-warning btn-block btn-lg mt-md" id="restoreGithubBtn">
+                                    📥 Restore from GitHub
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⚡ One-Click Restore</h3>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+                                Recent backups from server can be restored with one click
+                            </p>
+
+                            <div id="quickRestoreList" class="quick-restore-list">
+                                <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+                                    Loading recent backups...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: GITHUB SYNC
+                     ==================================================== -->
+                <div id="githubView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🐙 GitHub Integration</h3>
+                                <span class="badge badge-success">Connected</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="github-info-card">
+                                    <div class="github-info-row">
+                                        <span>Repository</span>
+                                        <code id="githubRepoFull">Loading...</code>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>Data File</span>
+                                        <code>bot_data.json</code>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>Branch</span>
+                                        <code>main</code>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>Auto Sync</span>
+                                        <span id="githubAutoSync">Enabled</span>
+                                    </div>
+                                    <div class="github-info-row">
+                                        <span>Last Sync</span>
+                                        <span id="githubLastSyncFull">—</span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-2 gap-sm mt-md">
+                                    <button class="btn btn-primary" id="pushToGithubBtn">
+                                        📤 Push Now
+                                    </button>
+                                    <button class="btn btn-warning" id="pullFromGithubBtn">
+                                        📥 Pull Now
+                                    </button>
+                                </div>
+
+                                <button class="btn btn-secondary btn-block mt-md" id="testGithubBtn">
+                                    🧪 Test Connection
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Sync Statistics</h3>
+                            </div>
+                            <div class="card-body" id="githubStatsPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">⏱️ Auto Sync Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <label class="setting-row">
+                                <div>
+                                    <div class="setting-label">Enable Auto Sync</div>
+                                    <div class="setting-desc">Push data to GitHub every 30 minutes</div>
+                                </div>
+                                <input type="checkbox" class="toggle-input" id="autoSyncEnabled" checked>
+                            </label>
+
+                            <label class="setting-row">
+                                <div>
+                                    <div class="setting-label">Auto Restore</div>
+                                    <div class="setting-desc">Auto-restore on fresh server install</div>
+                                </div>
+                                <input type="checkbox" class="toggle-input" id="autoRestoreEnabled" checked>
+                            </label>
+
+                            <label class="setting-row">
+                                <div>
+                                    <div class="setting-label">Compress Data</div>
+                                    <div class="setting-desc">Use gzip to reduce upload size</div>
+                                </div>
+                                <input type="checkbox" class="toggle-input" id="compressData" checked>
+                            </label>
+
+                            <label class="setting-row">
+                                <div>
+                                    <div class="setting-label">Keep Backup History</div>
+                                    <div class="setting-desc">Retain last 30 backup versions</div>
+                                </div>
+                                <input type="checkbox" class="toggle-input" id="keepHistory" checked>
+                            </label>
+
+                            <div style="text-align: right; margin-top: 16px;">
+                                <button class="btn btn-primary" id="saveGithubSettingsBtn">
+                                    💾 Save Settings
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📜 Sync Log</h3>
+                        </div>
+                        <div class="card-body" id="syncLogPanel">
+                            <div style="text-align: center; color: var(--text-muted); padding: 30px;">
+                                📭 No sync activity yet
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 5: SETTINGS
+                     ==================================================== -->
+                <div id="settingsView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⏰ Auto Backup Schedule</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Enable Daily Backup</div>
+                                        <div class="setting-desc">Auto backup sent to log channel</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="dailyBackupEnabled" checked>
+                                </label>
+
+                                <div class="form-group mt-md">
+                                    <label class="form-label">Backup Time (IST)</label>
+                                    <input type="time" class="form-input" id="backupTime" value="02:00">
+                                    <div class="form-help">Preferred time for daily backup</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Retention Period</label>
+                                    <select class="form-select" id="retentionDays">
+                                        <option value="7">7 days</option>
+                                        <option value="30" selected>30 days</option>
+                                        <option value="90">90 days</option>
+                                        <option value="180">180 days</option>
+                                        <option value="365">1 year</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Max Backup Size (MB)</label>
+                                    <input type="number" class="form-input" id="maxBackupSize" value="45" min="10" max="200">
+                                    <div class="form-help">Backups above this size will be skipped</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📢 Backup Notifications</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Notify on Success</div>
+                                        <div class="setting-desc">Send confirmation to admin</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="notifySuccess" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Notify on Failure</div>
+                                        <div class="setting-desc">Alert admin on backup errors</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="notifyFailure" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Send to Log Channel</div>
+                                        <div class="setting-desc">Post backup to customer log channel</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="sendToChannel" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Include Logs</div>
+                                        <div class="setting-desc">Include activity logs in backup</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="includeLogs" checked>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔐 Security</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Encrypt Backups</div>
+                                        <div class="setting-desc">Password-protect backup files</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="encryptBackups">
+                                </label>
+
+                                <div id="encryptionPasswordGroup" style="display: none; margin-top: 12px;">
+                                    <div class="form-group">
+                                        <label class="form-label">Encryption Password</label>
+                                        <input type="password" class="form-input" id="encryptionPassword" placeholder="Strong password" maxlength="100">
+                                    </div>
+                                </div>
+
+                                <div class="form-group mt-md">
+                                    <label class="form-label">Backup Location</label>
+                                    <select class="form-select" id="backupLocation">
+                                        <option value="auto">Auto (Recommended)</option>
+                                        <option value="tmp">System Temp</option>
+                                        <option value="private">Private Folder</option>
+                                    </select>
+                                    <div class="form-help">Where manual backups are saved</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🧪 Maintenance</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="maintenance-item">
+                                    <div class="maintenance-info">
+                                        <div class="maintenance-title">Optimize Database</div>
+                                        <div class="maintenance-desc">Vacuum & analyze SQLite database</div>
+                                    </div>
+                                    <button class="btn btn-info btn-sm" id="optimizeDbBtn">
+                                        🔧 Optimize
+                                    </button>
+                                </div>
+
+                                <div class="maintenance-item">
+                                    <div class="maintenance-info">
+                                        <div class="maintenance-title">Clean Old Backups</div>
+                                        <div class="maintenance-desc">Remove backups older than retention period</div>
+                                    </div>
+                                    <button class="btn btn-warning btn-sm" id="cleanOldBtn">
+                                        🗑️ Clean Now
+                                    </button>
+                                </div>
+
+                                <div class="maintenance-item">
+                                    <div class="maintenance-info">
+                                        <div class="maintenance-title">Integrity Check</div>
+                                        <div class="maintenance-desc">Verify database integrity</div>
+                                    </div>
+                                    <button class="btn btn-success btn-sm" id="integrityCheckBtn">
+                                        ✅ Check
+                                    </button>
+                                </div>
+
+                                <div class="maintenance-item" style="border-bottom: none;">
+                                    <div class="maintenance-info">
+                                        <div class="maintenance-title">Reset Backup Settings</div>
+                                        <div class="maintenance-desc">Restore default backup configuration</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="resetBackupSettingsBtn">
+                                        🔄 Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary" id="saveAllSettingsBtn">
+                            💾 Save All Settings
+                        </button>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       BACKUP PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            mainTab: 'create',
+            selectedFormat: 'json',
+            selectedMode: 'download',
+            backups: [],
+            allBackups: [],
+            selectedRestoreFile: null,
+            historySearch: '',
+            historyFormat: '',
+            historyDate: '',
+            githubRepo: '',
+            githubDataFile: 'bot_data.json',
+            lastGithubSync: '',
+            dbSize: 0,
+            syncLogs: [],
+            settings: {
+                dailyBackupEnabled: true,
+                backupTime: '02:00',
+                retentionDays: 30,
+                maxBackupSize: 45,
+                notifySuccess: true,
+                notifyFailure: true,
+                sendToChannel: true,
+                includeLogs: true,
+                encryptBackups: false,
+                encryptionPassword: '',
+                backupLocation: 'auto',
+                autoSyncEnabled: true,
+                autoRestoreEnabled: true,
+                compressData: true,
+                keepHistory: true,
+            },
+            isCreating: false,
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            loadSettingsFromStorage();
+
+            await Promise.all([
+                loadBackups(),
+                loadGithubInfo(),
+                loadDbStats(),
+            ]);
+
+            updateStats();
+            renderHistory();
+            renderQuickRestore();
+            renderGithubStats();
+            renderSyncLogs();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('backupStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'backupStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Format Grid ---- */
+                .backup-formats-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                }
+
+                .backup-format-card {
+                    padding: 16px;
+                    background: var(--bg-elevated);
+                    border: 2px solid var(--border-color);
+                    border-radius: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    position: relative;
+                    text-align: center;
+                }
+                .backup-format-card:hover {
+                    border-color: var(--border-hover);
+                    transform: translateY(-2px);
+                }
+                .backup-format-card.selected {
+                    border-color: var(--primary);
+                    background: var(--primary-light);
+                    box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+                }
+                .backup-format-icon {
+                    font-size: 32px;
+                    margin-bottom: 8px;
+                }
+                .backup-format-title {
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: var(--text-primary);
+                    margin-bottom: 4px;
+                }
+                .backup-format-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    line-height: 1.4;
+                }
+                .backup-format-badge {
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    font-size: 9px;
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    background: var(--success);
+                    color: #fff;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                /* ---- Radio Options ---- */
+                .radio-option {
+                    flex: 1;
+                    min-width: 140px;
+                    cursor: pointer;
+                }
+                .radio-option input {
+                    display: none;
+                }
+                .radio-option-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border: 2px solid transparent;
+                    border-radius: 10px;
+                    transition: all 0.15s;
+                }
+                .radio-option input:checked + .radio-option-content {
+                    border-color: var(--primary);
+                    background: var(--primary-light);
+                }
+                .radio-icon {
+                    font-size: 20px;
+                }
+                .radio-title {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .radio-desc {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+
+                /* ---- Included List ---- */
+                .included-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .included-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                }
+                .included-icon {
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .included-title {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .included-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+
+                /* ---- Quick Actions ---- */
+                .quick-action-card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 20px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                    color: var(--text-primary);
+                }
+                .quick-action-card:hover {
+                    border-color: var(--primary);
+                    background: var(--primary-light);
+                    transform: translateY(-3px);
+                }
+                .quick-action-icon {
+                    font-size: 32px;
+                }
+                .quick-action-title {
+                    font-size: 13px;
+                    font-weight: 700;
+                }
+                .quick-action-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                }
+
+                /* ---- Restore Dropzone ---- */
+                .restore-dropzone {
+                    border: 2px dashed var(--border-color);
+                    border-radius: 12px;
+                    padding: 40px 20px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    background: var(--bg-input);
+                }
+                .restore-dropzone:hover,
+                .restore-dropzone.drag-over {
+                    border-color: var(--danger);
+                    background: var(--danger-light);
+                }
+                .restore-icon {
+                    font-size: 40px;
+                    margin-bottom: 12px;
+                    opacity: 0.6;
+                }
+                .restore-text {
+                    color: var(--text-secondary);
+                    font-size: 13px;
+                }
+
+                /* ---- Attachment Chip ---- */
+                .attachment-chip {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 10px;
+                }
+                .attachment-chip-icon {
+                    font-size: 24px;
+                }
+                .attachment-chip-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .attachment-chip-name {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .attachment-chip-size {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+
+                /* ---- GitHub Info Card ---- */
+                .github-info-card {
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    padding: 4px;
+                }
+                .github-info-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 12px;
+                    border-bottom: 1px solid var(--border-light);
+                    font-size: 12px;
+                }
+                .github-info-row:last-child {
+                    border-bottom: none;
+                }
+                .github-info-row span:first-child {
+                    color: var(--text-muted);
+                }
+                .github-info-row code {
+                    font-size: 11px;
+                    background: var(--bg-card);
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                }
+
+                /* ---- Quick Restore List ---- */
+                .quick-restore-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .quick-restore-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 12px 14px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    transition: all 0.15s;
+                }
+                .quick-restore-item:hover {
+                    background: var(--bg-hover);
+                }
+                .quick-restore-icon {
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .quick-restore-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .quick-restore-name {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-family: 'SF Mono', Monaco, monospace;
+                }
+                .quick-restore-meta {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                }
+
+                /* ---- Maintenance Item ---- */
+                .maintenance-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 14px 0;
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .maintenance-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .maintenance-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .maintenance-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child { flex: 1; min-width: 0; }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Format Badge ---- */
+                .fmt-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 3px 9px;
+                    border-radius: 6px;
+                    font-size: 11px;
+                    font-weight: 700;
+                }
+                .fmt-json { background: var(--info-light); color: var(--info); }
+                .fmt-sql  { background: var(--warning-light); color: var(--warning); }
+
+                @media (max-width: 768px) {
+                    .backup-formats-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => reloadAll(true));
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Format cards ---- */
+            document.querySelectorAll('.backup-format-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('.backup-format-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    State.selectedFormat = card.dataset.format;
+                });
+            });
+
+            /* ---- Backup mode ---- */
+            document.querySelectorAll('input[name="backupMode"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    State.selectedMode = e.target.value;
+                });
+            });
+
+            /* ---- Create backup ---- */
+            document.getElementById('createBackupBtn').addEventListener('click', createBackup);
+            document.getElementById('createBackupNowBtn').addEventListener('click', createBackup);
+            document.getElementById('quickBackupJsonBtn').addEventListener('click', () => quickBackup('json'));
+            document.getElementById('quickBackupSqlBtn').addEventListener('click', () => quickBackup('sql'));
+            document.getElementById('quickSyncGithubBtn').addEventListener('click', pushToGithub);
+            document.getElementById('syncGithubBtn').addEventListener('click', pushToGithub);
+
+            /* ---- History filters ---- */
+            const histSearch = document.getElementById('historySearch');
+            histSearch.addEventListener('input', Utils.debounce(() => {
+                State.historySearch = histSearch.value.trim();
+                renderHistory();
+            }, 300));
+
+            document.getElementById('historyFilterFormat').addEventListener('change', (e) => {
+                State.historyFormat = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('historyFilterDate').addEventListener('change', (e) => {
+                State.historyDate = e.target.value;
+                renderHistory();
+            });
+
+            document.getElementById('clearHistoryFilters').addEventListener('click', () => {
+                document.getElementById('historySearch').value = '';
+                document.getElementById('historyFilterFormat').value = '';
+                document.getElementById('historyFilterDate').value = '';
+                State.historySearch = '';
+                State.historyFormat = '';
+                State.historyDate = '';
+                renderHistory();
+            });
+
+            /* ---- Restore dropzone ---- */
+            const dz = document.getElementById('restoreDropzone');
+            const input = document.getElementById('restoreFileInput');
+
+            dz.addEventListener('click', () => input.click());
+            dz.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dz.classList.add('drag-over');
+            });
+            dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+            dz.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dz.classList.remove('drag-over');
+                if (e.dataTransfer.files.length > 0) selectRestoreFile(e.dataTransfer.files[0]);
+            });
+
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) selectRestoreFile(e.target.files[0]);
+                e.target.value = '';
+            });
+
+            document.getElementById('removeRestoreFile').addEventListener('click', removeRestoreFile);
+            document.getElementById('confirmRestore').addEventListener('change', (e) => {
+                document.getElementById('restoreNowBtn').disabled = !e.target.checked || !State.selectedRestoreFile;
+            });
+            document.getElementById('restoreNowBtn').addEventListener('click', restoreFromFile);
+
+            /* ---- Restore from GitHub ---- */
+            document.getElementById('restoreGithubBtn').addEventListener('click', restoreFromGithub);
+
+            /* ---- GitHub sync ---- */
+            document.getElementById('pushToGithubBtn').addEventListener('click', pushToGithub);
+            document.getElementById('pullFromGithubBtn').addEventListener('click', restoreFromGithub);
+            document.getElementById('testGithubBtn').addEventListener('click', testGithubConnection);
+            document.getElementById('saveGithubSettingsBtn').addEventListener('click', saveSettings);
+
+            /* ---- Settings toggles ---- */
+            ['autoSyncEnabled', 'autoRestoreEnabled', 'compressData', 'keepHistory',
+             'dailyBackupEnabled', 'notifySuccess', 'notifyFailure', 'sendToChannel',
+             'includeLogs', 'encryptBackups'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', () => {
+                        if (id === 'encryptBackups') {
+                            document.getElementById('encryptionPasswordGroup').style.display =
+                                el.checked ? '' : 'none';
+                        }
+                        State.settings[id] = el.checked;
+                    });
+                }
+            });
+
+            ['backupTime', 'retentionDays', 'maxBackupSize', 'encryptionPassword', 'backupLocation'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.settings[id] = el.type === 'number' ? parseFloat(el.value) : el.value;
+                });
+            });
+
+            /* ---- Save all settings ---- */
+            document.getElementById('saveAllSettingsBtn').addEventListener('click', saveSettings);
+
+            /* ---- Maintenance buttons ---- */
+            document.getElementById('optimizeDbBtn').addEventListener('click', optimizeDatabase);
+            document.getElementById('cleanOldBtn').addEventListener('click', cleanOldBackups);
+            document.getElementById('integrityCheckBtn').addEventListener('click', integrityCheck);
+            document.getElementById('resetBackupSettingsBtn').addEventListener('click', resetBackupSettings);
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+
+            /* ---- Keyboard shortcuts ---- */
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                    e.preventDefault();
+                    createBackup();
+                }
+            });
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['createView', 'historyView', 'restoreView', 'githubView', 'settingsView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                create: 'createView',
+                history: 'historyView',
+                restore: 'restoreView',
+                github: 'githubView',
+                settings: 'settingsView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'history') renderHistory();
+            if (tab === 'restore') renderQuickRestore();
+            if (tab === 'github') {
+                renderGithubStats();
+                renderSyncLogs();
+            }
+        }
+
+        /* ============================================================
+           LOAD DATA
+         ============================================================ */
+        async function loadBackups() {
+            try {
+                const res = await API.getBackupHistory();
+
+                if (res && res.success && Array.isArray(res.data)) {
+                    State.allBackups = res.data.map(b => ({
+                        id: b.id,
+                        filename: b.filename,
+                        format: String(b.filename || '').toLowerCase().endsWith('.sql') ? 'sql' : 'json',
+                        size: parseInt(b.size || 0),
+                        created_at: b.created_at,
+                        source: 'manual',
+                    }));
+                } else {
+                    State.allBackups = [];
+                }
+            } catch (err) {
+                console.error('Load backups failed:', err);
+                State.allBackups = [];
+            }
+        }
+
+        async function loadGithubInfo() {
+            State.githubRepo = 'Configured on server';
+            State.githubDataFile = 'bot_data.json';
+
+            try {
+                const res = await API.getSetting('last_github_sync');
+
+                if (res && res.success && res.value) {
+                    const ts = parseInt(res.value);
+                    if (!isNaN(ts) && ts > 0) {
+                        State.lastGithubSync = new Date(ts * 1000).toISOString();
+                    }
+                }
+
+                const lastBackup = await API.getSetting('last_daily_backup');
+                if (lastBackup && lastBackup.success && lastBackup.value) {
+                    const ts = parseInt(lastBackup.value);
+                    if (!isNaN(ts) && ts > 0) {
+                        State.settings.lastDailyBackup = new Date(ts * 1000).toISOString();
+                    }
+                }
+            } catch (err) {
+                console.error('Load GitHub info failed:', err);
+            }
+
+            /* ---- Update UI ---- */
+            const repoEl = document.getElementById('githubRepo');
+            const repoElFull = document.getElementById('githubRepoFull');
+            if (repoEl) repoEl.textContent = State.githubRepo;
+            if (repoElFull) repoElFull.textContent = State.githubRepo;
+
+            const lastSyncEl = document.getElementById('githubLastSync');
+            const lastSyncFullEl = document.getElementById('githubLastSyncFull');
+
+            if (State.lastGithubSync) {
+                if (lastSyncEl) lastSyncEl.textContent = Utils.timeAgo(State.lastGithubSync);
+                if (lastSyncFullEl) lastSyncFullEl.textContent = Utils.date(State.lastGithubSync, 'full');
+            } else {
+                if (lastSyncEl) lastSyncEl.textContent = 'Never';
+                if (lastSyncFullEl) lastSyncFullEl.textContent = 'Never';
+            }
+        }
+
+        async function loadDbStats() {
+            try {
+                /* ---- Try to get db size via stats endpoint ---- */
+                const res = await API.get('getData');
+
+                if (res && res.success && res.data) {
+                    const stats = res.data._stats || {};
+                    const users = stats.total_users || 0;
+                    const orders = stats.total_orders || 0;
+                    const services = stats.total_services || 0;
+                    const payments = stats.total_payments || 0;
+
+                    /* ---- Estimate size ---- */
+                    const estimatedSize = (users * 500) + (orders * 1200) + (services * 500) + (payments * 800);
+                    State.dbSize = estimatedSize;
+                }
+            } catch (err) {
+                console.error('Load DB stats failed:', err);
+            }
+        }
+
+        async function reloadAll(showToast = false) {
+            Loader.show();
+            try {
+                await Promise.all([
+                    loadBackups(),
+                    loadGithubInfo(),
+                    loadDbStats(),
+                ]);
+
+                updateStats();
+                renderHistory();
+                renderQuickRestore();
+                renderGithubStats();
+
+                if (showToast) Toast.success('Data refreshed!');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           CREATE BACKUP
+         ============================================================ */
+        async function createBackup() {
+            if (State.isCreating) {
+                Toast.warning('Backup already in progress');
+                return;
+            }
+
+            const format = State.selectedFormat;
+            const mode = State.selectedMode;
+
+            const confirmed = await Modal.confirm({
+                title: '💾 Create Backup',
+                message: `Create ${format.toUpperCase()} backup? This may take 30-60 seconds.`,
+                confirmText: 'Yes, Create',
+                type: 'info',
+            });
+
+            if (!confirmed) return;
+
+            State.isCreating = true;
+            Loader.show();
+
+            try {
+                /* ---- Trigger backup creation ---- */
+                const res = await API.createBackup(format);
+
+                if (res && res.success) {
+                    /* ---- Download if mode === download ---- */
+                    if (mode === 'download' && res.filename) {
+                        Toast.success(`Backup created: ${res.filename}`);
+                        Toast.info('Browser will start download shortly...');
+
+                        /* ---- Download via API ---- */
+                        setTimeout(async () => {
+                            try {
+                                const url = `${(typeof readRuntimeConfig === 'function' ? readRuntimeConfig().API_URL : CONFIG.API_URL)}?action=downloadBackup&filename=${encodeURIComponent(res.filename)}`;
+                                const response = await fetch(url, { headers: API.authHeaders() });
+                                if (!response.ok) throw new Error('Download failed');
+                                const blob = await response.blob();
+                                const a = document.createElement('a');
+                                a.href = URL.createObjectURL(blob);
+                                a.download = res.filename;
+                                a.click();
+                                setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+                                Toast.success('Download started');
+                            } catch (e) {
+                                Toast.error('Download failed — try from history');
+                            }
+                        }, 500);
+                    } else {
+                        Toast.success('Backup created & sent to Telegram!');
+                    }
+
+                    /* ---- Reload history ---- */
+                    setTimeout(() => {
+                        loadBackups().then(() => {
+                            renderHistory();
+                            updateStats();
+                        });
+                    }, 1000);
+
+                } else {
+                    Toast.error(res?.error || 'Backup creation failed');
+                }
+            } catch (err) {
+                console.error('Backup failed:', err);
+                Toast.error('Backup failed: ' + (err.message || 'Unknown error'));
+            } finally {
+                State.isCreating = false;
+                Loader.hide();
+            }
+        }
+
+        function quickBackup(format) {
+            State.selectedFormat = format;
+            document.querySelectorAll('.backup-format-card').forEach(c => {
+                c.classList.toggle('selected', c.dataset.format === format);
+            });
+            createBackup();
+        }
+
+        /* ============================================================
+           RENDER HISTORY
+         ============================================================ */
+        function renderHistory() {
+            const tbody = document.getElementById('historyTableBody');
+
+            let filtered = State.allBackups.slice();
+
+            /* ---- Search ---- */
+            if (State.historySearch) {
+                const q = State.historySearch.toLowerCase();
+                filtered = filtered.filter(b =>
+                    String(b.filename || '').toLowerCase().includes(q)
+                );
+            }
+
+            /* ---- Format filter ---- */
+            if (State.historyFormat) {
+                filtered = filtered.filter(b => b.format === State.historyFormat);
+            }
+
+            /* ---- Date filter ---- */
+            if (State.historyDate) {
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                filtered = filtered.filter(b => {
+                    const dt = new Date(String(b.created_at || '').replace(' ', 'T'));
+                    if (isNaN(dt.getTime())) return false;
+
+                    const bDate = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+                    const diffDays = Math.floor((today - bDate) / 86400000);
+
+                    if (State.historyDate === 'today') return diffDays === 0;
+                    if (State.historyDate === '7days') return diffDays <= 7;
+                    if (State.historyDate === '30days') return diffDays <= 30;
+                    return true;
+                });
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No backups yet</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Create your first backup from the Create tab
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(b => {
+                const isSql = String(b.filename || '').toLowerCase().endsWith('.sql');
+                const fmtClass = isSql ? 'fmt-sql' : 'fmt-json';
+                const fmtIcon = isSql ? '📊' : '📋';
+                const sizeKB = (b.size / 1024).toFixed(1);
+
+                return `
+                    <tr data-backup-id="${b.id}">
+                        <td><code style="font-size: 11px;">#${Utils.escape(b.id)}</code></td>
+                        <td>
+                            <div style="font-size: 12px; font-family: 'SF Mono', Monaco, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 320px;" title="${Utils.escape(b.filename)}">
+                                ${Utils.escape(b.filename)}
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fmt-badge ${fmtClass}">
+                                ${fmtIcon} ${isSql ? 'SQL' : 'JSON'}
+                            </span>
+                        </td>
+                        <td><b style="color: var(--primary);">${sizeKB} KB</b></td>
+                        <td>
+                            <span class="badge badge-muted">${Utils.escape(b.source || 'manual')}</span>
+                        </td>
+                        <td style="font-size: 11px; color: var(--text-muted);">
+                            ${Utils.date(b.created_at)}
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 2px;">
+                                <button class="btn btn-primary btn-icon btn-sm" data-download-backup="${Utils.escape(b.filename)}" title="Download">
+                                    📥
+                                </button>
+                                <button class="btn btn-warning btn-icon btn-sm" data-restore-backup="${Utils.escape(b.filename)}" title="Restore">
+                                    🔄
+                                </button>
+                                <button class="btn btn-danger btn-icon btn-sm" data-delete-backup="${b.id}" title="Delete">
+                                    🗑️
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind actions ---- */
+            tbody.querySelectorAll('[data-download-backup]').forEach(btn => {
+                btn.addEventListener('click', () => downloadBackup(btn.dataset.downloadBackup));
+            });
+
+            tbody.querySelectorAll('[data-restore-backup]').forEach(btn => {
+                btn.addEventListener('click', () => restoreFromServer(btn.dataset.restoreBackup));
+            });
+
+            tbody.querySelectorAll('[data-delete-backup]').forEach(btn => {
+                btn.addEventListener('click', () => deleteBackup(btn.dataset.deleteBackup));
+            });
+        }
+
+        /* ============================================================
+           DOWNLOAD BACKUP
+         ============================================================ */
+        async function downloadBackup(filename) {
+            try {
+                const url = `${(typeof readRuntimeConfig === 'function' ? readRuntimeConfig().API_URL : CONFIG.API_URL)}?action=downloadBackup&filename=${encodeURIComponent(filename)}`;
+                const response = await fetch(url, { headers: API.authHeaders() });
+                if (!response.ok) throw new Error('Download failed');
+                const blob = await response.blob();
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = filename;
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+                Toast.success('Download started');
+            } catch (err) {
+                Toast.error('Download failed');
+            }
+        }
+
+        /* ============================================================
+           DELETE BACKUP
+         ============================================================ */
+        async function deleteBackup(id) {
+            const backup = State.allBackups.find(b => String(b.id) === String(id));
+            if (!backup) return;
+
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Delete Backup',
+                message: `Delete "${backup.filename}"? This cannot be undone.`,
+                confirmText: 'Yes, Delete',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                const res = await API.deleteBackup(id);
+
+                if (res && res.success) {
+                    Toast.success('Backup deleted');
+                    await loadBackups();
+                    renderHistory();
+                    updateStats();
+                } else {
+                    Toast.error(res?.error || 'Delete failed');
+                }
+            } catch (err) {
+                Toast.error('Delete failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           RESTORE FROM SERVER (Quick restore)
+         ============================================================ */
+        function renderQuickRestore() {
+            const container = document.getElementById('quickRestoreList');
+            if (!container) return;
+
+            const recent = State.allBackups.slice(0, 5);
+
+            if (recent.length === 0) {
+                container.innerHTML = `
+                    <div style="padding: 30px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 40px; opacity: 0.3; margin-bottom: 12px;">📭</div>
+                        <div style="font-size: 13px;">No recent backups</div>
+                        <div style="font-size: 12px; margin-top: 8px;">Create a backup first</div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = recent.map(b => {
+                const isSql = String(b.filename || '').toLowerCase().endsWith('.sql');
+                const icon = isSql ? '📊' : '📋';
+                const sizeKB = (b.size / 1024).toFixed(1);
+
+                return `
+                    <div class="quick-restore-item">
+                        <div class="quick-restore-icon">${icon}</div>
+                        <div class="quick-restore-info">
+                            <div class="quick-restore-name">${Utils.escape(b.filename)}</div>
+                            <div class="quick-restore-meta">
+                                ${sizeKB} KB • ${Utils.timeAgo(b.created_at)}
+                            </div>
+                        </div>
+                        <button class="btn btn-warning btn-sm" data-quick-restore="${Utils.escape(b.filename)}">
+                            🔄 Restore
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            /* ---- Bind buttons ---- */
+            container.querySelectorAll('[data-quick-restore]').forEach(btn => {
+                btn.addEventListener('click', () => restoreFromServer(btn.dataset.quickRestore));
+            });
+        }
+
+        async function restoreFromServer(filename) {
+            const confirmed = await Modal.confirm({
+                title: '⚠️ Restore from Backup',
+                message: `Restore from "${filename}"?\n\nThis will OVERWRITE all current data. A pre-restore backup will be created automatically.`,
+                confirmText: 'Yes, Restore',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Restoring... this may take a minute');
+
+            try {
+                /* ---- Since no direct restore endpoint exists, we need to fetch and restore ---- */
+                const url = `${(typeof readRuntimeConfig === 'function' ? readRuntimeConfig().API_URL : CONFIG.API_URL)}?action=downloadBackup&filename=${encodeURIComponent(filename)}`;
+
+                const response = await fetch(url, {
+                    headers: (typeof API !== 'undefined' && API.authHeaders) ? API.authHeaders() : {}
+                });
+                if (!response.ok) throw new Error('Failed to download backup');
+
+                const blob = await response.blob();
+                const file = new File([blob], filename, { type: blob.type });
+
+                /* ---- Upload to restore endpoint ---- */
+                const formData = new FormData();
+                formData.append('backup_file', file);
+
+                const res = await API.upload('restoreBackup', formData);
+
+                if (res && res.success) {
+                    Toast.success('Database restored successfully!');
+                    setTimeout(() => location.reload(), 2000);
+                } else {
+                    Toast.error(res?.error || 'Restore failed');
+                }
+            } catch (err) {
+                console.error('Restore failed:', err);
+                Toast.error('Restore failed: ' + (err.message || 'Unknown error'));
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           RESTORE FROM FILE
+         ============================================================ */
+        function selectRestoreFile(file) {
+            if (!file) return;
+
+            const ext = file.name.split('.').pop().toLowerCase();
+
+            if (!['json', 'sql'].includes(ext)) {
+                Toast.error('Only .json or .sql files allowed');
+                return;
+            }
+
+            if (file.size > 200 * 1024 * 1024) {
+                Toast.error('File too large (max 200 MB)');
+                return;
+            }
+
+            State.selectedRestoreFile = file;
+
+            document.getElementById('restoreFileName').textContent = file.name;
+            document.getElementById('restoreFileInfo').textContent = `${(file.size / 1024).toFixed(1)} KB • ${ext.toUpperCase()}`;
+            document.getElementById('selectedRestoreFile').style.display = '';
+            document.getElementById('restoreDropzone').style.display = 'none';
+            document.getElementById('restoreNowBtn').disabled = true;
+
+            /* ---- Reset confirm checkbox ---- */
+            document.getElementById('confirmRestore').checked = false;
+        }
+
+        function removeRestoreFile() {
+            State.selectedRestoreFile = null;
+            document.getElementById('selectedRestoreFile').style.display = 'none';
+            document.getElementById('restoreDropzone').style.display = '';
+        }
+
+        async function restoreFromFile() {
+            if (!State.selectedRestoreFile) return;
+
+            const confirmed = await Modal.confirm({
+                title: '⚠️ Final Confirmation',
+                message: 'This will permanently OVERWRITE all data. Are you absolutely sure?',
+                confirmText: 'YES, RESTORE NOW',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Uploading and restoring...');
+
+            try {
+                const formData = new FormData();
+                formData.append('backup_file', State.selectedRestoreFile);
+
+                const res = await API.upload('restoreBackup', formData);
+
+                if (res && res.success) {
+                    Toast.success('Database restored! Refreshing...');
+                    setTimeout(() => location.reload(), 2000);
+                } else {
+                    Toast.error(res?.error || 'Restore failed');
+                }
+            } catch (err) {
+                console.error('Restore failed:', err);
+                Toast.error('Restore failed: ' + (err.message || 'Unknown'));
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           GITHUB PUSH
+         ============================================================ */
+        async function pushToGithub() {
+            const confirmed = await Modal.confirm({
+                title: '📤 Push to GitHub',
+                message: 'Upload current data to GitHub backup repository?',
+                confirmText: 'Yes, Push',
+                type: 'info',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Uploading to GitHub...');
+
+            try {
+                const res = await API.syncToGitHub();
+
+                if (res && res.success) {
+                    Toast.success(`Pushed! Size: ${(res.uploaded_size / 1024).toFixed(1)} KB`);
+
+                    /* ---- Add to sync log ---- */
+                    State.syncLogs.unshift({
+                        type: 'push',
+                        status: 'success',
+                        time: new Date().toISOString(),
+                        size: res.uploaded_size,
+                        message: `Uploaded ${(res.uploaded_size / 1024).toFixed(1)} KB`,
+                    });
+
+                    saveSyncLogs();
+                    await loadGithubInfo();
+                    renderSyncLogs();
+
+                } else {
+                    Toast.error(res?.error || 'Push failed');
+                    State.syncLogs.unshift({
+                        type: 'push',
+                        status: 'error',
+                        time: new Date().toISOString(),
+                        message: res?.error || 'Unknown error',
+                    });
+                    saveSyncLogs();
+                    renderSyncLogs();
+                }
+            } catch (err) {
+                console.error('Push failed:', err);
+                Toast.error('Push failed');
+                State.syncLogs.unshift({
+                    type: 'push',
+                    status: 'error',
+                    time: new Date().toISOString(),
+                    message: err.message,
+                });
+                saveSyncLogs();
+                renderSyncLogs();
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           GITHUB PULL
+         ============================================================ */
+        async function restoreFromGithub() {
+            const confirmed = await Modal.confirm({
+                title: '📥 Restore from GitHub',
+                message: 'Download & restore latest data from GitHub?\n\nThis will OVERWRITE current data.',
+                confirmText: 'Yes, Restore',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Downloading from GitHub...');
+
+            try {
+                const res = await API.restoreFromGitHub();
+
+                if (res && res.success) {
+                    Toast.success(`Restored! Tables: ${res.restored_tables || 0}, Rows: ${res.restored_rows || 0}`);
+
+                    State.syncLogs.unshift({
+                        type: 'pull',
+                        status: 'success',
+                        time: new Date().toISOString(),
+                        message: `Restored ${res.restored_tables || 0} tables, ${res.restored_rows || 0} rows`,
+                    });
+
+                    saveSyncLogs();
+                    renderSyncLogs();
+
+                    setTimeout(() => location.reload(), 3000);
+
+                } else {
+                    Toast.error(res?.error || 'Restore failed');
+                    State.syncLogs.unshift({
+                        type: 'pull',
+                        status: 'error',
+                        time: new Date().toISOString(),
+                        message: res?.error || 'Unknown error',
+                    });
+                    saveSyncLogs();
+                    renderSyncLogs();
+                }
+            } catch (err) {
+                console.error('Restore failed:', err);
+                Toast.error('Restore failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           GITHUB TEST
+         ============================================================ */
+        async function testGithubConnection() {
+            Loader.show();
+
+            try {
+                /* ---- Test by fetching current webhook info or settings ---- */
+                const res = await API.get('getDiagnostics', { minutes: 1 });
+
+                if (res && res.success) {
+                    Toast.success('GitHub connection OK');
+                } else {
+                    Toast.error('Connection test failed');
+                }
+            } catch (err) {
+                Toast.error('Test failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           RENDER GITHUB STATS
+         ============================================================ */
+        function renderGithubStats() {
+            const panel = document.getElementById('githubStatsPanel');
+            if (!panel) return;
+
+            const lastSync = State.lastGithubSync ? Utils.timeAgo(State.lastGithubSync) : 'Never';
+            const totalPush = State.syncLogs.filter(l => l.type === 'push' && l.status === 'success').length;
+            const totalPull = State.syncLogs.filter(l => l.type === 'pull' && l.status === 'success').length;
+
+            panel.innerHTML = `
+                <div class="grid grid-2 gap-sm">
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Last Sync</div>
+                        <div style="font-size: 16px; font-weight: 700; margin-top: 4px;">
+                            ${lastSync}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Total Pushes</div>
+                        <div style="font-size: 16px; font-weight: 700; margin-top: 4px; color: var(--success);">
+                            ${Utils.number(totalPush)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Total Pulls</div>
+                        <div style="font-size: 16px; font-weight: 700; margin-top: 4px; color: var(--info);">
+                            ${Utils.number(totalPull)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 14px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Data Size</div>
+                        <div style="font-size: 16px; font-weight: 700; margin-top: 4px; color: var(--primary);">
+                            ${(State.dbSize / 1024).toFixed(1)} KB
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 16px; padding: 12px; background: linear-gradient(135deg, var(--success-light), var(--bg-elevated)); border-radius: 10px; display: flex; align-items: center; gap: 12px;">
+                    <span class="live-dot"></span>
+                    <span style="font-size: 13px; color: var(--success); font-weight: 600;">
+                        Auto sync active (every 30 min)
+                    </span>
+                </div>
+            `;
+        }
+
+        /* ============================================================
+           SYNC LOGS
+         ============================================================ */
+        function saveSyncLogs() {
+            try {
+                Utils.storage.set('sync_logs', State.syncLogs.slice(0, 20));
+            } catch (e) {}
+        }
+
+        function loadSyncLogs() {
+            try {
+                const saved = Utils.storage.get('sync_logs', []);
+                if (Array.isArray(saved)) {
+                    State.syncLogs = saved;
+                }
+            } catch (e) {
+                State.syncLogs = [];
+            }
+        }
+
+        function renderSyncLogs() {
+            const panel = document.getElementById('syncLogPanel');
+            if (!panel) return;
+
+            if (State.syncLogs.length === 0) {
+                panel.innerHTML = `
+                    <div style="text-align: center; color: var(--text-muted); padding: 30px;">
+                        📭 No sync activity yet
+                    </div>
+                `;
+                return;
+            }
+
+            panel.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    ${State.syncLogs.slice(0, 10).map(l => {
+                        const icon = l.type === 'push' ? '📤' : '📥';
+                        const statusIcon = l.status === 'success' ? '✅' : '❌';
+                        const statusColor = l.status === 'success' ? 'var(--success)' : 'var(--danger)';
+
+                        return `
+                            <div class="conversion-item">
+                                <span style="font-size: 20px;">${icon}</span>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div style="font-size: 12px; font-weight: 600;">
+                                        ${Utils.escape(String(l.type).toUpperCase())}
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                                        ${Utils.escape(l.message || '')}
+                                    </div>
+                                </div>
+                                <div style="text-align: right; flex-shrink: 0;">
+                                    <div style="font-size: 14px; color: ${statusColor};">${statusIcon}</div>
+                                    <div style="font-size: 10px; color: var(--text-muted);">
+                                        ${Utils.timeAgo(l.time)}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        /* ============================================================
+           SETTINGS
+         ============================================================ */
+        function loadSettingsFromStorage() {
+            const saved = Utils.storage.get('backup_settings', {});
+            State.settings = { ...State.settings, ...saved };
+
+            Object.keys(State.settings).forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    el.checked = !!State.settings[key];
+                } else {
+                    el.value = State.settings[key];
+                }
+            });
+
+            /* ---- Show encryption password ---- */
+            if (State.settings.encryptBackups) {
+                document.getElementById('encryptionPasswordGroup').style.display = '';
+            }
+        }
+
+        function saveSettings() {
+            const keys = [
+                'dailyBackupEnabled', 'backupTime', 'retentionDays', 'maxBackupSize',
+                'notifySuccess', 'notifyFailure', 'sendToChannel', 'includeLogs',
+                'encryptBackups', 'encryptionPassword', 'backupLocation',
+                'autoSyncEnabled', 'autoRestoreEnabled', 'compressData', 'keepHistory',
+            ];
+
+            const settings = {};
+
+            keys.forEach(key => {
+                const el = document.getElementById(key);
+                if (!el) return;
+
+                if (el.type === 'checkbox') {
+                    settings[key] = el.checked;
+                } else if (el.type === 'number') {
+                    settings[key] = parseFloat(el.value) || 0;
+                } else {
+                    settings[key] = el.value;
+                }
+            });
+
+            State.settings = settings;
+            Utils.storage.set('backup_settings', settings);
+
+            /* ---- Also update backend settings ---- */
+            try {
+                API.updateSetting('daily_backup_enabled', settings.dailyBackupEnabled ? '1' : '0');
+                API.updateSetting('auto_sync_enabled', settings.autoSyncEnabled ? '1' : '0');
+                API.updateSetting('auto_restore_enabled', settings.autoRestoreEnabled ? '1' : '0');
+            } catch (e) {}
+
+            Toast.success('Settings saved!');
+        }
+
+        /* ============================================================
+           MAINTENANCE
+         ============================================================ */
+        async function optimizeDatabase() {
+            const confirmed = await Modal.confirm({
+                title: '🔧 Optimize Database',
+                message: 'Run VACUUM and ANALYZE on the database? This may take a moment.',
+                confirmText: 'Yes, Optimize',
+                type: 'info',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            Toast.info('Optimizing database...');
+
+            try {
+                const res = await API.syncDatabase();
+
+                if (res && res.success) {
+                    Toast.success('Database optimized!');
+                    console.log('Optimize result:', res);
+                } else {
+                    Toast.error('Optimize failed');
+                }
+            } catch (err) {
+                Toast.error('Optimize failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function cleanOldBackups() {
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Clean Old Backups',
+                message: `Remove backups older than ${State.settings.retentionDays || 30} days?`,
+                confirmText: 'Yes, Clean',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            const retention = State.settings.retentionDays || 30;
+            const cutoff = Date.now() - (retention * 86400000);
+
+            const oldBackups = State.allBackups.filter(b => {
+                const dt = new Date(String(b.created_at || '').replace(' ', 'T')).getTime();
+                return !isNaN(dt) && dt < cutoff;
+            });
+
+            if (oldBackups.length === 0) {
+                Modal.alert('✅ All Good', `No backups older than ${retention} days found.`, 'success');
+                return;
+            }
+
+            Loader.show();
+            let deleted = 0;
+
+            try {
+                for (const b of oldBackups) {
+                    try {
+                        const res = await API.deleteBackup(b.id);
+                        if (res && res.success) deleted++;
+                    } catch (e) {}
+                }
+
+                Toast.success(`Deleted ${deleted} old backup(s)`);
+                await loadBackups();
+                renderHistory();
+                updateStats();
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function integrityCheck() {
+            Loader.show();
+
+            try {
+                const res = await API.syncDatabase();
+
+                if (res && res.success) {
+                    const integrity = res.integrity || 'unknown';
+
+                    Modal.alert(
+                        '✅ Integrity Check',
+                        `Result: ${integrity}\n\nCheckpoint: ${res.checkpoint || 'N/A'}\nOptimize: ${res.optimize || 'N/A'}`,
+                        integrity === 'ok' ? 'success' : 'warning'
+                    );
+                } else {
+                    Toast.error('Check failed');
+                }
+            } catch (err) {
+                Toast.error('Check failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        function resetBackupSettings() {
+            Modal.confirm({
+                title: '🔄 Reset Settings',
+                message: 'Reset all backup settings to defaults?',
+                confirmText: 'Yes, Reset',
+                type: 'warning',
+                onConfirm: () => {
+                    Utils.storage.remove('backup_settings');
+                    Utils.storage.remove('sync_logs');
+                    State.syncLogs = [];
+                    loadSettingsFromStorage();
+                    renderSyncLogs();
+                    Toast.success('Settings reset');
+                }
+            });
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            document.getElementById('statTotalBackups').textContent = Utils.number(State.allBackups.length);
+
+            /* ---- Last backup ---- */
+            if (State.allBackups.length > 0) {
+                const last = State.allBackups[0];
+                document.getElementById('statLastBackup').textContent = Utils.timeAgo(last.created_at);
+            } else {
+                document.getElementById('statLastBackup').textContent = '—';
+            }
+
+            /* ---- Last GitHub sync ---- */
+            if (State.lastGithubSync) {
+                document.getElementById('statLastSync').textContent = Utils.timeAgo(State.lastGithubSync);
+            } else {
+                document.getElementById('statLastSync').textContent = '—';
+            }
+
+            /* ---- DB size ---- */
+            document.getElementById('statDbSize').textContent = (State.dbSize / 1024 / 1024).toFixed(2) + ' MB';
+
+            document.getElementById('headerSubtitle').textContent =
+                `${State.allBackups.length} backups • ${(State.dbSize / 1024).toFixed(0)} KB database`;
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                loadSyncLogs();
+                init();
+            });
+        } else {
+            loadSyncLogs();
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

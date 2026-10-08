@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>⚙️ Settings — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚙️%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link active" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">⚙️ Settings</div>
+                        <div class="header-subtitle" id="headerSubtitle">Configure your bot & panel</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search settings...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">⚙️ Settings</h1>
+                        <p class="page-description" id="pageStats">Manage all bot & panel configuration</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-warning btn-sm" id="resetAllBtn">
+                            🔄 Reset Default
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="saveAllBtn">
+                            💾 Save All Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UNSAVED CHANGES BANNER -->
+                <div class="alert alert-warning mb-lg" id="unsavedBanner" style="display: none; align-items: center;">
+                    <span style="font-size: 20px;">⚠️</span>
+                    <div style="flex: 1;">
+                        <b>You have unsaved changes</b>
+                        <div style="font-size: 12px; opacity: 0.8; margin-top: 2px;">
+                            <span id="unsavedCount">0</span> settings modified but not saved
+                        </div>
+                    </div>
+                    <button class="btn btn-warning btn-sm" id="saveNowBtn">
+                        💾 Save Now
+                    </button>
+                </div>
+
+                <!-- QUICK STATUS -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">⚙️</div>
+                        <div class="stat-value" id="statTotalSettings">0</div>
+                        <div class="stat-label">Total Settings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🟢</div>
+                        <div class="stat-value" id="statEnabledFeatures">0</div>
+                        <div class="stat-label">Features Enabled</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔧</div>
+                        <div class="stat-value" id="statConfigured">0</div>
+                        <div class="stat-label">Configured</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💾</div>
+                        <div class="stat-value" id="statLastSaved">—</div>
+                        <div class="stat-label">Last Saved</div>
+                    </div>
+                </div>
+
+                <!-- SEARCH & NAVIGATION -->
+                <div class="card mb-lg">
+                    <div class="card-body">
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px; position: relative;">
+                                <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 14px;">🔍</span>
+                                <input
+                                    type="text"
+                                    class="form-input"
+                                    id="settingsSearch"
+                                    placeholder="Search all settings..."
+                                    style="padding-left: 42px; height: 42px;"
+                                >
+                            </div>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-ghost btn-sm quick-nav" data-nav="general">⚙️ General</button>
+                                <button class="btn btn-ghost btn-sm quick-nav" data-nav="payment">💳 Payment</button>
+                                <button class="btn btn-ghost btn-sm quick-nav" data-nav="bot">🤖 Bot</button>
+                                <button class="btn btn-ghost btn-sm quick-nav" data-nav="api">🌐 API</button>
+                                <button class="btn btn-ghost btn-sm quick-nav" data-nav="features">🎛️ Features</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="general">
+                            ⚙️ General
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="payment">
+                            💳 Payment
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="bot">
+                            🤖 Bot Config
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="api">
+                            🌐 API Settings
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="features">
+                            🎛️ Features
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="notifications">
+                            🔔 Notifications
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="advanced">
+                            🔧 Advanced
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="danger">
+                            ⚠️ Danger Zone
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: GENERAL
+                     ==================================================== -->
+                <div id="generalView" class="settings-view">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🌐 Site & Panel</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Site Name</label>
+                                    <input type="text" class="form-input setting-input" data-setting="site_name" placeholder="Bihari SMM Bot" maxlength="60">
+                                    <div class="form-help">Main app name</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Site URL</label>
+                                    <input type="url" class="form-input setting-input" data-setting="site_url" placeholder="https://example.com" maxlength="200">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Timezone</label>
+                                    <select class="form-select setting-input" data-setting="timezone">
+                                        <option value="Asia/Kolkata">🇮🇳 Asia/Kolkata (IST)</option>
+                                        <option value="Asia/Dubai">🇦🇪 Asia/Dubai</option>
+                                        <option value="Asia/Singapore">🇸🇬 Asia/Singapore</option>
+                                        <option value="UTC">🌍 UTC</option>
+                                        <option value="America/New_York">🇺🇸 America/New_York</option>
+                                        <option value="Europe/London">🇬🇧 Europe/London</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Currency Symbol</label>
+                                    <input type="text" class="form-input setting-input" data-setting="currency_symbol" placeholder="₹" maxlength="5">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">👤 Admin Info</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Admin Username</label>
+                                    <input type="text" class="form-input setting-input" data-setting="admin_username" placeholder="@code_breaker" maxlength="60">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Support Bot</label>
+                                    <input type="text" class="form-input setting-input" data-setting="support_bot" placeholder="@biharipleasehelpme_bot" maxlength="60">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Support Email</label>
+                                    <input type="email" class="form-input setting-input" data-setting="support_email" placeholder="support@example.com" maxlength="100">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Contact Phone</label>
+                                    <input type="tel" class="form-input setting-input" data-setting="contact_phone" placeholder="+91 ..." maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🏠 Dashboard Defaults</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 gap-md">
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Default View</label>
+                                    <select class="form-select setting-input" data-setting="default_view">
+                                        <option value="dashboard">📊 Dashboard</option>
+                                        <option value="orders">📦 Orders</option>
+                                        <option value="users">👥 Users</option>
+                                        <option value="payments">💳 Payments</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Items Per Page</label>
+                                    <select class="form-select setting-input" data-setting="items_per_page">
+                                        <option value="10">10</option>
+                                        <option value="20" selected>20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date Format</label>
+                                    <select class="form-select setting-input" data-setting="date_format">
+                                        <option value="dmy">DD/MM/YYYY</option>
+                                        <option value="mdy">MM/DD/YYYY</option>
+                                        <option value="ymd">YYYY-MM-DD</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: PAYMENT
+                     ==================================================== -->
+                <div id="paymentView" class="settings-view" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💳 UPI Configuration</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label required">UPI ID</label>
+                                    <input type="text" class="form-input setting-input" data-setting="upi_id" placeholder="admin@upi" maxlength="80">
+                                    <div class="form-help">Primary UPI for receiving payments</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">UPI Holder Name</label>
+                                    <input type="text" class="form-input setting-input" data-setting="upi_holder" placeholder="Bihari SMM" maxlength="60">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Alternative UPI (Backup)</label>
+                                    <input type="text" class="form-input setting-input" data-setting="upi_id_backup" placeholder="backup@upi" maxlength="80">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">QR Code URL</label>
+                                    <input type="url" class="form-input setting-input" data-setting="qr_code" placeholder="https://..." maxlength="300">
+                                    <div class="form-help">Direct QR image URL (optional)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💰 Deposit Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="grid grid-2 gap-sm">
+                                    <div class="form-group">
+                                        <label class="form-label required">Min Deposit (₹)</label>
+                                        <input type="number" class="form-input setting-input" data-setting="min_deposit" placeholder="10" min="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">Max Deposit (₹)</label>
+                                        <input type="number" class="form-input setting-input" data-setting="max_deposit" placeholder="50000" min="1">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Signup Bonus (₹)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="signup_bonus" placeholder="0.5" step="0.01" min="0">
+                                    <div class="form-help">Bonus given to new users on signup</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Referral Bonus (₹)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="ref_bonus" placeholder="0.1" step="0.01" min="0">
+                                    <div class="form-help">Bonus per successful referral</div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Quick Amounts (comma-separated)</label>
+                                    <input type="text" class="form-input setting-input" data-setting="quick_amounts" placeholder="100, 200, 500, 1000" maxlength="200">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">⚡ Payment Rules</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">UTR Required</div>
+                                        <div class="setting-desc">User must provide UTR for payment</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="utr_required" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Screenshot Required</div>
+                                        <div class="setting-desc">User must upload payment screenshot</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="screenshot_required" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto-Approve Payments</div>
+                                        <div class="setting-desc">⚠️ Approve payments automatically (risky)</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="auto_approve_payments" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Allow Partial Payments</div>
+                                        <div class="setting-desc">User can pay less than requested</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="allow_partial_payments" data-type="bool">
+                                </label>
+
+                            </div>
+
+                            <div class="grid grid-2 gap-md mt-lg">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">UTR Min Length</label>
+                                    <input type="number" class="form-input setting-input" data-setting="utr_min_length" placeholder="8" min="4" max="50">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">UTR Max Length</label>
+                                    <input type="number" class="form-input setting-input" data-setting="utr_max_length" placeholder="40" min="10" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">📝 Payment Instructions</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label class="form-label">Custom Note for Users</label>
+                                <textarea class="form-textarea setting-input" data-setting="payment_note" placeholder="Additional payment instructions..." rows="3" maxlength="1000"></textarea>
+                                <div class="form-help">Ye note payment page pe users ko dikhega</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: BOT CONFIG
+                     ==================================================== -->
+                <div id="botView" class="settings-view" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🤖 Bot Identity</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Bot Username</label>
+                                    <input type="text" class="form-input setting-input" data-setting="bot_username" placeholder="biharismmpannel_bot" maxlength="60" readonly>
+                                    <div class="form-help">⚠️ Bot username change requires bot recreation</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Bot Version</label>
+                                    <input type="text" class="form-input setting-input" data-setting="bot_version" placeholder="v7.0" maxlength="20" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Announcement</label>
+                                    <textarea class="form-textarea setting-input" data-setting="announcement" placeholder="🚀 Welcome to Bihari SMM Bot!" rows="3" maxlength="3500"></textarea>
+                                    <div class="form-help">Shown on /announcement command</div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Group Welcome Message</label>
+                                    <input type="text" class="form-input setting-input" data-setting="group_welcome_message" placeholder="👋 Welcome to {group}!" maxlength="200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🚪 Force Join Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Force Join Enabled</div>
+                                        <div class="setting-desc">Users must join channels before using bot</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="force_join_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Fail Open</div>
+                                        <div class="setting-desc">Allow users if verification fails</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="force_join_fail_open" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Notify Admin on Fail</div>
+                                        <div class="setting-desc">Alert when verification breaks</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="force_join_notify_admin" data-type="bool">
+                                </label>
+
+                                <div class="divider"></div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Force Channels (JSON)</label>
+                                    <textarea class="form-textarea setting-input" data-setting="force_channels_json" placeholder='{"channel1": {"id": "-100xxx", "name": "...", "link": "..."}}' rows="4" style="font-family: 'SF Mono', Monaco, monospace; font-size: 11px;"></textarea>
+                                    <div class="form-help">⚠️ Advanced — JSON format required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🎯 Bot Behavior</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Profile Required</div>
+                                        <div class="setting-desc">Force users to complete profile</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="profile_required" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Group Welcome Enabled</div>
+                                        <div class="setting-desc">Send welcome message in groups</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="group_welcome_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Maintenance Mode</div>
+                                        <div class="setting-desc">⚠️ Bot unusable during maintenance</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="maintenance_mode" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto Announce New Services</div>
+                                        <div class="setting-desc">Post to channel on new services</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="auto_announce_new_services" data-type="bool">
+                                </label>
+
+                            </div>
+
+                            <div class="grid grid-3 gap-md mt-lg">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Profile Grace Days</label>
+                                    <input type="number" class="form-input setting-input" data-setting="profile_grace_days" placeholder="7" min="1" max="365">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Order Stuck Days</label>
+                                    <input type="number" class="form-input setting-input" data-setting="order_stuck_days" placeholder="3" min="1" max="30">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Progress Threshold (%)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="progress_threshold_pct" placeholder="10" min="1" max="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: API SETTINGS
+                     ==================================================== -->
+                <div id="apiView" class="settings-view" style="display: none;">
+
+                    <div class="alert alert-warning mb-lg">
+                        ⚠️ <b>Warning:</b> API changes affect live orders. Test before saving.
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🔌 Admin Panel Backend</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info mb-md">यह वही <b>bot.php</b> URL है जिससे admin panel data पढ़ता/लिखता है। Save के बाद अगली request नए bot backend पर जाएगी।</div>
+                            <div class="form-group">
+                                <label class="form-label required">Bot Backend URL</label>
+                                <input type="url" class="form-input setting-input" data-setting="admin_api_url" placeholder="https://example.com/bots/bot_x/bot.php" maxlength="500">
+                                <div class="form-help">HTTPS URL रखें और अंत में bot.php path शामिल करें।</div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🌐 SMM Provider API</h3>
+                            <button class="btn btn-primary btn-sm" id="testApiBtn">
+                                🧪 Test Connection
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label required">API URL</label>
+                                <input type="url" class="form-input setting-input" data-setting="smm_api_url" placeholder="https://provider.com/api/v2" maxlength="200">
+                                <div class="form-help">Must use HTTPS</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label required">API Key</label>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-input setting-input" data-setting="smm_api_key" placeholder="Enter API key" maxlength="200">
+                                    <button type="button" class="password-toggle" id="toggleApiKey">👁️</button>
+                                </div>
+                                <div class="form-help">Key stored securely on server</div>
+                            </div>
+
+                            <div class="grid grid-2 gap-sm">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Auto Sync Services</label>
+                                    <select class="form-select setting-input" data-setting="auto_service_sync_enabled">
+                                        <option value="1">✅ Enabled</option>
+                                        <option value="0">❌ Disabled</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Sync Interval (seconds)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="service_sync_interval" placeholder="14400" min="300" max="86400">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">💹 Profit Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Default Profit per 1000 (₹)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="default_profit_per_1000" placeholder="15" min="0" step="0.01">
+                                    <div class="form-help">Markup added to API cost</div>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">VIP Discount (%)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="vip_discount_percent" placeholder="2" min="0" max="50" step="0.1">
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Rate Change Threshold (%)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="rate_change_threshold" placeholder="5" min="1" max="100">
+                                    <div class="form-help">Alert when provider rates change more than this</div>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">API Timeout (seconds)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="api_timeout" placeholder="30" min="5" max="120">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🐙 GitHub Backup</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">GitHub Repository</label>
+                                <input type="text" class="form-input setting-input" data-setting="github_repo" placeholder="username/repo-name" maxlength="100" readonly>
+                                <div class="form-help">Format: owner/repo-name</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">GitHub Token</label>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-input setting-input" data-setting="github_token" placeholder="ghp_..." maxlength="200" readonly>
+                                    <button type="button" class="password-toggle" id="toggleGithubToken">👁️</button>
+                                </div>
+                                <div class="form-help">⚠️ Change requires bot_v3.php edit</div>
+                            </div>
+
+                            <div class="grid grid-2 gap-md">
+                                <label class="setting-row" style="border-bottom: none;">
+                                    <div>
+                                        <div class="setting-label">Auto Sync</div>
+                                        <div class="setting-desc">Push data to GitHub every 30 min</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="auto_sync_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row" style="border-bottom: none;">
+                                    <div>
+                                        <div class="setting-label">Auto Restore</div>
+                                        <div class="setting-desc">Restore from GitHub on fresh install</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="auto_restore_enabled" data-type="bool">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">📱 Telegram Bot</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Bot Token</label>
+                                <div class="password-wrapper">
+                                    <input type="password" class="form-input setting-input" data-setting="bot_token" placeholder="8972927546:AAF..." maxlength="200" readonly>
+                                    <button type="button" class="password-toggle" id="toggleBotToken">👁️</button>
+                                </div>
+                                <div class="form-help">⚠️ Token change requires bot_v3.php edit</div>
+                            </div>
+
+                            <div class="grid grid-2 gap-md">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Webhook URL</label>
+                                    <input type="url" class="form-input setting-input" data-setting="webhook_url" placeholder="https://..." maxlength="200" readonly>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Log Channel ID</label>
+                                    <input type="text" class="form-input setting-input" data-setting="log_channel" placeholder="-1003825882347" maxlength="40" readonly>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-primary btn-sm" id="setWebhookBtn">🔗 Set Webhook</button>
+                                <button class="btn btn-secondary btn-sm" id="deleteWebhookBtn">🗑️ Delete Webhook</button>
+                                <button class="btn btn-info btn-sm" id="webhookInfoBtn">📊 Webhook Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 5: FEATURES
+                     ==================================================== -->
+                <div id="featuresView" class="settings-view" style="display: none;">
+
+                    <div class="alert alert-info mb-lg">
+                        💡 <b>Feature Toggles</b> — Enable or disable bot functionality. Changes apply instantly.
+                    </div>
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎯 Core Features</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Referral Program</div>
+                                        <div class="setting-desc">Users can refer & earn bonuses</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="referral_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">VIP System</div>
+                                        <div class="setting-desc">Paid VIP memberships with discounts</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="vip_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Support Tickets</div>
+                                        <div class="setting-desc">Users can create support tickets</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="tickets_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Coupons</div>
+                                        <div class="setting-desc">Discount coupons system</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="coupons_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Wallet System</div>
+                                        <div class="setting-desc">Balance tracking & ledger</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="wallet_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Live Chat</div>
+                                        <div class="setting-desc">Real-time user-admin chat</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="live_chat_enabled" data-type="bool">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎨 UI Features</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Show Charts</div>
+                                        <div class="setting-desc">Analytics & revenue charts</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="show_charts" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Show Activity Feed</div>
+                                        <div class="setting-desc">Live admin activity panel</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="show_activity_feed" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Show Quick Actions</div>
+                                        <div class="setting-desc">Dashboard quick buttons</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="show_quick_actions" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Show Bot Health</div>
+                                        <div class="setting-desc">System status widget</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="show_bot_health" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Enable Animations</div>
+                                        <div class="setting-desc">Smooth transitions & effects</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="animations_enabled" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Compact Mode</div>
+                                        <div class="setting-desc">Reduce spacing for more data</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="compact_mode" data-type="bool">
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">⚡ Performance</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 gap-md">
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Auto Refresh (seconds)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="auto_refresh_seconds" placeholder="30" min="5" max="300">
+                                    <div class="form-help">0 = disable auto-refresh</div>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Cache TTL (seconds)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="cache_ttl" placeholder="3600" min="60" max="86400">
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Batch Size</label>
+                                    <input type="number" class="form-input setting-input" data-setting="batch_size" placeholder="50" min="10" max="500">
+                                    <div class="form-help">Rows per batch operation</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 6: NOTIFICATIONS
+                     ==================================================== -->
+                <div id="notificationsView" class="settings-view" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔔 Admin Alerts</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">New Order Alert</div>
+                                        <div class="setting-desc">Notify when order placed</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_new_order" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">New Payment Alert</div>
+                                        <div class="setting-desc">Notify on payment screenshot</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_new_payment" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">New User Alert</div>
+                                        <div class="setting-desc">Notify on new signup</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_new_user" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Failed Login Alert</div>
+                                        <div class="setting-desc">Alert on failed login attempts</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_failed_login" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Critical Errors</div>
+                                        <div class="setting-desc">System errors & failures</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_errors" data-type="bool">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">👤 User Notifications</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Order Updates</div>
+                                        <div class="setting-desc">Placed, progress, completed</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_order_updates" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Payment Updates</div>
+                                        <div class="setting-desc">Approved, rejected, pending</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_payment_updates" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Referral Bonus</div>
+                                        <div class="setting-desc">When someone joins via referral</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_referral_bonus" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">VIP Expiry Reminder</div>
+                                        <div class="setting-desc">Remind before VIP expires</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_vip_expiry" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Marketing Messages</div>
+                                        <div class="setting-desc">Offers & promotions</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="notify_marketing" data-type="bool">
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">⏱️ Delivery Timing</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Quiet Hours Start</label>
+                                    <input type="time" class="form-input setting-input" data-setting="quiet_start" value="23:00">
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Quiet Hours End</label>
+                                    <input type="time" class="form-input setting-input" data-setting="quiet_end" value="07:00">
+                                </div>
+
+                            </div>
+
+                            <label class="setting-row mt-md">
+                                <div>
+                                    <div class="setting-label">Enable Quiet Hours</div>
+                                    <div class="setting-desc">Pause non-urgent notifications at night</div>
+                                </div>
+                                <input type="checkbox" class="toggle-input setting-input" data-setting="quiet_hours_enabled" data-type="bool">
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 7: ADVANCED
+                     ==================================================== -->
+                <div id="advancedView" class="settings-view" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🔒 Security Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Session Timeout (hours)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="session_hours" placeholder="2" min="1" max="24">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Idle Timeout (minutes)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="idle_timeout_minutes" placeholder="30" min="5" max="240">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Max Login Attempts</label>
+                                    <input type="number" class="form-input setting-input" data-setting="login_max_attempts" placeholder="3" min="1" max="10">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Lockout Duration (minutes)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="login_lockout_minutes" placeholder="5" min="1" max="60">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Data Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Backup Retention (days)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="backup_retention_days" placeholder="30" min="1" max="365">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Max Backup Size (MB)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="max_backup_size_mb" placeholder="45" min="10" max="200">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Log Retention (days)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="log_retention_days" placeholder="90" min="7" max="365">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">Trash Retention (days)</label>
+                                    <input type="number" class="form-input setting-input" data-setting="trash_retention_days" placeholder="90" min="7" max="365">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🔧 System Configuration</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Debug Mode</div>
+                                        <div class="setting-desc">⚠️ Verbose error logging</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="debug_mode" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Log API Calls</div>
+                                        <div class="setting-desc">Track all API requests</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="log_api_calls" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Strict Mode</div>
+                                        <div class="setting-desc">Fail on any validation error</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="strict_mode" data-type="bool">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Beta Features</div>
+                                        <div class="setting-desc">Enable experimental features</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input setting-input" data-setting="beta_features" data-type="bool">
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🎛️ Advanced Config</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Timezone</label>
+                                    <select class="form-select setting-input" data-setting="advanced_timezone">
+                                        <option value="Asia/Kolkata">🇮🇳 Asia/Kolkata</option>
+                                        <option value="UTC">🌍 UTC</option>
+                                        <option value="Asia/Dubai">🇦🇪 Asia/Dubai</option>
+                                        <option value="America/New_York">🇺🇸 America/New_York</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Date Format</label>
+                                    <select class="form-select setting-input" data-setting="advanced_date_format">
+                                        <option value="Y-m-d H:i:s">2026-10-07 14:30:00</option>
+                                        <option value="d/m/Y H:i:s">07/10/2026 14:30:00</option>
+                                        <option value="m/d/Y H:i:s">10/07/2026 14:30:00</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Default Language</label>
+                                    <select class="form-select setting-input" data-setting="default_language">
+                                        <option value="en">🇬🇧 English</option>
+                                        <option value="hn">🇮🇳 Hinglish</option>
+                                        <option value="hi">🇮🇳 हिंदी</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Items Per Page</label>
+                                    <select class="form-select setting-input" data-setting="pagination_size">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 8: DANGER ZONE
+                     ==================================================== -->
+                <div id="dangerView" class="settings-view" style="display: none;">
+
+                    <div class="alert alert-danger mb-lg">
+                        <span style="font-size: 20px;">⚠️</span>
+                        <div style="flex: 1;">
+                            <b>DANGER ZONE</b>
+                            <div style="font-size: 12px; opacity: 0.9; margin-top: 2px;">
+                                These actions cannot be undone. Use with extreme caution!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 gap-md">
+
+                        <div class="card" style="border-color: var(--danger);">
+                            <div class="card-header">
+                                <h3 class="card-title" style="color: var(--danger);">🔄 Reset Options</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Reset All Settings</div>
+                                        <div class="danger-action-desc">Restore all settings to default values</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerResetSettings">
+                                        🔄 Reset
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Reset Branding</div>
+                                        <div class="danger-action-desc">Restore colors, logo & text to defaults</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerResetBranding">
+                                        🎨 Reset
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Clear Cache</div>
+                                        <div class="danger-action-desc">Remove all cached data (safe)</div>
+                                    </div>
+                                    <button class="btn btn-warning btn-sm" id="dangerClearCache">
+                                        🗑️ Clear
+                                    </button>
+                                </div>
+
+                                <div class="danger-action" style="border-bottom: none;">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Clear Local Storage</div>
+                                        <div class="danger-action-desc">⚠️ Logs you out & clears preferences</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerClearStorage">
+                                        🗑️ Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="border-color: var(--danger);">
+                            <div class="card-header">
+                                <h3 class="card-title" style="color: var(--danger);">💣 Destructive Actions</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Delete All Orders</div>
+                                        <div class="danger-action-desc">⚠️ Permanently removes all orders from DB</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerDeleteOrders">
+                                        💣 Delete
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Clear Activity Log</div>
+                                        <div class="danger-action-desc">Remove all activity history</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerClearActivity">
+                                        🗑️ Clear
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Empty Trash</div>
+                                        <div class="danger-action-desc">Permanently delete all trashed items</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerEmptyTrash">
+                                        💥 Empty
+                                    </button>
+                                </div>
+
+                                <div class="danger-action" style="border-bottom: none;">
+                                    <div class="danger-action-info">
+                                        <div class="danger-action-title">Factory Reset</div>
+                                        <div class="danger-action-desc">⚠️⚠️ Complete wipe & default install</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" id="dangerFactoryReset">
+                                        🏭 Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       SETTINGS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            mainTab: 'general',
+            settings: {},
+            originalSettings: {},
+            unsavedChanges: new Set(),
+            searchQuery: '',
+            saving: false,
+        };
+
+        /* ============================================================
+           DEFAULT SETTINGS
+         ============================================================ */
+        const DEFAULT_SETTINGS = {
+            /* General */
+            site_name: 'Bihari SMM Bot',
+            site_url: 'https://rana-hosting.myvipsite.fun',
+            timezone: 'Asia/Kolkata',
+            currency_symbol: '₹',
+            admin_username: '@code_breaker',
+            support_bot: '@biharipleasehelpme_bot',
+            support_email: '',
+            contact_phone: '',
+            default_view: 'dashboard',
+            items_per_page: '20',
+            date_format: 'dmy',
+
+            /* Payment */
+            upi_id: 'code-breakerkumar@fam',
+            upi_holder: 'Bihari SMM',
+            upi_id_backup: '',
+            qr_code: '',
+            min_deposit: '10',
+            max_deposit: '50000',
+            signup_bonus: '0.5',
+            ref_bonus: '0.1',
+            quick_amounts: '100, 200, 500, 1000, 2000, 5000',
+            utr_required: true,
+            screenshot_required: true,
+            auto_approve_payments: false,
+            allow_partial_payments: false,
+            utr_min_length: '8',
+            utr_max_length: '40',
+            payment_note: '',
+
+            /* Bot */
+            bot_username: 'biharismmpannel_bot',
+            bot_version: 'v7.0',
+            announcement: "🚀 Welcome to Bihari SMM Bot! India's #1 SMM Panel.",
+            group_welcome_message: '👋 Welcome to {group}!',
+            force_join_enabled: true,
+            force_join_fail_open: false,
+            force_join_notify_admin: true,
+            force_channels_json: '',
+            profile_required: true,
+            group_welcome_enabled: true,
+            maintenance_mode: false,
+            auto_announce_new_services: false,
+            profile_grace_days: '7',
+            order_stuck_days: '3',
+            progress_threshold_pct: '10',
+
+            /* API */
+            admin_api_url: (typeof readRuntimeConfig === 'function' ? readRuntimeConfig().API_URL : CONFIG.API_URL),
+                        smm_api_url: 'https://tntsmm.in/api/v2',
+            smm_api_key: '••••••••••••••••••••••••••••••••',
+            auto_service_sync_enabled: '1',
+            service_sync_interval: '14400',
+            default_profit_per_1000: '15',
+            vip_discount_percent: '2',
+            rate_change_threshold: '5',
+            api_timeout: '30',
+            github_repo: 'Biharkebahubali/Bihari-Smm-Panel-Data',
+            github_token: '••••••••••••••••••••••••••••••••',
+            auto_sync_enabled: true,
+            auto_restore_enabled: true,
+            bot_token: '••••••••••••••••••••••••••••••••',
+            webhook_url: 'https://rana-hosting.myvipsite.fun/bot.php',
+            log_channel: '-1003825882347',
+
+            /* Features */
+            referral_enabled: true,
+            vip_enabled: true,
+            tickets_enabled: true,
+            coupons_enabled: true,
+            wallet_enabled: true,
+            live_chat_enabled: true,
+            show_charts: true,
+            show_activity_feed: true,
+            show_quick_actions: true,
+            show_bot_health: true,
+            animations_enabled: true,
+            compact_mode: false,
+            auto_refresh_seconds: '30',
+            cache_ttl: '3600',
+            batch_size: '50',
+
+            /* Notifications */
+            notify_new_order: true,
+            notify_new_payment: true,
+            notify_new_user: true,
+            notify_failed_login: true,
+            notify_errors: true,
+            notify_order_updates: true,
+            notify_payment_updates: true,
+            notify_referral_bonus: true,
+            notify_vip_expiry: true,
+            notify_marketing: false,
+            quiet_start: '23:00',
+            quiet_end: '07:00',
+            quiet_hours_enabled: false,
+
+            /* Advanced */
+            session_hours: '2',
+            idle_timeout_minutes: '30',
+            login_max_attempts: '3',
+            login_lockout_minutes: '5',
+            backup_retention_days: '30',
+            max_backup_size_mb: '45',
+            log_retention_days: '90',
+            trash_retention_days: '90',
+            debug_mode: false,
+            log_api_calls: true,
+            strict_mode: false,
+            beta_features: false,
+            advanced_timezone: 'Asia/Kolkata',
+            advanced_date_format: 'Y-m-d H:i:s',
+            default_language: 'hn',
+            pagination_size: '20',
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadSettings();
+            populateInputs();
+            updateStats();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('settingsStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'settingsStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                .settings-view {
+                    animation: settingsIn 0.3s ease;
+                }
+                @keyframes settingsIn {
+                    from { opacity: 0; transform: translateY(8px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+
+                /* ---- Inputs with changes ---- */
+                .setting-input.changed {
+                    border-color: var(--warning);
+                    background: rgba(245, 158, 11, 0.05);
+                    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1);
+                }
+
+                /* ---- Search highlight ---- */
+                .setting-search-hit {
+                    background: rgba(255, 211, 61, 0.2);
+                    border-radius: 3px;
+                    padding: 1px 3px;
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+                .toggle-input.changed {
+                    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child { flex: 1; min-width: 0; }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Password Wrapper ---- */
+                .password-wrapper {
+                    position: relative;
+                }
+                .password-toggle {
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: transparent;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    padding: 6px;
+                    border-radius: var(--radius-sm);
+                    transition: all 0.15s;
+                    font-size: 16px;
+                }
+                .password-toggle:hover {
+                    color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Quick Nav ---- */
+                .quick-nav {
+                    transition: all 0.15s;
+                }
+                .quick-nav:hover {
+                    background: var(--primary-light);
+                    color: var(--primary);
+                }
+
+                /* ---- Danger Action ---- */
+                .danger-action {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 14px 0;
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .danger-action:last-child {
+                    border-bottom: none;
+                }
+                .danger-action-info {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .danger-action-title {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+                .danger-action-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                }
+
+                /* ---- Unsaved banner animation ---- */
+                #unsavedBanner {
+                    animation: alertSlide 0.3s ease;
+                }
+                @keyframes alertSlide {
+                    from { opacity: 0; transform: translateY(-10px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+
+                @media (max-width: 768px) {
+                    .quick-nav { display: none; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+
+            document.getElementById('refreshBtn').addEventListener('click', async () => {
+                if (State.unsavedChanges.size > 0) {
+                    const confirmed = await Modal.confirm({
+                        title: '⚠️ Unsaved Changes',
+                        message: `You have ${State.unsavedChanges.size} unsaved changes. Reload anyway?`,
+                        confirmText: 'Yes, Reload',
+                        type: 'warning',
+                    });
+
+                    if (!confirmed) return;
+                }
+
+                Loader.show();
+                await loadSettings();
+                populateInputs();
+                updateStats();
+                Loader.hide();
+                Toast.success('Settings reloaded');
+            });
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Quick nav ---- */
+            document.querySelectorAll('.quick-nav').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.nav));
+            });
+
+            /* ---- Save / Reset ---- */
+            document.getElementById('saveAllBtn').addEventListener('click', saveAll);
+            document.getElementById('saveNowBtn').addEventListener('click', saveAll);
+            document.getElementById('resetAllBtn').addEventListener('click', resetAll);
+
+            /* ---- Bind all setting inputs ---- */
+            bindSettingInputs();
+
+            /* ---- Search ---- */
+            const searchInput = document.getElementById('settingsSearch');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', Utils.debounce(() => {
+                    State.searchQuery = searchInput.value.trim().toLowerCase();
+                    highlightSearchResults();
+                }, 300));
+            }
+
+            /* ---- Password toggles ---- */
+            document.getElementById('toggleApiKey')?.addEventListener('click', (e) => {
+                const input = e.target.previousElementSibling;
+                input.type = input.type === 'password' ? 'text' : 'password';
+                e.target.textContent = input.type === 'password' ? '👁️' : '🙈';
+            });
+
+            document.getElementById('toggleAdminApiKey')?.addEventListener('click', (e) => {
+                const input = e.target.previousElementSibling;
+                input.type = input.type === 'password' ? 'text' : 'password';
+                e.target.textContent = input.type === 'password' ? '👁️' : '🙈';
+            });
+
+            document.getElementById('toggleGithubToken')?.addEventListener('click', (e) => {
+                const input = e.target.previousElementSibling;
+                input.type = input.type === 'password' ? 'text' : 'password';
+                e.target.textContent = input.type === 'password' ? '👁️' : '🙈';
+            });
+
+            document.getElementById('toggleBotToken')?.addEventListener('click', (e) => {
+                const input = e.target.previousElementSibling;
+                input.type = input.type === 'password' ? 'text' : 'password';
+                e.target.textContent = input.type === 'password' ? '👁️' : '🙈';
+            });
+
+            /* ---- API test button ---- */
+            document.getElementById('testApiBtn')?.addEventListener('click', testApiConnection);
+
+            /* ---- Webhook buttons ---- */
+            document.getElementById('setWebhookBtn')?.addEventListener('click', () => webhookAction('set'));
+            document.getElementById('deleteWebhookBtn')?.addEventListener('click', () => webhookAction('delete'));
+            document.getElementById('webhookInfoBtn')?.addEventListener('click', () => webhookAction('info'));
+
+            /* ---- Danger actions ---- */
+            document.getElementById('dangerResetSettings')?.addEventListener('click', resetAll);
+            document.getElementById('dangerResetBranding')?.addEventListener('click', resetBranding);
+            document.getElementById('dangerClearCache')?.addEventListener('click', clearCache);
+            document.getElementById('dangerClearStorage')?.addEventListener('click', clearStorage);
+            document.getElementById('dangerDeleteOrders')?.addEventListener('click', deleteAllOrders);
+            document.getElementById('dangerClearActivity')?.addEventListener('click', clearActivity);
+            document.getElementById('dangerEmptyTrash')?.addEventListener('click', emptyTrash);
+            document.getElementById('dangerFactoryReset')?.addEventListener('click', factoryReset);
+
+            /* ---- Warn before leaving with unsaved changes ---- */
+            window.addEventListener('beforeunload', (e) => {
+                if (State.unsavedChanges.size > 0) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           BIND INPUTS
+         ============================================================ */
+        function bindSettingInputs() {
+            document.querySelectorAll('.setting-input').forEach(el => {
+                const key = el.dataset.setting;
+
+                if (!key) return;
+
+                if (el.type === 'checkbox') {
+                    el.addEventListener('change', () => {
+                        markChanged(key, el.checked);
+                    });
+                } else {
+                    el.addEventListener('input', () => {
+                        markChanged(key, el.value);
+                    });
+
+                    el.addEventListener('change', () => {
+                        markChanged(key, el.value);
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           MARK CHANGED
+         ============================================================ */
+        function markChanged(key, value) {
+            const original = State.originalSettings[key];
+
+            let isChanged = false;
+
+            if (typeof value === 'boolean') {
+                isChanged = (!!original !== value);
+            } else {
+                isChanged = (String(original || '') !== String(value || ''));
+            }
+
+            /* ---- Update state ---- */
+            if (isChanged) {
+                State.settings[key] = value;
+                State.unsavedChanges.add(key);
+            } else {
+                State.unsavedChanges.delete(key);
+            }
+
+            /* ---- Update UI ---- */
+            const el = document.querySelector(`[data-setting="${key}"]`);
+            if (el) el.classList.toggle('changed', isChanged);
+
+            updateUnsavedBanner();
+        }
+
+        function updateUnsavedBanner() {
+            const banner = document.getElementById('unsavedBanner');
+            const count = State.unsavedChanges.size;
+
+            if (count > 0) {
+                banner.style.display = 'flex';
+                document.getElementById('unsavedCount').textContent = count;
+            } else {
+                banner.style.display = 'none';
+            }
+        }
+
+        /* ============================================================
+           LOAD SETTINGS
+         ============================================================ */
+        async function loadSettings() {
+            try {
+                /* ---- Load from backend settings ---- */
+                const keys = Object.keys(DEFAULT_SETTINGS);
+                const loaded = {};
+
+                /* ---- Try to load from API ---- */
+                try {
+                    for (const key of keys) {
+                        try {
+                            const res = await API.getSetting(key);
+                            if (res && res.success && res.value !== null && res.value !== undefined) {
+                                loaded[key] = res.value;
+                            }
+                        } catch (e) {}
+                    }
+                } catch (e) {
+                    console.error('Bulk settings fetch failed:', e);
+                }
+
+                /* ---- Merge with localStorage overrides ---- */
+                const localOverrides = Utils.storage.get('settings_overrides', {}) || {};
+
+                /* ---- Final merge: DEFAULT → backend → local ---- */
+                const runtime = typeof readRuntimeConfig === 'function' ? readRuntimeConfig() : CONFIG;
+                State.settings = { ...DEFAULT_SETTINGS, ...loaded, ...localOverrides, admin_api_url: runtime.API_URL };
+                State.originalSettings = { ...State.settings };
+
+                State.unsavedChanges.clear();
+                updateUnsavedBanner();
+
+            } catch (err) {
+                console.error('Load settings failed:', err);
+                State.settings = { ...DEFAULT_SETTINGS };
+                State.originalSettings = { ...DEFAULT_SETTINGS };
+                Toast.error('Failed to load settings');
+            }
+        }
+
+        /* ============================================================
+           POPULATE INPUTS
+         ============================================================ */
+        function populateInputs() {
+            document.querySelectorAll('.setting-input').forEach(el => {
+                const key = el.dataset.setting;
+                if (!key) return;
+
+                const value = State.settings[key];
+
+                if (value === undefined || value === null) return;
+
+                if (el.type === 'checkbox') {
+                    /* ---- Boolean conversion ---- */
+                    let boolVal = false;
+
+                    if (typeof value === 'boolean') {
+                        boolVal = value;
+                    } else if (typeof value === 'string') {
+                        boolVal = (value === '1' || value.toLowerCase() === 'true');
+                    } else {
+                        boolVal = !!value;
+                    }
+
+                    el.checked = boolVal;
+                } else {
+                    el.value = String(value);
+                }
+
+                el.classList.remove('changed');
+            });
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            document.querySelectorAll('.settings-view').forEach(v => {
+                v.style.display = 'none';
+            });
+
+            const map = {
+                general: 'generalView',
+                payment: 'paymentView',
+                bot: 'botView',
+                api: 'apiView',
+                features: 'featuresView',
+                notifications: 'notificationsView',
+                advanced: 'advancedView',
+                danger: 'dangerView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+        }
+
+        /* ============================================================
+           SAVE ALL
+         ============================================================ */
+        async function saveAll() {
+            if (State.saving) {
+                Toast.warning('Save already in progress');
+                return;
+            }
+
+            if (State.unsavedChanges.size === 0) {
+                Toast.info('No changes to save');
+                return;
+            }
+
+            const confirmed = await Modal.confirm({
+                title: '💾 Save Settings',
+                message: `Save ${State.unsavedChanges.size} setting(s)?`,
+                confirmText: 'Yes, Save All',
+                type: 'info',
+            });
+
+            if (!confirmed) return;
+
+            State.saving = true;
+            Loader.show();
+
+            const changedKeys = Array.from(State.unsavedChanges);
+            let saved = 0;
+            let failed = 0;
+            const failedKeys = [];
+
+            try {
+                for (const key of changedKeys) {
+                    try {
+                        const value = State.settings[key];
+
+                        /* ---- Convert boolean to string for backend ---- */
+                        let stringValue;
+
+                        if (typeof value === 'boolean') {
+                            stringValue = value ? '1' : '0';
+                        } else {
+                            stringValue = String(value);
+                        }
+
+                        /* ---- Admin backend URL/key are local runtime settings ---- */
+                        if (key === 'admin_api_url') {
+                            if (!/^https:\/\//i.test(stringValue)) {
+                                throw new Error('Backend URL must use HTTPS');
+                            }
+                            const runtime = typeof readRuntimeConfig === 'function' ? readRuntimeConfig() : CONFIG;
+                            saveRuntimeConfig({ API_URL: stringValue || runtime.API_URL });
+                            saved++;
+                            continue;
+                        }
+
+                        /* ---- Save to backend ---- */
+                        try {
+                            await API.updateSetting(key, stringValue);
+                            saved++;
+                        } catch (e) {
+                            /* ---- Fallback: save to localStorage ---- */
+                            failedKeys.push(key);
+                            failed++;
+                        }
+                    } catch (e) {
+                        failedKeys.push(key);
+                        failed++;
+                    }
+                }
+
+                /* ---- Save localStorage overrides for fallback keys ---- */
+                if (failedKeys.length > 0) {
+                    const overrides = Utils.storage.get('settings_overrides', {}) || {};
+
+                    failedKeys.forEach(key => {
+                        const value = State.settings[key];
+                        overrides[key] = (typeof value === 'boolean') ? (value ? '1' : '0') : String(value);
+                    });
+
+                    Utils.storage.set('settings_overrides', overrides);
+                }
+
+                /* ---- Update state ---- */
+                State.originalSettings = { ...State.settings };
+                State.unsavedChanges.clear();
+                updateUnsavedBanner();
+
+                /* ---- Clear changed classes ---- */
+                document.querySelectorAll('.setting-input.changed').forEach(el => {
+                    el.classList.remove('changed');
+                });
+
+                /* ---- Update last saved ---- */
+                Utils.storage.set('last_settings_save', Date.now());
+                updateStats();
+
+                if (failed === 0) {
+                    Toast.success(`Saved ${saved} setting(s) successfully`);
+                } else if (saved > 0) {
+                    Toast.warning(`Saved ${saved}, ${failed} saved locally only`);
+                } else {
+                    Toast.error(`Failed to save settings`);
+                }
+
+            } catch (err) {
+                console.error('Save failed:', err);
+                Toast.error('Save failed: ' + (err.message || 'Unknown'));
+            } finally {
+                State.saving = false;
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           RESET ALL
+         ============================================================ */
+        async function resetAll() {
+            const confirmed = await Modal.confirm({
+                title: '🔄 Reset All Settings',
+                message: 'Restore ALL settings to default values? This cannot be undone.',
+                confirmText: 'Yes, Reset All',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            State.settings = { ...DEFAULT_SETTINGS };
+            State.unsavedChanges = new Set(Object.keys(DEFAULT_SETTINGS));
+
+            populateInputs();
+
+            /* ---- Mark all as changed ---- */
+            document.querySelectorAll('.setting-input').forEach(el => {
+                el.classList.add('changed');
+            });
+
+            updateUnsavedBanner();
+
+            Toast.warning('All settings reset. Click "Save All" to apply.');
+        }
+
+        /* ============================================================
+           RESET BRANDING
+         ============================================================ */
+        async function resetBranding() {
+            const confirmed = await Modal.confirm({
+                title: '🎨 Reset Branding',
+                message: 'Reset branding (colors, logo, text) to defaults?',
+                confirmText: 'Yes, Reset',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Utils.storage.remove('branding_settings');
+            Toast.success('Branding reset. Reload page to see changes.');
+
+            setTimeout(() => location.reload(), 1500);
+        }
+
+        /* ============================================================
+           CLEAR CACHE
+         ============================================================ */
+        async function clearCache() {
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Clear Cache',
+                message: 'Remove all cached data? Settings will remain intact.',
+                confirmText: 'Yes, Clear',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                if ('caches' in window) {
+                    const names = await caches.keys();
+                    await Promise.all(names.map(n => caches.delete(n)));
+                }
+
+                const keepKeys = [
+                    'bihari_admin_session',
+                    'bihari_admin_username',
+                    'branding_settings',
+                    'ip_settings',
+                    'security_settings',
+                    'schedule_settings',
+                    'backup_settings',
+                    'settings_overrides',
+                ];
+
+                Object.keys(localStorage).forEach(key => {
+                    if (!keepKeys.includes(key)) {
+                        localStorage.removeItem(key);
+                    }
+                });
+
+                Toast.success('Cache cleared');
+            } catch (e) {
+                Toast.error('Clear failed');
+            }
+        }
+
+        /* ============================================================
+           CLEAR STORAGE
+         ============================================================ */
+        async function clearStorage() {
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Clear Local Storage',
+                message: 'This will log you out & clear all preferences. Continue?',
+                confirmText: 'Yes, Clear Everything',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                localStorage.clear();
+                sessionStorage.clear();
+
+                if ('caches' in window) {
+                    const names = await caches.keys();
+                    await Promise.all(names.map(n => caches.delete(n)));
+                }
+
+                Toast.success('Storage cleared. Logging out...');
+
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 1500);
+            } catch (e) {
+                Toast.error('Clear failed');
+            }
+        }
+
+        /* ============================================================
+           DELETE ALL ORDERS
+         ============================================================ */
+        async function deleteAllOrders() {
+            const doubleConfirm = await Modal.confirm({
+                title: '💣 Delete All Orders',
+                message: '⚠️ This will PERMANENTLY delete ALL orders from the database!\n\nThis CANNOT be undone!',
+                confirmText: 'I understand',
+                type: 'danger',
+            });
+
+            if (!doubleConfirm) return;
+
+            const finalConfirm = await Modal.confirm({
+                title: '⚠️ FINAL WARNING',
+                message: 'Are you ABSOLUTELY sure? This is your LAST chance!',
+                confirmText: 'DELETE ALL',
+                type: 'danger',
+            });
+
+            if (!finalConfirm) return;
+
+            Loader.show();
+
+            try {
+                /* ---- Note: no direct API for this, requires backend ---- */
+                Toast.warning('Bulk order deletion requires backend support. Contact developer.');
+
+            } catch (err) {
+                Toast.error('Operation failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           CLEAR ACTIVITY
+         ============================================================ */
+        async function clearActivity() {
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Clear Activity Log',
+                message: 'Remove all activity history? This cannot be undone.',
+                confirmText: 'Yes, Clear',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                const res = await API.post('clearActivity', {});
+
+                if (res && res.success) {
+                    Toast.success('Activity log cleared');
+                } else {
+                    Toast.error(res?.error || 'Failed to clear');
+                }
+            } catch (err) {
+                Toast.error('Clear failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           EMPTY TRASH
+         ============================================================ */
+        async function emptyTrash() {
+            const confirmed = await Modal.confirm({
+                title: '💥 Empty Trash',
+                message: 'Permanently delete all trashed items? This cannot be undone.',
+                confirmText: 'Yes, Empty Trash',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                const res = await API.emptyTrash();
+
+                if (res && res.success) {
+                    Toast.success('Trash emptied');
+                } else {
+                    Toast.error(res?.error || 'Failed');
+                }
+            } catch (err) {
+                Toast.error('Failed to empty trash');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           FACTORY RESET
+         ============================================================ */
+        async function factoryReset() {
+            const confirmed = await Modal.confirm({
+                title: '🏭 Factory Reset',
+                message: '⚠️⚠️ THIS WILL:\n\n• Delete ALL data\n• Reset ALL settings\n• Clear ALL cache\n• Log you out\n\nThis CANNOT be undone!',
+                confirmText: 'I understand the risks',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            const finalConfirm = await Modal.confirm({
+                title: '⚠️ FINAL WARNING',
+                message: 'Are you ABSOLUTELY sure?\n\nType "RESET" in your mind. If not 100% sure, click Cancel.',
+                confirmText: 'FACTORY RESET',
+                type: 'danger',
+            });
+
+            if (!finalConfirm) return;
+
+            Loader.show();
+
+            try {
+                /* ---- Clear everything ---- */
+                localStorage.clear();
+                sessionStorage.clear();
+
+                if ('caches' in window) {
+                    const names = await caches.keys();
+                    await Promise.all(names.map(n => caches.delete(n)));
+                }
+
+                Toast.success('Factory reset complete. Logging out...');
+
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 1500);
+            } catch (e) {
+                Toast.error('Factory reset failed');
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           TEST API CONNECTION
+         ============================================================ */
+        async function testApiConnection() {
+            Loader.show();
+
+            try {
+                const res = await API.getApiBalance();
+
+                if (res && res.success) {
+                    Modal.alert(
+                        '✅ API Connection OK',
+                        `Provider is online!\n\nBalance: ₹${Utils.number(res.balance || 0, 2)}`,
+                        'success'
+                    );
+                } else {
+                    Modal.alert(
+                        '❌ API Connection Failed',
+                        `Error: ${res?.error || 'Unknown error'}\n\nCheck API URL & key in provider settings.`,
+                        'error'
+                    );
+                }
+            } catch (err) {
+                Modal.alert(
+                    '❌ Test Failed',
+                    `Error: ${err.message || 'Unknown'}`,
+                    'error'
+                );
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           WEBHOOK ACTIONS
+         ============================================================ */
+        async function webhookAction(action) {
+            Loader.show();
+
+            try {
+                if (action === 'set') {
+                    const url = State.settings.webhook_url || (SITE_URL + '/bot.php');
+                    const res = await API.get('set_webhook', { url });
+
+                    if (res && res.success) {
+                        Toast.success('Webhook set successfully');
+                    } else {
+                        Toast.error(res?.error || 'Failed to set webhook');
+                    }
+                } else if (action === 'delete') {
+                    const confirmed = await Modal.confirm({
+                        title: '🗑️ Delete Webhook',
+                        message: 'Delete webhook? Bot will stop receiving updates until re-set.',
+                        confirmText: 'Yes, Delete',
+                        type: 'warning',
+                    });
+
+                    if (!confirmed) {
+                        Loader.hide();
+                        return;
+                    }
+
+                    const res = await API.get('delete_webhook');
+                    if (res && res.success) {
+                        Toast.success('Webhook deleted');
+                    } else {
+                        Toast.error(res?.error || 'Failed');
+                    }
+                } else if (action === 'info') {
+                    const res = await API.get('webhook_info');
+                    const info = res?.result || {};
+
+                    Modal.open({
+                        title: '📊 Webhook Info',
+                        body: `
+                            <div class="grid grid-2 gap-sm mb-md">
+                                <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                                    <div style="font-size: 11px; color: var(--text-muted);">URL</div>
+                                    <div style="font-weight: 600; margin-top: 4px; font-size: 12px; word-break: break-all;">
+                                        ${Utils.escape(info.url || 'Not set')}
+                                    </div>
+                                </div>
+                                <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                                    <div style="font-size: 11px; color: var(--text-muted);">Pending Updates</div>
+                                    <div style="font-weight: 600; margin-top: 4px;">
+                                        ${info.pending_update_count || 0}
+                                    </div>
+                                </div>
+                            </div>
+
+                            ${info.last_error_message ? `
+                                <div class="alert alert-warning" style="margin-bottom: 0;">
+                                    ⚠️ <b>Last Error:</b><br>
+                                    ${Utils.escape(info.last_error_message)}
+                                </div>
+                            ` : `
+                                <div class="alert alert-success" style="margin-bottom: 0;">
+                                    ✅ Webhook is healthy
+                                </div>
+                            `}
+                        `,
+                        footer: `<button class="btn btn-secondary btn-sm" onclick="Modal.close()">Close</button>`,
+                    });
+                }
+            } catch (err) {
+                Toast.error('Action failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           SEARCH HIGHLIGHT
+         ============================================================ */
+        function highlightSearchResults() {
+            const q = State.searchQuery;
+
+            /* ---- Remove old highlights ---- */
+            document.querySelectorAll('.setting-search-hit').forEach(el => {
+                const parent = el.parentNode;
+                parent.replaceChild(document.createTextNode(el.textContent), el);
+                parent.normalize();
+            });
+
+            if (!q) return;
+
+            /* ---- Highlight matching labels ---- */
+            document.querySelectorAll('.setting-label, .setting-desc').forEach(el => {
+                const text = el.textContent;
+                const lower = text.toLowerCase();
+
+                if (lower.includes(q)) {
+                    const regex = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                    const highlighted = text.replace(regex, '<span class="setting-search-hit">$1</span>');
+                    el.innerHTML = highlighted;
+                }
+            });
+        }
+
+        /* ============================================================
+           UPDATE STATS
+         ============================================================ */
+        function updateStats() {
+            const total = Object.keys(State.settings).length;
+
+            /* ---- Count enabled boolean settings ---- */
+            let enabled = 0;
+            Object.values(State.settings).forEach(v => {
+                if (v === true || v === '1' || v === 'true') {
+                    enabled++;
+                }
+            });
+
+            /* ---- Count non-empty string settings ---- */
+            let configured = 0;
+            Object.values(State.settings).forEach(v => {
+                if (typeof v === 'string' && v.trim() !== '' && v !== '0') {
+                    configured++;
+                }
+            });
+
+            /* ---- Last saved ---- */
+            const lastSave = parseInt(Utils.storage.get('last_settings_save', 0));
+            const lastSaveText = lastSave > 0 ? Utils.timeAgo(new Date(lastSave).toISOString()) : '—';
+
+            document.getElementById('statTotalSettings').textContent = Utils.number(total);
+            document.getElementById('statEnabledFeatures').textContent = Utils.number(enabled);
+            document.getElementById('statConfigured').textContent = Utils.number(configured);
+            document.getElementById('statLastSaved').textContent = lastSaveText;
+
+            document.getElementById('headerSubtitle').textContent =
+                `${total} settings • ${enabled} features enabled`;
+            document.getElementById('pageStats').textContent =
+                `${total} total settings • ${State.unsavedChanges.size} unsaved`;
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

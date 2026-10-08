@@ -1,0 +1,3512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>📈 Analytics — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link active" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">📈 Analytics Dashboard</div>
+                        <div class="header-subtitle" id="headerSubtitle">Loading analytics...</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">📈 Analytics Dashboard</h1>
+                        <p class="page-description" id="pageStats">Loading analytics data...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <select class="form-select" id="dateRange" style="width: auto; height: 38px;">
+                            <option value="today">📅 Today</option>
+                            <option value="7days">📅 Last 7 Days</option>
+                            <option value="30days" selected>📅 Last 30 Days</option>
+                            <option value="90days">📅 Last 90 Days</option>
+                            <option value="year">📅 This Year</option>
+                            <option value="all">📅 All Time</option>
+                        </select>
+                        <button class="btn btn-secondary btn-sm" id="exportBtn">
+                            📤 Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KEY METRICS (6) -->
+                <div class="grid grid-3 mb-lg">
+
+                    <div class="metric-card gradient-blue">
+                        <div class="metric-header">
+                            <span class="metric-icon">💰</span>
+                            <span class="metric-trend up" id="trendRevenue">
+                                <span>↑</span> <span>0%</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricRevenue">₹0</div>
+                        <div class="metric-label">Total Revenue</div>
+                        <div class="metric-sub" id="subRevenue">Loading...</div>
+                    </div>
+
+                    <div class="metric-card gradient-green">
+                        <div class="metric-header">
+                            <span class="metric-icon">🤑</span>
+                            <span class="metric-trend up" id="trendProfit">
+                                <span>↑</span> <span>0%</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricProfit">₹0</div>
+                        <div class="metric-label">Total Profit</div>
+                        <div class="metric-sub" id="subProfit">Loading...</div>
+                    </div>
+
+                    <div class="metric-card gradient-purple">
+                        <div class="metric-header">
+                            <span class="metric-icon">📦</span>
+                            <span class="metric-trend up" id="trendOrders">
+                                <span>↑</span> <span>0%</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricOrders">0</div>
+                        <div class="metric-label">Total Orders</div>
+                        <div class="metric-sub" id="subOrders">Loading...</div>
+                    </div>
+
+                    <div class="metric-card gradient-orange">
+                        <div class="metric-header">
+                            <span class="metric-icon">👥</span>
+                            <span class="metric-trend up" id="trendUsers">
+                                <span>↑</span> <span>0%</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricUsers">0</div>
+                        <div class="metric-label">Total Users</div>
+                        <div class="metric-sub" id="subUsers">Loading...</div>
+                    </div>
+
+                    <div class="metric-card gradient-pink">
+                        <div class="metric-header">
+                            <span class="metric-icon">🎯</span>
+                            <span class="metric-trend" id="trendConversion">
+                                <span>—</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricConversion">0%</div>
+                        <div class="metric-label">Conversion Rate</div>
+                        <div class="metric-sub" id="subConversion">Loading...</div>
+                    </div>
+
+                    <div class="metric-card gradient-cyan">
+                        <div class="metric-header">
+                            <span class="metric-icon">📊</span>
+                            <span class="metric-trend up" id="trendAOV">
+                                <span>↑</span> <span>0%</span>
+                            </span>
+                        </div>
+                        <div class="metric-value" id="metricAOV">₹0</div>
+                        <div class="metric-label">Avg Order Value</div>
+                        <div class="metric-sub" id="subAOV">Loading...</div>
+                    </div>
+
+                </div>
+
+                <!-- MAIN ANALYTICS TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="analytics-tab active" data-tab="overview">
+                            📊 Overview
+                        </button>
+                        <button class="analytics-tab" data-tab="revenue">
+                            💰 Revenue
+                        </button>
+                        <button class="analytics-tab" data-tab="orders">
+                            📦 Orders
+                        </button>
+                        <button class="analytics-tab" data-tab="users">
+                            👥 Users
+                        </button>
+                        <button class="analytics-tab" data-tab="services">
+                            🛒 Services
+                        </button>
+                        <button class="analytics-tab" data-tab="categories">
+                            📂 Categories
+                        </button>
+                        <button class="analytics-tab" data-tab="funnel">
+                            🎯 Funnel
+                        </button>
+                        <button class="analytics-tab" data-tab="cohort">
+                            🔬 Cohort
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     TAB 1: OVERVIEW
+                     ==================================================== -->
+                <div id="tab-overview" class="analytics-content">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📈 Revenue Trend</h3>
+                                <span class="badge badge-info" id="overviewRevenueRange">30 days</span>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="overviewRevenueChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Order Status</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="overviewStatusChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🕐 Hourly Activity</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="overviewHourlyChart" height="180"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📅 Weekly Pattern</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="overviewWeeklyChart" height="180"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💎 User Types</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="overviewUserTypeChart" height="180"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Performers Row -->
+                    <div class="grid grid-3">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🏆 Top Services</h3>
+                            </div>
+                            <div class="card-body" id="overviewTopServices">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">👑 Top Users</h3>
+                            </div>
+                            <div class="card-body" id="overviewTopUsers">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🎯 Top Categories</h3>
+                            </div>
+                            <div class="card-body" id="overviewTopCategories">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 2: REVENUE
+                     ==================================================== -->
+                <div id="tab-revenue" class="analytics-content" style="display: none;">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💰 Revenue vs Profit</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="revenueVsProfitChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Revenue by Source</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="revenueBySourceChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📈 Cumulative Revenue</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="cumulativeRevenueChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💵 Payment Types</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="paymentTypesChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📊 Revenue Breakdown</h3>
+                        </div>
+                        <div class="card-body" id="revenueBreakdown">
+                            <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                Loading...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 3: ORDERS
+                     ==================================================== -->
+                <div id="tab-orders" class="analytics-content" style="display: none;">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📦 Orders Trend</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="ordersTrendChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">✅ Status Distribution</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="ordersStatusChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Order Size Distribution</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="ordersSizeChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⚡ Completion Time</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="completionTimeChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">✅</div>
+                                <div>
+                                    <div class="stat-value-inline" id="orderSuccessRate">0%</div>
+                                    <div class="stat-label-inline">Success Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">❌</div>
+                                <div>
+                                    <div class="stat-value-inline" id="orderFailureRate">0%</div>
+                                    <div class="stat-label-inline">Failure Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">🔄</div>
+                                <div>
+                                    <div class="stat-value-inline" id="orderRefundRate">0%</div>
+                                    <div class="stat-label-inline">Refund Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 4: USERS
+                     ==================================================== -->
+                <div id="tab-users" class="analytics-content" style="display: none;">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">👥 User Growth</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="userGrowthChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Active vs Inactive</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="userActiveChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📅 User Retention</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="userRetentionChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💰 User Balance Distribution</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="userBalanceChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">🆕</div>
+                                <div>
+                                    <div class="stat-value-inline" id="usersNewToday">0</div>
+                                    <div class="stat-label-inline">New Today</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">🔥</div>
+                                <div>
+                                    <div class="stat-value-inline" id="usersActiveToday">0</div>
+                                    <div class="stat-label-inline">Active Today</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="stat-card-inline">
+                                <div class="stat-icon-inline">👑</div>
+                                <div>
+                                    <div class="stat-value-inline" id="usersVipCount">0</div>
+                                    <div class="stat-label-inline">VIP Users</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 5: SERVICES
+                     ==================================================== -->
+                <div id="tab-services" class="analytics-content" style="display: none;">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">🛒 Services Status</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="servicesStatusChart" height="240"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Service Pricing</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="servicesPriceChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏆 Top Performing Services</h3>
+                        </div>
+                        <div class="card-body" id="topServicesTable">
+                            <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                Loading...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 6: CATEGORIES
+                     ==================================================== -->
+                <div id="tab-categories" class="analytics-content" style="display: none;">
+
+                    <div class="grid grid-2 mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📂 Orders by Category</h3>
+                            </div>
+                            <div class="card-body" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="categoryOrdersChart" height="280"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💰 Revenue by Category</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="categoryRevenueChart" height="240"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📊 Category Breakdown</h3>
+                        </div>
+                        <div class="card-body" id="categoryBreakdownTable">
+                            <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                Loading...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 7: FUNNEL
+                     ==================================================== -->
+                <div id="tab-funnel" class="analytics-content" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🎯 Conversion Funnel</h3>
+                            <span class="badge badge-info" id="funnelRange">30 days</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="funnel-container" id="funnelContainer">
+                                <div style="text-align: center; color: var(--text-muted); padding: 60px;">
+                                    <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                    <div>Building funnel...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📉 Drop-off Points</h3>
+                            </div>
+                            <div class="card-body" id="dropoffPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💡 Optimization Tips</h3>
+                            </div>
+                            <div class="card-body" id="funnelTipsPanel">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     TAB 8: COHORT
+                     ==================================================== -->
+                <div id="tab-cohort" class="analytics-content" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🔬 User Cohort Retention</h3>
+                            <select class="form-select" id="cohortWeeks" style="width: auto; height: 32px; font-size: 12px;">
+                                <option value="4">Last 4 Weeks</option>
+                                <option value="8" selected>Last 8 Weeks</option>
+                                <option value="12">Last 12 Weeks</option>
+                            </select>
+                        </div>
+                        <div class="card-body" style="overflow-x: auto;">
+                            <div id="cohortTable">
+                                <div style="text-align: center; color: var(--text-muted); padding: 40px;">
+                                    <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                    <div>Building cohort analysis...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📊 Cohort Size</h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="cohortSizeChart" height="180"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💡 Retention Insights</h3>
+                            </div>
+                            <div class="card-body" id="cohortInsights">
+                                <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                    Loading...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       ANALYTICS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            activeTab: 'overview',
+            dateRange: '30days',
+            users: [],
+            orders: [],
+            payments: [],
+            services: [],
+            charts: {},
+            loaded: {
+                overview: false,
+                revenue: false,
+                orders: false,
+                users: false,
+                services: false,
+                categories: false,
+                funnel: false,
+                cohort: false,
+            },
+            ranges: {
+                today: { start: 0, end: 1 },
+                '7days': { start: 0, end: 7 },
+                '30days': { start: 0, end: 30 },
+                '90days': { start: 0, end: 90 },
+                year: { start: 0, end: 365 },
+                all: { start: 0, end: 99999 },
+            },
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAllData();
+            await loadTab('overview');
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('analyticsStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'analyticsStyles';
+            style.textContent = `
+                .analytics-tab {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .analytics-tab:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .analytics-tab.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Metric Cards ---- */
+                .metric-card {
+                    padding: 20px;
+                    border-radius: 16px;
+                    position: relative;
+                    overflow: hidden;
+                    border: 1px solid var(--border-color);
+                    transition: all 0.3s ease;
+                }
+                .metric-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+                }
+                .metric-card::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    opacity: 0.08;
+                    pointer-events: none;
+                }
+                .gradient-blue::before { background: linear-gradient(135deg, #3b82f6, #0ea5e9); }
+                .gradient-green::before { background: linear-gradient(135deg, #10b981, #059669); }
+                .gradient-purple::before { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+                .gradient-orange::before { background: linear-gradient(135deg, #ff6b00, #ea580c); }
+                .gradient-pink::before { background: linear-gradient(135deg, #ec4899, #db2777); }
+                .gradient-cyan::before { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+
+                .metric-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 12px;
+                }
+                .metric-icon {
+                    font-size: 28px;
+                    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+                }
+                .metric-trend {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    padding: 3px 8px;
+                    border-radius: 9999px;
+                }
+                .metric-trend.up { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+                .metric-trend.down { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+                .metric-value {
+                    font-size: 28px;
+                    font-weight: 800;
+                    color: var(--text-primary);
+                    line-height: 1.1;
+                    letter-spacing: -0.02em;
+                }
+                .metric-label {
+                    font-size: 12px;
+                    color: var(--text-secondary);
+                    font-weight: 500;
+                    margin-top: 6px;
+                }
+                .metric-sub {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                }
+
+                /* ---- Inline Stat ---- */
+                .stat-card-inline {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+                .stat-icon-inline {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background: var(--primary-light);
+                    color: var(--primary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 22px;
+                    flex-shrink: 0;
+                }
+                .stat-value-inline {
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: var(--text-primary);
+                }
+                .stat-label-inline {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                }
+
+                /* ---- Funnel ---- */
+                .funnel-container {
+                    padding: 20px 0;
+                }
+                .funnel-step {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    margin-bottom: 16px;
+                    position: relative;
+                }
+                .funnel-step-bar {
+                    flex: 1;
+                    height: 60px;
+                    background: linear-gradient(90deg, var(--primary), var(--accent));
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 24px;
+                    color: #fff;
+                    font-weight: 700;
+                    position: relative;
+                    transition: all 0.4s ease;
+                    box-shadow: 0 4px 16px rgba(255, 107, 0, 0.2);
+                }
+                .funnel-step-bar:hover {
+                    transform: translateX(8px);
+                }
+                .funnel-step-info {
+                    width: 180px;
+                    flex-shrink: 0;
+                }
+                .funnel-step-title {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--text-primary);
+                }
+                .funnel-step-sub {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 4px;
+                }
+                .funnel-step-drop {
+                    width: 80px;
+                    text-align: right;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: var(--danger);
+                    flex-shrink: 0;
+                }
+                .funnel-step-drop.positive {
+                    color: var(--success);
+                }
+
+                /* ---- Cohort Table ---- */
+                .cohort-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-size: 12px;
+                    min-width: 700px;
+                }
+                .cohort-table th,
+                .cohort-table td {
+                    padding: 10px 12px;
+                    text-align: center;
+                    border: 1px solid var(--border-light);
+                }
+                .cohort-table th {
+                    background: var(--bg-elevated);
+                    color: var(--text-secondary);
+                    font-weight: 600;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                }
+                .cohort-table td.week-label {
+                    text-align: left;
+                    font-weight: 600;
+                    background: var(--bg-elevated);
+                }
+                .cohort-cell {
+                    font-weight: 700;
+                    border-radius: 6px;
+                    padding: 8px;
+                    color: #fff;
+                    min-width: 60px;
+                }
+                .cohort-cell.high { background: #10b981; color: #fff; }
+                .cohort-cell.medium { background: #f59e0b; color: #000; }
+                .cohort-cell.low { background: #ef4444; color: #fff; }
+                .cohort-cell.empty { background: var(--bg-elevated); color: var(--text-muted); }
+
+                /* ---- Rank List ---- */
+                .rank-list-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 8px;
+                    transition: all 0.15s;
+                }
+                .rank-list-item:hover {
+                    background: var(--bg-hover);
+                    transform: translateX(4px);
+                }
+                .rank-list-rank {
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--bg-card);
+                    font-size: 12px;
+                    font-weight: 800;
+                    color: var(--text-secondary);
+                    flex-shrink: 0;
+                }
+                .rank-list-rank.rank-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+                .rank-list-rank.rank-2 { background: linear-gradient(135deg, #e5e7eb, #9ca3af); color: #000; }
+                .rank-list-rank.rank-3 { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
+
+                .rank-list-content {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .rank-list-name {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .rank-list-sub {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+                .rank-list-value {
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: var(--primary);
+                    text-align: right;
+                    flex-shrink: 0;
+                }
+                .rank-list-value-sub {
+                    font-size: 10px;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+
+                /* ---- Breakdown Table ---- */
+                .breakdown-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-size: 12px;
+                }
+                .breakdown-table th {
+                    background: var(--bg-elevated);
+                    padding: 10px;
+                    text-align: left;
+                    font-weight: 600;
+                    color: var(--text-secondary);
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .breakdown-table td {
+                    padding: 12px 10px;
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .breakdown-bar {
+                    display: inline-block;
+                    height: 6px;
+                    background: var(--primary);
+                    border-radius: 3px;
+                    margin-right: 8px;
+                    vertical-align: middle;
+                }
+
+                /* ---- Drop-off Items ---- */
+                .dropoff-item {
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    border-left: 3px solid var(--danger);
+                }
+                .dropoff-item.positive {
+                    border-left-color: var(--success);
+                }
+
+                .dropoff-stats {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 6px;
+                }
+
+                /* ---- Tip Item ---- */
+                .tip-item {
+                    display: flex;
+                    gap: 12px;
+                    padding: 12px;
+                    background: linear-gradient(135deg, var(--info-light), var(--bg-elevated));
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    border-left: 3px solid var(--info);
+                }
+                .tip-item.urgent {
+                    background: linear-gradient(135deg, var(--warning-light), var(--bg-elevated));
+                    border-left-color: var(--warning);
+                }
+                .tip-item.good {
+                    background: linear-gradient(135deg, var(--success-light), var(--bg-elevated));
+                    border-left-color: var(--success);
+                }
+                .tip-icon {
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .tip-text {
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: var(--text-secondary);
+                }
+                .tip-text b {
+                    color: var(--text-primary);
+                }
+
+                /* ---- Cohort Insights ---- */
+                .insight-row {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    font-size: 12px;
+                }
+                .insight-row:last-child {
+                    border-bottom: none;
+                }
+                .insight-label {
+                    color: var(--text-muted);
+                }
+                .insight-value {
+                    color: var(--text-primary);
+                    font-weight: 700;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           SETUP LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => loadAllData(true));
+            document.getElementById('exportBtn').addEventListener('click', exportAnalytics);
+
+            /* ---- Tabs ---- */
+            document.querySelectorAll('.analytics-tab').forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            /* ---- Date range ---- */
+            document.getElementById('dateRange').addEventListener('change', async (e) => {
+                State.dateRange = e.target.value;
+
+                /* ---- Reset loaded flags ---- */
+                Object.keys(State.loaded).forEach(k => State.loaded[k] = false);
+
+                await loadTab(State.activeTab);
+            });
+
+            /* ---- Cohort weeks ---- */
+            const cohortWeeks = document.getElementById('cohortWeeks');
+            if (cohortWeeks) {
+                cohortWeeks.addEventListener('change', () => {
+                    State.loaded.cohort = false;
+                    buildCohortAnalysis();
+                });
+            }
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           SWITCH TAB
+         ============================================================ */
+        async function switchTab(tab) {
+            State.activeTab = tab;
+
+            document.querySelectorAll('.analytics-tab').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+
+            document.querySelectorAll('.analytics-content').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            const active = document.getElementById('tab-' + tab);
+            if (active) active.style.display = '';
+
+            await loadTab(tab);
+        }
+
+        async function loadTab(tab) {
+            /* ---- Destroy old charts in this tab ---- */
+            Object.keys(State.charts).forEach(k => {
+                if (k.startsWith(tab + '_') && State.charts[k]) {
+                    State.charts[k].destroy();
+                    delete State.charts[k];
+                }
+            });
+
+            switch (tab) {
+                case 'overview':   await buildOverview();   break;
+                case 'revenue':    await buildRevenue();    break;
+                case 'orders':     await buildOrders();     break;
+                case 'users':      await buildUsers();      break;
+                case 'services':   await buildServices();   break;
+                case 'categories': await buildCategories(); break;
+                case 'funnel':     await buildFunnel();     break;
+                case 'cohort':     await buildCohortAnalysis(); break;
+            }
+        }
+
+        /* ============================================================
+           LOAD ALL DATA
+         ============================================================ */
+        async function loadAllData(showToast = false) {
+            try {
+                const [usersRes, ordersRes, paymentsRes, servicesRes] = await Promise.allSettled([
+                    API.getDataPage('users', 1, 5000, ''),
+                    API.getDataPage('orders', 1, 5000, ''),
+                    API.getDataPage('payments', 1, 3000, ''),
+                    API.getDataPage('services', 1, 5000, ''),
+                ]);
+
+                State.users = (usersRes.status === 'fulfilled' && usersRes.value && usersRes.value.rows) ? usersRes.value.rows : [];
+                State.orders = (ordersRes.status === 'fulfilled' && ordersRes.value && ordersRes.value.rows) ? ordersRes.value.rows : [];
+                State.payments = (paymentsRes.status === 'fulfilled' && paymentsRes.value && paymentsRes.value.rows) ? paymentsRes.value.rows : [];
+                State.services = (servicesRes.status === 'fulfilled' && servicesRes.value && servicesRes.value.rows) ? servicesRes.value.rows : [];
+
+                updateKeyMetrics();
+                updateHeader();
+
+                if (showToast) Toast.success('Analytics refreshed!');
+
+            } catch (err) {
+                console.error('Load failed:', err);
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           FILTER BY DATE RANGE
+         ============================================================ */
+        function filterByRange(items, dateField = 'created_at') {
+            const range = State.ranges[State.dateRange] || State.ranges['30days'];
+            const now = Date.now();
+
+            return items.filter(item => {
+                const dt = String(item[dateField] || '').replace(' ', 'T');
+                const d = new Date(dt).getTime();
+                if (isNaN(d)) return false;
+
+                const daysAgo = (now - d) / 86400000;
+                return daysAgo >= range.start && daysAgo <= range.end;
+            });
+        }
+
+        /* ============================================================
+           UPDATE KEY METRICS
+         ============================================================ */
+        function updateKeyMetrics() {
+            const orders = filterByRange(State.orders);
+            const users = filterByRange(State.users, 'join_date');
+            const payments = filterByRange(State.payments);
+
+            /* ---- Revenue & Profit ---- */
+            let revenue = 0;
+            let profit = 0;
+            let completedOrders = 0;
+
+            orders.forEach(o => {
+                if (o.status === 'completed') {
+                    revenue += parseFloat(o.user_price || 0);
+                    profit += parseFloat(o.profit || 0);
+                    completedOrders++;
+                }
+            });
+
+            /* ---- AOV ---- */
+            const aov = completedOrders > 0 ? revenue / completedOrders : 0;
+
+            /* ---- Conversion Rate ---- */
+            const converted = users.filter(u => parseInt(u.total_orders || 0) > 0).length;
+            const conversionRate = users.length > 0 ? (converted / users.length) * 100 : 0;
+
+            /* ---- Display ---- */
+            document.getElementById('metricRevenue').textContent = Utils.money(revenue);
+            document.getElementById('metricProfit').textContent = Utils.money(profit);
+            document.getElementById('metricOrders').textContent = Utils.number(orders.length);
+            document.getElementById('metricUsers').textContent = Utils.number(users.length);
+            document.getElementById('metricConversion').textContent = conversionRate.toFixed(1) + '%';
+            document.getElementById('metricAOV').textContent = Utils.money(aov);
+
+            /* ---- Subs ---- */
+            document.getElementById('subRevenue').textContent = `${completedOrders} completed orders`;
+            document.getElementById('subProfit').textContent = revenue > 0 ? `${((profit / revenue) * 100).toFixed(1)}% margin` : '0% margin';
+            document.getElementById('subOrders').textContent = `${completedOrders} completed`;
+            document.getElementById('subUsers').textContent = `${converted} buyers`;
+            document.getElementById('subConversion').textContent = `${converted} of ${users.length}`;
+            document.getElementById('subAOV').textContent = `Across ${completedOrders} orders`;
+
+            /* ---- Trends (fake calculation, based on latest half) ---- */
+            const halfIdx = Math.floor(orders.length / 2);
+            if (orders.length > 4) {
+                const firstHalf = orders.slice(0, halfIdx);
+                const secondHalf = orders.slice(halfIdx);
+
+                const rev1 = firstHalf.reduce((s, o) => s + parseFloat(o.user_price || 0), 0);
+                const rev2 = secondHalf.reduce((s, o) => s + parseFloat(o.user_price || 0), 0);
+
+                const trend = rev1 > 0 ? ((rev2 - rev1) / rev1) * 100 : 0;
+
+                const trendEl = document.getElementById('trendRevenue');
+                trendEl.className = 'metric-trend ' + (trend >= 0 ? 'up' : 'down');
+                trendEl.innerHTML = `<span>${trend >= 0 ? '↑' : '↓'}</span> <span>${Math.abs(trend).toFixed(1)}%</span>`;
+            }
+        }
+
+        function updateHeader() {
+            document.getElementById('headerSubtitle').textContent =
+                `${State.users.length} users • ${State.orders.length} orders • ${State.services.length} services`;
+            document.getElementById('pageStats').textContent =
+                `Showing data for: ${document.getElementById('dateRange').selectedOptions[0].text}`;
+        }
+
+        /* ============================================================
+           TAB 1: OVERVIEW
+         ============================================================ */
+        async function buildOverview() {
+            if (State.loaded.overview) return;
+
+            const orders = filterByRange(State.orders);
+            const users = filterByRange(State.users, 'join_date');
+
+            /* ---- Revenue Trend ---- */
+            buildOverviewRevenueChart(orders);
+
+            /* ---- Status Distribution ---- */
+            buildOverviewStatusChart(orders);
+
+            /* ---- Hourly ---- */
+            buildHourlyChart(orders);
+
+            /* ---- Weekly ---- */
+            buildWeeklyChart(orders);
+
+            /* ---- User Types ---- */
+            buildUserTypeChart(users);
+
+            /* ---- Top Lists ---- */
+            renderTopServices(orders);
+            renderTopUsers(orders);
+            renderTopCategories(orders);
+
+            State.loaded.overview = true;
+        }
+
+        function buildOverviewRevenueChart(orders) {
+            const canvas = document.getElementById('overviewRevenueChart');
+            if (!canvas) return;
+
+            /* ---- Group by day ---- */
+            const days = State.dateRange === 'today' ? 1 :
+                         State.dateRange === '7days' ? 7 :
+                         State.dateRange === '30days' ? 30 :
+                         State.dateRange === '90days' ? 90 : 30;
+
+            const buckets = {};
+            const labels = [];
+
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                d.setHours(0, 0, 0, 0);
+                const key = d.toISOString().split('T')[0];
+                buckets[key] = { revenue: 0, profit: 0 };
+                labels.push(d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
+            }
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const dt = String(o.created_at || '').split(' ')[0];
+                if (buckets[dt]) {
+                    buckets[dt].revenue += parseFloat(o.user_price || 0);
+                    buckets[dt].profit += parseFloat(o.profit || 0);
+                }
+            });
+
+            const revenueData = Object.values(buckets).map(b => b.revenue);
+            const profitData = Object.values(buckets).map(b => b.profit);
+
+            const ctx = canvas.getContext('2d');
+            const grad1 = ctx.createLinearGradient(0, 0, 0, 200);
+            grad1.addColorStop(0, 'rgba(255, 107, 0, 0.4)');
+            grad1.addColorStop(1, 'rgba(255, 107, 0, 0.02)');
+
+            State.charts.overview_revenue = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: revenueData,
+                            borderColor: '#ff6b00',
+                            backgroundColor: grad1,
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 0,
+                            pointHoverRadius: 6,
+                        },
+                        {
+                            label: 'Profit',
+                            data: profitData,
+                            borderColor: '#10b981',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.4,
+                            pointRadius: 0,
+                            pointHoverRadius: 6,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top', labels: { color: '#a1a1aa', font: { size: 11 }, usePointStyle: true, padding: 12 } },
+                        tooltip: {
+                            backgroundColor: '#1a1a24',
+                            borderColor: '#2d2d3a',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: {
+                                label: (ctx) => `${ctx.dataset.label}: ₹${(ctx.parsed.y || 0).toFixed(2)}`,
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#6b7280', font: { size: 10 }, callback: (v) => '₹' + (v >= 1000 ? (v / 1000).toFixed(1) + 'K' : v) },
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#6b7280', font: { size: 10 }, maxTicksLimit: 8 },
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildOverviewStatusChart(orders) {
+            const canvas = document.getElementById('overviewStatusChart');
+            if (!canvas) return;
+
+            const counts = {
+                completed: 0, processing: 0, pending: 0,
+                cancelled: 0, failed: 0, manual_review: 0,
+            };
+
+            orders.forEach(o => {
+                const s = String(o.status || '').toLowerCase();
+                if (counts[s] !== undefined) counts[s]++;
+            });
+
+            const labels = [];
+            const values = [];
+            const colors = [];
+
+            const map = [
+                { key: 'completed', label: 'Completed', color: '#10b981' },
+                { key: 'processing', label: 'Processing', color: '#3b82f6' },
+                { key: 'pending', label: 'Pending', color: '#f59e0b' },
+                { key: 'cancelled', label: 'Cancelled', color: '#ef4444' },
+                { key: 'failed', label: 'Failed', color: '#6b7280' },
+                { key: 'manual_review', label: 'Review', color: '#a855f7' },
+            ];
+
+            map.forEach(m => {
+                if (counts[m.key] > 0) {
+                    labels.push(m.label);
+                    values.push(counts[m.key]);
+                    colors.push(m.color);
+                }
+            });
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+                colors.push('#2d2d3a');
+            }
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.overview_status = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true, font: { size: 11 } } },
+                        tooltip: { backgroundColor: '#1a1a24', borderColor: '#2d2d3a', borderWidth: 1, padding: 12 },
+                    }
+                }
+            });
+        }
+
+        function buildHourlyChart(orders) {
+            const canvas = document.getElementById('overviewHourlyChart');
+            if (!canvas) return;
+
+            const buckets = new Array(24).fill(0);
+
+            orders.forEach(o => {
+                const dt = String(o.created_at || '');
+                const timePart = dt.split(' ')[1];
+                if (!timePart) return;
+                const hour = parseInt(timePart.split(':')[0]);
+                if (hour >= 0 && hour < 24) buckets[hour]++;
+            });
+
+            const labels = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, '0'));
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.overview_hourly = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: buckets,
+                        backgroundColor: 'rgba(255, 107, 0, 0.7)',
+                        borderColor: '#ff6b00',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', font: { size: 9 }, stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 9 }, maxTicksLimit: 12 } },
+                    }
+                }
+            });
+        }
+
+        function buildWeeklyChart(orders) {
+            const canvas = document.getElementById('overviewWeeklyChart');
+            if (!canvas) return;
+
+            const buckets = [0, 0, 0, 0, 0, 0, 0]; // Sun-Sat
+
+            orders.forEach(o => {
+                const dt = new Date(String(o.created_at || '').replace(' ', 'T'));
+                if (isNaN(dt.getTime())) return;
+                buckets[dt.getDay()]++;
+            });
+
+            const labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.overview_weekly = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: buckets,
+                        backgroundColor: ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#06b6d4', '#ff6b00'],
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', font: { size: 10 }, stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } },
+                    }
+                }
+            });
+        }
+
+        function buildUserTypeChart(users) {
+            const canvas = document.getElementById('overviewUserTypeChart');
+            if (!canvas) return;
+
+            const counts = {
+                new: 0,
+                active: 0,
+                vip: 0,
+                banned: 0,
+                dormant: 0,
+            };
+
+            const now = Date.now();
+
+            users.forEach(u => {
+                if (u.is_banned == 1) { counts.banned++; return; }
+                if (u.is_vip == 1) { counts.vip++; return; }
+
+                const lastActive = new Date(String(u.last_active || '').replace(' ', 'T')).getTime();
+                if (!isNaN(lastActive) && (now - lastActive) < (7 * 86400000)) {
+                    counts.active++;
+                } else if (!isNaN(lastActive) && (now - lastActive) > (30 * 86400000)) {
+                    counts.dormant++;
+                } else {
+                    counts.new++;
+                }
+            });
+
+            const labels = [];
+            const values = [];
+            const colors = [];
+            const meta = [
+                { key: 'active', label: 'Active', color: '#10b981' },
+                { key: 'new', label: 'New', color: '#3b82f6' },
+                { key: 'vip', label: 'VIP', color: '#fbbf24' },
+                { key: 'dormant', label: 'Dormant', color: '#6b7280' },
+                { key: 'banned', label: 'Banned', color: '#ef4444' },
+            ];
+
+            meta.forEach(m => {
+                if (counts[m.key] > 0) {
+                    labels.push(m.label);
+                    values.push(counts[m.key]);
+                    colors.push(m.color);
+                }
+            });
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+                colors.push('#2d2d3a');
+            }
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.overview_usertype = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels,
+                    datasets: [{ data: values, backgroundColor: colors, borderColor: '#12121a', borderWidth: 3 }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 8, usePointStyle: true, font: { size: 10 } } },
+                    }
+                }
+            });
+        }
+
+        function renderTopServices(orders) {
+            const panel = document.getElementById('overviewTopServices');
+            const map = {};
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const name = String(o.service_name || 'Unknown');
+                if (!map[name]) map[name] = { count: 0, revenue: 0 };
+                map[name].count++;
+                map[name].revenue += parseFloat(o.user_price || 0);
+            });
+
+            const top = Object.entries(map)
+                .map(([name, data]) => ({ name, ...data }))
+                .sort((a, b) => b.revenue - a.revenue)
+                .slice(0, 5);
+
+            if (top.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">📭 No data</div>`;
+                return;
+            }
+
+            panel.innerHTML = top.map((t, i) => `
+                <div class="rank-list-item">
+                    <div class="rank-list-rank ${i < 3 ? 'rank-' + (i + 1) : ''}">${i + 1}</div>
+                    <div class="rank-list-content">
+                        <div class="rank-list-name" title="${Utils.escape(t.name)}">${Utils.escape(Utils.truncate(t.name, 25))}</div>
+                        <div class="rank-list-sub">${t.count} orders</div>
+                    </div>
+                    <div class="rank-list-value">
+                        ${Utils.money(t.revenue)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTopUsers(orders) {
+            const panel = document.getElementById('overviewTopUsers');
+            const map = {};
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const uid = String(o.user_id || '');
+                if (!map[uid]) map[uid] = { username: o.username || uid, count: 0, spent: 0 };
+                map[uid].count++;
+                map[uid].spent += parseFloat(o.user_price || 0);
+            });
+
+            const top = Object.entries(map)
+                .map(([uid, data]) => ({ uid, ...data }))
+                .sort((a, b) => b.spent - a.spent)
+                .slice(0, 5);
+
+            if (top.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">📭 No data</div>`;
+                return;
+            }
+
+            panel.innerHTML = top.map((t, i) => {
+                const initial = Utils.initials(t.username);
+                return `
+                    <div class="rank-list-item">
+                        <div class="rank-list-rank ${i < 3 ? 'rank-' + (i + 1) : ''}">${i + 1}</div>
+                        <div class="header-user-avatar" style="width: 28px; height: 28px; font-size: 11px; flex-shrink: 0;">
+                            ${initial}
+                        </div>
+                        <div class="rank-list-content">
+                            <div class="rank-list-name">${Utils.escape(Utils.truncate(t.username, 15))}</div>
+                            <div class="rank-list-sub">${t.count} orders</div>
+                        </div>
+                        <div class="rank-list-value">${Utils.money(t.spent)}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTopCategories(orders) {
+            const panel = document.getElementById('overviewTopCategories');
+            const serviceMap = {};
+            State.services.forEach(s => serviceMap[String(s.api_service_id)] = s);
+
+            const map = {};
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const svc = serviceMap[String(o.api_service_id)] || {};
+                const cat = svc.category || 'Others';
+                if (!map[cat]) map[cat] = { count: 0, revenue: 0 };
+                map[cat].count++;
+                map[cat].revenue += parseFloat(o.user_price || 0);
+            });
+
+            const top = Object.entries(map)
+                .map(([cat, data]) => ({ cat, ...data }))
+                .sort((a, b) => b.revenue - a.revenue)
+                .slice(0, 5);
+
+            if (top.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">📭 No data</div>`;
+                return;
+            }
+
+            const emojiMap = {
+                'Instagram': '📸', 'YouTube': '▶️', 'Facebook': '👤',
+                'Twitter': '🐦', 'TikTok': '🎵', 'Telegram': '✈️',
+                'Spotify': '🎧', 'WhatsApp': '📱', 'Others': '📦',
+            };
+
+            panel.innerHTML = top.map((t, i) => `
+                <div class="rank-list-item">
+                    <div class="rank-list-rank ${i < 3 ? 'rank-' + (i + 1) : ''}">${i + 1}</div>
+                    <div style="font-size: 20px; flex-shrink: 0;">${emojiMap[t.cat] || '📦'}</div>
+                    <div class="rank-list-content">
+                        <div class="rank-list-name">${Utils.escape(t.cat)}</div>
+                        <div class="rank-list-sub">${t.count} orders</div>
+                    </div>
+                    <div class="rank-list-value">${Utils.money(t.revenue)}</div>
+                </div>
+            `).join('');
+        }
+
+        /* ============================================================
+           TAB 2: REVENUE
+         ============================================================ */
+        async function buildRevenue() {
+            if (State.loaded.revenue) return;
+
+            const orders = filterByRange(State.orders);
+            const payments = filterByRange(State.payments);
+
+            buildRevenueVsProfitChart(orders);
+            buildRevenueBySourceChart(payments);
+            buildCumulativeRevenueChart(orders);
+            buildPaymentTypesChart(payments);
+            renderRevenueBreakdown(orders, payments);
+
+            State.loaded.revenue = true;
+        }
+
+        function buildRevenueVsProfitChart(orders) {
+            const canvas = document.getElementById('revenueVsProfitChart');
+            if (!canvas) return;
+
+            const buckets = {};
+            const labels = [];
+            const days = Math.min(30, State.ranges[State.dateRange].end || 30);
+
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const key = d.toISOString().split('T')[0];
+                buckets[key] = { revenue: 0, profit: 0 };
+                labels.push(d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
+            }
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const dt = String(o.created_at || '').split(' ')[0];
+                if (buckets[dt]) {
+                    buckets[dt].revenue += parseFloat(o.user_price || 0);
+                    buckets[dt].profit += parseFloat(o.profit || 0);
+                }
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.revenue_vsprofit = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: Object.values(buckets).map(b => b.revenue),
+                            backgroundColor: 'rgba(255, 107, 0, 0.7)',
+                            borderRadius: 4,
+                        },
+                        {
+                            label: 'Profit',
+                            data: Object.values(buckets).map(b => b.profit),
+                            backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                            borderRadius: 4,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#a1a1aa', usePointStyle: true, padding: 12 } } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', callback: (v) => '₹' + v } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', maxTicksLimit: 10 } },
+                    }
+                }
+            });
+        }
+
+        function buildRevenueBySourceChart(payments) {
+            const canvas = document.getElementById('revenueBySourceChart');
+            if (!canvas) return;
+
+            const sourceMap = {};
+
+            payments.forEach(p => {
+                if (p.status !== 'approved') return;
+                const type = String(p.type || 'credits');
+                if (!sourceMap[type]) sourceMap[type] = 0;
+                sourceMap[type] += parseFloat(p.amount || 0);
+            });
+
+            const labels = Object.keys(sourceMap).map(k => k.charAt(0).toUpperCase() + k.slice(1));
+            const values = Object.values(sourceMap);
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+            }
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.revenue_bysource = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: ['#10b981', '#fbbf24', '#3b82f6', '#a855f7', '#ff6b00'],
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true } },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ₹${(ctx.parsed || 0).toFixed(2)}` } }
+                    }
+                }
+            });
+        }
+
+        function buildCumulativeRevenueChart(orders) {
+            const canvas = document.getElementById('cumulativeRevenueChart');
+            if (!canvas) return;
+
+            const sorted = orders
+                .filter(o => o.status === 'completed')
+                .sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
+
+            let cumulative = 0;
+            const points = sorted.map(o => {
+                cumulative += parseFloat(o.user_price || 0);
+                return { date: String(o.created_at).split(' ')[0], value: cumulative };
+            });
+
+            /* ---- Sample if too many ---- */
+            const maxPoints = 50;
+            const step = Math.max(1, Math.floor(points.length / maxPoints));
+            const sampled = points.filter((_, i) => i % step === 0);
+
+            const labels = sampled.map(p => {
+                const d = new Date(p.date);
+                return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+            });
+
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, 0, 200);
+            grad.addColorStop(0, 'rgba(16, 185, 129, 0.4)');
+            grad.addColorStop(1, 'rgba(16, 185, 129, 0.02)');
+
+            State.charts.revenue_cumulative = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Cumulative Revenue',
+                        data: sampled.map(p => p.value),
+                        borderColor: '#10b981',
+                        backgroundColor: grad,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => '₹' + (ctx.parsed.y || 0).toFixed(2) } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', callback: (v) => '₹' + (v >= 1000 ? (v/1000).toFixed(1) + 'K' : v) } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', maxTicksLimit: 8 } }
+                    }
+                }
+            });
+        }
+
+        function buildPaymentTypesChart(payments) {
+            const canvas = document.getElementById('paymentTypesChart');
+            if (!canvas) return;
+
+            const counts = { approved: 0, pending: 0, rejected: 0 };
+
+            payments.forEach(p => {
+                const s = String(p.status || '').toLowerCase();
+                if (counts[s] !== undefined) counts[s]++;
+            });
+
+            const labels = ['Approved', 'Pending', 'Rejected'];
+            const values = [counts.approved, counts.pending, counts.rejected];
+            const colors = ['#10b981', '#f59e0b', '#ef4444'];
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.revenue_paymenttypes = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderRadius: 8,
+                        barThickness: 40,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280' } }
+                    }
+                }
+            });
+        }
+
+        function renderRevenueBreakdown(orders, payments) {
+            const panel = document.getElementById('revenueBreakdown');
+            if (!panel) return;
+
+            let grossRevenue = 0;
+            let apiCost = 0;
+            let netProfit = 0;
+            let completedCount = 0;
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                grossRevenue += parseFloat(o.user_price || 0);
+                apiCost += parseFloat(o.api_cost || 0);
+                netProfit += parseFloat(o.profit || 0);
+                completedCount++;
+            });
+
+            const paymentsTotal = payments
+                .filter(p => p.status === 'approved')
+                .reduce((s, p) => s + parseFloat(p.amount || 0), 0);
+
+            panel.innerHTML = `
+                <div class="grid grid-4 gap-md">
+                    <div style="background: var(--bg-elevated); padding: 16px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Gross Revenue</div>
+                        <div style="font-size: 22px; font-weight: 800; color: var(--primary); margin-top: 6px;">
+                            ${Utils.money(grossRevenue)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 16px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">API Cost</div>
+                        <div style="font-size: 22px; font-weight: 800; color: var(--text-secondary); margin-top: 6px;">
+                            ${Utils.money(apiCost)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 16px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Net Profit</div>
+                        <div style="font-size: 22px; font-weight: 800; color: var(--success); margin-top: 6px;">
+                            ${Utils.money(netProfit)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 16px; border-radius: 10px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Payments Received</div>
+                        <div style="font-size: 22px; font-weight: 800; color: var(--info); margin-top: 6px;">
+                            ${Utils.money(paymentsTotal)}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; padding: 16px; background: linear-gradient(135deg, var(--primary-light), var(--bg-elevated)); border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-muted);">Profit Margin</div>
+                            <div style="font-size: 28px; font-weight: 800; color: var(--primary);">
+                                ${grossRevenue > 0 ? ((netProfit / grossRevenue) * 100).toFixed(1) : 0}%
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 12px; color: var(--text-muted);">Completed Orders</div>
+                            <div style="font-size: 20px; font-weight: 700;">
+                                ${Utils.number(completedCount)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        /* ============================================================
+           TAB 3: ORDERS
+         ============================================================ */
+        async function buildOrders() {
+            if (State.loaded.orders) return;
+
+            const orders = filterByRange(State.orders);
+
+            buildOrdersTrendChart(orders);
+            buildOrdersStatusChart(orders);
+            buildOrdersSizeChart(orders);
+            buildCompletionTimeChart(orders);
+            updateOrderRates(orders);
+
+            State.loaded.orders = true;
+        }
+
+        function buildOrdersTrendChart(orders) {
+            const canvas = document.getElementById('ordersTrendChart');
+            if (!canvas) return;
+
+            const days = Math.min(30, State.ranges[State.dateRange].end || 30);
+            const buckets = {};
+            const labels = [];
+
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const key = d.toISOString().split('T')[0];
+                buckets[key] = { total: 0, completed: 0, failed: 0 };
+                labels.push(d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
+            }
+
+            orders.forEach(o => {
+                const dt = String(o.created_at || '').split(' ')[0];
+                if (!buckets[dt]) return;
+                buckets[dt].total++;
+                if (o.status === 'completed') buckets[dt].completed++;
+                if (o.status === 'failed') buckets[dt].failed++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.orders_trend = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            label: 'Total',
+                            data: Object.values(buckets).map(b => b.total),
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                        },
+                        {
+                            label: 'Completed',
+                            data: Object.values(buckets).map(b => b.completed),
+                            borderColor: '#10b981',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            tension: 0.4,
+                        },
+                        {
+                            label: 'Failed',
+                            data: Object.values(buckets).map(b => b.failed),
+                            borderColor: '#ef4444',
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            tension: 0.4,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top', labels: { color: '#a1a1aa', usePointStyle: true, padding: 12 } } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', maxTicksLimit: 10 } }
+                    }
+                }
+            });
+        }
+
+        function buildOrdersStatusChart(orders) {
+            const canvas = document.getElementById('ordersStatusChart');
+            if (!canvas) return;
+
+            const counts = {};
+            orders.forEach(o => {
+                const s = String(o.status || 'pending');
+                counts[s] = (counts[s] || 0) + 1;
+            });
+
+            const labels = Object.keys(counts);
+            const values = Object.values(counts);
+
+            const colors = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#6b7280', '#a855f7'];
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.orders_status = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels.map(l => l.charAt(0).toUpperCase() + l.slice(1)),
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors.slice(0, labels.length),
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true } }
+                    }
+                }
+            });
+        }
+
+        function buildOrdersSizeChart(orders) {
+            const canvas = document.getElementById('ordersSizeChart');
+            if (!canvas) return;
+
+            const buckets = {
+                'Under ₹50': 0,
+                '₹50-100': 0,
+                '₹100-500': 0,
+                '₹500-1000': 0,
+                '₹1000+': 0,
+            };
+
+            orders.forEach(o => {
+                const amt = parseFloat(o.user_price || 0);
+                if (amt < 50) buckets['Under ₹50']++;
+                else if (amt < 100) buckets['₹50-100']++;
+                else if (amt < 500) buckets['₹100-500']++;
+                else if (amt < 1000) buckets['₹500-1000']++;
+                else buckets['₹1000+']++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.orders_size = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(buckets),
+                    datasets: [{
+                        data: Object.values(buckets),
+                        backgroundColor: ['#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'],
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function buildCompletionTimeChart(orders) {
+            const canvas = document.getElementById('completionTimeChart');
+            if (!canvas) return;
+
+            /* ---- Buckets by completion time (hours) ---- */
+            const buckets = {
+                '< 1h': 0,
+                '1-6h': 0,
+                '6-24h': 0,
+                '1-3d': 0,
+                '3d+': 0,
+            };
+
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                if (!o.created_at || !o.completed_at) return;
+
+                const created = new Date(String(o.created_at).replace(' ', 'T')).getTime();
+                const completed = new Date(String(o.completed_at).replace(' ', 'T')).getTime();
+                if (isNaN(created) || isNaN(completed)) return;
+
+                const hours = (completed - created) / 3600000;
+
+                if (hours < 1) buckets['< 1h']++;
+                else if (hours < 6) buckets['1-6h']++;
+                else if (hours < 24) buckets['6-24h']++;
+                else if (hours < 72) buckets['1-3d']++;
+                else buckets['3d+']++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.completion_time = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(buckets),
+                    datasets: [{
+                        data: Object.values(buckets),
+                        backgroundColor: ['#10b981', '#06b6d4', '#3b82f6', '#f59e0b', '#ef4444'],
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function updateOrderRates(orders) {
+            const total = orders.length;
+            const completed = orders.filter(o => o.status === 'completed').length;
+            const failed = orders.filter(o => o.status === 'failed').length;
+            const refunded = orders.filter(o => parseFloat(o.refund_amount || 0) > 0).length;
+
+            document.getElementById('orderSuccessRate').textContent =
+                total > 0 ? ((completed / total) * 100).toFixed(1) + '%' : '0%';
+            document.getElementById('orderFailureRate').textContent =
+                total > 0 ? ((failed / total) * 100).toFixed(1) + '%' : '0%';
+            document.getElementById('orderRefundRate').textContent =
+                total > 0 ? ((refunded / total) * 100).toFixed(1) + '%' : '0%';
+        }
+
+        /* ============================================================
+           TAB 4: USERS
+         ============================================================ */
+        async function buildUsers() {
+            if (State.loaded.users) return;
+
+            const users = filterByRange(State.users, 'join_date');
+
+            buildUserGrowthChart(users);
+            buildUserActiveChart(State.users);
+            buildUserRetentionChart();
+            buildUserBalanceChart(State.users);
+            updateUserStats();
+
+            State.loaded.users = true;
+        }
+
+        function buildUserGrowthChart(users) {
+            const canvas = document.getElementById('userGrowthChart');
+            if (!canvas) return;
+
+            const days = Math.min(30, State.ranges[State.dateRange].end || 30);
+            const buckets = {};
+            const labels = [];
+
+            for (let i = days - 1; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const key = d.toISOString().split('T')[0];
+                buckets[key] = 0;
+                labels.push(d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
+            }
+
+            users.forEach(u => {
+                const dt = String(u.join_date || '').split(' ')[0];
+                if (buckets[dt] !== undefined) buckets[dt]++;
+            });
+
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, 0, 200);
+            grad.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+            grad.addColorStop(1, 'rgba(59, 130, 246, 0.02)');
+
+            State.charts.users_growth = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'New Users',
+                        data: Object.values(buckets),
+                        borderColor: '#3b82f6',
+                        backgroundColor: grad,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 3,
+                        pointHoverRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', maxTicksLimit: 10 } }
+                    }
+                }
+            });
+        }
+
+        function buildUserActiveChart(users) {
+            const canvas = document.getElementById('userActiveChart');
+            if (!canvas) return;
+
+            const now = Date.now();
+            let active = 0, inactive = 0, dormant = 0, banned = 0;
+
+            users.forEach(u => {
+                if (u.is_banned == 1) { banned++; return; }
+
+                const lastActive = new Date(String(u.last_active || '').replace(' ', 'T')).getTime();
+                if (isNaN(lastActive)) { inactive++; return; }
+
+                const daysSince = (now - lastActive) / 86400000;
+                if (daysSince < 7) active++;
+                else if (daysSince < 30) inactive++;
+                else dormant++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.users_active = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Active (<7d)', 'Inactive (7-30d)', 'Dormant (30d+)', 'Banned'],
+                    datasets: [{
+                        data: [active, inactive, dormant, banned],
+                        backgroundColor: ['#10b981', '#3b82f6', '#6b7280', '#ef4444'],
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true, font: { size: 11 } } }
+                    }
+                }
+            });
+        }
+
+        function buildUserRetentionChart() {
+            const canvas = document.getElementById('userRetentionChart');
+            if (!canvas) return;
+
+            /* ---- Simplified retention by days since signup ---- */
+            const now = Date.now();
+            const users = State.users;
+
+            const buckets = {
+                'Day 0': 0,
+                'Day 1': 0,
+                'Day 3': 0,
+                'Day 7': 0,
+                'Day 30': 0,
+            };
+
+            users.forEach(u => {
+                const join = new Date(String(u.join_date || '').replace(' ', 'T')).getTime();
+                if (isNaN(join)) return;
+
+                const age = (now - join) / 86400000;
+                const lastActive = new Date(String(u.last_active || '').replace(' ', 'T')).getTime();
+                const activeAge = !isNaN(lastActive) ? (now - lastActive) / 86400000 : Infinity;
+
+                if (age >= 0 && activeAge <= 1) buckets['Day 0']++;
+                if (age >= 1 && activeAge <= 2) buckets['Day 1']++;
+                if (age >= 3 && activeAge <= 4) buckets['Day 3']++;
+                if (age >= 7 && activeAge <= 8) buckets['Day 7']++;
+                if (age >= 30 && activeAge <= 31) buckets['Day 30']++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.users_retention = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Object.keys(buckets),
+                    datasets: [{
+                        label: 'Active Users',
+                        data: Object.values(buckets),
+                        borderColor: '#a855f7',
+                        backgroundColor: 'rgba(168, 85, 247, 0.15)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#a855f7',
+                        pointBorderColor: '#0a0a0f',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280' } }
+                    }
+                }
+            });
+        }
+
+        function buildUserBalanceChart(users) {
+            const canvas = document.getElementById('userBalanceChart');
+            if (!canvas) return;
+
+            const buckets = {
+                '₹0': 0,
+                '₹1-50': 0,
+                '₹50-100': 0,
+                '₹100-500': 0,
+                '₹500-1000': 0,
+                '₹1000+': 0,
+            };
+
+            users.forEach(u => {
+                const bal = parseFloat(u.balance || 0);
+                if (bal <= 0) buckets['₹0']++;
+                else if (bal < 50) buckets['₹1-50']++;
+                else if (bal < 100) buckets['₹50-100']++;
+                else if (bal < 500) buckets['₹100-500']++;
+                else if (bal < 1000) buckets['₹500-1000']++;
+                else buckets['₹1000+']++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.users_balance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(buckets),
+                    datasets: [{
+                        data: Object.values(buckets),
+                        backgroundColor: ['#6b7280', '#ef4444', '#f59e0b', '#3b82f6', '#10b981', '#a855f7'],
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function updateUserStats() {
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+
+            const newToday = State.users.filter(u => {
+                const d = new Date(String(u.join_date || '').replace(' ', 'T')).getTime();
+                return !isNaN(d) && d >= today;
+            }).length;
+
+            const activeToday = State.users.filter(u => {
+                const d = new Date(String(u.last_active || '').replace(' ', 'T')).getTime();
+                return !isNaN(d) && d >= today;
+            }).length;
+
+            const vipCount = State.users.filter(u => u.is_vip == 1).length;
+
+            document.getElementById('usersNewToday').textContent = Utils.number(newToday);
+            document.getElementById('usersActiveToday').textContent = Utils.number(activeToday);
+            document.getElementById('usersVipCount').textContent = Utils.number(vipCount);
+        }
+
+        /* ============================================================
+           TAB 5: SERVICES
+         ============================================================ */
+        async function buildServices() {
+            if (State.loaded.services) return;
+
+            const services = State.services;
+
+            buildServicesStatusChart(services);
+            buildServicesPriceChart(services);
+            renderTopServicesTable();
+
+            State.loaded.services = true;
+        }
+
+        function buildServicesStatusChart(services) {
+            const canvas = document.getElementById('servicesStatusChart');
+            if (!canvas) return;
+
+            const active = services.filter(s => s.is_active == 1).length;
+            const inactive = services.length - active;
+            const manual = services.filter(s => s.is_manual_price == 1).length;
+            const auto = services.length - manual;
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.services_status = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Active', 'Inactive', 'Manual Price', 'Auto Price'],
+                    datasets: [{
+                        data: [active, inactive, manual, auto],
+                        backgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#3b82f6'],
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#a1a1aa', padding: 10, usePointStyle: true, font: { size: 11 } } }
+                    }
+                }
+            });
+        }
+
+        function buildServicesPriceChart(services) {
+            const canvas = document.getElementById('servicesPriceChart');
+            if (!canvas) return;
+
+            const buckets = {
+                '₹0-10': 0,
+                '₹10-30': 0,
+                '₹30-50': 0,
+                '₹50-100': 0,
+                '₹100-500': 0,
+                '₹500+': 0,
+            };
+
+            services.forEach(s => {
+                const price = parseFloat(s.selling_price || 0);
+                if (price < 10) buckets['₹0-10']++;
+                else if (price < 30) buckets['₹10-30']++;
+                else if (price < 50) buckets['₹30-50']++;
+                else if (price < 100) buckets['₹50-100']++;
+                else if (price < 500) buckets['₹100-500']++;
+                else buckets['₹500+']++;
+            });
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.services_price = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(buckets),
+                    datasets: [{
+                        data: Object.values(buckets),
+                        backgroundColor: ['#10b981', '#06b6d4', '#3b82f6', '#f59e0b', '#ff6b00', '#ef4444'],
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function renderTopServicesTable() {
+            const panel = document.getElementById('topServicesTable');
+            const serviceMap = {};
+            State.services.forEach(s => serviceMap[String(s.api_service_id)] = s);
+
+            /* ---- Aggregate from orders ---- */
+            const map = {};
+            State.orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const name = String(o.service_name || 'Unknown');
+                if (!map[name]) map[name] = { count: 0, revenue: 0, profit: 0 };
+                map[name].count++;
+                map[name].revenue += parseFloat(o.user_price || 0);
+                map[name].profit += parseFloat(o.profit || 0);
+            });
+
+            const top = Object.entries(map)
+                .map(([name, data]) => ({ name, ...data }))
+                .sort((a, b) => b.revenue - a.revenue)
+                .slice(0, 10);
+
+            if (top.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 30px;">📭 No completed orders</div>`;
+                return;
+            }
+
+            const maxRevenue = top[0].revenue;
+
+            panel.innerHTML = `
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Service</th>
+                            <th>Orders</th>
+                            <th>Revenue</th>
+                            <th>Profit</th>
+                            <th>Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${top.map((t, i) => {
+                            const width = (t.revenue / maxRevenue) * 100;
+                            const margin = t.revenue > 0 ? (t.profit / t.revenue) * 100 : 0;
+
+                            return `
+                                <tr>
+                                    <td style="font-weight: 700; color: var(--text-muted);">${i + 1}</td>
+                                    <td>
+                                        <div style="font-weight: 600; font-size: 12px; max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                            ${Utils.escape(Utils.truncate(t.name, 40))}
+                                        </div>
+                                    </td>
+                                    <td>${Utils.number(t.count)}</td>
+                                    <td>
+                                        <span class="breakdown-bar" style="width: ${width}%; max-width: 60px;"></span>
+                                        <b style="color: var(--primary);">${Utils.money(t.revenue)}</b>
+                                    </td>
+                                    <td><b style="color: var(--success);">${Utils.money(t.profit)}</b></td>
+                                    <td>
+                                        <span class="badge badge-${margin > 30 ? 'success' : margin > 15 ? 'warning' : 'danger'}">
+                                            ${margin.toFixed(1)}%
+                                        </span>
+                                    </td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        /* ============================================================
+           TAB 6: CATEGORIES
+         ============================================================ */
+        async function buildCategories() {
+            if (State.loaded.categories) return;
+
+            const orders = filterByRange(State.orders);
+
+            buildCategoryOrdersChart(orders);
+            buildCategoryRevenueChart(orders);
+            renderCategoryBreakdown(orders);
+
+            State.loaded.categories = true;
+        }
+
+        function buildCategoryOrdersChart(orders) {
+            const canvas = document.getElementById('categoryOrdersChart');
+            if (!canvas) return;
+
+            const serviceMap = {};
+            State.services.forEach(s => serviceMap[String(s.api_service_id)] = s);
+
+            const map = {};
+            orders.forEach(o => {
+                const svc = serviceMap[String(o.api_service_id)] || {};
+                const cat = svc.category || 'Others';
+                map[cat] = (map[cat] || 0) + 1;
+            });
+
+            const labels = Object.keys(map);
+            const values = Object.values(map);
+
+            if (values.length === 0) {
+                labels.push('No Data');
+                values.push(1);
+            }
+
+            const ctx = canvas.getContext('2d');
+            const colors = ['#ff6b00', '#3b82f6', '#10b981', '#f59e0b', '#a855f7', '#06b6d4', '#ef4444', '#6b7280'];
+
+            State.charts.cat_orders = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors.slice(0, values.length),
+                        borderColor: '#12121a',
+                        borderWidth: 3,
+                        hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#a1a1aa', padding: 8, font: { size: 10 }, usePointStyle: true } }
+                    }
+                }
+            });
+        }
+
+        function buildCategoryRevenueChart(orders) {
+            const canvas = document.getElementById('categoryRevenueChart');
+            if (!canvas) return;
+
+            const serviceMap = {};
+            State.services.forEach(s => serviceMap[String(s.api_service_id)] = s);
+
+            const map = {};
+            orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const svc = serviceMap[String(o.api_service_id)] || {};
+                const cat = svc.category || 'Others';
+                map[cat] = (map[cat] || 0) + parseFloat(o.user_price || 0);
+            });
+
+            const sorted = Object.entries(map)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            const ctx = canvas.getContext('2d');
+
+            State.charts.cat_revenue = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sorted.map(s => s[0]),
+                    datasets: [{
+                        data: sorted.map(s => s[1]),
+                        backgroundColor: 'rgba(255, 107, 0, 0.7)',
+                        borderColor: '#ff6b00',
+                        borderWidth: 2,
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', callback: (v) => '₹' + v } },
+                        y: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 11 } } }
+                    }
+                }
+            });
+        }
+
+        function renderCategoryBreakdown(orders) {
+            const panel = document.getElementById('categoryBreakdownTable');
+            const serviceMap = {};
+            State.services.forEach(s => serviceMap[String(s.api_service_id)] = s);
+
+            const map = {};
+            orders.forEach(o => {
+                const svc = serviceMap[String(o.api_service_id)] || {};
+                const cat = svc.category || 'Others';
+                if (!map[cat]) map[cat] = { orders: 0, revenue: 0, profit: 0, completed: 0 };
+                map[cat].orders++;
+                if (o.status === 'completed') {
+                    map[cat].completed++;
+                    map[cat].revenue += parseFloat(o.user_price || 0);
+                    map[cat].profit += parseFloat(o.profit || 0);
+                }
+            });
+
+            const sorted = Object.entries(map)
+                .map(([name, data]) => ({ name, ...data }))
+                .sort((a, b) => b.revenue - a.revenue);
+
+            if (sorted.length === 0) {
+                panel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 30px;">📭 No data</div>`;
+                return;
+            }
+
+            const maxRev = sorted[0].revenue;
+
+            panel.innerHTML = `
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Total Orders</th>
+                            <th>Completed</th>
+                            <th>Success Rate</th>
+                            <th>Revenue</th>
+                            <th>Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${sorted.map(c => {
+                            const rate = c.orders > 0 ? (c.completed / c.orders) * 100 : 0;
+                            const width = maxRev > 0 ? (c.revenue / maxRev) * 100 : 0;
+
+                            return `
+                                <tr>
+                                    <td><b>${Utils.escape(c.name)}</b></td>
+                                    <td>${Utils.number(c.orders)}</td>
+                                    <td>${Utils.number(c.completed)}</td>
+                                    <td>
+                                        <span class="badge badge-${rate > 80 ? 'success' : rate > 50 ? 'warning' : 'danger'}">
+                                            ${rate.toFixed(1)}%
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="breakdown-bar" style="width: ${width}%; max-width: 80px;"></span>
+                                        <b style="color: var(--primary);">${Utils.money(c.revenue)}</b>
+                                    </td>
+                                    <td><b style="color: var(--success);">${Utils.money(c.profit)}</b></td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        /* ============================================================
+           TAB 7: FUNNEL
+         ============================================================ */
+        async function buildFunnel() {
+            if (State.loaded.funnel) return;
+
+            const users = State.users;
+            const orders = filterByRange(State.orders);
+            const payments = State.payments;
+
+            /* ---- Funnel steps ---- */
+            const totalUsers = users.length;
+            const profileCompleted = users.filter(u => u.profile_completed == 1).length;
+            const usersWithOrders = new Set(orders.map(o => String(o.user_id))).size;
+            const usersWithCompleted = new Set(orders.filter(o => o.status === 'completed').map(o => String(o.user_id))).size;
+            const paidUsers = new Set(payments.filter(p => p.status === 'approved').map(p => String(p.user_id))).size;
+
+            const steps = [
+                { name: 'Registered', desc: 'Signed up', value: totalUsers, icon: '📝' },
+                { name: 'Profile Completed', desc: 'Filled profile', value: profileCompleted, icon: '👤' },
+                { name: 'Funded', desc: 'Added money', value: paidUsers, icon: '💰' },
+                { name: 'Placed Order', desc: 'First order', value: usersWithOrders, icon: '📦' },
+                { name: 'Completed Order', desc: 'Got delivery', value: usersWithCompleted, icon: '✅' },
+            ];
+
+            const container = document.getElementById('funnelContainer');
+            const firstValue = steps[0].value;
+
+            container.innerHTML = steps.map((s, idx) => {
+                const percent = firstValue > 0 ? (s.value / firstValue) * 100 : 0;
+                const prevValue = idx > 0 ? steps[idx - 1].value : firstValue;
+                const dropoff = prevValue > 0 ? ((prevValue - s.value) / prevValue) * 100 : 0;
+
+                const dropClass = dropoff > 50 ? '' : dropoff > 25 ? '' : 'positive';
+
+                return `
+                    <div class="funnel-step">
+                        <div class="funnel-step-info">
+                            <div class="funnel-step-title">${s.icon} ${s.name}</div>
+                            <div class="funnel-step-sub">${s.desc}</div>
+                        </div>
+                        <div class="funnel-step-bar" style="width: ${Math.max(percent, 15)}%;">
+                            <span>${Utils.number(s.value)}</span>
+                            <span>${percent.toFixed(1)}%</span>
+                        </div>
+                        <div class="funnel-step-drop ${dropClass}">
+                            ${idx > 0 ? `-${dropoff.toFixed(1)}%` : '—'}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            /* ---- Drop-off analysis ---- */
+            const dropoffs = [];
+            for (let i = 1; i < steps.length; i++) {
+                const prev = steps[i - 1];
+                const curr = steps[i];
+                const drop = prev.value - curr.value;
+                const dropPct = prev.value > 0 ? (drop / prev.value) * 100 : 0;
+
+                if (drop > 0) {
+                    dropoffs.push({
+                        from: prev.name,
+                        to: curr.name,
+                        drop,
+                        dropPct,
+                    });
+                }
+            }
+
+            dropoffs.sort((a, b) => b.dropPct - a.dropPct);
+
+            const dropoffPanel = document.getElementById('dropoffPanel');
+            if (dropoffs.length === 0) {
+                dropoffPanel.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">✅ No significant drop-offs</div>`;
+            } else {
+                dropoffPanel.innerHTML = dropoffs.slice(0, 4).map(d => `
+                    <div class="dropoff-item">
+                        <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">
+                            ⚠️ ${d.from} → ${d.to}
+                        </div>
+                        <div class="dropoff-stats">
+                            <span>Lost: <b style="color: var(--danger);">${Utils.number(d.drop)}</b> users</span>
+                            <span><b>${d.dropPct.toFixed(1)}%</b> drop-off</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            /* ---- Tips ---- */
+            const tipsPanel = document.getElementById('funnelTipsPanel');
+            const tips = [];
+
+            /* ---- Analyze each step ---- */
+            const profileRate = firstValue > 0 ? (profileCompleted / firstValue) * 100 : 0;
+            const fundingRate = profileCompleted > 0 ? (paidUsers / profileCompleted) * 100 : 0;
+            const orderRate = paidUsers > 0 ? (usersWithOrders / paidUsers) * 100 : 0;
+
+            if (profileRate < 50) {
+                tips.push({
+                    icon: '👤',
+                    text: `Only <b>${profileRate.toFixed(1)}%</b> users complete profile. Consider skipping profile requirement or simplifying it.`,
+                    urgent: true,
+                });
+            }
+
+            if (fundingRate < 20) {
+                tips.push({
+                    icon: '💰',
+                    text: `Only <b>${fundingRate.toFixed(1)}%</b> funded users place orders. Send funding reminders or add first-order discount.`,
+                    urgent: true,
+                });
+            }
+
+            if (orderRate < 50) {
+                tips.push({
+                    icon: '📦',
+                    text: `Only <b>${orderRate.toFixed(1)}%</b> funded users place orders. Improve UX with clearer service discovery.`,
+                    urgent: true,
+                });
+            }
+
+            if (profileRate > 80) {
+                tips.push({
+                    icon: '✅',
+                    text: `<b>Great!</b> ${profileRate.toFixed(1)}% users complete profile. Keep it up!`,
+                    urgent: false,
+                });
+            }
+
+            if (fundingRate > 50) {
+                tips.push({
+                    icon: '💎',
+                    text: `Excellent funding rate: <b>${fundingRate.toFixed(1)}%</b>. Users trust the platform!`,
+                    urgent: false,
+                });
+            }
+
+            if (tips.length === 0) {
+                tips.push({
+                    icon: '📊',
+                    text: 'Not enough data for recommendations yet. Keep growing!',
+                    urgent: false,
+                });
+            }
+
+            tipsPanel.innerHTML = tips.slice(0, 5).map(t => `
+                <div class="tip-item ${t.urgent ? 'urgent' : 'good'}">
+                    <span class="tip-icon">${t.icon}</span>
+                    <div class="tip-text">${t.text}</div>
+                </div>
+            `).join('');
+
+            State.loaded.funnel = true;
+        }
+
+        /* ============================================================
+           TAB 8: COHORT
+         ============================================================ */
+        async function buildCohortAnalysis() {
+            const weeksCount = parseInt(document.getElementById('cohortWeeks').value) || 8;
+            const users = State.users;
+
+            /* ---- Group users by signup week ---- */
+            const weeks = [];
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
+
+            for (let i = weeksCount - 1; i >= 0; i--) {
+                const weekStart = new Date(now);
+                weekStart.setDate(weekStart.getDate() - (i * 7) - weekStart.getDay());
+                const weekEnd = new Date(weekStart);
+                weekEnd.setDate(weekEnd.getDate() + 7);
+
+                const cohortUsers = users.filter(u => {
+                    const jd = new Date(String(u.join_date || '').replace(' ', 'T')).getTime();
+                    return jd >= weekStart.getTime() && jd < weekEnd.getTime();
+                });
+
+                weeks.push({
+                    start: weekStart,
+                    label: weekStart.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }),
+                    users: cohortUsers,
+                    size: cohortUsers.length,
+                });
+            }
+
+            /* ---- Build retention matrix ---- */
+            const matrix = weeks.map(w => {
+                const row = [w.size]; // Week 0 = 100%
+
+                /* ---- For each subsequent week, count how many users were active ---- */
+                for (let i = 1; i <= 8; i++) {
+                    const targetDate = new Date(w.start);
+                    targetDate.setDate(targetDate.getDate() + (i * 7));
+
+                    if (targetDate.getTime() > Date.now()) {
+                        row.push(null); // Future week
+                        continue;
+                    }
+
+                    const activeCount = w.users.filter(u => {
+                        const lastActive = new Date(String(u.last_active || '').replace(' ', 'T')).getTime();
+                        const joinDate = new Date(String(u.join_date || '').replace(' ', 'T')).getTime();
+                        if (isNaN(lastActive) || isNaN(joinDate)) return false;
+
+                        /* ---- Active within this week ---- */
+                        const weekStart = targetDate.getTime();
+                        const weekEnd = weekStart + 7 * 86400000;
+
+                        return lastActive >= weekStart && lastActive < weekEnd && lastActive >= joinDate;
+                    }).length;
+
+                    row.push(activeCount);
+                }
+
+                return { ...w, row };
+            });
+
+            /* ---- Render table ---- */
+            const table = document.getElementById('cohortTable');
+            const maxWeek = Math.min(8, weeksCount);
+
+            let html = `
+                <table class="cohort-table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Users</th>
+                            ${Array.from({ length: maxWeek + 1 }, (_, i) => `<th>W${i}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            matrix.forEach(w => {
+                html += `<tr>`;
+                html += `<td class="week-label">${w.label}</td>`;
+                html += `<td><b>${Utils.number(w.size)}</b></td>`;
+
+                w.row.slice(0, maxWeek + 1).forEach((count, idx) => {
+                    if (count === null) {
+                        html += `<td><div class="cohort-cell empty">—</div></td>`;
+                        return;
+                    }
+
+                    const pct = w.size > 0 ? (count / w.size) * 100 : 0;
+                    let cls = 'empty';
+                    if (pct >= 50) cls = 'high';
+                    else if (pct >= 20) cls = 'medium';
+                    else if (pct > 0) cls = 'low';
+
+                    html += `<td><div class="cohort-cell ${cls}">${pct.toFixed(0)}%</div></td>`;
+                });
+
+                html += `</tr>`;
+            });
+
+            html += `</tbody></table>`;
+            table.innerHTML = html;
+
+            /* ---- Cohort size chart ---- */
+            const canvas = document.getElementById('cohortSizeChart');
+            if (canvas && State.charts.cohort_size) {
+                State.charts.cohort_size.destroy();
+            }
+
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                State.charts.cohort_size = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: matrix.map(m => m.label),
+                        datasets: [{
+                            data: matrix.map(m => m.size),
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: '#3b82f6',
+                            borderWidth: 2,
+                            borderRadius: 6,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', stepSize: 1 } },
+                            x: { grid: { display: false }, ticks: { color: '#6b7280', font: { size: 10 } } }
+                        }
+                    }
+                });
+            }
+
+            /* ---- Insights ---- */
+            const insights = document.getElementById('cohortInsights');
+
+            if (matrix.length === 0) {
+                insights.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px;">📭 No data</div>`;
+                return;
+            }
+
+            /* ---- Calculate average retention ---- */
+            const week1Retentions = matrix
+                .map(m => m.row[1])
+                .filter(v => v !== null && v !== undefined);
+
+            const week4Retentions = matrix
+                .map(m => m.row[4])
+                .filter(v => v !== null && v !== undefined);
+
+            const avg1 = week1Retentions.length > 0
+                ? week1Retentions.reduce((a, b) => a + b, 0) / week1Retentions.length / (matrix[0].size || 1) * 100
+                : 0;
+
+            const avg4 = week4Retentions.length > 0
+                ? week4Retentions.reduce((a, b) => a + b, 0) / week4Retentions.length / (matrix[0].size || 1) * 100
+                : 0;
+
+            /* ---- Total cohort users ---- */
+            const totalCohortUsers = matrix.reduce((s, m) => s + m.size, 0);
+            const bestCohort = matrix.slice().sort((a, b) => b.size - a.size)[0];
+
+            insights.innerHTML = `
+                <div class="insight-row">
+                    <span class="insight-label">Cohort Weeks</span>
+                    <span class="insight-value">${matrix.length}</span>
+                </div>
+                <div class="insight-row">
+                    <span class="insight-label">Total Users</span>
+                    <span class="insight-value">${Utils.number(totalCohortUsers)}</span>
+                </div>
+                <div class="insight-row">
+                    <span class="insight-label">Week 1 Retention</span>
+                    <span class="insight-value" style="color: ${avg1 >= 30 ? 'var(--success)' : avg1 >= 15 ? 'var(--warning)' : 'var(--danger)'};">
+                        ${avg1.toFixed(1)}%
+                    </span>
+                </div>
+                <div class="insight-row">
+                    <span class="insight-label">Week 4 Retention</span>
+                    <span class="insight-value" style="color: ${avg4 >= 15 ? 'var(--success)' : avg4 >= 5 ? 'var(--warning)' : 'var(--danger)'};">
+                        ${avg4.toFixed(1)}%
+                    </span>
+                </div>
+                <div class="insight-row">
+                    <span class="insight-label">Best Cohort</span>
+                    <span class="insight-value">${bestCohort ? bestCohort.label : '—'} (${bestCohort ? bestCohort.size : 0})</span>
+                </div>
+                <div class="insight-row">
+                    <span class="insight-label">Avg Cohort Size</span>
+                    <span class="insight-value">${matrix.length > 0 ? (totalCohortUsers / matrix.length).toFixed(1) : 0}</span>
+                </div>
+            `;
+
+            State.loaded.cohort = true;
+        }
+
+        /* ============================================================
+           EXPORT
+         ============================================================ */
+        function exportAnalytics() {
+            const rows = [];
+
+            rows.push(['Bihari SMM Analytics Report']);
+            rows.push(['Generated', new Date().toLocaleString('en-IN')]);
+            rows.push(['Date Range', document.getElementById('dateRange').selectedOptions[0].text]);
+            rows.push([]);
+
+            /* ---- Key Metrics ---- */
+            rows.push(['=== KEY METRICS ===']);
+            rows.push(['Metric', 'Value']);
+            rows.push(['Total Revenue', document.getElementById('metricRevenue').textContent]);
+            rows.push(['Total Profit', document.getElementById('metricProfit').textContent]);
+            rows.push(['Total Orders', document.getElementById('metricOrders').textContent]);
+            rows.push(['Total Users', document.getElementById('metricUsers').textContent]);
+            rows.push(['Conversion Rate', document.getElementById('metricConversion').textContent]);
+            rows.push(['Avg Order Value', document.getElementById('metricAOV').textContent]);
+            rows.push([]);
+
+            /* ---- Top Services ---- */
+            rows.push(['=== TOP SERVICES ===']);
+            rows.push(['Service', 'Orders', 'Revenue']);
+
+            const serviceMap = {};
+            State.orders.forEach(o => {
+                if (o.status !== 'completed') return;
+                const name = String(o.service_name || 'Unknown');
+                if (!serviceMap[name]) serviceMap[name] = { count: 0, revenue: 0 };
+                serviceMap[name].count++;
+                serviceMap[name].revenue += parseFloat(o.user_price || 0);
+            });
+
+            Object.entries(serviceMap)
+                .sort((a, b) => b[1].revenue - a[1].revenue)
+                .slice(0, 20)
+                .forEach(([name, data]) => {
+                    rows.push([name, data.count, data.revenue.toFixed(2)]);
+                });
+
+            /* ---- Convert to CSV ---- */
+            const csv = rows
+                .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                .join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `analytics_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success('Analytics exported!');
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

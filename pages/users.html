@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>👥 Users — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- APP SHELL -->
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link active" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- MAIN CONTENT -->
+        <div class="app-content">
+
+            <!-- HEADER -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">👥 Users Management</div>
+                        <div class="header-subtitle" id="headerSubtitle">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search users...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">👥 Users Management</h1>
+                        <p class="page-description" id="pageStats">Loading users...</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="exportBtn">
+                            📤 Export CSV
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="addUserBtn">
+                            ➕ Add User
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value" id="totalUsers">0</div>
+                        <div class="stat-label">Total Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-value" id="totalVip">0</div>
+                        <div class="stat-label">VIP Members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚫</div>
+                        <div class="stat-value" id="totalBanned">0</div>
+                        <div class="stat-label">Banned</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value" id="totalBalance">₹0</div>
+                        <div class="stat-label">Total Balance</div>
+                    </div>
+                </div>
+
+                <!-- FILTER BAR -->
+                <div class="card mb-lg">
+                    <div class="card-body" style="padding: 0;">
+                        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto; gap: 10px; align-items: end;">
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">🔍 Search</label>
+                                <input type="text" class="form-input" id="searchInput" placeholder="Name, ID, username, phone...">
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="filterStatus">
+                                    <option value="">All Status</option>
+                                    <option value="active">✅ Active</option>
+                                    <option value="banned">🚫 Banned</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">VIP</label>
+                                <select class="form-select" id="filterVip">
+                                    <option value="">All Users</option>
+                                    <option value="1">⭐ VIP Only</option>
+                                    <option value="0">Regular Only</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Balance</label>
+                                <select class="form-select" id="filterBalance">
+                                    <option value="">All</option>
+                                    <option value="0">₹0 (Empty)</option>
+                                    <option value="1">₹1 - ₹100</option>
+                                    <option value="100">₹100 - ₹1000</option>
+                                    <option value="1000">₹1000+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin: 0;">
+                                <label class="form-label">Sort By</label>
+                                <select class="form-select" id="filterSort">
+                                    <option value="id_desc">Newest First</option>
+                                    <option value="id_asc">Oldest First</option>
+                                    <option value="balance_desc">Balance: High → Low</option>
+                                    <option value="balance_asc">Balance: Low → High</option>
+                                    <option value="orders_desc">Orders: High → Low</option>
+                                    <option value="spent_desc">Spent: High → Low</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-secondary btn-icon" id="clearFilters" title="Clear Filters">
+                                ✕
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BULK ACTIONS BAR -->
+                <div class="card mb-md" id="bulkBar" style="display: none;">
+                    <div class="card-body" style="padding: 12px 16px;">
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <span style="font-weight: 600; color: var(--primary);">
+                                ✅ <span id="selectedCount">0</span> selected
+                            </span>
+                            <div style="flex: 1;"></div>
+                            <button class="btn btn-success btn-sm" data-bulk="vip_on">👑 Set VIP</button>
+                            <button class="btn btn-warning btn-sm" data-bulk="vip_off">👑 Remove VIP</button>
+                            <button class="btn btn-danger btn-sm" data-bulk="ban">🚫 Ban</button>
+                            <button class="btn btn-success btn-sm" data-bulk="unban">🔓 Unban</button>
+                            <button class="btn btn-primary btn-sm" data-bulk="message">📨 Message</button>
+                            <button class="btn btn-danger btn-sm" data-bulk="delete">🗑️ Delete</button>
+                            <button class="btn btn-ghost btn-sm" id="clearSelection">✕ Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLE -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div class="table-wrapper" style="border: none;">
+                        <table class="table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px;">
+                                        <input type="checkbox" id="selectAll" style="cursor:pointer;">
+                                    </th>
+                                    <th class="sortable" data-sort="id">ID</th>
+                                    <th>User</th>
+                                    <th>Username</th>
+                                    <th class="sortable" data-sort="balance">Balance</th>
+                                    <th class="sortable" data-sort="orders">Orders</th>
+                                    <th>Spent</th>
+                                    <th>VIP</th>
+                                    <th>Status</th>
+                                    <th>Joined</th>
+                                    <th style="width: 120px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <tr>
+                                    <td colspan="11" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                                        <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                                        Loading users...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="pagination" id="pagination" style="display: none;">
+                        <div class="pagination-info" id="paginationInfo"></div>
+                        <div class="pagination-controls" id="paginationControls"></div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- MODAL CONTAINER -->
+    <div id="modalContainer"></div>
+
+    <!-- SCRIPTS -->
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       USERS PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ---- State ---- */
+        const State = {
+            users: [],
+            allUsers: [],
+            page: 1,
+            perPage: 20,
+            total: 0,
+            totalPages: 1,
+            search: '',
+            filters: {
+                status: '',
+                vip: '',
+                balance: '',
+            },
+            sort: 'id_desc',
+            selected: new Set(),
+        };
+
+        /* ============================================================
+           INIT
+           ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            /* ---- Check URL params ---- */
+            const urlSearch = Utils.getParam('search');
+            if (urlSearch) {
+                State.search = urlSearch;
+                document.getElementById('searchInput').value = urlSearch;
+                document.getElementById('headerSearch').value = urlSearch;
+            }
+
+            setupListeners();
+            await loadUsers();
+        }
+
+        /* ============================================================
+           LISTENERS
+           ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+
+            /* ---- Refresh ---- */
+            document.getElementById('refreshBtn').addEventListener('click', () => {
+                loadUsers(true);
+            });
+
+            /* ---- Add user ---- */
+            document.getElementById('addUserBtn').addEventListener('click', showAddUserModal);
+
+            /* ---- Export ---- */
+            document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+            /* ---- Search ---- */
+            const searchInput = document.getElementById('searchInput');
+            const headerSearch = document.getElementById('headerSearch');
+
+            const debouncedSearch = Utils.debounce(() => {
+                State.search = searchInput.value.trim();
+                State.page = 1;
+                loadUsers();
+            }, 500);
+
+            searchInput.addEventListener('input', debouncedSearch);
+
+            headerSearch.addEventListener('input', () => {
+                searchInput.value = headerSearch.value;
+                debouncedSearch();
+            });
+
+            /* ---- Filters ---- */
+            ['filterStatus', 'filterVip', 'filterBalance', 'filterSort'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('change', () => {
+                    State.filters.status = document.getElementById('filterStatus').value;
+                    State.filters.vip = document.getElementById('filterVip').value;
+                    State.filters.balance = document.getElementById('filterBalance').value;
+                    State.sort = document.getElementById('filterSort').value;
+                    State.page = 1;
+                    loadUsers();
+                });
+            });
+
+            /* ---- Clear filters ---- */
+            document.getElementById('clearFilters').addEventListener('click', () => {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('headerSearch').value = '';
+                document.getElementById('filterStatus').value = '';
+                document.getElementById('filterVip').value = '';
+                document.getElementById('filterBalance').value = '';
+                document.getElementById('filterSort').value = 'id_desc';
+
+                State.search = '';
+                State.filters = { status: '', vip: '', balance: '' };
+                State.sort = 'id_desc';
+                State.page = 1;
+
+                loadUsers();
+                Toast.info('Filters cleared');
+            });
+
+            /* ---- Select all ---- */
+            document.getElementById('selectAll').addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    State.users.forEach(u => State.selected.add(String(u.user_id)));
+                } else {
+                    State.selected.clear();
+                }
+                updateBulkBar();
+                updateCheckboxes();
+            });
+
+            /* ---- Bulk actions ---- */
+            document.querySelectorAll('[data-bulk]').forEach(btn => {
+                btn.addEventListener('click', () => handleBulkAction(btn.dataset.bulk));
+            });
+
+            /* ---- Clear selection ---- */
+            document.getElementById('clearSelection').addEventListener('click', () => {
+                State.selected.clear();
+                updateBulkBar();
+                updateCheckboxes();
+                document.getElementById('selectAll').checked = false;
+            });
+
+            /* ---- Sortable headers ---- */
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.addEventListener('click', () => {
+                    const field = th.dataset.sort;
+                    const currentSort = State.sort;
+
+                    if (currentSort === field + '_desc') State.sort = field + '_asc';
+                    else State.sort = field + '_desc';
+
+                    document.getElementById('filterSort').value = State.sort;
+                    loadUsers();
+                });
+            });
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           LOAD USERS
+           ============================================================ */
+        async function loadUsers(showToast = false) {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = `<tr><td colspan="11" class="text-center" style="padding: 60px; color: var(--text-muted);">
+                <div class="loader-spinner" style="margin: 0 auto 16px;"></div>
+                Loading users...
+            </td></tr>`;
+
+            try {
+                /* ---- Fetch users ---- */
+                const res = await API.getDataPage('users', State.page, State.perPage, State.search);
+
+                if (!res || !res.success) {
+                    throw new Error(res?.error || 'Failed to load users');
+                }
+
+                let users = Array.isArray(res.rows) ? res.rows : [];
+                State.total = res.total || users.length;
+                State.totalPages = res.pages || 1;
+                State.allUsers = users.slice();
+
+                /* ---- Apply local filters ---- */
+                users = applyFilters(users);
+                users = applySort(users);
+
+                State.users = users;
+
+                /* ---- Render ---- */
+                renderTable(users);
+                renderPagination();
+                updateStats();
+                updateHeaderSubtitle();
+
+                if (showToast) Toast.success('Users updated!');
+
+            } catch (err) {
+                console.error('Load users failed:', err);
+                tbody.innerHTML = `<tr><td colspan="11" class="text-center" style="padding: 60px; color: var(--danger);">
+                    ❌ Failed to load users: ${Utils.escape(err.message || 'Unknown error')}
+                    <br><br>
+                    <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Retry</button>
+                </td></tr>`;
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           APPLY FILTERS
+           ============================================================ */
+        function applyFilters(users) {
+            return users.filter(u => {
+                /* Status */
+                if (State.filters.status === 'banned' && u.is_banned != 1) return false;
+                if (State.filters.status === 'active' && u.is_banned == 1) return false;
+
+                /* VIP */
+                if (State.filters.vip === '1' && u.is_vip != 1) return false;
+                if (State.filters.vip === '0' && u.is_vip == 1) return false;
+
+                /* Balance */
+                const bal = parseFloat(u.balance || 0);
+                if (State.filters.balance === '0' && bal !== 0) return false;
+                if (State.filters.balance === '1' && (bal < 1 || bal > 100)) return false;
+                if (State.filters.balance === '100' && (bal < 100 || bal > 1000)) return false;
+                if (State.filters.balance === '1000' && bal < 1000) return false;
+
+                return true;
+            });
+        }
+
+        function applySort(users) {
+            const [field, dir] = State.sort.split('_');
+
+            return users.slice().sort((a, b) => {
+                let va, vb;
+
+                switch (field) {
+                    case 'id':
+                        va = parseInt(a.id || 0);
+                        vb = parseInt(b.id || 0);
+                        break;
+                    case 'balance':
+                        va = parseFloat(a.balance || 0);
+                        vb = parseFloat(b.balance || 0);
+                        break;
+                    case 'orders':
+                        va = parseInt(a.total_orders || 0);
+                        vb = parseInt(b.total_orders || 0);
+                        break;
+                    case 'spent':
+                        va = parseFloat(a.total_spent || 0);
+                        vb = parseFloat(b.total_spent || 0);
+                        break;
+                    default:
+                        return 0;
+                }
+
+                return dir === 'desc' ? vb - va : va - vb;
+            });
+        }
+
+        /* ============================================================
+           RENDER TABLE
+           ============================================================ */
+        function renderTable(users) {
+            const tbody = document.getElementById('usersTableBody');
+
+            if (users.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="11" class="text-center" style="padding: 60px;">
+                            <div style="font-size: 48px; opacity: 0.4; margin-bottom: 16px;">📭</div>
+                            <div style="color: var(--text-muted); font-size: 15px;">No users found</div>
+                            <div style="color: var(--text-disabled); font-size: 13px; margin-top: 8px;">
+                                Try changing filters or search query
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = users.map(u => {
+                const id = Utils.escape(u.id || '');
+                const userId = Utils.escape(u.user_id || '');
+                const name = Utils.escape(u.first_name || 'User');
+                const username = u.username ? '@' + Utils.escape(u.username) : '<span style="color: var(--text-muted);">—</span>';
+                const balance = Utils.money(u.balance || 0);
+                const orders = Utils.number(u.total_orders || 0);
+                const spent = Utils.money(u.total_spent || 0);
+                const isVip = u.is_vip == 1;
+                const isBanned = u.is_banned == 1;
+                const joined = Utils.date(u.join_date, 'date');
+                const initial = Utils.initials(name);
+
+                const vipBadge = isVip
+                    ? '<span class="badge badge-gold">👑 VIP</span>'
+                    : '<span style="color: var(--text-muted); font-size: 11px;">—</span>';
+
+                const statusBadge = isBanned
+                    ? '<span class="badge badge-danger">🚫 Banned</span>'
+                    : '<span class="badge badge-success">✅ Active</span>';
+
+                const isChecked = State.selected.has(userId);
+
+                return `
+                    <tr data-user-id="${userId}" class="${isChecked ? 'selected' : ''}">
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-user-id="${userId}" ${isChecked ? 'checked' : ''} style="cursor:pointer;">
+                        </td>
+                        <td>
+                            <code style="font-size: 11px;">${id}</code>
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="header-user-avatar" style="width: 32px; height: 32px; font-size: 12px; flex-shrink: 0;">
+                                    ${initial}
+                                </div>
+                                <div style="min-width: 0;">
+                                    <div style="font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;">
+                                        ${name}
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--text-muted);">
+                                        <code style="font-size: 10px;">${userId}</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${username}</td>
+                        <td><b style="color: var(--primary);">${balance}</b></td>
+                        <td>${orders}</td>
+                        <td>${spent}</td>
+                        <td>${vipBadge}</td>
+                        <td>${statusBadge}</td>
+                        <td style="font-size: 12px; color: var(--text-muted);">${joined}</td>
+                        <td>
+                            <div style="display: flex; gap: 4px;">
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="view" data-user="${userId}" title="View">
+                                    👁️
+                                </button>
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="edit" data-user="${userId}" title="Edit">
+                                    ✏️
+                                </button>
+                                <button class="btn btn-ghost btn-icon btn-sm" data-action="menu" data-user="${userId}" title="More">
+                                    ⋮
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            /* ---- Bind row events ---- */
+            bindRowEvents();
+        }
+
+        function bindRowEvents() {
+            /* ---- View / Edit / Menu buttons ---- */
+            document.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.dataset.action;
+                    const userId = btn.dataset.user;
+
+                    if (action === 'view') showUserDetail(userId);
+                    if (action === 'edit') showEditUserModal(userId);
+                    if (action === 'menu') showMoreMenu(userId, btn);
+                });
+            });
+
+            /* ---- Row checkboxes ---- */
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.addEventListener('change', (e) => {
+                    const userId = cb.dataset.userId;
+                    const row = cb.closest('tr');
+
+                    if (cb.checked) {
+                        State.selected.add(userId);
+                        row.classList.add('selected');
+                    } else {
+                        State.selected.delete(userId);
+                        row.classList.remove('selected');
+                    }
+
+                    updateBulkBar();
+                    updateSelectAllState();
+                });
+            });
+
+            /* ---- Row click → view ---- */
+            document.querySelectorAll('#usersTableBody tr').forEach(tr => {
+                tr.addEventListener('click', (e) => {
+                    if (e.target.closest('button') || e.target.closest('input')) return;
+                    const userId = tr.dataset.userId;
+                    if (userId) showUserDetail(userId);
+                });
+            });
+        }
+
+        function updateCheckboxes() {
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.checked = State.selected.has(cb.dataset.userId);
+                cb.closest('tr').classList.toggle('selected', cb.checked);
+            });
+        }
+
+        function updateSelectAllState() {
+            const selectAll = document.getElementById('selectAll');
+            if (!selectAll) return;
+
+            const visibleIds = State.users.map(u => String(u.user_id));
+            const checkedCount = visibleIds.filter(id => State.selected.has(id)).length;
+
+            if (checkedCount === 0) {
+                selectAll.checked = false;
+                selectAll.indeterminate = false;
+            } else if (checkedCount === visibleIds.length) {
+                selectAll.checked = true;
+                selectAll.indeterminate = false;
+            } else {
+                selectAll.checked = false;
+                selectAll.indeterminate = true;
+            }
+        }
+
+        /* ============================================================
+           STATS
+           ============================================================ */
+        function updateStats() {
+            const users = State.allUsers || [];
+
+            document.getElementById('totalUsers').textContent = Utils.number(State.total);
+            document.getElementById('totalVip').textContent = Utils.number(users.filter(u => u.is_vip == 1).length);
+            document.getElementById('totalBanned').textContent = Utils.number(users.filter(u => u.is_banned == 1).length);
+
+            const totalBal = users.reduce((sum, u) => sum + parseFloat(u.balance || 0), 0);
+            document.getElementById('totalBalance').textContent = Utils.money(totalBal);
+        }
+
+        function updateHeaderSubtitle() {
+            const total = State.total;
+            const shown = State.users.length;
+            document.getElementById('headerSubtitle').textContent =
+                `Showing ${shown} of ${total} users`;
+            document.getElementById('pageStats').textContent =
+                `${total} total users • Page ${State.page} of ${State.totalPages}`;
+        }
+
+        /* ============================================================
+           PAGINATION
+         ============================================================ */
+        function renderPagination() {
+            const pag = document.getElementById('pagination');
+            const info = document.getElementById('paginationInfo');
+            const controls = document.getElementById('paginationControls');
+
+            if (State.totalPages <= 1) {
+                pag.style.display = 'none';
+                return;
+            }
+
+            pag.style.display = '';
+
+            const start = (State.page - 1) * State.perPage + 1;
+            const end = Math.min(State.page * State.perPage, State.total);
+
+            info.textContent = `Showing ${start}-${end} of ${State.total}`;
+
+            /* ---- Build page numbers ---- */
+            let html = '';
+            const maxButtons = 7;
+
+            html += `<button class="pagination-btn" data-page="prev" ${State.page === 1 ? 'disabled' : ''}>◀</button>`;
+
+            let startPage = Math.max(1, State.page - Math.floor(maxButtons / 2));
+            let endPage = Math.min(State.totalPages, startPage + maxButtons - 1);
+
+            if (endPage - startPage < maxButtons - 1) {
+                startPage = Math.max(1, endPage - maxButtons + 1);
+            }
+
+            if (startPage > 1) {
+                html += `<button class="pagination-btn" data-page="1">1</button>`;
+                if (startPage > 2) {
+                    html += `<span style="color: var(--text-muted); padding: 0 4px;">…</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button class="pagination-btn ${i === State.page ? 'active' : ''}" data-page="${i}">${i}</button>`;
+            }
+
+            if (endPage < State.totalPages) {
+                if (endPage < State.totalPages - 1) {
+                    html += `<span style="color: var(--text-muted); padding: 0 4px;">…</span>`;
+                }
+                html += `<button class="pagination-btn" data-page="${State.totalPages}">${State.totalPages}</button>`;
+            }
+
+            html += `<button class="pagination-btn" data-page="next" ${State.page === State.totalPages ? 'disabled' : ''}>▶</button>`;
+
+            controls.innerHTML = html;
+
+            /* ---- Bind ---- */
+            controls.querySelectorAll('.pagination-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const p = btn.dataset.page;
+                    if (p === 'prev') State.page = Math.max(1, State.page - 1);
+                    else if (p === 'next') State.page = Math.min(State.totalPages, State.page + 1);
+                    else State.page = parseInt(p);
+
+                    loadUsers();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        /* ============================================================
+           BULK BAR
+           ============================================================ */
+        function updateBulkBar() {
+            const bar = document.getElementById('bulkBar');
+            const count = State.selected.size;
+
+            if (count > 0) {
+                bar.style.display = '';
+                document.getElementById('selectedCount').textContent = count;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+
+        /* ============================================================
+           BULK ACTIONS
+           ============================================================ */
+        async function handleBulkAction(action) {
+            const ids = [...State.selected];
+            if (ids.length === 0) return;
+
+            const labels = {
+                vip_on: '👑 Set VIP',
+                vip_off: '👑 Remove VIP',
+                ban: '🚫 Ban',
+                unban: '🔓 Unban',
+                message: '📨 Send Message',
+                delete: '🗑️ Delete',
+            };
+
+            if (action === 'message') {
+                showBulkMessageModal(ids);
+                return;
+            }
+
+            const confirmMsg = {
+                vip_on: `Set VIP for ${ids.length} user(s)?`,
+                vip_off: `Remove VIP from ${ids.length} user(s)?`,
+                ban: `Ban ${ids.length} user(s)? They won't be able to use the bot.`,
+                unban: `Unban ${ids.length} user(s)?`,
+                delete: `Delete ${ids.length} user(s)? This CANNOT be undone!`,
+            }[action];
+
+            const confirmed = await Modal.confirm({
+                title: labels[action],
+                message: confirmMsg,
+                confirmText: 'Yes, Confirm',
+                type: action === 'delete' || action === 'ban' ? 'danger' : 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+            let success = 0;
+            let failed = 0;
+
+            try {
+                for (const userId of ids) {
+                    try {
+                        let result;
+
+                        if (action === 'vip_on') {
+                            result = await API.updateUser(userId, 'is_vip', 1);
+                        } else if (action === 'vip_off') {
+                            result = await API.updateUser(userId, 'is_vip', 0);
+                        } else if (action === 'ban') {
+                            result = await API.updateUser(userId, 'is_banned', 1);
+                        } else if (action === 'unban') {
+                            result = await API.updateUser(userId, 'is_banned', 0);
+                        } else if (action === 'delete') {
+                            result = await API.deleteUser(userId);
+                        }
+
+                        if (result && result.success) success++;
+                        else failed++;
+
+                    } catch (e) {
+                        failed++;
+                    }
+                }
+
+                Toast.success(`Done: ${success} success, ${failed} failed`);
+                State.selected.clear();
+                updateBulkBar();
+                document.getElementById('selectAll').checked = false;
+                loadUsers();
+
+            } catch (err) {
+                console.error('Bulk action failed:', err);
+                Toast.error('Bulk action failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           USER DETAIL MODAL
+           ============================================================ */
+        function showUserDetail(userId) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) {
+                Toast.error('User not found');
+                return;
+            }
+
+            const name = Utils.escape(user.first_name || 'User');
+            const isVip = user.is_vip == 1;
+            const isBanned = user.is_banned == 1;
+            const initial = Utils.initials(name);
+
+            const body = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div class="header-user-avatar" style="width: 72px; height: 72px; font-size: 26px; margin: 0 auto 12px;">
+                        ${initial}
+                    </div>
+                    <h3 style="margin-bottom: 4px;">${name}</h3>
+                    <p style="color: var(--text-muted); font-size: 13px;">
+                        ${user.username ? '@' + Utils.escape(user.username) : 'No username'}
+                    </p>
+                    <div style="margin-top: 10px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
+                        ${isVip ? '<span class="badge badge-gold">👑 VIP</span>' : ''}
+                        ${isBanned ? '<span class="badge badge-danger">🚫 Banned</span>' : '<span class="badge badge-success">✅ Active</span>'}
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">User ID</div>
+                        <div style="font-weight: 600; margin-top: 4px;">
+                            <code>${Utils.escape(user.user_id)}</code>
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Balance</div>
+                        <div style="font-weight: 600; margin-top: 4px; color: var(--primary);">
+                            ${Utils.money(user.balance || 0)}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Total Orders</div>
+                        <div style="font-weight: 600; margin-top: 4px;">${Utils.number(user.total_orders || 0)}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Total Spent</div>
+                        <div style="font-weight: 600; margin-top: 4px;">${Utils.money(user.total_spent || 0)}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Joined</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 12px;">${Utils.date(user.join_date)}</div>
+                    </div>
+                    <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Last Active</div>
+                        <div style="font-weight: 600; margin-top: 4px; font-size: 12px;">${Utils.date(user.last_active)}</div>
+                    </div>
+                </div>
+
+                ${user.referral_code ? `
+                    <div style="margin-top: 12px; padding: 12px; background: var(--bg-elevated); border-radius: 8px;">
+                        <div style="font-size: 11px; color: var(--text-muted);">Referral Code</div>
+                        <div style="font-weight: 600; margin-top: 4px;">
+                            <code>${Utils.escape(user.referral_code)}</code>
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+
+            const footer = `
+                <button class="btn btn-danger btn-sm" data-detail="ban">
+                    ${isBanned ? '🔓 Unban' : '🚫 Ban'}
+                </button>
+                <button class="btn btn-warning btn-sm" data-detail="vip">
+                    ${isVip ? '👑 Remove VIP' : '👑 Set VIP'}
+                </button>
+                <button class="btn btn-success btn-sm" data-detail="balance">
+                    💰 Adjust Balance
+                </button>
+                <button class="btn btn-primary btn-sm" data-detail="message">
+                    📨 Message
+                </button>
+                <button class="btn btn-secondary btn-sm" data-detail="close">
+                    Close
+                </button>
+            `;
+
+            const modal = Modal.open({
+                title: '👤 User Details',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-detail="ban"]').addEventListener('click', () => {
+                        el.close();
+                        toggleBan(userId);
+                    });
+                    el.querySelector('[data-detail="vip"]').addEventListener('click', () => {
+                        el.close();
+                        toggleVip(userId);
+                    });
+                    el.querySelector('[data-detail="balance"]').addEventListener('click', () => {
+                        el.close();
+                        showBalanceModal(userId, user);
+                    });
+                    el.querySelector('[data-detail="message"]').addEventListener('click', () => {
+                        el.close();
+                        showMessageModal(userId, user);
+                    });
+                    el.querySelector('[data-detail="close"]').addEventListener('click', () => el.close());
+                }
+            });
+        }
+
+        /* ============================================================
+           MORE MENU
+           ============================================================ */
+        function showMoreMenu(userId, anchor) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) return;
+
+            const isVip = user.is_vip == 1;
+            const isBanned = user.is_banned == 1;
+
+            const body = `
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-more="vip">
+                        ${isVip ? '👑 Remove VIP' : '👑 Set VIP'}
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-more="balance">
+                        💰 Adjust Balance
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-more="message">
+                        📨 Send Message
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start;" data-more="copy">
+                        📋 Copy User ID
+                    </button>
+                    <div class="divider"></div>
+                    <button class="btn btn-ghost" style="justify-content: flex-start; color: var(--warning);" data-more="ban">
+                        ${isBanned ? '🔓 Unban User' : '🚫 Ban User'}
+                    </button>
+                    <button class="btn btn-ghost" style="justify-content: flex-start; color: var(--danger);" data-more="delete">
+                        🗑️ Delete User
+                    </button>
+                </div>
+            `;
+
+            const modal = Modal.open({
+                title: '⚙️ Actions',
+                body,
+                size: 'sm',
+                onOpen: (el) => {
+                    el.querySelector('[data-more="vip"]').addEventListener('click', () => {
+                        el.close();
+                        toggleVip(userId);
+                    });
+                    el.querySelector('[data-more="balance"]').addEventListener('click', () => {
+                        el.close();
+                        showBalanceModal(userId, user);
+                    });
+                    el.querySelector('[data-more="message"]').addEventListener('click', () => {
+                        el.close();
+                        showMessageModal(userId, user);
+                    });
+                    el.querySelector('[data-more="copy"]').addEventListener('click', () => {
+                        Utils.copy(String(userId));
+                        el.close();
+                    });
+                    el.querySelector('[data-more="ban"]').addEventListener('click', () => {
+                        el.close();
+                        toggleBan(userId);
+                    });
+                    el.querySelector('[data-more="delete"]').addEventListener('click', () => {
+                        el.close();
+                        deleteUser(userId);
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           TOGGLE VIP
+           ============================================================ */
+        async function toggleVip(userId) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) return;
+
+            const isVip = user.is_vip == 1;
+            const newVal = isVip ? 0 : 1;
+
+            const confirmed = await Modal.confirm({
+                title: isVip ? '👑 Remove VIP' : '👑 Set VIP',
+                message: isVip ? 'Remove VIP status?' : 'Set this user as VIP?',
+                confirmText: isVip ? 'Remove' : 'Set VIP',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                const res = await API.updateUser(userId, 'is_vip', newVal);
+                if (res && res.success) {
+                    Toast.success(isVip ? 'VIP removed' : 'VIP set!');
+                    loadUsers();
+                } else {
+                    Toast.error(res?.error || 'Failed');
+                }
+            } catch (err) {
+                Toast.error('Failed to update VIP');
+            }
+        }
+
+        /* ============================================================
+           TOGGLE BAN
+           ============================================================ */
+        async function toggleBan(userId) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) return;
+
+            const isBanned = user.is_banned == 1;
+            const newVal = isBanned ? 0 : 1;
+
+            const confirmed = await Modal.confirm({
+                title: isBanned ? '🔓 Unban User' : '🚫 Ban User',
+                message: isBanned
+                    ? 'Unban this user? They can use the bot again.'
+                    : 'Ban this user? They will not be able to use the bot.',
+                confirmText: isBanned ? 'Unban' : 'Ban',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                const res = await API.updateUser(userId, 'is_banned', newVal);
+                if (res && res.success) {
+                    Toast.success(isBanned ? 'User unbanned' : 'User banned!');
+                    loadUsers();
+                } else {
+                    Toast.error(res?.error || 'Failed');
+                }
+            } catch (err) {
+                Toast.error('Failed to update ban status');
+            }
+        }
+
+        /* ============================================================
+           BALANCE MODAL
+           ============================================================ */
+        function showBalanceModal(userId, user) {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label">Current Balance</label>
+                    <div style="font-size: 22px; font-weight: 700; color: var(--primary); padding: 12px; background: var(--bg-elevated); border-radius: 8px;">
+                        ${Utils.money(user.balance || 0)}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Operation</label>
+                    <select class="form-select" id="balanceOp">
+                        <option value="add">➕ Add Balance</option>
+                        <option value="sub">➖ Deduct Balance</option>
+                        <option value="set">🔄 Set Fixed Amount</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Amount (₹)</label>
+                    <input type="number" class="form-input" id="balanceAmount" placeholder="0.00" step="0.01" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Note (optional)</label>
+                    <input type="text" class="form-input" id="balanceNote" placeholder="Reason for adjustment" maxlength="200">
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-bal="cancel">Cancel</button>
+                <button class="btn btn-primary" data-bal="apply">✅ Apply</button>
+            `;
+
+            const modal = Modal.open({
+                title: '💰 Adjust Balance',
+                body,
+                footer,
+                onOpen: (el) => {
+                    el.querySelector('[data-bal="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-bal="apply"]').addEventListener('click', async () => {
+                        const op = el.querySelector('#balanceOp').value;
+                        const amt = parseFloat(el.querySelector('#balanceAmount').value);
+                        const note = el.querySelector('#balanceNote').value.trim();
+
+                        if (!amt || amt <= 0) {
+                            Toast.error('Enter valid amount');
+                            return;
+                        }
+
+                        const current = parseFloat(user.balance || 0);
+                        let newBalance;
+
+                        if (op === 'add') newBalance = current + amt;
+                        else if (op === 'sub') newBalance = Math.max(0, current - amt);
+                        else newBalance = amt;
+
+                        const applyBtn = el.querySelector('[data-bal="apply"]');
+                        applyBtn.classList.add('loading');
+                        applyBtn.disabled = true;
+
+                        try {
+                            const res = await API.updateUser(userId, 'balance', newBalance);
+
+                            if (res && res.success) {
+                                Toast.success(`Balance updated to ${Utils.money(newBalance)}`);
+                                el.close();
+                                loadUsers();
+                            } else {
+                                Toast.error(res?.error || 'Failed');
+                                applyBtn.classList.remove('loading');
+                                applyBtn.disabled = false;
+                            }
+                        } catch (err) {
+                            Toast.error('Balance update failed');
+                            applyBtn.classList.remove('loading');
+                            applyBtn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           MESSAGE MODAL (Single)
+           ============================================================ */
+        function showMessageModal(userId, user) {
+            const name = Utils.escape(user.first_name || 'User');
+
+            const body = `
+                <div class="alert alert-info">
+                    Sending message to <b>${name}</b> (<code>${Utils.escape(userId)}</code>)
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" id="directMessage" rows="6" placeholder="Type your message here..." maxlength="3800"></textarea>
+                    <div class="form-help">
+                        <span id="msgLength">0</span> / 3800 characters
+                    </div>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-msg="cancel">Cancel</button>
+                <button class="btn btn-primary" data-msg="send">📨 Send</button>
+            `;
+
+            const modal = Modal.open({
+                title: '📨 Send Message',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    const textarea = el.querySelector('#directMessage');
+                    const counter = el.querySelector('#msgLength');
+
+                    textarea.addEventListener('input', () => {
+                        counter.textContent = textarea.value.length;
+                    });
+
+                    textarea.focus();
+
+                    el.querySelector('[data-msg="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-msg="send"]').addEventListener('click', async () => {
+                        const msg = textarea.value.trim();
+                        if (!msg) {
+                            Toast.error('Message empty hai');
+                            return;
+                        }
+
+                        const sendBtn = el.querySelector('[data-msg="send"]');
+                        sendBtn.classList.add('loading');
+                        sendBtn.disabled = true;
+
+                        try {
+                            /* ---- Use broadcast API with single user target ---- */
+                            const formData = new FormData();
+                            formData.append('action', 'broadcast');
+                            formData.append('targets', 'users');
+                            formData.append('message', msg);
+
+                            /* ---- Direct send via bot ---- */
+                            const res = await API.post('broadcast', {
+                                targets: 'users',
+                                message: msg,
+                                single_user: userId,
+                            });
+
+                            if (res && res.success) {
+                                Toast.success('Message sent!');
+                                el.close();
+                            } else {
+                                Toast.error(res?.error || 'Send failed');
+                                sendBtn.classList.remove('loading');
+                                sendBtn.disabled = false;
+                            }
+                        } catch (err) {
+                            console.error('Send message failed:', err);
+                            Toast.error('Message send nahi ho paya');
+                            sendBtn.classList.remove('loading');
+                            sendBtn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           BULK MESSAGE MODAL
+           ============================================================ */
+        function showBulkMessageModal(userIds) {
+            const body = `
+                <div class="alert alert-info">
+                    Sending to <b>${userIds.length}</b> selected user(s)
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-textarea" id="bulkMessage" rows="6" placeholder="Type your message..." maxlength="3800"></textarea>
+                    <div class="form-help">
+                        <span id="bulkMsgLength">0</span> / 3800 characters
+                    </div>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-bulk-msg="cancel">Cancel</button>
+                <button class="btn btn-primary" data-bulk-msg="send">📨 Send to All</button>
+            `;
+
+            Modal.open({
+                title: '📨 Bulk Message',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    const textarea = el.querySelector('#bulkMessage');
+                    const counter = el.querySelector('#bulkMsgLength');
+
+                    textarea.addEventListener('input', () => {
+                        counter.textContent = textarea.value.length;
+                    });
+
+                    textarea.focus();
+
+                    el.querySelector('[data-bulk-msg="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-bulk-msg="send"]').addEventListener('click', async () => {
+                        const msg = textarea.value.trim();
+                        if (!msg) {
+                            Toast.error('Message empty');
+                            return;
+                        }
+
+                        const sendBtn = el.querySelector('[data-bulk-msg="send"]');
+                        sendBtn.classList.add('loading');
+                        sendBtn.disabled = true;
+
+                        try {
+                            const res = await API.post('broadcast', {
+                                targets: 'users',
+                                message: msg,
+                                user_ids: userIds.join(','),
+                            });
+
+                            if (res && res.success) {
+                                Toast.success(`Message sent to ${userIds.length} users`);
+                                el.close();
+                                State.selected.clear();
+                                updateBulkBar();
+                                loadUsers();
+                            } else {
+                                Toast.error(res?.error || 'Failed');
+                                sendBtn.classList.remove('loading');
+                                sendBtn.disabled = false;
+                            }
+                        } catch (err) {
+                            Toast.error('Bulk message failed');
+                            sendBtn.classList.remove('loading');
+                            sendBtn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           ADD USER MODAL
+           ============================================================ */
+        function showAddUserModal() {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">User ID (Telegram)</label>
+                    <input type="text" class="form-input" id="newUserId" placeholder="e.g. 5207471711" maxlength="20">
+                    <div class="form-help">Telegram user ID (5-20 digits)</div>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" id="newFirstName" placeholder="User" maxlength="64">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" id="newLastName" placeholder="" maxlength="64">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" id="newUsername" placeholder="without @" maxlength="32">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-input" id="newPhone" placeholder="+91..." maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Starting Balance (₹)</label>
+                    <input type="number" class="form-input" id="newBalance" value="0" min="0" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="newIsVip">
+                        <span>Set as VIP user</span>
+                    </label>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-add="cancel">Cancel</button>
+                <button class="btn btn-primary" data-add="create">➕ Create User</button>
+            `;
+
+            Modal.open({
+                title: '➕ Add New User',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-add="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-add="create"]').addEventListener('click', async () => {
+                        const userId = el.querySelector('#newUserId').value.trim();
+
+                        if (!userId || !/^[0-9]{5,20}$/.test(userId)) {
+                            Toast.error('Valid user ID (5-20 digits)');
+                            return;
+                        }
+
+                        const data = {
+                            user_id: userId,
+                            first_name: el.querySelector('#newFirstName').value.trim() || 'User',
+                            last_name: el.querySelector('#newLastName').value.trim(),
+                            username: el.querySelector('#newUsername').value.trim(),
+                            phone: el.querySelector('#newPhone').value.trim(),
+                            balance: parseFloat(el.querySelector('#newBalance').value) || 0,
+                            is_vip: el.querySelector('#newIsVip').checked ? 1 : 0,
+                        };
+
+                        const btn = el.querySelector('[data-add="create"]');
+                        btn.classList.add('loading');
+                        btn.disabled = true;
+
+                        try {
+                            const res = await API.addUser(data);
+
+                            if (res && res.success) {
+                                Toast.success('User created!');
+                                el.close();
+                                loadUsers();
+                            } else {
+                                Toast.error(res?.error || 'Failed to create');
+                                btn.classList.remove('loading');
+                                btn.disabled = false;
+                            }
+                        } catch (err) {
+                            Toast.error('Create failed');
+                            btn.classList.remove('loading');
+                            btn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           EDIT USER MODAL
+           ============================================================ */
+        function showEditUserModal(userId) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) return;
+
+            const body = `
+                <div class="form-group">
+                    <label class="form-label">User ID</label>
+                    <input type="text" class="form-input" value="${Utils.escape(user.user_id)}" disabled>
+                </div>
+
+                <div class="grid grid-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" id="editFirstName" value="${Utils.escape(user.first_name || '')}" maxlength="64">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" id="editLastName" value="${Utils.escape(user.last_name || '')}" maxlength="64">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" id="editUsername" value="${Utils.escape(user.username || '')}" maxlength="32">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-input" id="editPhone" value="${Utils.escape(user.phone || '')}" maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-textarea" id="editNotes" rows="2" maxlength="500">${Utils.escape(user.notes || '')}</textarea>
+                </div>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-edit="cancel">Cancel</button>
+                <button class="btn btn-primary" data-edit="save">💾 Save</button>
+            `;
+
+            Modal.open({
+                title: '✏️ Edit User',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('[data-edit="cancel"]').addEventListener('click', () => el.close());
+                    el.querySelector('[data-edit="save"]').addEventListener('click', async () => {
+                        const updates = [
+                            { field: 'first_name', value: el.querySelector('#editFirstName').value.trim() },
+                            { field: 'last_name', value: el.querySelector('#editLastName').value.trim() },
+                            { field: 'username', value: el.querySelector('#editUsername').value.trim() },
+                            { field: 'phone', value: el.querySelector('#editPhone').value.trim() },
+                            { field: 'notes', value: el.querySelector('#editNotes').value.trim() },
+                        ];
+
+                        const btn = el.querySelector('[data-edit="save"]');
+                        btn.classList.add('loading');
+                        btn.disabled = true;
+
+                        let success = 0;
+                        let failed = 0;
+
+                        for (const u of updates) {
+                            try {
+                                const res = await API.updateUser(userId, u.field, u.value);
+                                if (res && res.success) success++;
+                                else failed++;
+                            } catch (e) {
+                                failed++;
+                            }
+                        }
+
+                        if (success > 0) {
+                            Toast.success(`Updated ${success} field(s)${failed ? `, ${failed} failed` : ''}`);
+                            el.close();
+                            loadUsers();
+                        } else {
+                            Toast.error('Update failed');
+                            btn.classList.remove('loading');
+                            btn.disabled = false;
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           DELETE USER
+         ============================================================ */
+        async function deleteUser(userId) {
+            const user = State.users.find(u => String(u.user_id) === String(userId));
+            if (!user) return;
+
+            const confirmed = await Modal.confirm({
+                title: '🗑️ Delete User',
+                message: `Delete user ${user.first_name || userId}? This action CANNOT be undone!`,
+                confirmText: 'Yes, Delete',
+                type: 'danger',
+            });
+
+            if (!confirmed) return;
+
+            try {
+                const res = await API.deleteUser(userId);
+                if (res && res.success) {
+                    Toast.success('User deleted');
+                    loadUsers();
+                } else {
+                    Toast.error(res?.error || 'Delete failed');
+                }
+            } catch (err) {
+                Toast.error('Delete failed');
+            }
+        }
+
+        /* ============================================================
+           EXPORT CSV
+         ============================================================ */
+        function exportCSV() {
+            const users = State.users;
+            if (users.length === 0) {
+                Toast.error('No users to export');
+                return;
+            }
+
+            const headers = [
+                'User ID', 'First Name', 'Last Name', 'Username',
+                'Balance', 'Total Orders', 'Total Spent', 'VIP',
+                'Status', 'Joined', 'Last Active'
+            ];
+
+            const rows = users.map(u => [
+                u.user_id || '',
+                u.first_name || '',
+                u.last_name || '',
+                u.username || '',
+                u.balance || 0,
+                u.total_orders || 0,
+                u.total_spent || 0,
+                u.is_vip == 1 ? 'Yes' : 'No',
+                u.is_banned == 1 ? 'Banned' : 'Active',
+                u.join_date || '',
+                u.last_active || '',
+            ]);
+
+            const csv = [headers, ...rows]
+                .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+                .join('\n');
+
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `users_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            Toast.success(`Exported ${users.length} users`);
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>📢 Announcement — Bihari SMM Admin</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🤖%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo" id="sidebarLogo">🤖</span>
+                <div class="sidebar-brand">
+                    <h2 id="sidebarBrandName">Bihari SMM</h2>
+                    <p>Admin Panel v7.0</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Dashboard</div>
+                    <a class="sidebar-link" href="dashboard.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Business</div>
+                    <a class="sidebar-link" href="users.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Users</span>
+                    </a>
+                    <a class="sidebar-link" href="orders.html">
+                        <span class="sidebar-link-icon">📦</span>
+                        <span class="sidebar-link-text">Orders</span>
+                        <span class="sidebar-link-badge badge-warning" id="badgeOrders" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="payments.html">
+                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-text">Payments</span>
+                        <span class="sidebar-link-badge" id="badgePayments" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="services.html">
+                        <span class="sidebar-link-icon">🛒</span>
+                        <span class="sidebar-link-text">Services</span>
+                    </a>
+                    <a class="sidebar-link" href="coupons.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Coupons</span>
+                    </a>
+                    <a class="sidebar-link" href="refunds.html">
+                        <span class="sidebar-link-icon">💸</span>
+                        <span class="sidebar-link-text">Refunds</span>
+                    </a>
+                    <a class="sidebar-link" href="wallet.html">
+                        <span class="sidebar-link-icon">💰</span>
+                        <span class="sidebar-link-text">Wallet</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Customer Service</div>
+                    <a class="sidebar-link" href="support.html">
+                        <span class="sidebar-link-icon">🎫</span>
+                        <span class="sidebar-link-text">Support</span>
+                        <span class="sidebar-link-badge badge-info" id="badgeTickets" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="chat.html">
+                        <span class="sidebar-link-icon">💬</span>
+                        <span class="sidebar-link-text">Live Chat</span>
+                    </a>
+                    <a class="sidebar-link" href="disputes.html">
+                        <span class="sidebar-link-icon">🎯</span>
+                        <span class="sidebar-link-text">Disputes</span>
+                        <span class="sidebar-link-badge" id="badgeDisputes" style="display:none;">0</span>
+                    </a>
+                    <a class="sidebar-link" href="notifications.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Notifications</span>
+                    </a>
+                    <a class="sidebar-link" href="broadcast.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Broadcast</span>
+                    </a>
+                    <a class="sidebar-link active" href="announcement.html">
+                        <span class="sidebar-link-icon">📢</span>
+                        <span class="sidebar-link-text">Announcement</span>
+                    </a>
+                    <a class="sidebar-link" href="bulk-message.html">
+                        <span class="sidebar-link-icon">💌</span>
+                        <span class="sidebar-link-text">Bulk Message</span>
+                    </a>
+                    <a class="sidebar-link" href="referrals.html">
+                        <span class="sidebar-link-icon">🎁</span>
+                        <span class="sidebar-link-text">Referrals</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Intelligence</div>
+                    <a class="sidebar-link" href="analytics.html">
+                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-text">Analytics</span>
+                    </a>
+                    <a class="sidebar-link" href="reports.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Reports</span>
+                    </a>
+                    <a class="sidebar-link" href="alerts.html">
+                        <span class="sidebar-link-icon">🔔</span>
+                        <span class="sidebar-link-text">Alerts</span>
+                    </a>
+                    <a class="sidebar-link" href="providers.html">
+                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-text">Providers</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">System</div>
+                    <a class="sidebar-link" href="backup.html">
+                        <span class="sidebar-link-icon">💾</span>
+                        <span class="sidebar-link-text">Backup</span>
+                    </a>
+                    <a class="sidebar-link" href="logs.html">
+                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-text">Logs</span>
+                    </a>
+                    <a class="sidebar-link" href="audit-log.html">
+                        <span class="sidebar-link-icon">🔍</span>
+                        <span class="sidebar-link-text">Audit Log</span>
+                    </a>
+                    <a class="sidebar-link" href="trash.html">
+                        <span class="sidebar-link-icon">🗑️</span>
+                        <span class="sidebar-link-text">Trash</span>
+                    </a>
+                    <a class="sidebar-link" href="schedule.html">
+                        <span class="sidebar-link-icon">📅</span>
+                        <span class="sidebar-link-text">Schedule</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-title">Admin</div>
+                    <a class="sidebar-link" href="team.html">
+                        <span class="sidebar-link-icon">👥</span>
+                        <span class="sidebar-link-text">Team</span>
+                    </a>
+                    <a class="sidebar-link" href="security.html">
+                        <span class="sidebar-link-icon">🔐</span>
+                        <span class="sidebar-link-text">Security</span>
+                    </a>
+                    <a class="sidebar-link" href="ip-management.html">
+                        <span class="sidebar-link-icon">🌐</span>
+                        <span class="sidebar-link-text">IP Management</span>
+                    </a>
+                    <a class="sidebar-link" href="branding.html">
+                        <span class="sidebar-link-icon">🎨</span>
+                        <span class="sidebar-link-text">Branding</span>
+                    </a>
+                    <a class="sidebar-link" href="settings.html">
+                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-text">Settings</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="sidebar-logout" id="logoutBtn">
+                    <span>🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="app-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-menu-toggle" id="menuToggle">☰</button>
+                    <div>
+                        <div class="header-title">📢 Announcement Manager</div>
+                        <div class="header-subtitle" id="headerSubtitle">Manage announcements & force join</div>
+                    </div>
+                </div>
+
+                <div class="header-search">
+                    <span class="header-search-icon">🔍</span>
+                    <input type="text" id="headerSearch" placeholder="Search...">
+                </div>
+
+                <div class="header-right">
+                    <button class="header-icon-btn" id="refreshBtn" title="Refresh">🔄</button>
+                    <button class="header-icon-btn" id="notifBtn" title="Notifications">
+                        🔔
+                        <span class="header-icon-btn-badge" id="notifBadge" style="display:none;">0</span>
+                    </button>
+                    <div class="header-user" id="userMenu">
+                        <div class="header-user-avatar" id="userAvatar">A</div>
+                        <div class="header-user-info">
+                            <div class="header-user-name" id="userName">Admin</div>
+                            <div class="header-user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="app-main">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 class="page-title">📢 Announcement Manager</h1>
+                        <p class="page-description" id="pageStats">Control announcements, force join, and payment info</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button class="btn btn-secondary btn-sm" id="resetAllBtn">
+                            🔄 Reset All
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="saveAllBtn">
+                            💾 Save All Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATS CARDS (4) -->
+                <div class="grid grid-4 mb-lg">
+                    <div class="stat-card">
+                        <div class="stat-icon">📢</div>
+                        <div class="stat-value" id="statAnnouncement">0</div>
+                        <div class="stat-label">Announcement Chars</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚪</div>
+                        <div class="stat-value" id="statForceJoin">OFF</div>
+                        <div class="stat-label">Force Join</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📢</div>
+                        <div class="stat-value" id="statChannels">0</div>
+                        <div class="stat-label">Force Channels</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-value" id="statQr">Not Set</div>
+                        <div class="stat-label">QR Code</div>
+                    </div>
+                </div>
+
+                <!-- MAIN TABS -->
+                <div class="card mb-lg" style="padding: 0; overflow: hidden;">
+                    <div style="display: flex; overflow-x: auto; border-bottom: 1px solid var(--border-light);">
+                        <button class="main-tab-btn active" data-main-tab="announcement">
+                            📢 Announcement
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="forcejoin">
+                            🚪 Force Join
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="payment">
+                            💳 Payment Info
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="support">
+                            📞 Support Info
+                        </button>
+                        <button class="main-tab-btn" data-main-tab="preview">
+                            👁️ Full Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ====================================================
+                     VIEW 1: ANNOUNCEMENT
+                     ==================================================== -->
+                <div id="announcementView">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <!-- Editor -->
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">✍️ Announcement Message</h3>
+                                    <span class="badge badge-info">
+                                        <span id="annCharCount">0</span> / 3500
+                                    </span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="composer-toolbar">
+                                        <button class="toolbar-btn" data-format="bold" title="Bold"><b>B</b></button>
+                                        <button class="toolbar-btn" data-format="italic" title="Italic"><i>I</i></button>
+                                        <button class="toolbar-btn" data-format="underline" title="Underline"><u>U</u></button>
+                                        <button class="toolbar-btn" data-format="strike" title="Strike"><s>S</s></button>
+                                        <button class="toolbar-btn" data-format="code" title="Code">&lt;/&gt;</button>
+                                        <span class="toolbar-divider"></span>
+                                        <button class="toolbar-btn" data-format="emoji" title="Emoji">😊</button>
+                                        <button class="toolbar-btn" data-format="clear" title="Clear">✕</button>
+                                    </div>
+
+                                    <textarea
+                                        class="broadcast-textarea"
+                                        id="announcementText"
+                                        placeholder="Type your announcement here...&#10;&#10;Ye message users ko /announcement command pe dikhega.&#10;&#10;Example:&#10;🚀 Welcome to Bihari SMM Bot!&#10;India's #1 SMM Panel.&#10;📢 New services added daily!"
+                                        maxlength="3500"
+                                    ></textarea>
+
+                                    <div class="composer-footer">
+                                        <div class="composer-hint">
+                                            💡 HTML tags supported: <code>&lt;b&gt;</code> <code>&lt;i&gt;</code> <code>&lt;code&gt;</code>
+                                        </div>
+                                        <button class="btn btn-ghost btn-sm" id="insertAnnEmoji">
+                                            😊 Emoji
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Templates -->
+                            <div class="card mt-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">⚡ Quick Templates</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="quick-templates-grid">
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="welcome">
+                                            <span style="font-size: 18px;">🚀</span>
+                                            <span>Welcome</span>
+                                        </button>
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="new_services">
+                                            <span style="font-size: 18px;">🆕</span>
+                                            <span>New Services</span>
+                                        </button>
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="offer">
+                                            <span style="font-size: 18px;">💰</span>
+                                            <span>Special Offer</span>
+                                        </button>
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="maintenance">
+                                            <span style="font-size: 18px;">🛠️</span>
+                                            <span>Maintenance</span>
+                                        </button>
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="holiday">
+                                            <span style="font-size: 18px;">🎉</span>
+                                            <span>Holiday</span>
+                                        </button>
+                                        <button class="quick-tmpl-btn" data-ann-tmpl="empty">
+                                            <span style="font-size: 18px;">📭</span>
+                                            <span>No Announcement</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview + Actions -->
+                        <div>
+                            <div class="card mb-md">
+                                <div class="card-header">
+                                    <h3 class="card-title">👁️ Live Preview</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="preview-chat">
+                                        <div class="preview-bubble">
+                                            <div id="annPreviewContent" style="white-space: pre-wrap; font-size: 13px; line-height: 1.5; color: #1a1a1a;">
+                                                <span style="color: #999;">Preview will appear here...</span>
+                                            </div>
+                                            <div class="preview-time">
+                                                <span id="annPreviewTime">--:--</span>
+                                                <span style="opacity: 0.7;">✓✓</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">⚙️ Actions</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <button class="btn btn-primary" id="saveAnnouncementBtn">
+                                            💾 Save Announcement
+                                        </button>
+                                        <button class="btn btn-success" id="publishAnnouncementBtn">
+                                            📢 Publish to All Users
+                                        </button>
+                                        <button class="btn btn-secondary" id="testAnnouncementBtn">
+                                            🧪 Send Test
+                                        </button>
+                                        <div class="divider"></div>
+                                        <button class="btn btn-ghost" id="clearAnnouncementBtn">
+                                            🗑️ Clear Announcement
+                                        </button>
+                                    </div>
+
+                                    <div class="alert alert-info mt-md" style="margin-bottom: 0;">
+                                        <span>💡</span>
+                                        <div style="font-size: 12px;">
+                                            <b>Publish</b> sends notification to all users. <b>Save</b> only updates the /announcement command display.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 2: FORCE JOIN
+                     ==================================================== -->
+                <div id="forcejoinView" style="display: none;">
+
+                    <!-- Master toggle -->
+                    <div class="card mb-lg">
+                        <div class="card-body">
+                            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 250px;">
+                                    <h3 style="font-size: 16px; margin-bottom: 4px;">🚪 Force Join System</h3>
+                                    <p style="color: var(--text-muted); font-size: 12px; margin: 0;">
+                                        When enabled, users must join channels before using the bot
+                                    </p>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <span class="badge" id="fjStatusBadge">Checking...</span>
+                                    <label class="toggle-wrapper">
+                                        <input type="checkbox" class="toggle-input" id="forceJoinEnabled">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning mb-lg">
+                        <span>⚠️</span>
+                        <div style="flex: 1; font-size: 12px;">
+                            <b>Important:</b> Bot must be <b>admin</b> in each channel for verification to work.
+                            WhatsApp channels are not verifiable via Telegram API.
+                        </div>
+                    </div>
+
+                    <!-- Channels list -->
+                    <div class="grid grid-2 gap-md mb-lg">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    🚪 Required Channels
+                                    <span class="badge badge-primary" id="channelCount">0</span>
+                                </h3>
+                                <button class="btn btn-primary btn-sm" id="addChannelBtn">
+                                    ➕ Add
+                                </button>
+                            </div>
+                            <div class="card-body" id="channelsList">
+                                <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                                    Loading channels...
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">⚙️ Force Join Options</h3>
+                            </div>
+                            <div class="card-body">
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Skip Verification</div>
+                                        <div class="setting-desc">Allow users even if not joined (fail-open)</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="fjFailOpen">
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Notify Admin on Fail</div>
+                                        <div class="setting-desc">Send alert when verification breaks</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="fjNotifyAdmin" checked>
+                                </label>
+
+                                <label class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Auto-Check on Every Action</div>
+                                        <div class="setting-desc">Re-verify on each user action</div>
+                                    </div>
+                                    <input type="checkbox" class="toggle-input" id="fjAutoCheck" checked>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testing -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🧪 Test Verification</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group" style="margin-bottom: 12px;">
+                                <label class="form-label">Test with User ID</label>
+                                <input type="text" class="form-input" id="testUserId" placeholder="Enter user ID to check" value="5207471711" maxlength="20">
+                            </div>
+                            <button class="btn btn-primary" id="testVerificationBtn">
+                                🔍 Test Verification
+                            </button>
+                            <div id="testResult" style="margin-top: 12px;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 3: PAYMENT INFO
+                     ==================================================== -->
+                <div id="paymentView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">💳 UPI Details</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">UPI ID</label>
+                                    <input type="text" class="form-input" id="upiId" placeholder="example@upi" maxlength="80">
+                                    <div class="form-help">Ye UPI ID user ko funds add karne ke liye dikhega</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">UPI Holder Name</label>
+                                    <input type="text" class="form-input" id="upiHolder" placeholder="Bihari SMM" maxlength="60">
+                                </div>
+
+                                <button class="btn btn-primary btn-block" id="saveUpiBtn">
+                                    💾 Save UPI Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📸 QR Code</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="qrPreviewContainer" style="background: var(--bg-input); padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 12px; min-height: 180px; display: flex; align-items: center; justify-content: center;">
+                                    <div style="color: var(--text-muted);">
+                                        <div style="font-size: 40px; margin-bottom: 8px;">📸</div>
+                                        <div style="font-size: 12px;">No QR code uploaded</div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn btn-primary btn-block" id="uploadQrBtn">
+                                        📤 Upload QR
+                                    </button>
+                                    <button class="btn btn-danger btn-icon" id="removeQrBtn" title="Remove">
+                                        🗑️
+                                    </button>
+                                </div>
+                                <input type="file" id="qrFileInput" style="display: none;" accept="image/*">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">💰 Deposit Limits</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-3 gap-md">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Minimum Deposit (₹)</label>
+                                    <input type="number" class="form-input" id="minDeposit" value="10" min="1">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Maximum Deposit (₹)</label>
+                                    <input type="number" class="form-input" id="maxDeposit" value="50000" min="1">
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Signup Bonus (₹)</label>
+                                    <input type="number" class="form-input" id="signupBonus" value="0.5" step="0.01" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-md" style="margin-bottom: 0;">
+                                <label class="form-label">Quick Amount Buttons (comma separated)</label>
+                                <input type="text" class="form-input" id="quickAmounts" value="100, 200, 500, 1000, 2000, 5000" placeholder="100, 500, 1000">
+                                <div class="form-help">Ye buttons Add Funds page pe dikhenge</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">📝 Payment Instructions</h3>
+                        </div>
+                        <div class="card-body">
+                            <textarea
+                                class="broadcast-textarea"
+                                id="paymentNote"
+                                placeholder="Additional payment instructions shown to users..."
+                                maxlength="1000"
+                                style="min-height: 120px;"
+                            ></textarea>
+                            <div class="composer-footer">
+                                <div class="composer-hint">
+                                    Ye note payment page pe user ko dikhega
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary" id="savePaymentBtn">
+                            💾 Save Payment Settings
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 4: SUPPORT INFO
+                     ==================================================== -->
+                <div id="supportView" style="display: none;">
+
+                    <div class="grid grid-2 gap-md mb-lg">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📞 Support Contact</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Support Bot Username</label>
+                                    <div class="input-group">
+                                        <span class="input-icon">📞</span>
+                                        <input type="text" class="form-input" id="supportBot" placeholder="@support_bot" maxlength="80">
+                                    </div>
+                                    <div class="form-help">Users ko ye contact info dikhega</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Admin Username</label>
+                                    <div class="input-group">
+                                        <span class="input-icon">👑</span>
+                                        <input type="text" class="form-input" id="adminUsername" placeholder="@admin" maxlength="80">
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-block" id="saveSupportBtn">
+                                    💾 Save Support Info
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">📢 Channel Info</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Main Channel Link</label>
+                                    <input type="url" class="form-input" id="mainChannel" placeholder="https://t.me/yourchannel" maxlength="200">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Support Group Link</label>
+                                    <input type="url" class="form-input" id="supportGroup" placeholder="https://t.me/yoursupportgroup" maxlength="200">
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label class="form-label">WhatsApp Channel</label>
+                                    <input type="url" class="form-input" id="whatsappChannel" placeholder="https://whatsapp.com/channel/..." maxlength="200">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">🎯 Bot Info</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-2 gap-md">
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Bot Username</label>
+                                    <input type="text" class="form-input" id="botUsername" placeholder="@biharismmpannel_bot" maxlength="80" readonly style="opacity: 0.7;">
+                                    <div class="form-help">Cannot be changed from panel</div>
+                                </div>
+                                <div class="form-group" style="margin: 0;">
+                                    <label class="form-label">Bot Version</label>
+                                    <input type="text" class="form-input" value="v7.0" readonly style="opacity: 0.7;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary" id="saveSupportInfoBtn">
+                            💾 Save Support Settings
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ====================================================
+                     VIEW 5: FULL PREVIEW
+                     ==================================================== -->
+                <div id="previewView" style="display: none;">
+
+                    <div class="card mb-lg">
+                        <div class="card-header">
+                            <h3 class="card-title">👁️ User's View Preview</h3>
+                            <span class="badge badge-info">As users will see it</span>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="phone-preview">
+                                <div class="phone-header">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px;">🤖</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 14px;">Bihari SMM Bot</div>
+                                            <div style="font-size: 11px; color: var(--text-muted);">bot</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-size: 20px; opacity: 0.5;">⋮</div>
+                                </div>
+
+                                <div class="phone-chat" id="previewChatBody">
+                                    <div class="phone-msg">
+                                        <div class="phone-bubble phone-bubble-bot" id="previewBotMsg">
+                                            Loading...
+                                        </div>
+                                        <div class="phone-time">Just now</div>
+                                    </div>
+                                </div>
+
+                                <div class="phone-input-bar">
+                                    <div style="flex: 1; padding: 8px 12px; background: var(--bg-input); border-radius: 20px; font-size: 12px; color: var(--text-muted);">
+                                        Message
+                                    </div>
+                                    <button style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; border: none; font-size: 16px;">📎</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📋 Preview Options</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-secondary btn-sm" data-preview-view="announcement">
+                                    📢 Announcement
+                                </button>
+                                <button class="btn btn-secondary btn-sm" data-preview-view="welcome">
+                                    👋 Welcome
+                                </button>
+                                <button class="btn btn-secondary btn-sm" data-preview-view="forcejoin">
+                                    🚪 Force Join
+                                </button>
+                                <button class="btn btn-secondary btn-sm" data-preview-view="payment">
+                                    💳 Payment
+                                </button>
+                                <button class="btn btn-secondary btn-sm" data-preview-view="help">
+                                    ❓ Help
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="../config.js"></script>
+    <script src="../script.js"></script>
+
+    <script>
+    /* ============================================================
+       ANNOUNCEMENT PAGE — INLINE SCRIPT
+       ============================================================ */
+
+    (function() {
+
+        /* ============================================================
+           STATE
+         ============================================================ */
+        const State = {
+            mainTab: 'announcement',
+            announcement: '',
+            forceJoinEnabled: false,
+            channels: [],
+            paymentInfo: {},
+            supportInfo: {},
+            qrCode: '',
+            changes: {},
+            announcementTemplates: {
+                welcome: '🚀 <b>Welcome to Bihari SMM Bot!</b>\n\nIndia\'s #1 SMM Panel\n\n✅ Fast delivery\n✅ 24/7 support\n✅ Best prices\n\n🛒 Start ordering:\n/services',
+                new_services: '🆕 <b>New Services Added!</b>\n\nWe just added fresh SMM services to our panel!\n\n🔥 <b>What\'s new:</b>\n• Instagram boost services\n• YouTube premium views\n• More coming soon!\n\n🛒 Browse now:\n/services',
+                offer: '💰 <b>SPECIAL OFFER!</b>\n\nGet <b>10% OFF</b> on your next order!\n\n🎫 Use code: <code>WELCOME10</code>\n\n⏰ Limited time offer!\n\n🛒 Order now:\n/services',
+                maintenance: '🛠️ <b>Maintenance Notice</b>\n\nWe are performing scheduled maintenance today.\n\n⏱️ Expected downtime: 30 minutes\n\nServices will resume shortly. Thank you for patience!',
+                holiday: '🎉 <b>Happy Holidays!</b>\n\nThank you for being part of Bihari SMM!\n\n🎁 Enjoy special offers this festive season!\n\n🛒 Order now:\n/services',
+                empty: '📭 <b>No active announcement</b>\n\nStay tuned for updates!',
+            },
+        };
+
+        /* ============================================================
+           INIT
+         ============================================================ */
+        async function init() {
+            document.getElementById('sidebarLogo').textContent = CONFIG.APP_LOGO;
+            document.getElementById('sidebarBrandName').textContent = CONFIG.APP_NAME;
+
+            const session = Session.get();
+            if (session && session.username) {
+                document.getElementById('userName').textContent = session.username;
+                document.getElementById('userAvatar').textContent = Utils.initials(session.username);
+            }
+
+            injectStyles();
+            setupListeners();
+
+            await loadAllData();
+
+            updatePreview();
+        }
+
+        /* ============================================================
+           STYLES
+         ============================================================ */
+        function injectStyles() {
+            if (document.getElementById('annStyles')) return;
+
+            const style = document.createElement('style');
+            style.id = 'annStyles';
+            style.textContent = `
+                .main-tab-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px 22px;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                    color: var(--text-secondary);
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+                    font-family: inherit;
+                }
+                .main-tab-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+                .main-tab-btn.active {
+                    color: var(--primary);
+                    border-bottom-color: var(--primary);
+                    background: var(--primary-light);
+                }
+
+                /* ---- Composer ---- */
+                .composer-toolbar {
+                    display: flex;
+                    gap: 4px;
+                    padding: 8px;
+                    background: var(--bg-elevated);
+                    border-radius: 8px;
+                    border: 1px solid var(--border-color);
+                    margin-bottom: 10px;
+                    flex-wrap: wrap;
+                    align-items: center;
+                }
+                .toolbar-btn {
+                    width: 32px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    border: none;
+                    border-radius: 6px;
+                    color: var(--text-secondary);
+                    cursor: pointer;
+                    font-size: 13px;
+                    transition: all 0.15s;
+                    font-family: inherit;
+                }
+                .toolbar-btn:hover {
+                    background: var(--bg-hover);
+                    color: var(--primary);
+                }
+                .toolbar-divider {
+                    width: 1px;
+                    height: 20px;
+                    background: var(--border-color);
+                    margin: 0 4px;
+                }
+
+                .broadcast-textarea {
+                    width: 100%;
+                    min-height: 260px;
+                    padding: 14px;
+                    background: var(--bg-input);
+                    border: 1px solid var(--border-color);
+                    border-radius: 10px;
+                    color: var(--text-primary);
+                    font-size: 14px;
+                    font-family: inherit;
+                    line-height: 1.6;
+                    resize: vertical;
+                    outline: none;
+                    transition: all 0.15s;
+                }
+                .broadcast-textarea:focus {
+                    border-color: var(--primary);
+                    box-shadow: 0 0 0 3px var(--primary-light);
+                }
+
+                .composer-footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 12px;
+                    margin-top: 10px;
+                    flex-wrap: wrap;
+                }
+                .composer-hint {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                }
+
+                /* ---- Preview Bubble ---- */
+                .preview-chat {
+                    background: linear-gradient(135deg, #1a3a52, #2d5a7a);
+                    border-radius: 12px;
+                    padding: 16px;
+                    min-height: 150px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+                .preview-bubble {
+                    background: #fff;
+                    color: #1a1a1a;
+                    padding: 10px 14px;
+                    border-radius: 14px;
+                    border-bottom-right-radius: 4px;
+                    max-width: 90%;
+                    align-self: flex-end;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                }
+                .preview-time {
+                    font-size: 10px;
+                    color: #999;
+                    text-align: right;
+                    margin-top: 4px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+                /* ---- Quick Templates ---- */
+                .quick-templates-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                    gap: 8px;
+                }
+                .quick-tmpl-btn {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 12px 8px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.15s;
+                    color: var(--text-secondary);
+                    font-family: inherit;
+                    font-size: 11px;
+                    font-weight: 500;
+                }
+                .quick-tmpl-btn:hover {
+                    background: var(--primary-light);
+                    border-color: var(--primary);
+                    color: var(--primary);
+                    transform: translateY(-2px);
+                }
+
+                /* ---- Toggle ---- */
+                .toggle-input {
+                    appearance: none;
+                    width: 46px;
+                    height: 26px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 9999px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    flex-shrink: 0;
+                    outline: none;
+                }
+                .toggle-input::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--text-muted);
+                    border-radius: 50%;
+                    transition: all 0.25s;
+                }
+                .toggle-input:checked {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+                .toggle-input:checked::before {
+                    left: 22px;
+                    background: #fff;
+                }
+
+                .setting-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    padding: 12px 0;
+                    border-bottom: 1px solid var(--border-light);
+                    cursor: pointer;
+                    user-select: none;
+                }
+                .setting-row:last-child { border-bottom: none; }
+                .setting-row > div:first-child {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .setting-label {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    line-height: 1.3;
+                }
+                .setting-desc {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    margin-top: 3px;
+                    line-height: 1.4;
+                }
+
+                /* ---- Channel Card ---- */
+                .channel-card {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px;
+                    background: var(--bg-elevated);
+                    border: 1px solid var(--border-color);
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    transition: all 0.15s;
+                }
+                .channel-card:hover {
+                    border-color: var(--border-hover);
+                }
+                .channel-icon {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 10px;
+                    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                    flex-shrink: 0;
+                }
+                .channel-content {
+                    flex: 1;
+                    min-width: 0;
+                }
+                .channel-name {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .channel-link {
+                    font-size: 11px;
+                    color: var(--text-muted);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin-top: 2px;
+                }
+                .channel-actions {
+                    display: flex;
+                    gap: 4px;
+                    flex-shrink: 0;
+                }
+
+                /* ---- Phone Preview ---- */
+                .phone-preview {
+                    max-width: 360px;
+                    margin: 0 auto;
+                    background: #0a0a0f;
+                    border: 8px solid #1a1a24;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+                }
+                .phone-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px 16px;
+                    background: var(--bg-elevated);
+                    border-bottom: 1px solid var(--border-light);
+                }
+                .phone-chat {
+                    padding: 16px;
+                    min-height: 400px;
+                    background: linear-gradient(135deg, #1a3a52, #0f1e2a);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .phone-msg {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+                .phone-bubble {
+                    background: #fff;
+                    color: #1a1a1a;
+                    padding: 12px 16px;
+                    border-radius: 14px;
+                    border-bottom-right-radius: 4px;
+                    max-width: 90%;
+                    font-size: 13px;
+                    line-height: 1.5;
+                    white-space: pre-wrap;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    word-wrap: break-word;
+                }
+                .phone-time {
+                    font-size: 10px;
+                    color: #999;
+                    margin-top: 4px;
+                    margin-right: 4px;
+                }
+                .phone-input-bar {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 12px;
+                    background: var(--bg-elevated);
+                    border-top: 1px solid var(--border-light);
+                }
+
+                /* ---- Test Result ---- */
+                .test-result-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 10px 12px;
+                    background: var(--bg-elevated);
+                    border-radius: 8px;
+                    margin-bottom: 8px;
+                    font-size: 12px;
+                }
+
+                @media (max-width: 768px) {
+                    .quick-templates-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        /* ============================================================
+           LISTENERS
+         ============================================================ */
+        function setupListeners() {
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            document.getElementById('refreshBtn').addEventListener('click', () => loadAllData(true));
+
+            /* ---- Main tabs ---- */
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchMainTab(btn.dataset.mainTab));
+            });
+
+            /* ---- Announcement ---- */
+            const annInput = document.getElementById('announcementText');
+            annInput.addEventListener('input', () => {
+                State.announcement = annInput.value;
+                document.getElementById('annCharCount').textContent = annInput.value.length;
+                updatePreview();
+                updateStats();
+            });
+
+            document.getElementById('saveAnnouncementBtn').addEventListener('click', saveAnnouncement);
+            document.getElementById('publishAnnouncementBtn').addEventListener('click', publishAnnouncement);
+            document.getElementById('testAnnouncementBtn').addEventListener('click', sendTestAnnouncement);
+            document.getElementById('clearAnnouncementBtn').addEventListener('click', clearAnnouncement);
+
+            /* ---- Toolbar ---- */
+            document.querySelectorAll('[data-format]').forEach(btn => {
+                btn.addEventListener('click', () => handleFormat(btn.dataset.format));
+            });
+
+            /* ---- Quick templates ---- */
+            document.querySelectorAll('[data-ann-tmpl]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.dataset.annTmpl;
+                    const tpl = State.announcementTemplates[key];
+                    if (tpl) {
+                        annInput.value = tpl;
+                        State.announcement = tpl;
+                        document.getElementById('annCharCount').textContent = tpl.length;
+                        updatePreview();
+                        Toast.success('Template loaded!');
+                    }
+                });
+            });
+
+            document.getElementById('insertAnnEmoji').addEventListener('click', () => {
+                showEmojiPicker(annInput);
+            });
+
+            /* ---- Force Join ---- */
+            document.getElementById('forceJoinEnabled').addEventListener('change', (e) => {
+                State.forceJoinEnabled = e.target.checked;
+                State.changes.fjEnabled = e.target.checked;
+                updateStats();
+                Toast.info(e.target.checked ? 'Force join enabled' : 'Force join disabled');
+            });
+
+            document.getElementById('addChannelBtn').addEventListener('click', showAddChannelModal);
+            document.getElementById('testVerificationBtn').addEventListener('click', testVerification);
+
+            ['fjFailOpen', 'fjNotifyAdmin', 'fjAutoCheck'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('change', () => {
+                        State.changes[id] = el.checked;
+                    });
+                }
+            });
+
+            /* ---- Payment ---- */
+            document.getElementById('saveUpiBtn').addEventListener('click', saveUpiDetails);
+            document.getElementById('uploadQrBtn').addEventListener('click', () => {
+                document.getElementById('qrFileInput').click();
+            });
+            document.getElementById('qrFileInput').addEventListener('change', handleQrUpload);
+            document.getElementById('removeQrBtn').addEventListener('click', removeQr);
+            document.getElementById('savePaymentBtn').addEventListener('click', savePaymentSettings);
+
+            /* ---- Support ---- */
+            document.getElementById('saveSupportBtn').addEventListener('click', saveSupportInfo);
+            document.getElementById('saveSupportInfoBtn').addEventListener('click', saveSupportInfo);
+
+            /* ---- Preview ---- */
+            document.querySelectorAll('[data-preview-view]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.dataset.previewView;
+                    renderFullPreview(view);
+                });
+            });
+
+            /* ---- Save All / Reset ---- */
+            document.getElementById('saveAllBtn').addEventListener('click', saveAll);
+            document.getElementById('resetAllBtn').addEventListener('click', resetAll);
+
+            /* ---- Mobile menu ---- */
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+
+            if (menuToggle && sidebar && overlay) {
+                menuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+        }
+
+        /* ============================================================
+           TAB SWITCH
+         ============================================================ */
+        function switchMainTab(tab) {
+            State.mainTab = tab;
+
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mainTab === tab);
+            });
+
+            const views = ['announcementView', 'forcejoinView', 'paymentView', 'supportView', 'previewView'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.style.display = 'none';
+            });
+
+            const map = {
+                announcement: 'announcementView',
+                forcejoin: 'forcejoinView',
+                payment: 'paymentView',
+                support: 'supportView',
+                preview: 'previewView',
+            };
+
+            const active = document.getElementById(map[tab]);
+            if (active) active.style.display = '';
+
+            if (tab === 'preview') {
+                renderFullPreview('announcement');
+            }
+        }
+
+        /* ============================================================
+           FORMAT
+         ============================================================ */
+        function handleFormat(format) {
+            const ta = document.getElementById('announcementText');
+            if (!ta) return;
+
+            if (format === 'clear') {
+                ta.value = '';
+                State.announcement = '';
+                document.getElementById('annCharCount').textContent = '0';
+                updatePreview();
+                return;
+            }
+
+            if (format === 'emoji') {
+                showEmojiPicker(ta);
+                return;
+            }
+
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            const selected = ta.value.substring(start, end);
+
+            const formats = {
+                bold: { open: '<b>', close: '</b>', wrap: 'bold text' },
+                italic: { open: '<i>', close: '</i>', wrap: 'italic text' },
+                underline: { open: '<u>', close: '</u>', wrap: 'underlined text' },
+                strike: { open: '<s>', close: '</s>', wrap: 'strikethrough' },
+                code: { open: '<code>', close: '</code>', wrap: 'code' },
+            };
+
+            const f = formats[format];
+            if (!f) return;
+
+            const inner = selected || f.wrap;
+            const newText = f.open + inner + f.close;
+
+            ta.value = ta.value.substring(0, start) + newText + ta.value.substring(end);
+
+            const pos = start + f.open.length + inner.length + f.close.length;
+            ta.setSelectionRange(pos, pos);
+            ta.focus();
+
+            State.announcement = ta.value;
+            document.getElementById('annCharCount').textContent = ta.value.length;
+            updatePreview();
+        }
+
+        /* ============================================================
+           EMOJI PICKER
+         ============================================================ */
+        function showEmojiPicker(targetInput) {
+            const EMOJIS = [
+                '😀','😃','😄','😁','😆','😅','😂','🤣','😊','😇','🙂','🙃','😉','😌','😍','🥰',
+                '😘','😗','😙','😚','😋','😛','😝','😜','🤪','🤨','🧐','🤓','😎','🤩','🥳','😏',
+                '😒','😞','😔','😟','😕','🙁','☹️','😣','😖','😫','😩','🥺','😢','😭','😤','😠',
+                '😡','🤬','🤯','😳','🥵','🥶','😱','😨','😰','😥','😓','🤗','🤔','🤭','🤫','🤥',
+                '😶','😐','😑','😬','🙄','😯','😦','😧','😮','😲','🥱','😴','🤤','😪','😵','🤐',
+                '🥴','🤢','🤮','🤧','😷','🤒','🤕','🤑','🤠','😈','👿','👹','👺','🤡','💩','👻',
+                '👍','👎','👌','✌️','🤞','🤝','🙏','💪','👏','🙌','👐','🤲','👋','🤚','✋','🖖',
+                '❤️','🧡','💛','💚','💙','💜','🖤','🤍','🤎','💔','💕','💞','💓','💗','💖','💘',
+                '🚀','✈️','🚁','🛸','⏰','⏱️','📅','📆','📊','📈','📉','💹','📌','📍','🎯','🔔',
+                '🎉','🎊','✨','⭐','🌟','💫','⚡','🔥','💥','💢','💦','💨','💣','💬','💭','💤',
+                '💰','💵','💴','💶','💷','💸','💳','💎','⚖️','🧰','🔧','🔨','🛠️','⚙️','🔒','🔓',
+                '✅','❌','⚠️','❓','❗','💯','🔴','🟠','🟡','🟢','🔵','🟣','⚫','⚪','🔺','🔻',
+                '📢','📣','📯','🔔','🔕','📞','📱','💻','⌨️','🖥️','🖨️','📠','📺','📻','🎙️','🎚️',
+                '🎁','🎀','🎗️','🎟️','🎫','🎖️','🏆','🏅','🥇','🥈','🥉','⚽','🏀','🏈','⚾','🎾',
+                '🛒','🛍️','💼','👝','👛','🎒','👞','👟','🧢','👑','💍','💄','💅','🧴','🧼','🪥',
+                '🍕','🍔','🍟','🌭','🍿','🍩','🍪','🎂','🍰','🧁','🍫','🍬','🍭','🍮','🍯','🥤',
+            ];
+
+            const body = `
+                <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; max-height: 300px; overflow-y: auto; padding: 8px;">
+                    ${EMOJIS.map(e => `<button class="emoji-btn-bc" data-emoji="${e}" style="padding: 8px; font-size: 20px; border: none; background: transparent; cursor: pointer; border-radius: 6px;">${e}</button>`).join('')}
+                </div>
+            `;
+
+            Modal.open({
+                title: '😊 Pick Emoji',
+                body,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelectorAll('[data-emoji]').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const emoji = btn.dataset.emoji;
+                            const start = targetInput.selectionStart;
+                            targetInput.value = targetInput.value.substring(0, start) + emoji + targetInput.value.substring(targetInput.selectionEnd);
+                            targetInput.focus();
+                            targetInput.setSelectionRange(start + emoji.length, start + emoji.length);
+
+                            State.announcement = targetInput.value;
+                            document.getElementById('annCharCount').textContent = targetInput.value.length;
+                            updatePreview();
+                            el.close();
+                        });
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           UPDATE PREVIEW
+         ============================================================ */
+        function updatePreview() {
+            const text = State.announcement;
+            const preview = document.getElementById('annPreviewContent');
+
+            if (!text.trim()) {
+                preview.innerHTML = '<span style="color: #999;">Preview will appear here...</span>';
+                document.getElementById('annPreviewTime').textContent = '--:--';
+                return;
+            }
+
+            /* ---- Safe render with allowed tags ---- */
+            let safe = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            ['b', 'i', 'u', 's', 'code'].forEach(tag => {
+                safe = safe.replace(new RegExp(`&lt;${tag}&gt;`, 'gi'), `<${tag}>`);
+                safe = safe.replace(new RegExp(`&lt;/${tag}&gt;`, 'gi'), `</${tag}>`);
+            });
+
+            preview.innerHTML = safe;
+
+            const now = new Date();
+            document.getElementById('annPreviewTime').textContent =
+                `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        }
+
+        /* ============================================================
+           LOAD DATA
+         ============================================================ */
+        async function loadAllData(showToast = false) {
+            try {
+                /* ---- Load settings ---- */
+                const [annRes, fjEnabledRes, fjFailOpenRes, qrRes, upiRes, upiHolderRes,
+                       minDepRes, maxDepRes, signupRes, quickAmtRes, payNoteRes,
+                       supportRes, adminRes, mainChRes, suppGroupRes, whatsappRes,
+                       botUserRes] = await Promise.allSettled([
+                    API.getSetting('announcement'),
+                    API.getSetting('force_join_enabled'),
+                    API.getSetting('force_join_fail_open'),
+                    API.getSetting('qr_code'),
+                    API.getSetting('upi_id'),
+                    API.getSetting('upi_holder'),
+                    API.getSetting('min_deposit'),
+                    API.getSetting('max_deposit'),
+                    API.getSetting('signup_bonus'),
+                    API.getSetting('quick_amounts'),
+                    API.getSetting('payment_note'),
+                    API.getSetting('support_bot'),
+                    API.getSetting('admin_username'),
+                    API.getSetting('main_channel'),
+                    API.getSetting('support_group'),
+                    API.getSetting('whatsapp_channel'),
+                    API.getSetting('bot_username'),
+                ]);
+
+                const getVal = (res, fallback = '') => {
+                    if (res && res.status === 'fulfilled' && res.value && res.value.success && res.value.value !== undefined && res.value.value !== null) {
+                        return res.value.value;
+                    }
+                    return fallback;
+                };
+
+                /* ---- Announcement ---- */
+                State.announcement = getVal(annRes, '🚀 Welcome to Bihari SMM Bot! India\'s #1 SMM Panel.');
+                document.getElementById('announcementText').value = State.announcement;
+                document.getElementById('annCharCount').textContent = State.announcement.length;
+                updatePreview();
+
+                /* ---- Force Join ---- */
+                State.forceJoinEnabled = getVal(fjEnabledRes, '1') === '1';
+                document.getElementById('forceJoinEnabled').checked = State.forceJoinEnabled;
+                document.getElementById('fjFailOpen').checked = getVal(fjFailOpenRes, '0') === '1';
+
+                /* ---- QR Code ---- */
+                State.qrCode = getVal(qrRes, '');
+                renderQrPreview();
+
+                /* ---- Payment ---- */
+                document.getElementById('upiId').value = getVal(upiRes, '');
+                document.getElementById('upiHolder').value = getVal(upiHolderRes, 'Bihari SMM');
+                document.getElementById('minDeposit').value = getVal(minDepRes, '10');
+                document.getElementById('maxDeposit').value = getVal(maxDepRes, '50000');
+                document.getElementById('signupBonus').value = getVal(signupRes, '0.5');
+
+                const qa = getVal(quickAmtRes, '100, 200, 500, 1000, 2000, 5000');
+                document.getElementById('quickAmounts').value = Array.isArray(qa) ? qa.join(', ') : String(qa);
+
+                document.getElementById('paymentNote').value = getVal(payNoteRes, '');
+
+                /* ---- Support ---- */
+                document.getElementById('supportBot').value = getVal(supportRes, CONFIG.SUPPORT_BOT || '');
+                document.getElementById('adminUsername').value = getVal(adminRes, CONFIG.ADMIN_USERNAME || '');
+                document.getElementById('mainChannel').value = getVal(mainChRes, '');
+                document.getElementById('supportGroup').value = getVal(supportGroupRes, '');
+                document.getElementById('whatsappChannel').value = getVal(whatsappRes, '');
+                document.getElementById('botUsername').value = getVal(botUserRes, CONFIG.BOT_USERNAME || '');
+
+                /* ---- Force channels (from constants) ---- */
+                loadChannels();
+
+                updateStats();
+
+                if (showToast) Toast.success('Data refreshed!');
+
+            } catch (err) {
+                console.error('Load failed:', err);
+                if (showToast) Toast.error('Load failed');
+            }
+        }
+
+        /* ============================================================
+           LOAD CHANNELS
+         ============================================================ */
+        function loadChannels() {
+            /* ---- Hardcoded channels from bot_v3.php FORCE_CHANNELS ---- */
+            State.channels = [
+                {
+                    code: '9aNes6okCnE5ZmE1',
+                    id: '-1003576472250',
+                    name: '💎 Offers Channel',
+                    link: 'https://t.me/+9aNes6okCnE5ZmE1',
+                    type: 'telegram',
+                    required: true,
+                },
+                {
+                    code: '7SFmz6Y6IvIzNTA1',
+                    id: '-1003559259952',
+                    name: '📢 Support Channel',
+                    link: 'https://t.me/+7SFmz6Y6IvIzNTA1',
+                    type: 'telegram',
+                    required: true,
+                },
+                {
+                    code: 'whatsapp',
+                    id: 'whatsapp_optional',
+                    name: '📱 WhatsApp Channel (Optional)',
+                    link: 'https://whatsapp.com/channel/0029Va6kwbV0lwgx7gwx8G43',
+                    type: 'whatsapp',
+                    required: false,
+                },
+            ];
+
+            renderChannels();
+        }
+
+        function renderChannels() {
+            const container = document.getElementById('channelsList');
+
+            if (State.channels.length === 0) {
+                container.innerHTML = `
+                    <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+                        <div style="font-size: 40px; margin-bottom: 12px; opacity: 0.4;">📭</div>
+                        <div>No channels configured</div>
+                    </div>
+                `;
+                document.getElementById('channelCount').textContent = '0';
+                return;
+            }
+
+            container.innerHTML = State.channels.map((ch, idx) => `
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        ${ch.type === 'whatsapp' ? '📱' : '📢'}
+                    </div>
+                    <div class="channel-content">
+                        <div class="channel-name">
+                            ${Utils.escape(ch.name)}
+                            ${ch.required ? '<span class="badge badge-danger" style="font-size: 9px; margin-left: 4px;">REQUIRED</span>' : '<span class="badge badge-muted" style="font-size: 9px; margin-left: 4px;">OPTIONAL</span>'}
+                        </div>
+                        <div class="channel-link">${Utils.escape(ch.link)}</div>
+                    </div>
+                    <div class="channel-actions">
+                        <button class="btn btn-ghost btn-icon btn-sm" data-open-link="${Utils.escape(ch.link)}" title="Open Link">
+                            🔗
+                        </button>
+                        <button class="btn btn-ghost btn-icon btn-sm" data-copy-id="${Utils.escape(ch.id)}" title="Copy ID">
+                            📋
+                        </button>
+                        <button class="btn btn-ghost btn-icon btn-sm" data-remove-channel="${idx}" title="Remove" style="color: var(--danger);">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('channelCount').textContent = State.channels.length;
+
+            /* ---- Bind actions ---- */
+            container.querySelectorAll('[data-open-link]').forEach(btn => {
+                btn.addEventListener('click', () => window.open(btn.dataset.openLink, '_blank'));
+            });
+
+            container.querySelectorAll('[data-copy-id]').forEach(btn => {
+                btn.addEventListener('click', () => Utils.copy(btn.dataset.copyId));
+            });
+
+            container.querySelectorAll('[data-remove-channel]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = parseInt(btn.dataset.removeChannel);
+                    removeChannel(idx);
+                });
+            });
+        }
+
+        function removeChannel(idx) {
+            if (!State.channels[idx]) return;
+
+            Modal.confirm({
+                title: '🗑️ Remove Channel',
+                message: `Remove "${State.channels[idx].name}" from force join list?`,
+                confirmText: 'Yes, Remove',
+                type: 'danger',
+                onConfirm: () => {
+                    State.channels.splice(idx, 1);
+                    State.changes.forceChannels = State.channels;
+                    renderChannels();
+                    updateStats();
+                    Toast.success('Channel removed');
+                }
+            });
+        }
+
+        function showAddChannelModal() {
+            const body = `
+                <div class="form-group">
+                    <label class="form-label required">Channel Name</label>
+                    <input type="text" class="form-input" id="ncName" placeholder="e.g. 💎 Offers Channel" maxlength="60">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Channel Type</label>
+                    <select class="form-select" id="ncType">
+                        <option value="telegram">📢 Telegram Channel</option>
+                        <option value="whatsapp">📱 WhatsApp Channel</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="ncIdGroup">
+                    <label class="form-label">Telegram Chat ID</label>
+                    <input type="text" class="form-input" id="ncId" placeholder="-100xxxxxxxxxx" maxlength="30">
+                    <div class="form-help">e.g. -1001234567890 (Bot must be admin)</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Channel Link</label>
+                    <input type="url" class="form-input" id="ncLink" placeholder="https://t.me/yourchannel" maxlength="200">
+                </div>
+
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="ncRequired" checked>
+                    <span>Mark as required (users must join)</span>
+                </label>
+            `;
+
+            const footer = `
+                <button class="btn btn-secondary" data-nc="cancel">Cancel</button>
+                <button class="btn btn-primary" data-nc="add">➕ Add Channel</button>
+            `;
+
+            Modal.open({
+                title: '➕ Add Force Channel',
+                body,
+                footer,
+                size: 'lg',
+                onOpen: (el) => {
+                    el.querySelector('#ncType').addEventListener('change', (e) => {
+                        const isWa = e.target.value === 'whatsapp';
+                        el.querySelector('#ncIdGroup').style.display = isWa ? 'none' : '';
+                    });
+
+                    el.querySelector('[data-nc="cancel"]').addEventListener('click', () => el.close());
+
+                    el.querySelector('[data-nc="add"]').addEventListener('click', () => {
+                        const name = el.querySelector('#ncName').value.trim();
+                        const type = el.querySelector('#ncType').value;
+                        const id = el.querySelector('#ncId').value.trim();
+                        const link = el.querySelector('#ncLink').value.trim();
+                        const required = el.querySelector('#ncRequired').checked;
+
+                        if (!name) {
+                            Toast.error('Channel name required');
+                            return;
+                        }
+
+                        if (!link || !link.startsWith('http')) {
+                            Toast.error('Valid link required');
+                            return;
+                        }
+
+                        if (type === 'telegram' && !/^-?[0-9]{5,20}$/.test(id)) {
+                            Toast.error('Valid Telegram chat ID required');
+                            return;
+                        }
+
+                        State.channels.push({
+                            code: 'ch_' + Date.now(),
+                            id: type === 'whatsapp' ? 'whatsapp_optional' : id,
+                            name,
+                            link,
+                            type,
+                            required,
+                        });
+
+                        State.changes.forceChannels = State.channels;
+                        renderChannels();
+                        updateStats();
+
+                        Toast.success('Channel added');
+                        el.close();
+                    });
+                }
+            });
+        }
+
+        /* ============================================================
+           TEST VERIFICATION
+         ============================================================ */
+        async function testVerification() {
+            const userId = document.getElementById('testUserId').value.trim();
+
+            if (!userId || !/^[0-9]{5,20}$/.test(userId)) {
+                Toast.error('Valid user ID required');
+                return;
+            }
+
+            const resultDiv = document.getElementById('testResult');
+            resultDiv.innerHTML = '<div style="text-align: center;"><div class="loader-spinner" style="margin: 0 auto;"></div></div>';
+
+            try {
+                /* ---- We can only verify Telegram channels via bot API ---- */
+                const telegramChannels = State.channels.filter(c => c.type === 'telegram' && c.required);
+
+                if (telegramChannels.length === 0) {
+                    resultDiv.innerHTML = '<div class="alert alert-warning">⚠️ No required Telegram channels to verify</div>';
+                    return;
+                }
+
+                /* ---- Simulate verification (no direct API from frontend) ---- */
+                const results = telegramChannels.map(ch => ({
+                    channel: ch.name,
+                    status: Math.random() > 0.3 ? 'member' : 'not_joined',
+                }));
+
+                let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
+
+                results.forEach(r => {
+                    const isMember = r.status === 'member';
+                    html += `
+                        <div class="test-result-item" style="border-left: 3px solid ${isMember ? 'var(--success)' : 'var(--danger)'};">
+                            <span>${isMember ? '✅' : '❌'}</span>
+                            <span style="flex: 1;">${Utils.escape(r.channel)}</span>
+                            <span class="badge badge-${isMember ? 'success' : 'danger'}">
+                                ${isMember ? 'Member' : 'Not Joined'}
+                            </span>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+                html += `
+                    <div class="alert alert-info mt-md" style="margin-bottom: 0;">
+                        💡 <b>Note:</b> Ye simulated result hai. Real verification bot ke through hoti hai.
+                        Chat me <code>/verify {userId}</code> ya bot command se actual check karein.
+                    </div>
+                `;
+
+                resultDiv.innerHTML = html;
+
+            } catch (err) {
+                console.error('Test failed:', err);
+                resultDiv.innerHTML = '<div class="alert alert-danger">❌ Verification failed</div>';
+            }
+        }
+
+        /* ============================================================
+           QR CODE
+         ============================================================ */
+        function renderQrPreview() {
+            const container = document.getElementById('qrPreviewContainer');
+
+            if (!State.qrCode) {
+                container.innerHTML = `
+                    <div style="color: var(--text-muted); text-align: center;">
+                        <div style="font-size: 40px; margin-bottom: 8px;">📸</div>
+                        <div style="font-size: 12px;">No QR code uploaded</div>
+                    </div>
+                `;
+                document.getElementById('statQr').textContent = 'Not Set';
+                return;
+            }
+
+            /* ---- URL ---- */
+            if (State.qrCode.startsWith('http')) {
+                container.innerHTML = `<img src="${Utils.escape(State.qrCode)}" style="max-width: 100%; max-height: 200px; border-radius: 8px;">`;
+                document.getElementById('statQr').textContent = 'Set';
+                return;
+            }
+
+            /* ---- Telegram file ID ---- */
+            container.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 40px; margin-bottom: 8px;">✅</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">QR Code (Telegram File ID)</div>
+                    <code style="font-size: 10px; display: block; margin-top: 6px; padding: 4px 8px; background: var(--bg-base); border-radius: 4px;">${Utils.escape(State.qrCode.substring(0, 20))}...</code>
+                </div>
+            `;
+            document.getElementById('statQr').textContent = 'Set';
+        }
+
+        async function handleQrUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                Toast.error('QR image must be < 5 MB');
+                return;
+            }
+
+            Loader.show();
+
+            try {
+                const fd = new FormData();
+                fd.append('qr_image', file);
+
+                const res = await API.upload('uploadQR', fd);
+
+                if (res && res.success) {
+                    State.qrCode = res.url || '';
+                    State.changes.qrCode = State.qrCode;
+                    renderQrPreview();
+                    Toast.success('QR uploaded!');
+                } else {
+                    Toast.error(res?.error || 'Upload failed');
+                }
+
+            } catch (err) {
+                console.error('QR upload failed:', err);
+                Toast.error('Upload failed');
+            } finally {
+                Loader.hide();
+                e.target.value = '';
+            }
+        }
+
+        function removeQr() {
+            Modal.confirm({
+                title: '🗑️ Remove QR Code',
+                message: 'Remove the QR code? Users will not see it in payment page.',
+                confirmText: 'Yes, Remove',
+                type: 'danger',
+                onConfirm: async () => {
+                    try {
+                        await API.updateSetting('qr_code', '');
+                        State.qrCode = '';
+                        State.changes.qrCode = '';
+                        renderQrPreview();
+                        Toast.success('QR removed');
+                    } catch (err) {
+                        Toast.error('Remove failed');
+                    }
+                }
+            });
+        }
+
+        /* ============================================================
+           SAVE FUNCTIONS
+         ============================================================ */
+        async function saveAnnouncement() {
+            const text = document.getElementById('announcementText').value.trim();
+
+            if (!text) {
+                Toast.error('Announcement text required');
+                return;
+            }
+
+            Loader.show();
+
+            try {
+                const res = await API.updateSetting('announcement', text);
+
+                if (res && res.success) {
+                    State.announcement = text;
+                    Toast.success('Announcement saved!');
+                } else {
+                    Toast.error(res?.error || 'Save failed');
+                }
+            } catch (err) {
+                Toast.error('Save failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function publishAnnouncement() {
+            const text = document.getElementById('announcementText').value.trim();
+
+            if (!text) {
+                Toast.error('Announcement text required');
+                return;
+            }
+
+            const confirmed = await Modal.confirm({
+                title: '📢 Publish Announcement',
+                message: 'Send this announcement as notification to ALL users?',
+                confirmText: 'Yes, Publish',
+                type: 'warning',
+            });
+
+            if (!confirmed) return;
+
+            Loader.show();
+
+            try {
+                /* ---- Save first ---- */
+                await API.updateSetting('announcement', text);
+
+                /* ---- Broadcast ---- */
+                const broadcastMsg = `📢 <b>ANNOUNCEMENT</b>\n\n${text}\n\n<i>— Bihari SMM Team</i>`;
+
+                const res = await API.post('broadcast', {
+                    targets: 'users',
+                    message: broadcastMsg,
+                });
+
+                if (res && res.success) {
+                    Toast.success('Announcement published!');
+                } else {
+                    Toast.error(res?.error || 'Publish failed');
+                }
+
+            } catch (err) {
+                console.error('Publish failed:', err);
+                Toast.error('Publish failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function sendTestAnnouncement() {
+            const text = document.getElementById('announcementText').value.trim();
+            const testChatId = CONFIG.OTP_CHAT_ID || CONFIG.ADMIN_ID;
+
+            if (!text) {
+                Toast.error('Announcement text required');
+                return;
+            }
+
+            if (!testChatId) {
+                Toast.error('Admin chat ID missing');
+                return;
+            }
+
+            Loader.show();
+
+            try {
+                const res = await API.post('broadcast', {
+                    targets: 'users',
+                    message: text,
+                    single_user: testChatId,
+                });
+
+                if (res && res.success) {
+                    Toast.success('Test sent to your Telegram!');
+                } else {
+                    Toast.error(res?.error || 'Test failed');
+                }
+            } catch (err) {
+                Toast.error('Test failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        function clearAnnouncement() {
+            Modal.confirm({
+                title: '🗑️ Clear Announcement',
+                message: 'Clear the announcement? Users will see "No active announcement" on /announcement.',
+                confirmText: 'Yes, Clear',
+                type: 'warning',
+                onConfirm: async () => {
+                    try {
+                        await API.updateSetting('announcement', '');
+                        document.getElementById('announcementText').value = '';
+                        State.announcement = '';
+                        document.getElementById('annCharCount').textContent = '0';
+                        updatePreview();
+                        updateStats();
+                        Toast.success('Announcement cleared');
+                    } catch (err) {
+                        Toast.error('Clear failed');
+                    }
+                }
+            });
+        }
+
+        async function saveUpiDetails() {
+            const upiId = document.getElementById('upiId').value.trim();
+            const upiHolder = document.getElementById('upiHolder').value.trim();
+
+            if (!upiId) {
+                Toast.error('UPI ID required');
+                return;
+            }
+
+            Loader.show();
+
+            try {
+                await API.updateSetting('upi_id', upiId);
+                await API.updateSetting('upi_holder', upiHolder);
+
+                Toast.success('UPI details saved!');
+            } catch (err) {
+                Toast.error('Save failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function savePaymentSettings() {
+            Loader.show();
+
+            try {
+                const minDep = document.getElementById('minDeposit').value;
+                const maxDep = document.getElementById('maxDeposit').value;
+                const signup = document.getElementById('signupBonus').value;
+                const quickAmt = document.getElementById('quickAmounts').value;
+                const note = document.getElementById('paymentNote').value.trim();
+
+                await Promise.all([
+                    API.updateSetting('min_deposit', minDep),
+                    API.updateSetting('max_deposit', maxDep),
+                    API.updateSetting('signup_bonus', signup),
+                    API.updateSetting('quick_amounts', quickAmt),
+                    API.updateSetting('payment_note', note),
+                ]);
+
+                Toast.success('Payment settings saved!');
+            } catch (err) {
+                console.error('Save failed:', err);
+                Toast.error('Save failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function saveSupportInfo() {
+            Loader.show();
+
+            try {
+                const supportBot = document.getElementById('supportBot').value.trim();
+                const adminUsername = document.getElementById('adminUsername').value.trim();
+                const mainCh = document.getElementById('mainChannel').value.trim();
+                const suppGrp = document.getElementById('supportGroup').value.trim();
+                const whatsapp = document.getElementById('whatsappChannel').value.trim();
+
+                await Promise.all([
+                    API.updateSetting('support_bot', supportBot),
+                    API.updateSetting('admin_username', adminUsername),
+                    API.updateSetting('main_channel', mainCh),
+                    API.updateSetting('support_group', suppGrp),
+                    API.updateSetting('whatsapp_channel', whatsapp),
+                ]);
+
+                Toast.success('Support info saved!');
+            } catch (err) {
+                console.error('Save failed:', err);
+                Toast.error('Save failed');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        /* ============================================================
+           SAVE ALL / RESET
+         ============================================================ */
+        async function saveAll() {
+            Loader.show();
+
+            try {
+                /* ---- Force join toggle ---- */
+                await API.updateSetting('force_join_enabled', State.forceJoinEnabled ? '1' : '0');
+                await API.updateSetting('force_join_fail_open', document.getElementById('fjFailOpen').checked ? '1' : '0');
+
+                /* ---- Save announcement ---- */
+                const annText = document.getElementById('announcementText').value.trim();
+                if (annText) {
+                    await API.updateSetting('announcement', annText);
+                }
+
+                /* ---- Save payment ---- */
+                await savePaymentSettingsSilent();
+
+                /* ---- Save support ---- */
+                await saveSupportInfoSilent();
+
+                Toast.success('All changes saved!');
+                await loadAllData();
+
+            } catch (err) {
+                console.error('Save all failed:', err);
+                Toast.error('Some changes may not have saved');
+            } finally {
+                Loader.hide();
+            }
+        }
+
+        async function savePaymentSettingsSilent() {
+            try {
+                await Promise.all([
+                    API.updateSetting('upi_id', document.getElementById('upiId').value.trim()),
+                    API.updateSetting('upi_holder', document.getElementById('upiHolder').value.trim()),
+                    API.updateSetting('min_deposit', document.getElementById('minDeposit').value),
+                    API.updateSetting('max_deposit', document.getElementById('maxDeposit').value),
+                    API.updateSetting('signup_bonus', document.getElementById('signupBonus').value),
+                    API.updateSetting('quick_amounts', document.getElementById('quickAmounts').value),
+                    API.updateSetting('payment_note', document.getElementById('paymentNote').value.trim()),
+                ]);
+            } catch (e) {}
+        }
+
+        async function saveSupportInfoSilent() {
+            try {
+                await Promise.all([
+                    API.updateSetting('support_bot', document.getElementById('supportBot').value.trim()),
+                    API.updateSetting('admin_username', document.getElementById('adminUsername').value.trim()),
+                ]);
+            } catch (e) {}
+        }
+
+        function resetAll() {
+            Modal.confirm({
+                title: '🔄 Reset All Changes',
+                message: 'Discard all unsaved changes and reload from server?',
+                confirmText: 'Yes, Reset',
+                type: 'warning',
+                onConfirm: () => {
+                    loadAllData();
+                    Toast.info('Reloaded from server');
+                }
+            });
+        }
+
+        /* ============================================================
+           FULL PREVIEW
+         ============================================================ */
+        function renderFullPreview(view) {
+            const bubble = document.getElementById('previewBotMsg');
+            if (!bubble) return;
+
+            const previews = {
+                announcement: State.announcement || '📭 No active announcement',
+                welcome: `👋 <b>Welcome Raj!</b>\n\n💰 Balance: ₹500\n\n🛒 Start ordering:\n/services`,
+                forcejoin: `🚫 <b>Access Denied!</b>\n\nPlease join all channels:\n\n❌ 💎 Offers Channel\n❌ 📢 Support Channel\n\nAfter joining, click Verify button.`,
+                payment: `💳 <b>Payment Details</b>\n\n💰 Amount: ₹100\n💎 UPI: <code>${document.getElementById('upiId').value || 'admin@upi'}</code>\n\n📱 Steps:\n1️⃣ Open UPI app\n2️⃣ Send ₹100\n3️⃣ Screenshot bhejein\n\n⏳ Approval within 30 mins`,
+                help: `🤖 <b>Bihari SMM Bot — Help</b>\n\n📋 Available Commands:\n\n🔹 /start — Main menu\n🔹 /balance — Check balance\n🔹 /orders — Your orders\n🔹 /services — Browse services\n🔹 /support — Contact support\n\n💡 Tip: Neeche buttons use karein`,
+            };
+
+            let text = previews[view] || previews.announcement;
+
+            /* ---- Render safely ---- */
+            let safe = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            ['b', 'i', 'u', 's', 'code'].forEach(tag => {
+                safe = safe.replace(new RegExp(`&lt;${tag}&gt;`, 'gi'), `<${tag}>`);
+                safe = safe.replace(new RegExp(`&lt;/${tag}&gt;`, 'gi'), `</${tag}>`);
+            });
+
+            bubble.innerHTML = safe;
+        }
+
+        /* ============================================================
+           STATS
+         ============================================================ */
+        function updateStats() {
+            document.getElementById('statAnnouncement').textContent = State.announcement.length;
+            document.getElementById('statForceJoin').textContent = State.forceJoinEnabled ? 'ON' : 'OFF';
+            document.getElementById('statForceJoin').style.color = State.forceJoinEnabled ? 'var(--success)' : 'var(--text-muted)';
+            document.getElementById('statChannels').textContent = State.channels.length;
+
+            const fjBadge = document.getElementById('fjStatusBadge');
+            if (fjBadge) {
+                if (State.forceJoinEnabled) {
+                    fjBadge.textContent = '✅ Enabled';
+                    fjBadge.className = 'badge badge-success';
+                } else {
+                    fjBadge.textContent = '⏸️ Disabled';
+                    fjBadge.className = 'badge badge-muted';
+                }
+            }
+        }
+
+        /* ============================================================
+           BOOT
+         ============================================================ */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>
