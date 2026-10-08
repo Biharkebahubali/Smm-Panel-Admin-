@@ -461,7 +461,11 @@ const API = {
 
     authHeaders() {
         const session = typeof Session !== 'undefined' ? Session.get() : null;
-        const headers = { 'Accept': 'application/json' };
+        const runtime = this.runtime();
+        const headers = {
+            'Accept': 'application/json',
+            'X-API-Key': runtime.API_KEY || ''
+        };
         if (session?.token) headers['Authorization'] = `Bearer ${session.token}`;
         return headers;
     },
