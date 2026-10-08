@@ -1,29 +1,21 @@
 /* ============================================================
-   BIHARI SMM ADMIN PANEL — MERGED CONFIGURATION
-   ------------------------------------------------------------
-   Ye v7 aur v8 dono ka combined config hai.
-   Saari keys ek jagah. Logic same rakha gaya hai.
-
-   ⚠️  WARNING: Is file mein secrets hain (Telegram token,
-   SMM API key, GitHub token, password hash). Browser isko
-   padh sakta hai. Koi bhi user Ctrl+U karke dekh sakta hai.
-   File ko private rakho, GitHub pe PUBLIC mat karo.
+   BIHARI SMM ADMIN PANEL — FILE-ONLY CONFIGURATION
+   Direct-upload configuration.
    ============================================================ */
-
 const CONFIG = Object.freeze({
-
-    // ---------- API ----------
     API_URL: 'https://rana-hosting.myvipsite.fun/bots/bot_6ac7791f6fd21/bot.php',
 
-    // ---------- Telegram / OTP ----------
-    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
-    OTP_CHAT_ID: '5207471711',
-    LOG_CHANNEL: '-1003825882347',
+    /* Admin API key — must match API_SECRET_KEY in bot.php */
+    API_KEY: 'Vikram@8936',
 
-    // ---------- Auth / Security ----------
+    /* Telegram OTP */
+    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiigG4NfLpehClqc',
+    OTP_CHAT_ID: '5207471711',
+
+    /* Existing admin password hash */
     MASTER_PASSWORD_HASH: '2456fbdb6551e3d3610f178345c7c906e437cbc378d71dee4b588bfcaa482f8e',
+
     SESSION_HOURS: 2,
-    REMEMBER_DEVICE_DAYS: 30,
     IDLE_TIMEOUT_MINUTES: 30,
     IDLE_WARNING_SECONDS: 60,
     OTP_LENGTH: 6,
@@ -32,52 +24,41 @@ const CONFIG = Object.freeze({
     LOGIN_MAX_ATTEMPTS: 3,
     LOGIN_LOCKOUT_MINUTES: 5,
 
-    // ---------- SMM Provider ----------
-    SMM_API_URL: 'https://tntsmm.in/api/v2',
-    SMM_API_KEY: '79256c2e7ed8385e1c0f26993a706ea2',
-
-    // ---------- GitHub Backup ----------
-    GITHUB_TOKEN: 'ghp_r27rwtV9UdStiUa0Qcj61hEVK',
-    GITHUB_DATA_REPO: 'Biharkebahubali/Bihari-Smm-Panel-Data',
-    GITHUB_DATA_FILE: 'bot_data.json',
-
-    // ---------- App Info ----------
     APP_NAME: 'Bihari SMM',
-    APP_VERSION: '8.0.0',
+    APP_VERSION: '7.0.1',
     APP_LOGO: '🤖',
-    SITE_URL: 'https://rana-hosting.myvipsite.fun',
-
-    // ---------- UI Behaviour ----------
     AUTO_REFRESH_SECONDS: 30,
     TOAST_DURATION_MS: 3000,
     TABLE_PAGE_SIZE: 20,
 
-    // ---------- Contact / Public ----------
     BOT_USERNAME: 'biharismmpannel_bot',
     ADMIN_USERNAME: '@code_breaker',
     ADMIN_ID: '5207471711',
     SUPPORT_BOT: '@biharipleasehelpme_bot',
-    UPI_ID: 'code-breakerkumar@fam'
+
+    UPI_ID: 'code-breakerkumar@fam',
+    SMM_API_URL: 'https://tntsmm.in/api/v2',
+    SMM_API_KEY: '79256c2e7ed8385e1c0f26993a706ea2',
+    LOG_CHANNEL: '-1003825882347',
+
+    GITHUB_TOKEN: 'ghp_r27rwtV9UdStiUa0Qcj61hEVK',
+    GITHUB_DATA_REPO: 'Biharkebahubali/Bihari-Smm-Panel-Data',
+    GITHUB_DATA_FILE: 'bot_data.json',
+
+    SITE_URL: 'https://rana-hosting.myvipsite.fun',
 });
 
-/* ------------------------------------------------------------
-   STORAGE KEYS  (v7 + v8 merged)
-   ------------------------------------------------------------ */
 const STORAGE_KEYS = Object.freeze({
-    SESSION_TOKEN:   'bihari_admin_session',
-    USERNAME:        'bihari_admin_username',
-    DEVICE_TOKEN:    'bihari_admin_device',
-    OTP_PENDING:     'bihari_admin_otp_pending',
-    LOGIN_ATTEMPTS:  'bihari_admin_attempts',
-    LAST_ACTIVITY:   'bihari_admin_last_activity',
-    THEME:           'bihari_admin_theme',
-    RUNTIME_CONFIG:  'bihari_admin_runtime_config'
+    SESSION_TOKEN: 'bihari_admin_session',
+    USERNAME: 'bihari_admin_username',
+    DEVICE_TOKEN: 'bihari_admin_device',
+    OTP_PENDING: 'bihari_admin_otp_pending',
+    LOGIN_ATTEMPTS: 'bihari_admin_attempts',
+    LAST_ACTIVITY: 'bihari_admin_last_activity',
+    THEME: 'bihari_admin_theme',
+    RUNTIME_CONFIG: 'bihari_admin_runtime_config',
 });
 
-/* ------------------------------------------------------------
-   RUNTIME CONFIG OVERRIDE
-   (API_URL aur API_KEY dono support karta hai — v7 + v8 dono ka logic)
-   ------------------------------------------------------------ */
 function readRuntimeConfig() {
     try {
         const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.RUNTIME_CONFIG) || '{}');
@@ -103,10 +84,7 @@ function saveRuntimeConfig(values) {
     return readRuntimeConfig();
 }
 
-/* ------------------------------------------------------------
-   EXPORTS
-   ------------------------------------------------------------ */
-window.CONFIG            = CONFIG;
-window.STORAGE_KEYS      = STORAGE_KEYS;
+window.CONFIG = CONFIG;
+window.STORAGE_KEYS = STORAGE_KEYS;
 window.readRuntimeConfig = readRuntimeConfig;
 window.saveRuntimeConfig = saveRuntimeConfig;

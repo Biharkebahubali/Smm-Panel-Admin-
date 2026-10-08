@@ -611,48 +611,89 @@ const API = {
    ============================================================ */
 
 const OTP = {
-    challenge: null,
+    current: null,
     expiresAt: 0,
     timerInterval: null,
     resendCooldown: 0,
     resendInterval: null,
 
-    async send(username, password, remember = false) {
-        const result = await API.adminLoginStart(username, password, remember);
-        this.challenge = result.challenge;
-        this.expiresAt = Date.now() + ((result.expires_in || CONFIG.OTP_EXPIRY_SECONDS) * 1000);
-        Utils.storage.set(STORAGE_KEYS.OTP_PENDING, { challenge: this.challenge, expiresAt: this.expiresAt, remember: !!remember });
-        return result;
+    generate() {
+        const len = CONFIG.OTP_LENGTH;
+        let otp = '';
+        for (let i = 0; i < len; i++) {
+            otp += Utils.random(0, 9);
+        }
+        return otp;
     },
 
-    async verify(input, remember = false) {
-        if (!this.challenge) {
-            const saved = Utils.storage.get(STORAGE_KEYS.OTP_PENDING);
-            if (saved) this.challenge = saved.challenge;
+    async send(username) {
+        const otp = this.generate();
+        const expiry = CONFIG.OTP_EXPIRY_SECONDS;
+
+        this.current = otp;
+        this.expiresAt = Date.now() + (expiry * 1000);
+
+        const message = [
+            '🔐 *Bihari SMM Admin Panel*',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━',
+            '🔑 *OTP Login Code*',
+            '━━━━━━━━━━━━━━━━━━━━',
+            '',
+            `👤 Username: \`${username}\``,
+            `🔢 OTP: \`${otp}\``,
+            '',
+            `⏱️ Expires in: ${Math.floor(expiry / 60)} minutes`,
+            `🕐 Time: ${new Date().toLocaleString('en-IN')}`,
+            '',
+            '⚠️ _Ye code kisi ke saath share na karein._',
+            '❌ _Agar aapne ye request nahi ki, ignore karein._',
+        ].join('\n');
+
+        const token = CONFIG.OTP_BOT_TOKEN;
+        const chatId = CONFIG.OTP_CHAT_ID;
+
+        if (!token || token.includes('YAHAN')) {
+            throw new Error('OTP Bot Token config me set nahi hai');
         }
-        if (!this.challenge) return { success: false, reason: 'No OTP request' };
-        try {
-            const result = await API.adminLoginVerify(this.challenge, input, remember);
-            return { success: true, session: result };
-        } catch (err) {
-            const reason = /expired/i.test(err.message) ? 'expired' : 'invalid';
-            return { success: false, reason, message: err.message };
+
+        if (!chatId) {
+            throw new Error('OTP Chat ID set nahi hai');
         }
+
+        const url = `https://api.telegram.org/bot${token}/sendMessage` +
+                    `?chat_id=${encodeURIComponent(chatId)}` +
+                    `&text=${encodeURIComponent(message)}` +
+                    `&parse_mode=Markdown`;
+
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            const timer = setTimeout(() => {
+                resolve({ sent: true, otp });
+            }, 3000);
+
+            img.onload = () => {
+                clearTimeout(timer);
+                resolve({ sent: true, otp });
+            };
+            img.onerror = () => {
+                clearTimeout(timer);
+                resolve({ sent: true, otp });
+            };
+            img.src = url;
+        });
     },
 
-    async resend() {
-        if (!this.challenge) throw new Error('OTP request missing');
-        const result = await API.adminLoginResend(this.challenge);
-        this.challenge = result.challenge;
-        this.expiresAt = Date.now() + ((result.expires_in || CONFIG.OTP_EXPIRY_SECONDS) * 1000);
-        Utils.storage.set(STORAGE_KEYS.OTP_PENDING, { challenge: this.challenge, expiresAt: this.expiresAt });
-        return result;
+    verify(input) {
+        if (!this.current) return { success: false, reason: 'No OTP generated' };
+        if (Date.now() > this.expiresAt) return { success: false, reason: 'expired' };
+        if (String(input) !== String(this.current)) return { success: false, reason: 'invalid' };
+        return { success: true };
     },
 
     clear() {
-        this.challenge = null;
+        this.current = null;
         this.expiresAt = 0;
-        Utils.storage.remove(STORAGE_KEYS.OTP_PENDING);
         if (this.timerInterval) clearInterval(this.timerInterval);
         if (this.resendInterval) clearInterval(this.resendInterval);
         this.timerInterval = null;
@@ -661,9 +702,12 @@ const OTP = {
 
     startTimer(onExpire, onTick) {
         if (this.timerInterval) clearInterval(this.timerInterval);
+
         this.timerInterval = setInterval(() => {
             const remaining = Math.max(0, Math.floor((this.expiresAt - Date.now()) / 1000));
+
             if (typeof onTick === 'function') onTick(remaining);
+
             if (remaining <= 0) {
                 clearInterval(this.timerInterval);
                 this.timerInterval = null;
@@ -674,10 +718,13 @@ const OTP = {
 
     startResendCooldown(seconds, onUpdate) {
         this.resendCooldown = seconds;
+
         if (this.resendInterval) clearInterval(this.resendInterval);
+
         this.resendInterval = setInterval(() => {
             this.resendCooldown--;
             if (typeof onUpdate === 'function') onUpdate(this.resendCooldown);
+
             if (this.resendCooldown <= 0) {
                 clearInterval(this.resendInterval);
                 this.resendInterval = null;
@@ -686,7 +733,8 @@ const OTP = {
     },
 
     formatTime(seconds) {
-        const m = Math.floor(seconds / 60), s = seconds % 60;
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
         return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     },
 };
@@ -696,16 +744,27 @@ const OTP = {
    ============================================================ */
 
 const Session = {
-    create(username, serverSession) {
-        const token = serverSession?.token;
-        if (!token) throw new Error('Server session token missing');
-        const expiresAt = Number(serverSession.expires_at || (Date.now() + CONFIG.SESSION_HOURS * 3600000)) * (Number(serverSession.expires_at) < 10000000000 ? 1000 : 1);
-        const session = { token, username, expiresAt, loginAt: Date.now(), lastActivity: Date.now(), device: this.getDeviceId() };
+
+    create(username) {
+        const token = this.generateToken();
+        const expiresAt = Date.now() + (CONFIG.SESSION_HOURS * 60 * 60 * 1000);
+
+        const session = {
+            token,
+            username,
+            expiresAt,
+            loginAt: Date.now(),
+            lastActivity: Date.now(),
+            device: this.getDeviceId(),
+        };
+
         Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session);
         Utils.storage.set(STORAGE_KEYS.USERNAME, username);
         Utils.storage.set(STORAGE_KEYS.LAST_ACTIVITY, Date.now());
+
         App.sessionToken = token;
         App.user = { username };
+
         return session;
     },
 
@@ -726,42 +785,42 @@ const Session = {
 
     isValid() {
         const session = Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
-        if (!session?.token) return false;
-        return Date.now() < Number(session.expiresAt || 0);
+        if (!session || !session.token) return false;
+        if (Date.now() > session.expiresAt) return false;
+        return true;
     },
 
     isIdle() {
         const last = Utils.storage.get(STORAGE_KEYS.LAST_ACTIVITY);
         if (!last) return true;
-        return (Date.now() - Number(last)) > CONFIG.IDLE_TIMEOUT_MINUTES * 60000;
+        const idleMs = Date.now() - last;
+        return idleMs > (CONFIG.IDLE_TIMEOUT_MINUTES * 60 * 1000);
     },
 
     touch() {
         Utils.storage.set(STORAGE_KEYS.LAST_ACTIVITY, Date.now());
         const session = Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
-        if (session) { session.lastActivity = Date.now(); Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session); }
+        if (session) {
+            session.lastActivity = Date.now();
+            Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session);
+        }
     },
 
-    get() { return Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN); },
+    get() {
+        return Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
+    },
 
     destroy() {
         Utils.storage.remove(STORAGE_KEYS.SESSION_TOKEN);
         Utils.storage.remove(STORAGE_KEYS.LAST_ACTIVITY);
-        Utils.storage.remove(STORAGE_KEYS.OTP_PENDING);
         App.sessionToken = null;
         App.user = null;
-    },
-
-    async logout() {
-        try { await API.adminLogout(); } catch (_) {}
-        this.destroy();
-        window.location.href = location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
     },
 
     requireLogin() {
         if (!this.isValid() || this.isIdle()) {
             this.destroy();
-            window.location.href = '../index.html';
+            window.location.href = 'index.html';
             return false;
         }
         this.touch();
@@ -826,30 +885,39 @@ const LoginFlow = {
         const input = Utils.$('#passwordInput');
         const btn = Utils.$('#sendOtpBtn');
         const password = input?.value || '';
-        const remember = !!Utils.$('#rememberDevice')?.checked;
         if (!password) {
             Alert.show('Password required hai', 'error');
             Utils.$('#passwordGroup')?.classList.add('has-error');
             input?.focus();
             return;
         }
-        btn.classList.add('loading'); btn.disabled = true;
+
+        btn.classList.add('loading');
+        btn.disabled = true;
         try {
-            await OTP.send(this.username, password, remember);
+            const hash = await Utils.sha256(password);
+            if (hash !== CONFIG.MASTER_PASSWORD_HASH) {
+                throw new Error('Galat password!');
+            }
             this.passwordVerified = true;
+            await OTP.send(this.username);
             Utils.storage.set(STORAGE_KEYS.USERNAME, this.username);
-            Toast.success('Password verified — OTP Telegram par bhej diya gaya!');
-            Utils.$('#otpTargetPreview').textContent = 'Telegram';
+            Toast.success('Password sahi hai — OTP bhej diya gaya!');
+            const preview = Utils.$('#otpTargetPreview');
+            if (preview) preview.textContent = 'Telegram';
             input.value = '';
-            this.goTo(2); this.clearOTPInputs();
+            this.goTo(2);
+            this.clearOTPInputs();
             setTimeout(() => Utils.$('.otp-input')?.focus(), 300);
-            this.startOTPTimer(); this.startResendCooldown();
+            this.startOTPTimer();
+            this.startResendCooldown();
         } catch (err) {
             this.passwordVerified = false;
             Alert.show(err.message || 'Password verify nahi ho paya.', 'error', 6000);
             Utils.$('#passwordGroup')?.classList.add('has-error');
         } finally {
-            btn.classList.remove('loading'); btn.disabled = false;
+            btn.classList.remove('loading');
+            btn.disabled = false;
         }
     },
 
@@ -920,24 +988,29 @@ const LoginFlow = {
     async verifyOTP() {
         const otp = this.getOTPValue();
         const btn = Utils.$('#verifyOtpBtn');
-        const remember = !!Utils.$('#rememberDevice')?.checked;
-        if (!this.passwordVerified) { Alert.show('Pehle password verify karein.', 'error'); this.goTo(1); return; }
-        if (otp.length !== CONFIG.OTP_LENGTH) { Alert.show('Kripya pura 6-digit OTP dalein', 'error'); return; }
-        btn.classList.add('loading'); btn.disabled = true;
-        try {
-            const result = await OTP.verify(otp, remember);
-            if (!result.success) throw new Error(result.message || (result.reason === 'expired' ? 'OTP expire ho gaya.' : 'Galat OTP!'));
-            OTP.clear();
-            Session.create(this.username, result.session);
-            Toast.success('OTP verified — dashboard open ho raha hai!');
-            window.location.href = 'pages/dashboard.html';
-        } catch (err) {
+        if (!this.passwordVerified) {
+            Alert.show('Pehle password verify karein.', 'error');
+            this.goTo(1);
+            return;
+        }
+        if (otp.length !== CONFIG.OTP_LENGTH) {
+            Alert.show('Kripya pura 6-digit OTP dalein', 'error');
+            return;
+        }
+        btn.classList.add('loading');
+        btn.disabled = true;
+        const result = OTP.verify(otp);
+        btn.classList.remove('loading');
+        if (!result.success) {
             Utils.$$('.otp-input').forEach(input => input.classList.add('error'));
             setTimeout(() => this.clearOTPInputs(), 600);
-            Alert.show(err.message || 'OTP verification failed.', 'error');
-        } finally {
-            btn.classList.remove('loading'); btn.disabled = false;
+            Alert.show(result.reason === 'expired' ? 'OTP expire ho gaya.' : 'Galat OTP! Dobara try karein.', 'error');
+            return;
         }
+        OTP.clear();
+        Session.create(this.username);
+        Toast.success('OTP verified — dashboard open ho raha hai!');
+        window.location.href = 'pages/dashboard.html';
     },
 
     startOTPTimer() {
@@ -968,8 +1041,8 @@ const LoginFlow = {
         if (!btn || btn.disabled) return;
         btn.disabled = true;
         try {
-            await OTP.resend();
-            Toast.success('Naya OTP bhej diya gaya!');
+            await OTP.send(this.username);
+            Toast.success('Naya OTP bhej diya!');
             this.clearOTPInputs();
             Utils.$('.otp-input')?.focus();
             this.startOTPTimer();
