@@ -457,169 +457,153 @@ const Alert = {
    6. API WRAPPER — Silent GET, Loader sirf POST pe
    ============================================================ */
 const API = {
-
     runtime() { return typeof readRuntimeConfig === 'function' ? readRuntimeConfig() : CONFIG; },
 
-    /* ---- POST / PUT (mutations) ---- */
-    async request(action, data = {}, options = {}) {
-        const {
-            method = 'POST',
-            silent = false,
-            timeout = 30000,
-        } = options;
+    authHeaders() {
+        const session = typeof Session !== 'undefined' ? Session.get() : null;
+        const headers = { 'Accept': 'application/json' };
+        if (session?.token) headers['Authorization'] = `Bearer ${session.token}`;
+        return headers;
+    },
 
+    async auth(action, data = {}) {
         const runtime = this.runtime();
         if (!runtime.API_URL) throw new Error('Backend API URL configured nahi hai');
         const url = `${runtime.API_URL}?action=${encodeURIComponent(action)}`;
+        const body = new URLSearchParams();
+        Object.entries(data || {}).forEach(([k,v]) => body.append(k, v == null ? '' : String(v)));
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Accept': 'application/json' },
+            body
+        });
+        let json = {};
+        try { json = await res.json(); } catch (_) {}
+        if (!res.ok) throw new Error(json.error || `HTTP ${res.status}`);
+        if (json.success === false) throw new Error(json.error || 'Authentication failed');
+        return json;
+    },
 
-        const headers = {
-            'X-API-Key': runtime.API_KEY,
-            'Accept': 'application/json',
-        };
-
+    async request(action, data = {}, options = {}) {
+        const { method = 'POST', silent = false, timeout = 30000 } = options;
+        const runtime = this.runtime();
+        if (!runtime.API_URL) throw new Error('Backend API URL configured nahi hai');
+        const url = `${runtime.API_URL}?action=${encodeURIComponent(action)}`;
+        const headers = this.authHeaders();
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeout);
+        const fetchOptions = { method, headers, signal: controller.signal };
 
-        let fetchOptions = {
-            method,
-            headers,
-            signal: controller.signal,
-        };
-
-        if (method === 'POST' || method === 'PUT') {
+        if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
             if (data instanceof FormData) {
                 fetchOptions.body = data;
             } else {
-                headers['Content-Type'] = 'application/json';
-                fetchOptions.body = JSON.stringify(data);
+                const body = new URLSearchParams();
+                Object.entries(data || {}).forEach(([k,v]) => {
+                    if (Array.isArray(v)) body.append(k, v.join(','));
+                    else body.append(k, v == null ? '' : String(v));
+                });
+                fetchOptions.body = body;
+                headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
             }
         }
 
         if (!silent) Loader.show();
-
         try {
             const res = await fetch(url, fetchOptions);
             clearTimeout(timeoutId);
-
-            if (!res.ok) {
-                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+            let json = {};
+            try { json = await res.json(); } catch (_) {}
+            if (res.status === 401 || (json && json.error && /unauthorized|session/i.test(json.error))) {
+                if (typeof Session !== 'undefined') Session.destroy();
+                if (!location.pathname.endsWith('/index.html') && !location.pathname.endsWith('/')) {
+                    location.href = '../index.html';
+                }
+                throw new Error(json.error || 'Admin session expired');
             }
-
-            const json = await res.json();
+            if (!res.ok) throw new Error(json.error || `HTTP ${res.status}: ${res.statusText}`);
             return json;
-
         } catch (err) {
             clearTimeout(timeoutId);
+            if (err.name === 'AbortError') throw new Error('Request timeout — server se response nahi aaya');
             console.error('API Error:', action, err);
-
-            if (err.name === 'AbortError') {
-                throw new Error('Request timeout — server se response nahi aaya');
-            }
-
             throw new Error(err.message || 'Network error');
-
         } finally {
             if (!silent) Loader.hide();
         }
     },
 
-    /* ---- GET — HAMESHA SILENT (no loader, no blink) ---- */
     async get(action, params = {}, options = {}) {
         const runtime = this.runtime();
         if (!runtime.API_URL) throw new Error('Backend API URL configured nahi hai');
         let url = `${runtime.API_URL}?action=${encodeURIComponent(action)}`;
-        Object.keys(params).forEach(k => {
-            url += `&${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`;
-        });
-
-        /* 👇 GET requests NEVER show loader — unless explicitly forced */
+        Object.keys(params || {}).forEach(k => { url += `&${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`; });
         const silent = options.silent !== false;
-
         if (!silent) Loader.show();
-
         try {
-            const res = await fetch(url, {
-                headers: {
-                    'X-API-Key': runtime.API_KEY,
-                    'Accept': 'application/json',
-                },
-            });
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            return await res.json();
-        } catch (err) {
-            console.error('API GET Error:', action, err);
-            throw err;
+            const res = await fetch(url, { headers: this.authHeaders() });
+            let json = {};
+            try { json = await res.json(); } catch (_) {}
+            if (res.status === 401 || (json && json.error && /unauthorized|session/i.test(json.error))) {
+                if (typeof Session !== 'undefined') Session.destroy();
+                if (!location.pathname.endsWith('/index.html') && !location.pathname.endsWith('/')) location.href = '../index.html';
+                throw new Error(json.error || 'Admin session expired');
+            }
+            if (!res.ok) throw new Error(json.error || `HTTP ${res.status}`);
+            return json;
         } finally {
             if (!silent) Loader.hide();
         }
     },
 
-    async post(action, data = {}) {
-        return this.request(action, data, { method: 'POST' });
-    },
+    async post(action, data = {}) { return this.request(action, data, { method: 'POST' }); },
+    async upload(action, formData) { return this.request(action, formData, { method: 'POST', timeout: 60000 }); },
 
-    async upload(action, formData) {
-        return this.request(action, formData, { method: 'POST', timeout: 60000 });
-    },
+    ping() { return this.get('ping', {}, { silent: true }); },
+    adminLoginStart(username, password, remember) { return this.auth('adminLoginStart', { username, password, remember: remember ? '1' : '0' }); },
+    adminLoginVerify(challenge, otp, remember) { return this.auth('adminLoginVerify', { challenge, otp, remember: remember ? '1' : '0' }); },
+    adminLoginResend(challenge) { return this.auth('adminLoginResend', { challenge }); },
+    adminLogout() { return this.auth('adminLogout'); },
+    adminSession() { return this.get('adminSession', {}, { silent: true }); },
 
-    /* ============================================================
-       API SHORTCUTS — Sab GET requests silent
-       ============================================================ */
-
-    ping()                  { return this.get('ping', {}, { silent: true }); },
-    getData()               { return this.get('getData', {}, { silent: true }); },
-    getDataPage(table, page = 1, limit = 20, search = '') {
-        return this.get('getDataPage', { table, page, limit, search }, { silent: true });
-    },
-    botStatus()             { return this.get('botStatus', {}, { silent: true }); },
+    getData() { return this.get('getData', {}, { silent: true }); },
+    getDataPage(table, page = 1, limit = 20, search = '') { return this.get('getDataPage', { table, page, limit, search }, { silent: true }); },
+    botStatus() { return this.get('botStatus', {}, { silent: true }); },
     getDiagnostics(min = 5) { return this.get('getDiagnostics', { minutes: min }, { silent: true }); },
-
-    approvePayment(id)      { return this.post('approvePayment', { id }); },
+    approvePayment(id) { return this.post('approvePayment', { id }); },
     rejectPayment(id, reason) { return this.post('rejectPayment', { id, reason }); },
     updateOrderStatus(id, status) { return this.post('updateOrderStatus', { id, status }); },
-    checkOrders()           { return this.post('checkOrders'); },
-
-    sync()                  { return this.post('sync'); },
-    syncToGitHub()          { return this.post('syncToGitHub'); },
-    restoreFromGitHub()     { return this.post('restoreFromGitHub', {}, { silent: true }); },
-
-    addUser(data)           { return this.post('addUser', data); },
+    checkOrders() { return this.post('checkOrders'); },
+    sync() { return this.post('sync'); },
+    syncToGitHub() { return this.post('syncToGitHub'); },
+    restoreFromGitHub() { return this.post('restoreFromGitHub', {}); },
+    addUser(data) { return this.post('addUser', data); },
     updateUser(id, field, value) { return this.post('updateUser', { id, field, value }); },
-    deleteUser(id)          { return this.post('deleteUser', { id }); },
-
-    addService(data)        { return this.post('addService', data); },
+    deleteUser(id) { return this.post('deleteUser', { id }); },
+    addService(data) { return this.post('addService', data); },
     updateService(id, field, value) { return this.post('updateService', { id, field, value }); },
-    deleteService(id)       { return this.post('deleteService', { id }); },
-
+    deleteService(id) { return this.post('deleteService', { id }); },
     updateSetting(key, value) { return this.post('updateSetting', { key, value }); },
-    getSetting(key)         { return this.get('getSetting', { key }, { silent: true }); },
-
-    createBackup(format = 'json') { return this.get('createBackup', { format }, { silent: true }); },
-    getBackupHistory()      { return this.get('getBackupHistory', {}, { silent: true }); },
-    deleteBackup(id)        { return this.post('deleteBackup', { id }); },
-
-    getBroadcastHistory()   { return this.get('getBroadcastHistory', {}, { silent: true }); },
-    broadcast(data)         { return this.post('broadcast', data); },
-
-    getTickets()            { return this.get('getTickets', {}, { silent: true }); },
-    replyTicket(id, reply)  { return this.post('replyTicket', { id, reply }); },
-
-    getMessages()           { return this.get('getMessages', {}, { silent: true }); },
-    replyInbox(id, reply)   { return this.post('replyInbox', { id, reply }); },
-
-    getTrash()              { return this.get('getTrash', {}, { silent: true }); },
-    restoreItem(id)         { return this.post('restoreItem', { id }); },
-    emptyTrash()            { return this.post('emptyTrash'); },
-
-    getActivity()           { return this.get('getActivity', {}, { silent: true }); },
-    getApiLogs()            { return this.get('getApiLogs', {}, { silent: true }); },
-    getReferrals()          { return this.get('getReferrals', {}, { silent: true }); },
-
-    getApiBalance()         { return this.get('getApiBalance', {}, { silent: true }); },
-    getSmmConfig()          { return this.get('getSmmConfig', {}, { silent: true }); },
+    getSetting(key) { return this.get('getSetting', { key }, { silent: true }); },
+    createBackup(format = 'json') { return this.post('createBackup', { format }); },
+    getBackupHistory() { return this.get('getBackupHistory', {}, { silent: true }); },
+    deleteBackup(id) { return this.post('deleteBackup', { id }); },
+    getBroadcastHistory() { return this.get('getBroadcastHistory', {}, { silent: true }); },
+    broadcast(data) { return this.post('broadcast', data); },
+    getTickets() { return this.get('getTickets', {}, { silent: true }); },
+    replyTicket(id, reply) { return this.post('replyTicket', { id, reply }); },
+    getMessages() { return this.get('getMessages', {}, { silent: true }); },
+    replyInbox(id, reply) { return this.post('replyInbox', { id, reply }); },
+    getTrash() { return this.get('getTrash', {}, { silent: true }); },
+    restoreItem(id) { return this.post('restoreItem', { id }); },
+    emptyTrash() { return this.post('emptyTrash'); },
+    getActivity() { return this.get('getActivity', {}, { silent: true }); },
+    getApiLogs() { return this.get('getApiLogs', {}, { silent: true }); },
+    getReferrals() { return this.get('getReferrals', {}, { silent: true }); },
+    getApiBalance() { return this.get('getApiBalance', {}, { silent: true }); },
+    getSmmConfig() { return this.get('getSmmConfig', {}, { silent: true }); },
     updateSmmConfig(url, key) { return this.post('updateSmmConfig', { api_url: url, api_key: key }); },
-
-    syncDatabase()          { return this.post('syncDatabase'); },
+    syncDatabase() { return this.post('syncDatabase'); },
 };
 
 /* ============================================================
@@ -627,89 +611,48 @@ const API = {
    ============================================================ */
 
 const OTP = {
-    current: null,
+    challenge: null,
     expiresAt: 0,
     timerInterval: null,
     resendCooldown: 0,
     resendInterval: null,
 
-    generate() {
-        const len = CONFIG.OTP_LENGTH;
-        let otp = '';
-        for (let i = 0; i < len; i++) {
-            otp += Utils.random(0, 9);
-        }
-        return otp;
+    async send(username, password, remember = false) {
+        const result = await API.adminLoginStart(username, password, remember);
+        this.challenge = result.challenge;
+        this.expiresAt = Date.now() + ((result.expires_in || CONFIG.OTP_EXPIRY_SECONDS) * 1000);
+        Utils.storage.set(STORAGE_KEYS.OTP_PENDING, { challenge: this.challenge, expiresAt: this.expiresAt, remember: !!remember });
+        return result;
     },
 
-    async send(username) {
-        const otp = this.generate();
-        const expiry = CONFIG.OTP_EXPIRY_SECONDS;
-
-        this.current = otp;
-        this.expiresAt = Date.now() + (expiry * 1000);
-
-        const message = [
-            '🔐 *Bihari SMM Admin Panel*',
-            '',
-            '━━━━━━━━━━━━━━━━━━━━',
-            '🔑 *OTP Login Code*',
-            '━━━━━━━━━━━━━━━━━━━━',
-            '',
-            `👤 Username: \`${username}\``,
-            `🔢 OTP: \`${otp}\``,
-            '',
-            `⏱️ Expires in: ${Math.floor(expiry / 60)} minutes`,
-            `🕐 Time: ${new Date().toLocaleString('en-IN')}`,
-            '',
-            '⚠️ _Ye code kisi ke saath share na karein._',
-            '❌ _Agar aapne ye request nahi ki, ignore karein._',
-        ].join('\n');
-
-        const token = CONFIG.OTP_BOT_TOKEN;
-        const chatId = CONFIG.OTP_CHAT_ID;
-
-        if (!token || token.includes('YAHAN')) {
-            throw new Error('OTP Bot Token config me set nahi hai');
+    async verify(input, remember = false) {
+        if (!this.challenge) {
+            const saved = Utils.storage.get(STORAGE_KEYS.OTP_PENDING);
+            if (saved) this.challenge = saved.challenge;
         }
-
-        if (!chatId) {
-            throw new Error('OTP Chat ID set nahi hai');
+        if (!this.challenge) return { success: false, reason: 'No OTP request' };
+        try {
+            const result = await API.adminLoginVerify(this.challenge, input, remember);
+            return { success: true, session: result };
+        } catch (err) {
+            const reason = /expired/i.test(err.message) ? 'expired' : 'invalid';
+            return { success: false, reason, message: err.message };
         }
-
-        const url = `https://api.telegram.org/bot${token}/sendMessage` +
-                    `?chat_id=${encodeURIComponent(chatId)}` +
-                    `&text=${encodeURIComponent(message)}` +
-                    `&parse_mode=Markdown`;
-
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            const timer = setTimeout(() => {
-                resolve({ sent: true, otp });
-            }, 3000);
-
-            img.onload = () => {
-                clearTimeout(timer);
-                resolve({ sent: true, otp });
-            };
-            img.onerror = () => {
-                clearTimeout(timer);
-                resolve({ sent: true, otp });
-            };
-            img.src = url;
-        });
     },
 
-    verify(input) {
-        if (!this.current) return { success: false, reason: 'No OTP generated' };
-        if (Date.now() > this.expiresAt) return { success: false, reason: 'expired' };
-        if (String(input) !== String(this.current)) return { success: false, reason: 'invalid' };
-        return { success: true };
+    async resend() {
+        if (!this.challenge) throw new Error('OTP request missing');
+        const result = await API.adminLoginResend(this.challenge);
+        this.challenge = result.challenge;
+        this.expiresAt = Date.now() + ((result.expires_in || CONFIG.OTP_EXPIRY_SECONDS) * 1000);
+        Utils.storage.set(STORAGE_KEYS.OTP_PENDING, { challenge: this.challenge, expiresAt: this.expiresAt });
+        return result;
     },
 
     clear() {
-        this.current = null;
+        this.challenge = null;
         this.expiresAt = 0;
+        Utils.storage.remove(STORAGE_KEYS.OTP_PENDING);
         if (this.timerInterval) clearInterval(this.timerInterval);
         if (this.resendInterval) clearInterval(this.resendInterval);
         this.timerInterval = null;
@@ -718,12 +661,9 @@ const OTP = {
 
     startTimer(onExpire, onTick) {
         if (this.timerInterval) clearInterval(this.timerInterval);
-
         this.timerInterval = setInterval(() => {
             const remaining = Math.max(0, Math.floor((this.expiresAt - Date.now()) / 1000));
-
             if (typeof onTick === 'function') onTick(remaining);
-
             if (remaining <= 0) {
                 clearInterval(this.timerInterval);
                 this.timerInterval = null;
@@ -734,13 +674,10 @@ const OTP = {
 
     startResendCooldown(seconds, onUpdate) {
         this.resendCooldown = seconds;
-
         if (this.resendInterval) clearInterval(this.resendInterval);
-
         this.resendInterval = setInterval(() => {
             this.resendCooldown--;
             if (typeof onUpdate === 'function') onUpdate(this.resendCooldown);
-
             if (this.resendCooldown <= 0) {
                 clearInterval(this.resendInterval);
                 this.resendInterval = null;
@@ -749,8 +686,7 @@ const OTP = {
     },
 
     formatTime(seconds) {
-        const m = Math.floor(seconds / 60);
-        const s = seconds % 60;
+        const m = Math.floor(seconds / 60), s = seconds % 60;
         return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     },
 };
@@ -760,27 +696,16 @@ const OTP = {
    ============================================================ */
 
 const Session = {
-
-    create(username) {
-        const token = this.generateToken();
-        const expiresAt = Date.now() + (CONFIG.SESSION_HOURS * 60 * 60 * 1000);
-
-        const session = {
-            token,
-            username,
-            expiresAt,
-            loginAt: Date.now(),
-            lastActivity: Date.now(),
-            device: this.getDeviceId(),
-        };
-
+    create(username, serverSession) {
+        const token = serverSession?.token;
+        if (!token) throw new Error('Server session token missing');
+        const expiresAt = Number(serverSession.expires_at || (Date.now() + CONFIG.SESSION_HOURS * 3600000)) * (Number(serverSession.expires_at) < 10000000000 ? 1000 : 1);
+        const session = { token, username, expiresAt, loginAt: Date.now(), lastActivity: Date.now(), device: this.getDeviceId() };
         Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session);
         Utils.storage.set(STORAGE_KEYS.USERNAME, username);
         Utils.storage.set(STORAGE_KEYS.LAST_ACTIVITY, Date.now());
-
         App.sessionToken = token;
         App.user = { username };
-
         return session;
     },
 
@@ -801,42 +726,42 @@ const Session = {
 
     isValid() {
         const session = Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
-        if (!session || !session.token) return false;
-        if (Date.now() > session.expiresAt) return false;
-        return true;
+        if (!session?.token) return false;
+        return Date.now() < Number(session.expiresAt || 0);
     },
 
     isIdle() {
         const last = Utils.storage.get(STORAGE_KEYS.LAST_ACTIVITY);
         if (!last) return true;
-        const idleMs = Date.now() - last;
-        return idleMs > (CONFIG.IDLE_TIMEOUT_MINUTES * 60 * 1000);
+        return (Date.now() - Number(last)) > CONFIG.IDLE_TIMEOUT_MINUTES * 60000;
     },
 
     touch() {
         Utils.storage.set(STORAGE_KEYS.LAST_ACTIVITY, Date.now());
         const session = Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
-        if (session) {
-            session.lastActivity = Date.now();
-            Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session);
-        }
+        if (session) { session.lastActivity = Date.now(); Utils.storage.set(STORAGE_KEYS.SESSION_TOKEN, session); }
     },
 
-    get() {
-        return Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN);
-    },
+    get() { return Utils.storage.get(STORAGE_KEYS.SESSION_TOKEN); },
 
     destroy() {
         Utils.storage.remove(STORAGE_KEYS.SESSION_TOKEN);
         Utils.storage.remove(STORAGE_KEYS.LAST_ACTIVITY);
+        Utils.storage.remove(STORAGE_KEYS.OTP_PENDING);
         App.sessionToken = null;
         App.user = null;
+    },
+
+    async logout() {
+        try { await API.adminLogout(); } catch (_) {}
+        this.destroy();
+        window.location.href = location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
     },
 
     requireLogin() {
         if (!this.isValid() || this.isIdle()) {
             this.destroy();
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
             return false;
         }
         this.touch();
@@ -901,39 +826,30 @@ const LoginFlow = {
         const input = Utils.$('#passwordInput');
         const btn = Utils.$('#sendOtpBtn');
         const password = input?.value || '';
+        const remember = !!Utils.$('#rememberDevice')?.checked;
         if (!password) {
             Alert.show('Password required hai', 'error');
             Utils.$('#passwordGroup')?.classList.add('has-error');
             input?.focus();
             return;
         }
-
-        btn.classList.add('loading');
-        btn.disabled = true;
+        btn.classList.add('loading'); btn.disabled = true;
         try {
-            const hash = await Utils.sha256(password);
-            if (hash !== CONFIG.MASTER_PASSWORD_HASH) {
-                throw new Error('Galat password!');
-            }
+            await OTP.send(this.username, password, remember);
             this.passwordVerified = true;
-            await OTP.send(this.username);
             Utils.storage.set(STORAGE_KEYS.USERNAME, this.username);
-            Toast.success('Password sahi hai — OTP bhej diya gaya!');
-            const preview = Utils.$('#otpTargetPreview');
-            if (preview) preview.textContent = 'Telegram';
+            Toast.success('Password verified — OTP Telegram par bhej diya gaya!');
+            Utils.$('#otpTargetPreview').textContent = 'Telegram';
             input.value = '';
-            this.goTo(2);
-            this.clearOTPInputs();
+            this.goTo(2); this.clearOTPInputs();
             setTimeout(() => Utils.$('.otp-input')?.focus(), 300);
-            this.startOTPTimer();
-            this.startResendCooldown();
+            this.startOTPTimer(); this.startResendCooldown();
         } catch (err) {
             this.passwordVerified = false;
             Alert.show(err.message || 'Password verify nahi ho paya.', 'error', 6000);
             Utils.$('#passwordGroup')?.classList.add('has-error');
         } finally {
-            btn.classList.remove('loading');
-            btn.disabled = false;
+            btn.classList.remove('loading'); btn.disabled = false;
         }
     },
 
@@ -1004,29 +920,24 @@ const LoginFlow = {
     async verifyOTP() {
         const otp = this.getOTPValue();
         const btn = Utils.$('#verifyOtpBtn');
-        if (!this.passwordVerified) {
-            Alert.show('Pehle password verify karein.', 'error');
-            this.goTo(1);
-            return;
-        }
-        if (otp.length !== CONFIG.OTP_LENGTH) {
-            Alert.show('Kripya pura 6-digit OTP dalein', 'error');
-            return;
-        }
-        btn.classList.add('loading');
-        btn.disabled = true;
-        const result = OTP.verify(otp);
-        btn.classList.remove('loading');
-        if (!result.success) {
+        const remember = !!Utils.$('#rememberDevice')?.checked;
+        if (!this.passwordVerified) { Alert.show('Pehle password verify karein.', 'error'); this.goTo(1); return; }
+        if (otp.length !== CONFIG.OTP_LENGTH) { Alert.show('Kripya pura 6-digit OTP dalein', 'error'); return; }
+        btn.classList.add('loading'); btn.disabled = true;
+        try {
+            const result = await OTP.verify(otp, remember);
+            if (!result.success) throw new Error(result.message || (result.reason === 'expired' ? 'OTP expire ho gaya.' : 'Galat OTP!'));
+            OTP.clear();
+            Session.create(this.username, result.session);
+            Toast.success('OTP verified — dashboard open ho raha hai!');
+            window.location.href = 'pages/dashboard.html';
+        } catch (err) {
             Utils.$$('.otp-input').forEach(input => input.classList.add('error'));
             setTimeout(() => this.clearOTPInputs(), 600);
-            Alert.show(result.reason === 'expired' ? 'OTP expire ho gaya.' : 'Galat OTP! Dobara try karein.', 'error');
-            return;
+            Alert.show(err.message || 'OTP verification failed.', 'error');
+        } finally {
+            btn.classList.remove('loading'); btn.disabled = false;
         }
-        OTP.clear();
-        Session.create(this.username);
-        Toast.success('OTP verified — dashboard open ho raha hai!');
-        window.location.href = 'pages/dashboard.html';
     },
 
     startOTPTimer() {
@@ -1057,8 +968,8 @@ const LoginFlow = {
         if (!btn || btn.disabled) return;
         btn.disabled = true;
         try {
-            await OTP.send(this.username);
-            Toast.success('Naya OTP bhej diya!');
+            await OTP.resend();
+            Toast.success('Naya OTP bhej diya gaya!');
             this.clearOTPInputs();
             Utils.$('.otp-input')?.focus();
             this.startOTPTimer();
@@ -1080,12 +991,9 @@ function logout() {
         confirmText: 'Yes, Logout',
         cancelText: 'Cancel',
         type: 'danger',
-        onConfirm: () => {
-            Session.destroy();
+        onConfirm: async () => {
             Toast.info('Logging out...');
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
+            await Session.logout();
         },
     });
 }
@@ -1246,135 +1154,3 @@ window.logout = logout;
 
 })();
 
-/* ============================================================
-   15. AUTO BACKUP — Silent, no blink
-   ============================================================ */
-(function() {
-
-    const AUTO_BACKUP_ENABLED = true;
-    const LAST_BACKUP_KEY = 'last_auto_backup_date';
-    let isBackingUp = false;
-
-    async function autoBackupOnLoad() {
-        if (!AUTO_BACKUP_ENABLED) return;
-        if (isBackingUp) return;
-        if (typeof Session === 'undefined' || !Session.isValid()) return;
-        if (typeof API === 'undefined') return;
-
-        const today = new Date().toISOString().split('T')[0];
-        let lastBackup = null;
-        try { lastBackup = localStorage.getItem(LAST_BACKUP_KEY); } catch (e) {}
-
-        if (lastBackup === today) {
-            console.log('⏭️ Aaj ka backup ho chuka hai');
-            return;
-        }
-
-        try { localStorage.setItem(LAST_BACKUP_KEY, today); } catch (e) {}
-
-        isBackingUp = true;
-        console.log('🔄 Auto backup shuru (silent)...');
-
-        try {
-            const result = await API.createBackup('json');
-
-            if (result && result.success) {
-                console.log('✅ Auto backup safal');
-
-                if (typeof window.loadAll === 'function') {
-                    try { window.loadAll(false); } catch (e) {}
-                }
-
-                if (typeof Toast !== 'undefined') {
-                    Toast.success('💾 Auto backup ho gaya');
-                }
-            } else {
-                console.warn('⚠️ Auto backup fail:', result && result.error);
-            }
-        } catch (err) {
-            console.warn('⚠️ Auto backup error:', err.message);
-        } finally {
-            isBackingUp = false;
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => setTimeout(autoBackupOnLoad, 4000));
-    } else {
-        setTimeout(autoBackupOnLoad, 4000);
-    }
-
-    window.autoBackupOnLoad = autoBackupOnLoad;
-
-})();
-
-/* ============================================================
-   16. AUTO GITHUB RESTORE — Silent, no blink
-   ============================================================ */
-(function() {
-
-    const GITHUB_RESTORE_ENABLED = true;
-    const GITHUB_RESTORE_INTERVAL_HOURS = 1;
-    const LAST_KEY = 'last_github_restore';
-    let isRestoring = false;
-
-    async function autoRestoreFromGitHub() {
-        if (!GITHUB_RESTORE_ENABLED) return;
-        if (isRestoring) return;
-        if (typeof Session === 'undefined' || !Session.isValid()) return;
-        if (typeof API === 'undefined') return;
-
-        let last = 0;
-        try { last = parseInt(localStorage.getItem(LAST_KEY) || '0', 10) || 0; }
-        catch (e) { last = 0; }
-
-        const now = Date.now();
-        const gapMs = now - last;
-        const intervalMs = GITHUB_RESTORE_INTERVAL_HOURS * 60 * 60 * 1000;
-
-        if (gapMs < intervalMs) {
-            console.log('⏭️ GitHub restore skipped');
-            return;
-        }
-
-        try { localStorage.setItem(LAST_KEY, String(now)); } catch (e) {}
-
-        isRestoring = true;
-        console.log('🔄 GitHub se data laa raha hun (silent)...');
-
-        try {
-            if (typeof API.restoreFromGitHub === 'function') {
-                const result = await API.restoreFromGitHub();
-
-                if (result && result.success) {
-                    console.log('✅ GitHub se data mil gaya');
-
-                    if (typeof window.loadAll === 'function') {
-                        try { window.loadAll(false); } catch (e) {}
-                    }
-
-                    if (typeof Toast !== 'undefined') {
-                        Toast.success('📥 GitHub se data sync ho gaya');
-                    }
-                } else {
-                    console.warn('⚠️ GitHub restore fail:', result && result.error);
-                }
-            } else {
-                console.warn('⚠️ restoreFromGitHub function nahi mila');
-            }
-        } catch (err) {
-            console.warn('⚠️ GitHub restore error:', err.message);
-        } finally {
-            isRestoring = false;
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => setTimeout(autoRestoreFromGitHub, 2000));
-    } else {
-        setTimeout(autoRestoreFromGitHub, 2000);
-    }
-
-    window.autoRestoreFromGitHub = autoRestoreFromGitHub;
-
-})();

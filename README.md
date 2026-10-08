@@ -1,59 +1,47 @@
-# Bihari SMM Admin Panel v7.0.1
+# BIHARI SMM ADMIN PANEL — V8 FIXED
 
-यह static admin panel supplied `bot.php` backend से connect होता है। सभी pages `script.js` के common API wrapper का उपयोग करते हैं।
+This package is a cleaned and security-hardened rebuild of the supplied v7 admin panel.
 
-## सबसे जरूरी बदलाव
+## Important
+- The browser no longer contains the Telegram bot token, SMM provider key, GitHub token, or admin password hash.
+- Login is handled by the backend with server-side password verification, Telegram OTP, attempt lockout and server-issued sessions.
+- The web panel uses `Authorization: Bearer <session>` for protected API calls.
+- Automatic GitHub restore on page load has been removed. Restore is an explicit admin action.
+- Frontend automatic backup-on-page-load has been removed. Use the Backup page or a server cron/scheduler.
+- POST requests use `application/x-www-form-urlencoded`, matching the existing PHP API's `$_POST` contract.
+- Synthetic/demo audit/security/provider/ledger fallbacks should not be treated as authoritative production history; the remaining pages use backend data where their endpoints exist.
 
-- इस file-only build में config और bot.php में direct-upload के लिए credentials रखे गए हैं। Public repository में इसे commit न करें और आवश्यकता होने पर tokens rotate करें।
-- **Settings → API Settings → Admin Panel Backend** में अपना पूरा backend URL बदलें, जैसे:
-  `https://rana-hosting.myvipsite.fun/bots/bot_6ab3b0ca457a0/bot.php`
-- URL और API key browser के local runtime config में save होते हैं; URL बदलने के बाद अगली API request नए bot से जाएगी।
-- Backup page भी अब उसी runtime URL का उपयोग करता है।
-- `manus-routes.json` जोड़ दिया गया है।
+## Backend
+Upload `bot.php` to the same PHP hosting environment as the bot. The first API call creates the admin-auth tables automatically.
 
-## Backend contract
+The panel's `config.js` points to:
+`https://rana-hosting.myvipsite.fun/bots/bot_6ac7791f6fd21/bot.php`
 
-`bot.php` को CORS में केवल अपनी admin-panel origin allow करनी चाहिए और server-side secret रखना चाहिए। Expected actions:
+If your hosting system generates a different PHP path, edit only `API_URL` in `config.js`.
 
-- `GET/POST ?action=ping`
-- `GET/POST ?action=getData`, `getDataPage`, `getTickets`, `getMessages`, `getSmmConfig` आदि
-- `POST ?action=updateSetting` और बाकी mutation actions
-- production login के लिए server-side `sendOTP`, `verifyOTP`, `verifyPassword` endpoints जरूरी हैं। OTP bot token और master password को frontend में कभी न डालें।
+## Login
+The backend uses the existing admin password hash from the supplied project and sends OTP to the configured Telegram admin ID through the server-side bot token.
 
-पुराने package में ये login endpoints मौजूद नहीं थे, इसलिए frontend को fake success देने की बजाय backend error दिखाने के लिए तैयार रखें।
+The backend enforces:
+- 3 failed password attempts → 5-minute lockout
+- 3 OTP attempts per challenge
+- 5-minute OTP expiry
+- single active admin session
+- normal 2-hour session
+- optional 30-day remember session
+- IP binding for active sessions
 
-## Deploy
+## API coverage
+The frontend API methods were cross-checked against backend action cases. All actions used by the central API wrapper have matching backend cases in the supplied backend.
 
-1. पूरा folder hosting पर upload करें।
-2. `index.html` खोलें और login के बाद Settings में backend URL set करें।
-3. `bot.php` में CORS, API auth और login endpoints configure करें।
-4. पुराने exposed credentials को Telegram BotFather, provider, GitHub और backend में rotate करें।
+## Deployment
+1. Upload `bot.php` to PHP hosting.
+2. Set the generated/actual URL in `config.js`.
+3. Upload the panel folder to your static hosting.
+4. Open `index.html`.
+5. Log in with the existing admin password.
+6. Complete Telegram OTP.
+7. Test Dashboard → Users → Orders → Payments → Services → Backup.
 
-## Render deployment
-
-यह project **Static Site नहीं** है, क्योंकि इसमें `bot.php` PHP backend है। Render पर इसे **Web Service → Docker** के रूप में deploy करें। ZIP में `Dockerfile` और `render.yaml` शामिल हैं।
-
-File-only mode में `bot.php` के top पर API key, password, Telegram token और chat ID रखे गए हैं ताकि अलग environment setup आवश्यक न हो। यह सुविधाजनक है लेकिन public repository में सुरक्षित नहीं है।
-
-
-## Real bot_v3.php integration
-
-इस package में supplied `bot_v3.php` ही रखा गया है। Frontend API requests इस existing contract को use करती हैं:
-
-- API URL: `https://rana-hosting.myvipsite.fun/bots/bot_6ab3b0ca457a0/bot.php`
-- `X-API-Key`: `Vikram@8936`
-- real actions: `getData`, `getDataPage`, `botStatus`, `getDiagnostics`, `getApiBalance`, `sync`, `approvePayment`, `rejectPayment`, `updateOrderStatus`, `broadcast`, `getSmmConfig`, `updateSmmConfig`, `updateSetting`, `getSetting`, users/services/messages/tickets/trash/backups and sync actions.
-
-आपके supplied bot में `sendOTP`, `verifyOTP` और `verifyPassword` actions नहीं हैं, इसलिए login frontend का OTP/password flow local रखा गया है। यह existing bot को बदलकर fake server login नहीं बनाता।
-
-Render पर पूरा project deploy करना हो तो **Web Service → Docker** चुनें; Static Site `bot.php` execute नहीं करेगी।
-
-
-## Login flow
-
-अब login क्रम यह है:
-
-1. केवल admin password डालें।
-2. Password सही होने पर Telegram OTP भेजा जाएगा।
-3. OTP सही होने पर सीधे `pages/dashboard.html` खुलेगा।
-4. Username field और अलग password step हटाए गए हैं; account identity `ADMIN_USERNAME` से आती है।
+## Security
+The original supplied project contained credentials in public frontend files. Rotate/revoke any credentials that were ever committed to a public repository. The fixed frontend intentionally does not carry those secrets.
