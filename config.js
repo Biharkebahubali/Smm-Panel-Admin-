@@ -4,8 +4,7 @@
    Do not publish this folder in a public repository.
    ============================================================ */
 const CONFIG = Object.freeze({
-    API_URL: 'https://rana-hosting.myvipsite.fun/bots/bot_6ac76f68e000c/bot.php',
-    API_KEY: 'Vikram@8936',
+    API_URL: 'https://rana-hosting.myvipsite.fun/bots/bot_6ac7791f6fd21/bot.php',
     OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
     OTP_CHAT_ID: '5207471711',
     MASTER_PASSWORD_HASH: '2456fbdb6551e3d3610f178345c7c906e437cbc378d71dee4b588bfcaa482f8e',
