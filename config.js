@@ -9,7 +9,7 @@ const CONFIG = Object.freeze({
     API_KEY: 'Vikram@8936',
 
     /* Telegram OTP */
-    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiigG4NfLpehClqc',
+    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
     OTP_CHAT_ID: '5207471711',
 
     /* Existing admin password hash */
