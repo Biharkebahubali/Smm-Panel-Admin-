@@ -1,239 +1,90 @@
 /* ============================================================
-   VIKRAM PORTFOLIO + STORE — config.js
-   ============================================================
-   ⚠️  PRIVATE FILE — GitHub पर upload मत करो
-   ⚠️  सारे passwords यहीं हैं
-   ⚠️  कोई .env file नहीं चाहिए — सब यहीं
+   BIHARI SMM ADMIN PANEL — FILE-ONLY CONFIGURATION
+   Direct-upload configuration.
    ============================================================ */
+const CONFIG = Object.freeze({
+    API_URL: 'https://rana-hosting.myvipsite.fun/bots/bot_6ac7791f6fd21/bot.php',
 
-const path = require('path');
-const fs = require('fs');
+    /* Admin API key — must match API_SECRET_KEY in bot.php */
+    API_KEY: 'Vikram@8936',
 
-// ============================================================
-// 🔐 SECRETS — अपने credentials यहाँ डालो
-// ============================================================
-const SECRETS = {
+    /* Telegram OTP */
+    OTP_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
+    OTP_CHAT_ID: '5207471711',
 
-  // -------- ADMIN LOGIN --------
-  ADMIN_PASSWORD: 'Vikram@8936',       // ⚠️ बदलना चाहो तो बदल लो
-  ADMIN_USERNAME: 'vikram',
+    /* Existing admin password hash */
+    MASTER_PASSWORD_HASH: '2456fbdb6551e3d3610f178345c7c906e437cbc378d71dee4b588bfcaa482f8e',
 
-  // -------- JWT SECRET (ऐसा ही random रहने दो) --------
-  JWT_SECRET: 'vikram-portfolio-jwt-secret-2025-do-not-share-xyz789abc123def456ghi012jkl345mno678',
+    SESSION_HOURS: 2,
+    IDLE_TIMEOUT_MINUTES: 30,
+    IDLE_WARNING_SECONDS: 60,
+    OTP_LENGTH: 6,
+    OTP_EXPIRY_SECONDS: 300,
+    OTP_MAX_ATTEMPTS: 3,
+    LOGIN_MAX_ATTEMPTS: 3,
+    LOGIN_LOCKOUT_MINUTES: 5,
 
-  // -------- GOOGLE LOGIN --------
-  GOOGLE_CLIENT_ID: '1009454104796-v52v0ouj1qki9d2p8dkoatalvm3km982.apps.googleusercontent.com',
+    APP_NAME: 'Bihari SMM',
+    APP_VERSION: '7.0.1',
+    APP_LOGO: '🤖',
+    AUTO_REFRESH_SECONDS: 30,
+    TOAST_DURATION_MS: 3000,
+    TABLE_PAGE_SIZE: 20,
 
-  // -------- EMAIL (Gmail) --------
-  EMAIL_USER: 'gamergamerknock@gmail.com',
-  EMAIL_PASS: 'eidw vbjr tckw icir',
+    BOT_USERNAME: 'biharismmpannel_bot',
+    ADMIN_USERNAME: '@code_breaker',
+    ADMIN_ID: '5207471711',
+    SUPPORT_BOT: '@biharipleasehelpme_bot',
 
-  // -------- TELEGRAM BOT --------
-  TELEGRAM_BOT_TOKEN: '8621924474:AAExk1IoXD2x2awK4Y5UiijG4NfLpehClqc',
-  TELEGRAM_CHAT_ID: '5207471711',
+    UPI_ID: 'code-breakerkumar@fam',
+    SMM_API_URL: 'https://tntsmm.in/api/v2',
+    SMM_API_KEY: '79256c2e7ed8385e1c0f26993a706ea2',
+    LOG_CHANNEL: '-1003825882347',
 
-  // -------- UPI PAYMENT --------
-  UPI_ID: 'code-breakerkumar@fam',
+    GITHUB_TOKEN: 'ghp_r27rwtV9UdStiUa0Qcj61hEVK',
+    GITHUB_DATA_REPO: 'Biharkebahubali/Bihari-Smm-Panel-Data',
+    GITHUB_DATA_FILE: 'bot_data.json',
 
-  // -------- URLs --------
-  PRODUCTION_URL: 'https://vikram-portfolio-knzb.onrender.com',
-  LOCAL_URL: 'http://localhost:3000'
-};
+    SITE_URL: 'https://rana-hosting.myvipsite.fun',
+});
 
-// ============================================================
-// 🌍 AUTO-DETECT (कुछ नहीं करना — अपने आप होगा)
-// ============================================================
-const IS_PRODUCTION = fs.existsSync('/var/data');
-const ROOT = __dirname;
-const storageRoot = IS_PRODUCTION ? '/var/data' : ROOT;
-const BASE_URL = IS_PRODUCTION ? SECRETS.PRODUCTION_URL : SECRETS.LOCAL_URL;
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const STORAGE_KEYS = Object.freeze({
+    SESSION_TOKEN: 'bihari_admin_session',
+    USERNAME: 'bihari_admin_username',
+    DEVICE_TOKEN: 'bihari_admin_device',
+    OTP_PENDING: 'bihari_admin_otp_pending',
+    LOGIN_ATTEMPTS: 'bihari_admin_attempts',
+    LAST_ACTIVITY: 'bihari_admin_last_activity',
+    THEME: 'bihari_admin_theme',
+    RUNTIME_CONFIG: 'bihari_admin_runtime_config',
+});
 
-// ============================================================
-// 🎨 10 TEMPLATES की LIST
-// ============================================================
-const TEMPLATES = [
-  { id: 'dark-premium',   name: 'Dark Premium',   description: 'Royal gold & purple',        preview: 'https://placehold.co/400x300/0a0a0f/d4af37?text=Dark+Premium' },
-  { id: 'modern-light',   name: 'Modern Light',   description: 'Clean professional',          preview: 'https://placehold.co/400x300/f7f9ff/6d5dfc?text=Modern+Light' },
-  { id: 'creative-pink',  name: 'Creative Pink',  description: 'Playful feminine',            preview: 'https://placehold.co/400x300/fff8fb/ff6b9d?text=Creative+Pink' },
-  { id: 'minimal-mono',   name: 'Minimal Mono',   description: 'Simple brutalist',            preview: 'https://placehold.co/400x300/ffffff/000000?text=Minimal+Mono' },
-  { id: 'cyber-neon',     name: 'Cyber Neon',     description: 'Futuristic gamer',            preview: 'https://placehold.co/400x300/050510/00ffff?text=Cyber+Neon' },
-  { id: 'ocean-blue',     name: 'Ocean Blue',     description: 'Calm trust',                  preview: 'https://placehold.co/400x300/f0f9ff/0ea5e9?text=Ocean+Blue' },
-  { id: 'sunset-orange',  name: 'Sunset Orange',  description: 'Warm energetic',              preview: 'https://placehold.co/400x300/fff7ed/f97316?text=Sunset+Orange' },
-  { id: 'forest-green',   name: 'Forest Green',   description: 'Natural organic',             preview: 'https://placehold.co/400x300/f7fee7/22c55e?text=Forest+Green' },
-  { id: 'retro-vintage',  name: 'Retro Vintage',  description: 'Nostalgic warm',              preview: 'https://placehold.co/400x300/fef3c7/92400e?text=Retro+Vintage' },
-  { id: 'gradient-glass', name: 'Gradient Glass', description: 'Glassmorphism premium',       preview: 'https://placehold.co/400x300/667eea/a855f7?text=Gradient+Glass' }
-];
-
-// ============================================================
-// 📦 FULL CONFIG
-// ============================================================
-module.exports = {
-
-  app: {
-    name: 'Vikram Portfolio + Store',
-    baseUrl: BASE_URL,
-    port: PORT,
-    dataDir: path.join(storageRoot, 'database'),
-    uploadDir: path.join(storageRoot, 'uploads'),
-    logsDir: path.join(storageRoot, 'logs'),
-    nodeEnv: IS_PRODUCTION ? 'production' : 'development',
-    version: '2.0.0',
-    isProduction: IS_PRODUCTION
-  },
-
-  // 10 templates
-  templates: TEMPLATES,
-  defaultTemplate: 'dark-premium',
-
-  features: {
-    googleLogin: true,
-    emailService: true,
-    telegramBot: true,
-    userRegistration: true,
-    reviewsEnabled: true,
-    messagesEnabled: true,
-    portfolioPdf: true,
-    referralEnabled: true,
-    adsEnabled: false,
-    analyticsEnabled: false
-  },
-
-  profile: {
-    name: 'Vikram Laheri',
-    title: 'Developer • Video Editor • Designer',
-    tagline: 'I build. I edit. I create.',
-    location: 'Bihar Sharif, Nalanda, Bihar, India',
-    email: 'vikramkumarart@gmail.com',
-    phone: '8825297632',
-    whatsapp: '8825297632',
-    telegram: '@code_breaker',
-    github: 'https://github.com/Biharkebahubali',
-    youtube: 'https://youtube.com/@bihar_ke_bahubali',
-    instagram: 'https://www.instagram.com/vikram_life_',
-    bio: 'Main Vikram hoon, Bihar Sharif se. BCA student aur freelancer.',
-    footer: 'Made with ♥ in Bihar Sharif'
-  },
-
-  theme: {
-    primary: '#d4af37',
-    secondary: '#8b5cf6',
-    accent: '#f59e0b',
-    mode: 'dark'
-  },
-
-  store: {
-    currency: 'INR',
-    currencySymbol: '₹',
-    upiId: SECRETS.UPI_ID,
-    merchantName: 'Vikram Laheri',
-    announcement: 'New creator assets are live — explore the store.',
-    paymentInstructions: 'UPI payment karo, screenshot aur UTR upload karo.',
-    verificationHours: 24
-  },
-
-  access: {
-    guestBrowsing: true,
-    loginRequiredForDownload: true,
-    loginRequiredForPurchase: true,
-    loginRequiredForMessage: true,
-    loginRequiredForReview: true
-  },
-
-  google: {
-    enabled: true,
-    clientId: SECRETS.GOOGLE_CLIENT_ID,
-    redirectUri: `${BASE_URL}/api/auth/google/callback`
-  },
-
-  server: {
-    jwtSecret: SECRETS.JWT_SECRET,
-    adminPassword: SECRETS.ADMIN_PASSWORD,
-    adminUsername: SECRETS.ADMIN_USERNAME,
-    sessionHours: 2
-  },
-
-  security: {
-    maxUploadMB: 100,
-    downloadTokenMinutes: 10,
-    loginAttemptsPerMinute: 5,
-    bcryptRounds: 10,
-    otpExpiryMinutes: 5,
-    otpMaxAttempts: 3,
-    rateLimits: {
-      globalPerMinute: 300,
-      apiPerMinute: 300,
-      loginPerMinute: 5,
-      otpPerMinutes: 3,
-      downloadPerHour: 20,
-      strictPerMinute: 10
+function readRuntimeConfig() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.RUNTIME_CONFIG) || '{}');
+        return {
+            ...CONFIG,
+            API_URL: saved.API_URL || CONFIG.API_URL,
+            API_KEY: saved.API_KEY || CONFIG.API_KEY
+        };
+    } catch (_) {
+        return { ...CONFIG };
     }
-  },
+}
 
-  ads: {
-    enabled: false,
-    publisherId: '',
-    autoAds: false,
-    slots: { header: '', sidebar: '', content: '', footer: '', popup: '' }
-  },
-
-  email: {
-    enabled: true,
-    from: SECRETS.EMAIL_USER,
-    fromName: 'Vikram Portfolio',
-    smtp: {
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      user: SECRETS.EMAIL_USER,
-      pass: SECRETS.EMAIL_PASS
+function saveRuntimeConfig(values) {
+    const allowed = {};
+    if (typeof values?.API_URL === 'string' && values.API_URL.trim()) {
+        allowed.API_URL = values.API_URL.trim();
     }
-  },
-
-  telegram: {
-    enabled: true,
-    botToken: SECRETS.TELEGRAM_BOT_TOKEN,
-    chatId: SECRETS.TELEGRAM_CHAT_ID,
-    alerts: {
-      otp: true,
-      newPayment: true,
-      paymentApproved: true,
-      paymentRejected: true,
-      newUser: false,
-      newMessage: true
+    if (typeof values?.API_KEY === 'string' && values.API_KEY.trim()) {
+        allowed.API_KEY = values.API_KEY.trim();
     }
-  },
+    localStorage.setItem(STORAGE_KEYS.RUNTIME_CONFIG, JSON.stringify(allowed));
+    return readRuntimeConfig();
+}
 
-  seo: {
-    title: 'Vikram Laheri — Developer • Video Editor • Designer',
-    description: 'BCA student, developer, video editor from Bihar Sharif.',
-    keywords: 'Vikram Laheri, Developer Bihar, Video Editor, Portfolio',
-    ogImage: 'https://placehold.co/1200x630/0a0a0f/d4af37?text=VIKRAM+Laheri'
-  },
-
-  analytics: {
-    enabled: false,
-    googleMeasurementId: ''
-  },
-
-  maintenance: {
-    enabled: false,
-    message: 'Site is under maintenance. Back soon!',
-    allowedIPs: ['127.0.0.1', '::1']
-  },
-
-  paths: {
-    root: ROOT,
-    public: path.join(ROOT, 'public'),
-    assets: path.join(ROOT, 'assets'),
-    templates: path.join(ROOT, 'assets', 'templates'),
-    database: path.join(storageRoot, 'database'),
-    uploads: path.join(storageRoot, 'uploads'),
-    uploadsFiles: path.join(storageRoot, 'uploads', 'files'),
-    uploadsProofs: path.join(storageRoot, 'uploads', 'proofs'),
-    uploadsImages: path.join(storageRoot, 'uploads', 'images'),
-    uploadsAvatars: path.join(storageRoot, 'uploads', 'images', 'avatars'),
-    uploadsPortfolios: path.join(storageRoot, 'uploads', 'portfolios'),
-    logs: path.join(storageRoot, 'logs')
-  }
-};
+window.CONFIG = CONFIG;
+window.STORAGE_KEYS = STORAGE_KEYS;
+window.readRuntimeConfig = readRuntimeConfig;
+window.saveRuntimeConfig = saveRuntimeConfig;
